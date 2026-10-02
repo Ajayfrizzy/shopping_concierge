@@ -1,0 +1,5 @@
+[
+  {"id":"A01","messages":["Silver earrings for a wedding under $120, elegant but not too loud."],"expect":"initial multi-constraint state"},
+  {"id":"A02","messages":["Silver earrings for a wedding under $120.","Show me cheaper ones."],"expect":"preserve non-price constraints"},
+  {"id":"A12","messages":["I choose earring E18.","Now find a necklace that works with it under $100."],"expect":"cross-category complement dependency"}
+]

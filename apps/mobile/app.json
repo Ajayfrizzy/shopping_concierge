@@ -1,0 +1,26 @@
+{
+  "expo": {
+    "name": "Shopping Concierge",
+    "slug": "shopping-concierge",
+    "scheme": "shopping-concierge",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "plugins": [
+      "expo-router"
+    ],
+    "android": {
+      "package": "com.youcam.shoppingconcierge",
+      "versionCode": 2,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-foreground.png",
+        "backgroundColor": "#244d3a",
+        "monochromeImage": "./assets/adaptive-monochrome.png"
+      }
+    },
+    "experiments": {
+      "typedRoutes": true
+    },
+    "icon": "./assets/icon.png"
+  }
+}

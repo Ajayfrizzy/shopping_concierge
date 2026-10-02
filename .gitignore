@@ -1,0 +1,16 @@
+node_modules
+.env
+.env.*
+!.env.example
+.expo
+.dist
+dist
+coverage
+.DS_Store
+*.log
+
+# Generated from Expo config; never commit local native builds/signing files.
+apps/mobile/android/
+apps/mobile/ios/
+
+artifacts/android/*.apk

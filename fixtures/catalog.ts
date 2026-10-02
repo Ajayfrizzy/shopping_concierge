@@ -1,0 +1,1637 @@
+import type { Product } from '@youcam/shared';
+
+// Synthetic test catalog only. No merchant, photography, inventory, or VTO claims.
+export const fixtureProducts = [
+  {
+    "id": "E01",
+    "name": "Fixture Quiet Round Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 35,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "minimal",
+      "understated",
+      "round",
+      "small"
+    ],
+    "occasionTags": [
+      "everyday",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E01.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E02",
+    "name": "Fixture Petal Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 65,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "delicate",
+      "romantic",
+      "small"
+    ],
+    "occasionTags": [
+      "wedding",
+      "date"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E02.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E03",
+    "name": "Fixture Arc Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 85,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "round"
+    ],
+    "occasionTags": [
+      "wedding",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E03.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E04",
+    "name": "Fixture Geometry Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 45,
+    "currency": "USD",
+    "material": "steel",
+    "color": "silver",
+    "styleTags": [
+      "modern",
+      "geometric",
+      "balanced"
+    ],
+    "occasionTags": [
+      "work",
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E04.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E05",
+    "name": "Fixture Gala Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 110,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "ornate",
+      "dangling"
+    ],
+    "occasionTags": [
+      "party",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E05.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E06",
+    "name": "Fixture Festival Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 95,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "geometric",
+      "dangling"
+    ],
+    "occasionTags": [
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E06.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E07",
+    "name": "Fixture Heart Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 70,
+    "currency": "USD",
+    "material": "rose gold",
+    "color": "pink",
+    "styleTags": [
+      "romantic",
+      "heart",
+      "delicate"
+    ],
+    "occasionTags": [
+      "date",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E07.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E08",
+    "name": "Fixture Square Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 140,
+    "currency": "USD",
+    "material": "titanium",
+    "color": "black",
+    "styleTags": [
+      "modern",
+      "square",
+      "balanced"
+    ],
+    "occasionTags": [
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E08.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E09",
+    "name": "Fixture Oval Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 50,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "oval",
+      "balanced"
+    ],
+    "occasionTags": [
+      "wedding",
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E09.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E10",
+    "name": "Fixture Garden Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 160,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "romantic",
+      "ornate",
+      "large",
+      "dangling"
+    ],
+    "occasionTags": [
+      "wedding",
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E10.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E11",
+    "name": "Fixture Everyday Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 25,
+    "currency": "USD",
+    "material": "steel",
+    "color": "black",
+    "styleTags": [
+      "minimal",
+      "small",
+      "round"
+    ],
+    "occasionTags": [
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E11.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E12",
+    "name": "Fixture Evening Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 180,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "statement",
+      "large",
+      "dangling"
+    ],
+    "occasionTags": [
+      "party",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E12.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E13",
+    "name": "Fixture Ribbon Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 55,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E13.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E14",
+    "name": "Fixture Classic Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 90,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "balanced",
+      "round"
+    ],
+    "occasionTags": [
+      "work",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E14.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E15",
+    "name": "Fixture Bold Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 120,
+    "currency": "USD",
+    "material": "steel",
+    "color": "silver",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "square"
+    ],
+    "occasionTags": [
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E15.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E16",
+    "name": "Fixture Archive Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 40,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E16.png",
+    "vtoAssetUrl": null,
+    "inStock": false
+  },
+  {
+    "id": "E17",
+    "name": "Fixture Travel Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 60,
+    "currency": "EUR",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "occasionTags": [
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E17.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "E18",
+    "name": "Fixture Ceremony Earrings",
+    "category": "earrings",
+    "brand": "Concierge Fixtures",
+    "price": 100,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/E18.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N01",
+    "name": "Fixture Quiet Round Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 50,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "minimal",
+      "understated",
+      "round",
+      "small"
+    ],
+    "occasionTags": [
+      "everyday",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N01.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N02",
+    "name": "Fixture Petal Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 80,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "delicate",
+      "romantic",
+      "small"
+    ],
+    "occasionTags": [
+      "wedding",
+      "date"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N02.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N03",
+    "name": "Fixture Arc Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 100,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "round"
+    ],
+    "occasionTags": [
+      "wedding",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N03.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N04",
+    "name": "Fixture Geometry Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 60,
+    "currency": "USD",
+    "material": "steel",
+    "color": "silver",
+    "styleTags": [
+      "modern",
+      "geometric",
+      "balanced"
+    ],
+    "occasionTags": [
+      "work",
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N04.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N05",
+    "name": "Fixture Gala Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 125,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "ornate"
+    ],
+    "occasionTags": [
+      "party",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N05.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N06",
+    "name": "Fixture Festival Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 110,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "geometric"
+    ],
+    "occasionTags": [
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N06.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N07",
+    "name": "Fixture Heart Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 85,
+    "currency": "USD",
+    "material": "rose gold",
+    "color": "pink",
+    "styleTags": [
+      "romantic",
+      "heart",
+      "delicate"
+    ],
+    "occasionTags": [
+      "date",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N07.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N08",
+    "name": "Fixture Square Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 155,
+    "currency": "USD",
+    "material": "titanium",
+    "color": "black",
+    "styleTags": [
+      "modern",
+      "square",
+      "balanced"
+    ],
+    "occasionTags": [
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N08.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N09",
+    "name": "Fixture Oval Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 65,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "oval",
+      "balanced"
+    ],
+    "occasionTags": [
+      "wedding",
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N09.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N10",
+    "name": "Fixture Garden Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 175,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "romantic",
+      "ornate",
+      "large"
+    ],
+    "occasionTags": [
+      "wedding",
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N10.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N11",
+    "name": "Fixture Everyday Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 40,
+    "currency": "USD",
+    "material": "steel",
+    "color": "black",
+    "styleTags": [
+      "minimal",
+      "small",
+      "round"
+    ],
+    "occasionTags": [
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N11.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N12",
+    "name": "Fixture Evening Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 195,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "statement",
+      "large"
+    ],
+    "occasionTags": [
+      "party",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N12.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N13",
+    "name": "Fixture Ribbon Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 70,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N13.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N14",
+    "name": "Fixture Classic Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 105,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "balanced",
+      "round"
+    ],
+    "occasionTags": [
+      "work",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N14.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N15",
+    "name": "Fixture Bold Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 135,
+    "currency": "USD",
+    "material": "steel",
+    "color": "silver",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "square"
+    ],
+    "occasionTags": [
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N15.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N16",
+    "name": "Fixture Archive Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 55,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N16.png",
+    "vtoAssetUrl": null,
+    "inStock": false
+  },
+  {
+    "id": "N17",
+    "name": "Fixture Travel Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 75,
+    "currency": "EUR",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "occasionTags": [
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N17.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "N18",
+    "name": "Fixture Ceremony Necklaces",
+    "category": "necklaces",
+    "brand": "Concierge Fixtures",
+    "price": 115,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/N18.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R01",
+    "name": "Fixture Quiet Round Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 45,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "minimal",
+      "understated",
+      "round",
+      "small"
+    ],
+    "occasionTags": [
+      "everyday",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R01.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R02",
+    "name": "Fixture Petal Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 75,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "delicate",
+      "romantic",
+      "small"
+    ],
+    "occasionTags": [
+      "wedding",
+      "date"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R02.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R03",
+    "name": "Fixture Arc Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 95,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "round"
+    ],
+    "occasionTags": [
+      "wedding",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R03.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R04",
+    "name": "Fixture Geometry Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 55,
+    "currency": "USD",
+    "material": "steel",
+    "color": "silver",
+    "styleTags": [
+      "modern",
+      "geometric",
+      "balanced"
+    ],
+    "occasionTags": [
+      "work",
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R04.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R05",
+    "name": "Fixture Gala Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 120,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "ornate"
+    ],
+    "occasionTags": [
+      "party",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R05.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R06",
+    "name": "Fixture Festival Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 105,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "geometric"
+    ],
+    "occasionTags": [
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R06.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R07",
+    "name": "Fixture Heart Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 80,
+    "currency": "USD",
+    "material": "rose gold",
+    "color": "pink",
+    "styleTags": [
+      "romantic",
+      "heart",
+      "delicate"
+    ],
+    "occasionTags": [
+      "date",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R07.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R08",
+    "name": "Fixture Square Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 150,
+    "currency": "USD",
+    "material": "titanium",
+    "color": "black",
+    "styleTags": [
+      "modern",
+      "square",
+      "balanced"
+    ],
+    "occasionTags": [
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R08.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R09",
+    "name": "Fixture Oval Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 60,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "oval",
+      "balanced"
+    ],
+    "occasionTags": [
+      "wedding",
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R09.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R10",
+    "name": "Fixture Garden Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 170,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "romantic",
+      "ornate",
+      "large"
+    ],
+    "occasionTags": [
+      "wedding",
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R10.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R11",
+    "name": "Fixture Everyday Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 35,
+    "currency": "USD",
+    "material": "steel",
+    "color": "black",
+    "styleTags": [
+      "minimal",
+      "small",
+      "round"
+    ],
+    "occasionTags": [
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R11.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R12",
+    "name": "Fixture Evening Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 190,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "statement",
+      "large"
+    ],
+    "occasionTags": [
+      "party",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R12.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R13",
+    "name": "Fixture Ribbon Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 65,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R13.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R14",
+    "name": "Fixture Classic Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 100,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "balanced",
+      "round"
+    ],
+    "occasionTags": [
+      "work",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R14.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R15",
+    "name": "Fixture Bold Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 130,
+    "currency": "USD",
+    "material": "steel",
+    "color": "silver",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "square"
+    ],
+    "occasionTags": [
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R15.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R16",
+    "name": "Fixture Archive Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 50,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R16.png",
+    "vtoAssetUrl": null,
+    "inStock": false
+  },
+  {
+    "id": "R17",
+    "name": "Fixture Travel Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 70,
+    "currency": "EUR",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "occasionTags": [
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R17.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "R18",
+    "name": "Fixture Ceremony Rings",
+    "category": "rings",
+    "brand": "Concierge Fixtures",
+    "price": 110,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/R18.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W01",
+    "name": "Fixture Quiet Round Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 100,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "minimal",
+      "understated",
+      "round",
+      "small"
+    ],
+    "occasionTags": [
+      "everyday",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W01.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W02",
+    "name": "Fixture Petal Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 130,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "delicate",
+      "romantic",
+      "small"
+    ],
+    "occasionTags": [
+      "wedding",
+      "date"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W02.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W03",
+    "name": "Fixture Arc Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 150,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "round"
+    ],
+    "occasionTags": [
+      "wedding",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W03.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W04",
+    "name": "Fixture Geometry Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 110,
+    "currency": "USD",
+    "material": "steel",
+    "color": "silver",
+    "styleTags": [
+      "modern",
+      "geometric",
+      "balanced"
+    ],
+    "occasionTags": [
+      "work",
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W04.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W05",
+    "name": "Fixture Gala Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 175,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "ornate"
+    ],
+    "occasionTags": [
+      "party",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W05.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W06",
+    "name": "Fixture Festival Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 160,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "geometric"
+    ],
+    "occasionTags": [
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W06.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W07",
+    "name": "Fixture Heart Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 135,
+    "currency": "USD",
+    "material": "rose gold",
+    "color": "pink",
+    "styleTags": [
+      "romantic",
+      "heart",
+      "delicate"
+    ],
+    "occasionTags": [
+      "date",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W07.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W08",
+    "name": "Fixture Square Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 205,
+    "currency": "USD",
+    "material": "titanium",
+    "color": "black",
+    "styleTags": [
+      "modern",
+      "square",
+      "balanced"
+    ],
+    "occasionTags": [
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W08.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W09",
+    "name": "Fixture Oval Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 115,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "oval",
+      "balanced"
+    ],
+    "occasionTags": [
+      "wedding",
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W09.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W10",
+    "name": "Fixture Garden Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 225,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "romantic",
+      "ornate",
+      "large"
+    ],
+    "occasionTags": [
+      "wedding",
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W10.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W11",
+    "name": "Fixture Everyday Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 90,
+    "currency": "USD",
+    "material": "steel",
+    "color": "black",
+    "styleTags": [
+      "minimal",
+      "small",
+      "round"
+    ],
+    "occasionTags": [
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W11.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W12",
+    "name": "Fixture Evening Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 245,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "statement",
+      "large"
+    ],
+    "occasionTags": [
+      "party",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W12.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W13",
+    "name": "Fixture Ribbon Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 120,
+    "currency": "USD",
+    "material": "gold",
+    "color": "gold",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding",
+      "work"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W13.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W14",
+    "name": "Fixture Classic Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 155,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "balanced",
+      "round"
+    ],
+    "occasionTags": [
+      "work",
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W14.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W15",
+    "name": "Fixture Bold Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 185,
+    "currency": "USD",
+    "material": "steel",
+    "color": "silver",
+    "styleTags": [
+      "statement",
+      "oversized",
+      "square"
+    ],
+    "occasionTags": [
+      "party"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W15.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W16",
+    "name": "Fixture Archive Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 105,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W16.png",
+    "vtoAssetUrl": null,
+    "inStock": false
+  },
+  {
+    "id": "W17",
+    "name": "Fixture Travel Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 125,
+    "currency": "EUR",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "modern",
+      "minimal"
+    ],
+    "occasionTags": [
+      "everyday"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W17.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  },
+  {
+    "id": "W18",
+    "name": "Fixture Ceremony Watches",
+    "category": "watches",
+    "brand": "Concierge Fixtures",
+    "price": 165,
+    "currency": "USD",
+    "material": "silver",
+    "color": "silver",
+    "styleTags": [
+      "elegant",
+      "understated",
+      "delicate"
+    ],
+    "occasionTags": [
+      "wedding"
+    ],
+    "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+    "imageUrl": "https://fixtures.invalid/catalog/W18.png",
+    "vtoAssetUrl": null,
+    "inStock": true
+  }
+] satisfies Product[];
