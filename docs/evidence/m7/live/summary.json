@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-03",
+  "model": "gpt-5.6-terra",
+  "reasoning": "low",
+  "requests": 17,
+  "inputTokens": 42078,
+  "cachedInputTokens": 25630,
+  "outputTokens": 2579,
+  "estimatedUsd": 0.06897,
+  "failedAttempts": 3,
+  "passingCaseGroups": [
+    "constraints",
+    "feedback",
+    "relaxation",
+    "invalid-id",
+    "ambiguity"
+  ],
+  "liveYouCamRequests": 0,
+  "deviceGate": "pending"
+}

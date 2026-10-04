@@ -1,0 +1,67 @@
+{
+  "passed": false,
+  "code": "UNGROUNDED_PLAN",
+  "proposed": {
+    "intent": "refine_search",
+    "calls": [
+      {
+        "name": "update_constraints",
+        "args": {
+          "updates": [
+            {
+              "scope": "global",
+              "source": "explicit",
+              "field": "budget",
+              "value": {
+                "amount": 1,
+                "currency": "USD"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "search_products",
+        "args": {}
+      }
+    ],
+    "disposition": "execute"
+  },
+  "expected": {
+    "intent": "refine_search",
+    "calls": [
+      {
+        "name": "update_constraints",
+        "args": {
+          "updates": [
+            {
+              "scope": {
+                "category": "earrings"
+              },
+              "source": "explicit",
+              "field": "budget",
+              "value": {
+                "amount": 1,
+                "currency": "USD"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "search_products",
+        "args": {}
+      }
+    ],
+    "disposition": "execute"
+  },
+  "usage": {
+    "model": "gpt-5.6-terra",
+    "requests": 25,
+    "inputTokens": 63496,
+    "outputTokens": 3198,
+    "cachedTokens": 39253,
+    "estimatedOrReservedUsd": 0.09471259999999998,
+    "unknownUsageRequests": 0
+  }
+}

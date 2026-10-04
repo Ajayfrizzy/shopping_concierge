@@ -1,0 +1,304 @@
+{
+  "state": {
+    "id": "bfc4237c-5b5d-479d-9f69-d2fd8dcb8457",
+    "goal": "",
+    "feedback": [
+      {
+        "input": {
+          "action": "save",
+          "productId": "E02"
+        },
+        "scope": "session",
+        "category": "earrings",
+        "revision": 3
+      },
+      {
+        "input": {
+          "action": "shortlist",
+          "productId": "E02"
+        },
+        "scope": "session",
+        "category": "earrings",
+        "revision": 4
+      },
+      {
+        "input": {
+          "action": "select",
+          "productId": "E18"
+        },
+        "scope": "session",
+        "category": "earrings",
+        "revision": 5
+      },
+      {
+        "input": {
+          "action": "reject",
+          "productId": "E05",
+          "reasonCode": "too_flashy"
+        },
+        "scope": "session",
+        "category": "earrings",
+        "revision": 6
+      }
+    ],
+    "revision": 12,
+    "decisions": {
+      "earrings": {
+        "liked": [],
+        "saved": [
+          "E02"
+        ],
+        "rejected": [
+          "E05"
+        ],
+        "selected": [
+          "E18"
+        ],
+        "shortlisted": [
+          "E02"
+        ]
+      },
+      "necklaces": {
+        "liked": [],
+        "saved": [],
+        "rejected": [],
+        "selected": [],
+        "shortlisted": []
+      }
+    },
+    "constraints": [
+      {
+        "revision": 12,
+        "preference": {
+          "field": "material",
+          "scope": "global",
+          "value": "platinum",
+          "source": "explicit"
+        }
+      },
+      {
+        "revision": 2,
+        "preference": {
+          "field": "occasion",
+          "scope": "global",
+          "value": "wedding",
+          "source": "explicit"
+        }
+      },
+      {
+        "revision": 10,
+        "preference": {
+          "field": "budget",
+          "scope": "global",
+          "value": {
+            "amount": 1,
+            "currency": "USD"
+          },
+          "source": "explicit"
+        }
+      },
+      {
+        "revision": 2,
+        "preference": {
+          "field": "styleTags",
+          "scope": "global",
+          "value": [
+            "elegant"
+          ],
+          "source": "explicit"
+        }
+      },
+      {
+        "revision": 2,
+        "preference": {
+          "field": "visualIntensity",
+          "scope": "global",
+          "value": "low",
+          "source": "explicit"
+        }
+      },
+      {
+        "revision": 7,
+        "preference": {
+          "field": "excludedTags",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": [
+            "dangling"
+          ],
+          "source": "explicit"
+        }
+      }
+    ],
+    "dependencies": [],
+    "recentChanges": [
+      {
+        "field": "constraints.global:material:explicit",
+        "current": {
+          "revision": 12,
+          "preference": {
+            "field": "material",
+            "scope": "global",
+            "value": "platinum",
+            "source": "explicit"
+          }
+        },
+        "previous": {
+          "revision": 11,
+          "preference": {
+            "field": "material",
+            "scope": "global",
+            "value": "gold",
+            "source": "explicit"
+          }
+        }
+      }
+    ],
+    "schemaVersion": 1,
+    "activeCategory": "earrings"
+  },
+  "version": 13,
+  "pendingRelaxations": [
+    {
+      "updates": [
+        {
+          "field": "budget",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": {
+            "amount": 35,
+            "currency": "USD"
+          },
+          "source": "explicit"
+        },
+        {
+          "field": "material",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": "silver",
+          "source": "explicit"
+        }
+      ],
+      "proposalId": "fd8a9ce4-5426-4910-af49-909f4c712987",
+      "candidateIds": [
+        "E01"
+      ],
+      "requiresConfirmation": true
+    },
+    {
+      "updates": [
+        {
+          "field": "budget",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": {
+            "amount": 65,
+            "currency": "USD"
+          },
+          "source": "explicit"
+        },
+        {
+          "field": "material",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": "silver",
+          "source": "explicit"
+        }
+      ],
+      "proposalId": "3f5527ac-6dc9-4e27-9b94-7c9e6dc555f3",
+      "candidateIds": [
+        "E02"
+      ],
+      "requiresConfirmation": true
+    },
+    {
+      "updates": [
+        {
+          "field": "budget",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": {
+            "amount": 85,
+            "currency": "USD"
+          },
+          "source": "explicit"
+        },
+        {
+          "field": "material",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": "gold",
+          "source": "explicit"
+        }
+      ],
+      "proposalId": "1b670e13-e201-4ae1-9ecb-7e48a21440b2",
+      "candidateIds": [
+        "E03"
+      ],
+      "requiresConfirmation": true
+    },
+    {
+      "updates": [
+        {
+          "field": "budget",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": {
+            "amount": 45,
+            "currency": "USD"
+          },
+          "source": "explicit"
+        },
+        {
+          "field": "material",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": "steel",
+          "source": "explicit"
+        }
+      ],
+      "proposalId": "1a7410a0-322a-4856-a741-0817d680e6bc",
+      "candidateIds": [
+        "E04"
+      ],
+      "requiresConfirmation": true
+    },
+    {
+      "updates": [
+        {
+          "field": "budget",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": {
+            "amount": 70,
+            "currency": "USD"
+          },
+          "source": "explicit"
+        },
+        {
+          "field": "material",
+          "scope": {
+            "category": "earrings"
+          },
+          "value": "rose gold",
+          "source": "explicit"
+        }
+      ],
+      "proposalId": "f587827d-4207-4f85-be06-ed488595c2ec",
+      "candidateIds": [
+        "E07"
+      ],
+      "requiresConfirmation": true
+    }
+  ]
+}

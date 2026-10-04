@@ -1,0 +1,55 @@
+{
+  "coldDomainStateEqual": true,
+  "mockVtoDidNotChangeShoppingView": true,
+  "keyboardCycles": [
+    {
+      "input": [
+        33,
+        804,
+        1047,
+        1053
+      ],
+      "send": [
+        34,
+        1075,
+        1046,
+        1198
+      ]
+    },
+    {
+      "input": [
+        33,
+        804,
+        1047,
+        1053
+      ],
+      "send": [
+        34,
+        1075,
+        1046,
+        1198
+      ]
+    },
+    {
+      "input": [
+        33,
+        804,
+        1047,
+        1053
+      ],
+      "send": [
+        34,
+        1075,
+        1046,
+        1198
+      ]
+    }
+  ],
+  "appRuntimeErrorsObserved": false,
+  "cardEntryPassed": true,
+  "sendWithKeyboardOpenPassed": true,
+  "sendVersions": [
+    25,
+    26
+  ]
+}

@@ -1,22 +1,29 @@
 # Product Specification
 
 ## Product definition
+
 A stateful purchasing-decision agent that helps shoppers complete accessory-shopping goals. It learns from every acceptance/rejection, preserves explicit constraints, coordinates related products, and invokes visual try-on when visual evidence can reduce uncertainty.
 
 ## Core job-to-be-done
+
 "Help me decide what to buy, not merely show me products."
 
 ## Primary user
+
 An online shopper who knows some combination of occasion, budget, style, color/material, or category but is uncertain about the final purchase.
 
 ## Problem
+
 Online shopping makes discovery easy but decision-making fragmented. Shoppers repeatedly search, filter, compare, revisit, and mentally imagine whether products fit their context. The concierge compresses this into: describe -> shortlist -> verify -> refine -> decide.
 
 ## Product promise
+
 Tell the concierge what you are shopping for. It finds suitable real catalog items, remembers constraints, learns from feedback, lets you visually verify relevant candidates, and helps narrow the decision conversationally.
 
 ## Differentiation
+
 Do not position as a generic AI stylist or basic VTO app. The differentiators are:
+
 - structured persistent shopping state
 - hard/soft constraint preservation
 - rejection memory with reasons
@@ -26,12 +33,14 @@ Do not position as a generic AI stylist or basic VTO app. The differentiators ar
 - honest uncertainty/no-match handling
 
 ## MVP categories
+
 - Earrings
 - Necklaces
 - Rings
 - Watches
 
 ## Core MVP capabilities
+
 1. Conversational shopping intent capture
 2. Structured constraints
 3. Persistent decision state
@@ -48,7 +57,9 @@ Do not position as a generic AI stylist or basic VTO app. The differentiators ar
 14. Lightweight saved preferences/history
 
 ## Explicitly out of hackathon MVP
+
 These belong to future roadmap unless needed for the demo:
+
 - checkout/payments
 - merchant onboarding
 - retailer dashboards
@@ -61,6 +72,7 @@ These belong to future roadmap unless needed for the demo:
 - huge catalog/marketplace
 
 ## Demo story
+
 1. User: "I need silver earrings for a wedding, elegant but not too loud, under $120."
 2. Agent extracts/persists constraints and returns real candidates.
 3. User rejects one as too flashy; rejection reason is recorded and reranking occurs.

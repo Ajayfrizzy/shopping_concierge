@@ -1,0 +1,22 @@
+# Dependencies, generated native projects and build output.
+node_modules/
+**/node_modules/
+**/dist/
+**/.dist/
+**/.expo/
+**/coverage/
+apps/mobile/android/
+apps/mobile/ios/
+artifacts/
+package-lock.json
+
+# Secrets and captured validation evidence are not formatting inputs.
+.env
+.env.*
+**/.env
+**/.env.*
+docs/evidence/
+*.log
+
+# Applied migrations have persisted checksums; never reformat them.
+apps/api/migrations/

@@ -4,47 +4,178 @@
     "message": "Silver earrings for a wedding under $120, elegant but not too loud.",
     "actions": [
       { "type": "switch_category", "category": "earrings" },
-      { "type": "update_constraints", "updates": [
-        { "field": "material", "value": "silver", "scope": "global", "source": "explicit" },
-        { "field": "budget", "value": { "amount": 120, "currency": "USD" }, "scope": "global", "source": "explicit" },
-        { "field": "occasion", "value": "wedding", "scope": "global", "source": "explicit" },
-        { "field": "styleTags", "value": ["elegant"], "scope": "global", "source": "explicit" },
-        { "field": "visualIntensity", "value": "low", "scope": "global", "source": "explicit" }
-      ] }
+      {
+        "type": "update_constraints",
+        "updates": [
+          { "field": "material", "value": "silver", "scope": "global", "source": "explicit" },
+          {
+            "field": "budget",
+            "value": { "amount": 120, "currency": "USD" },
+            "scope": "global",
+            "source": "explicit"
+          },
+          { "field": "occasion", "value": "wedding", "scope": "global", "source": "explicit" },
+          { "field": "styleTags", "value": ["elegant"], "scope": "global", "source": "explicit" },
+          { "field": "visualIntensity", "value": "low", "scope": "global", "source": "explicit" }
+        ]
+      }
     ],
-    "expected": { "category": "earrings", "values": { "material": "silver", "budget": { "amount": 120, "currency": "USD" }, "occasion": "wedding", "styleTags": ["elegant"], "visualIntensity": "low" } }
+    "expected": {
+      "category": "earrings",
+      "values": {
+        "material": "silver",
+        "budget": { "amount": 120, "currency": "USD" },
+        "occasion": "wedding",
+        "styleTags": ["elegant"],
+        "visualIntensity": "low"
+      }
+    }
   },
   {
-    "id": "A02", "message": "Show me cheaper ones.",
-    "actions": [{ "type": "update_constraints", "updates": [{ "field": "pricePreference", "value": "lower", "scope": { "category": "earrings" }, "source": "explicit" }] }],
-    "expected": { "category": "earrings", "values": { "material": "silver", "budget": { "amount": 120, "currency": "USD" }, "occasion": "wedding", "styleTags": ["elegant"], "visualIntensity": "low", "pricePreference": "lower" } }
-  },
-  {
-    "id": "A03", "message": "Actually gold.",
-    "actions": [{ "type": "update_constraints", "updates": [{ "field": "material", "value": "gold", "scope": "global", "source": "explicit" }] }],
-    "expected": { "category": "earrings", "values": { "material": "gold", "budget": { "amount": 120, "currency": "USD" }, "occasion": "wedding", "styleTags": ["elegant"], "visualIntensity": "low", "pricePreference": "lower" } }
-  },
-  {
-    "id": "A05", "message": "No dangling earrings.",
-    "actions": [{ "type": "update_constraints", "updates": [{ "field": "excludedTags", "value": ["dangling"], "scope": { "category": "earrings" }, "source": "explicit" }] }],
-    "expected": { "category": "earrings", "values": { "material": "gold", "budget": { "amount": 120, "currency": "USD" }, "occasion": "wedding", "styleTags": ["elegant"], "visualIntensity": "low", "pricePreference": "lower", "excludedTags": ["dangling"] } }
-  },
-  {
-    "id": "A04", "message": "Show me necklaces instead.",
-    "actions": [{ "type": "switch_category", "category": "necklaces" }],
-    "expected": { "category": "necklaces", "values": { "material": "gold", "budget": { "amount": 120, "currency": "USD" }, "occasion": "wedding", "styleTags": ["elegant"], "visualIntensity": "low" } }
-  },
-  {
-    "id": "A13", "message": "Back to earrings.",
-    "actions": [{ "type": "switch_category", "category": "earrings" }],
-    "expected": { "category": "earrings", "values": { "material": "gold", "budget": { "amount": 120, "currency": "USD" }, "occasion": "wedding", "styleTags": ["elegant"], "visualIntensity": "low", "pricePreference": "lower", "excludedTags": ["dangling"] } }
-  },
-  {
-    "id": "A15", "message": "Silver only, regardless of visual suggestions.",
+    "id": "A02",
+    "message": "Show me cheaper ones.",
     "actions": [
-      { "type": "update_constraints", "updates": [{ "field": "material", "value": "silver", "scope": "global", "source": "explicit" }] },
-      { "type": "update_constraints", "updates": [{ "field": "material", "value": "gold", "scope": { "category": "earrings" }, "source": "visual" }] }
+      {
+        "type": "update_constraints",
+        "updates": [
+          {
+            "field": "pricePreference",
+            "value": "lower",
+            "scope": { "category": "earrings" },
+            "source": "explicit"
+          }
+        ]
+      }
     ],
-    "expected": { "category": "earrings", "values": { "material": "silver", "budget": { "amount": 120, "currency": "USD" }, "occasion": "wedding", "styleTags": ["elegant"], "visualIntensity": "low", "pricePreference": "lower", "excludedTags": ["dangling"] } }
+    "expected": {
+      "category": "earrings",
+      "values": {
+        "material": "silver",
+        "budget": { "amount": 120, "currency": "USD" },
+        "occasion": "wedding",
+        "styleTags": ["elegant"],
+        "visualIntensity": "low",
+        "pricePreference": "lower"
+      }
+    }
+  },
+  {
+    "id": "A03",
+    "message": "Actually gold.",
+    "actions": [
+      {
+        "type": "update_constraints",
+        "updates": [
+          { "field": "material", "value": "gold", "scope": "global", "source": "explicit" }
+        ]
+      }
+    ],
+    "expected": {
+      "category": "earrings",
+      "values": {
+        "material": "gold",
+        "budget": { "amount": 120, "currency": "USD" },
+        "occasion": "wedding",
+        "styleTags": ["elegant"],
+        "visualIntensity": "low",
+        "pricePreference": "lower"
+      }
+    }
+  },
+  {
+    "id": "A05",
+    "message": "No dangling earrings.",
+    "actions": [
+      {
+        "type": "update_constraints",
+        "updates": [
+          {
+            "field": "excludedTags",
+            "value": ["dangling"],
+            "scope": { "category": "earrings" },
+            "source": "explicit"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "category": "earrings",
+      "values": {
+        "material": "gold",
+        "budget": { "amount": 120, "currency": "USD" },
+        "occasion": "wedding",
+        "styleTags": ["elegant"],
+        "visualIntensity": "low",
+        "pricePreference": "lower",
+        "excludedTags": ["dangling"]
+      }
+    }
+  },
+  {
+    "id": "A04",
+    "message": "Show me necklaces instead.",
+    "actions": [{ "type": "switch_category", "category": "necklaces" }],
+    "expected": {
+      "category": "necklaces",
+      "values": {
+        "material": "gold",
+        "budget": { "amount": 120, "currency": "USD" },
+        "occasion": "wedding",
+        "styleTags": ["elegant"],
+        "visualIntensity": "low"
+      }
+    }
+  },
+  {
+    "id": "A13",
+    "message": "Back to earrings.",
+    "actions": [{ "type": "switch_category", "category": "earrings" }],
+    "expected": {
+      "category": "earrings",
+      "values": {
+        "material": "gold",
+        "budget": { "amount": 120, "currency": "USD" },
+        "occasion": "wedding",
+        "styleTags": ["elegant"],
+        "visualIntensity": "low",
+        "pricePreference": "lower",
+        "excludedTags": ["dangling"]
+      }
+    }
+  },
+  {
+    "id": "A15",
+    "message": "Silver only, regardless of visual suggestions.",
+    "actions": [
+      {
+        "type": "update_constraints",
+        "updates": [
+          { "field": "material", "value": "silver", "scope": "global", "source": "explicit" }
+        ]
+      },
+      {
+        "type": "update_constraints",
+        "updates": [
+          {
+            "field": "material",
+            "value": "gold",
+            "scope": { "category": "earrings" },
+            "source": "visual"
+          }
+        ]
+      }
+    ],
+    "expected": {
+      "category": "earrings",
+      "values": {
+        "material": "silver",
+        "budget": { "amount": 120, "currency": "USD" },
+        "occasion": "wedding",
+        "styleTags": ["elegant"],
+        "visualIntensity": "low",
+        "pricePreference": "lower",
+        "excludedTags": ["dangling"]
+      }
+    }
   }
 ]

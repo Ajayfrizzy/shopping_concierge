@@ -1,0 +1,61 @@
+{
+  "milestone": "M8",
+  "date": "2026-10-04",
+  "status": "passed",
+  "providers": {
+    "llm": "mock",
+    "youcam": "mock"
+  },
+  "device": {
+    "model": "Samsung SM-S908N",
+    "android": "16",
+    "package": "com.youcam.shoppingconcierge",
+    "runtime": "Expo SDK 57"
+  },
+  "automated": {
+    "command": "M5_INTEGRATION=1 npm run check",
+    "tests": 345,
+    "files": 13,
+    "skipped": 0,
+    "lint": "passed",
+    "typechecks": "passed",
+    "androidExport": "passed",
+    "secretScan": "29 exported files, 7 sentinels absent"
+  },
+  "restoration": {
+    "beforeVersion": 21,
+    "coldLaunchVersion": 22,
+    "reloadVersion": 23,
+    "coldDomainEqual": true,
+    "reloadDomainEqual": true
+  },
+  "cases": {
+    "selectedE18ToNecklacesUnder100": "passed",
+    "N01N02CardComparison": "passed",
+    "criteriaAndFactsVisible": "passed",
+    "summaryAnchorAction": "passed",
+    "unknownComparisonError": "passed",
+    "APIUnavailableAndRefreshRecovery": "passed",
+    "keyboardSendAndScroll": "passed",
+    "coldLaunch": "passed",
+    "nativeMenuReload": "passed",
+    "crossCategoryWrongStyleEvidence": "passed after excluding physical size/shape tags",
+    "runtimeErrors": 0
+  },
+  "m8LiveRequests": 0,
+  "m8LiveSpendUsd": 0,
+  "unchangedM7Ledger": {
+    "requests": 29,
+    "inputTokens": 74655,
+    "outputTokens": 3512,
+    "cachedInputTokens": 44911,
+    "estimatedUsd": 0.1106142
+  },
+  "deferredLiveYouCamGate": "OPEN; real rendering/analysis required before final submission",
+  "notes": [
+    "No native config/dependency changes; installed SDK57 binary reused.",
+    "OS status bar redacted from screenshots.",
+    "feedback.png records discovered pre-fix defect; feedback-fixed.png and feedback-relevant.png record retest.",
+    "Development inspector was accidentally toggled during automation, then disabled; only confirmed reload counts as evidence."
+  ]
+}

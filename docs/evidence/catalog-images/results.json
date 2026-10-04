@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-04",
+  "status": "complete",
+  "scope": "post-M8 catalog-image stabilization; stop before M9",
+  "assets": {
+    "products": 72,
+    "categories": 4,
+    "dimensions": [
+      512,
+      512
+    ],
+    "source": "original repository-authored SVGs rasterized locally with sharp",
+    "license": "repository MIT",
+    "remoteAssetDownloads": 0,
+    "vtoAssetsChanged": false
+  },
+  "checks": {
+    "lint": "pass",
+    "typechecks": "pass (backend and mobile)",
+    "tests": 433,
+    "testFiles": 15,
+    "skips": 0,
+    "androidExport": "pass",
+    "secretScan": "94 exported files, 7 server-only sentinels absent",
+    "databaseImageSources": 72,
+    "device": "Samsung SM-S908N, Android 16, Expo SDK57",
+    "imageLoading": "pass after explicit native sizing fix",
+    "missingAndFailureFallbacks": "pass; controlled N01/N02 URL faults restored",
+    "retry": "tappable, bounded user action; source refresh restores local image",
+    "normalCategories": "earrings/necklaces/rings/watches sources loaded; final sizing reviewed on cards and thumbnails",
+    "anchorAndComparison": "pass",
+    "savedShortlistedSummary": "pass after intrinsic sizing fix",
+    "coldLaunchDomainIdentical": true,
+    "versions": [
+      38,
+      39
+    ],
+    "runtimeErrors": 0,
+    "scrollSample": {
+      "frames": 321,
+      "jankyFrames": 1,
+      "legacyJankyFrames": 47,
+      "missedVsync": 0,
+      "p95Ms": 10,
+      "p99Ms": 11
+    }
+  },
+  "liveCalls": {
+    "openai": 0,
+    "youcam": 0,
+    "additionalSpendUsd": 0,
+    "m7LedgerRequests": 29,
+    "m7EstimatedUsd": 0.1106142
+  },
+  "openGate": "real YouCam rendering/analysis before final submission",
+  "evidenceNotes": [
+    "Files ending -fixed.png are final sizing evidence; earlier image-success screenshots preserve the discovered cropping defect.",
+    "Failure/missing fallback screenshots remain valid; they exercised controlled temporary local catalog URL faults only.",
+    "OS status bar redacted; no app credentials captured.",
+    "No native configuration or dependencies changed; existing compatible binary reused."
+  ]
+}

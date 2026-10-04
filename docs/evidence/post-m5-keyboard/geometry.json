@@ -1,0 +1,223 @@
+[
+  {
+    "check": "short-text",
+    "inputBounds": [
+      33,
+      872,
+      1047,
+      1052
+    ],
+    "sendBounds": [
+      34,
+      1075,
+      1046,
+      1198
+    ],
+    "keyboardTop": 1308,
+    "keyboardOpen": true
+  },
+  {
+    "check": "multiline",
+    "inputBounds": [
+      33,
+      720,
+      1047,
+      1053
+    ],
+    "sendBounds": [
+      34,
+      1075,
+      1046,
+      1198
+    ],
+    "keyboardTop": 1308,
+    "keyboardOpen": true
+  },
+  {
+    "check": "closed-0",
+    "inputBounds": [
+      33,
+      1668,
+      1047,
+      2001
+    ],
+    "sendBounds": [
+      34,
+      2023,
+      1046,
+      2146
+    ],
+    "keyboardTop": null,
+    "keyboardOpen": false
+  },
+  {
+    "check": "reopened-0",
+    "inputBounds": [
+      33,
+      720,
+      1047,
+      1053
+    ],
+    "sendBounds": [
+      34,
+      1075,
+      1046,
+      1198
+    ],
+    "keyboardTop": 1308,
+    "keyboardOpen": true
+  },
+  {
+    "check": "closed-1",
+    "inputBounds": [
+      33,
+      1668,
+      1047,
+      2001
+    ],
+    "sendBounds": [
+      34,
+      2023,
+      1046,
+      2146
+    ],
+    "keyboardTop": null,
+    "keyboardOpen": false
+  },
+  {
+    "check": "reopened-1",
+    "inputBounds": [
+      33,
+      720,
+      1047,
+      1053
+    ],
+    "sendBounds": [
+      34,
+      1075,
+      1046,
+      1198
+    ],
+    "keyboardTop": 1308,
+    "keyboardOpen": true
+  },
+  {
+    "check": "closed-2",
+    "inputBounds": [
+      33,
+      1668,
+      1047,
+      2001
+    ],
+    "sendBounds": [
+      34,
+      2023,
+      1046,
+      2146
+    ],
+    "keyboardTop": null,
+    "keyboardOpen": false
+  },
+  {
+    "check": "reopened-2",
+    "inputBounds": [
+      33,
+      720,
+      1047,
+      1053
+    ],
+    "sendBounds": [
+      34,
+      1075,
+      1046,
+      1198
+    ],
+    "keyboardTop": 1308,
+    "keyboardOpen": true
+  },
+  {
+    "check": "scroll-open",
+    "inputBounds": [
+      33,
+      720,
+      1047,
+      1053
+    ],
+    "sendBounds": [
+      34,
+      1075,
+      1046,
+      1198
+    ],
+    "keyboardTop": 1308,
+    "keyboardOpen": true
+  },
+  {
+    "check": "ready-send",
+    "inputBounds": [
+      33,
+      872,
+      1047,
+      1052
+    ],
+    "sendBounds": [
+      34,
+      1075,
+      1046,
+      1198
+    ],
+    "keyboardTop": 1308,
+    "keyboardOpen": true
+  },
+  {
+    "check": "sent",
+    "inputBounds": [
+      33,
+      1820,
+      1047,
+      2000
+    ],
+    "sendBounds": [
+      34,
+      2023,
+      1046,
+      2146
+    ],
+    "keyboardTop": null,
+    "keyboardOpen": false
+  },
+  {
+    "check": "cold-launch",
+    "inputBounds": [
+      33,
+      1820,
+      1047,
+      2000
+    ],
+    "sendBounds": [
+      34,
+      2023,
+      1046,
+      2146
+    ],
+    "keyboardTop": null,
+    "keyboardOpen": false
+  },
+  {
+    "check": "cold-launch-keyboard",
+    "inputBounds": [
+      33,
+      872,
+      1047,
+      1052
+    ],
+    "sendBounds": [
+      34,
+      1075,
+      1046,
+      1198
+    ],
+    "keyboardTop": 1308,
+    "keyboardOpen": true
+  }
+]

@@ -7,6 +7,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@youcam/shared": "*"
+    "@youcam/shared": "*",
+    "@youcam/agent": "*"
   }
 }

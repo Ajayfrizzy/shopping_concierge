@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-03T21:13:28.532Z",
+  "selectedCase": "constraints",
+  "activeStep": 6,
+  "before": {
+    "model": "gpt-5.6-terra",
+    "requests": 3,
+    "inputTokens": 6738,
+    "outputTokens": 1381,
+    "cachedTokens": 1749,
+    "estimatedOrReservedUsd": 0.026899799999999998,
+    "unknownUsageRequests": 0
+  },
+  "after": {
+    "model": "gpt-5.6-terra",
+    "requests": 9,
+    "inputTokens": 22480,
+    "outputTokens": 2017,
+    "cachedTokens": 10934,
+    "estimatedOrReservedUsd": 0.04948279999999999,
+    "unknownUsageRequests": 0
+  },
+  "results": [
+    {
+      "name": "constraints",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-04",
+  "model": "gpt-5.6-terra",
+  "reasoning": "low",
+  "requests": 25,
+  "inputTokens": 63496,
+  "cachedInputTokens": 39253,
+  "outputTokens": 3198,
+  "estimatedUsd": 0.0947126,
+  "unknownUsageRequests": 0,
+  "liveYouCamRequests": 0,
+  "status": "request cap exhausted; budget scope fix live revalidation and remaining device checks pending"
+}

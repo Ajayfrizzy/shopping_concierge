@@ -1,0 +1,5 @@
+Retained Shopping Concierge process records (16268, 17869).
+10-02 19:06:10.674 16268 16350 I ReactNativeJS: Running "main" with {"rootTag":1,"initialProps":{},"fabric":true}
+10-02 19:15:43.997 17869 17972 I ReactNativeJS: Running "main" with {"rootTag":1,"initialProps":{},"fabric":true}
+
+Device crash buffer contained UIAutomator helper failures (19148, 19163), not app crashes. Checks repeated serially.

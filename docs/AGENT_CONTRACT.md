@@ -1,9 +1,11 @@
 # Agent Contract
 
 ## Responsibilities
+
 The agent may interpret, plan tool calls, request missing information, and explain normalized results. It may not fabricate products, prices, stock, API outputs, or visual facts.
 
 ## Intent taxonomy
+
 - start_search
 - refine_search
 - switch_category
@@ -23,6 +25,7 @@ The agent may interpret, plan tool calls, request missing information, and expla
 - start_new_session
 
 ## Tool set
+
 - get_session_state
 - update_constraints
 - search_products
@@ -40,23 +43,30 @@ The agent may interpret, plan tool calls, request missing information, and expla
 - create_dependency
 
 ## Constraint classes
+
 ### Hard
+
 Must never be silently violated: category, maximum budget, explicit material/color restrictions, explicit exclusions, stock availability.
 
 ### Soft
+
 Ranking signals: elegant, understated, romantic, modern, unusual, work-appropriate, etc.
 
 ### Context
+
 Occasion/use context: wedding, work, date, everyday, party, etc.
 
 ## Precedence
+
 - Most recent explicit user instruction wins.
 - Explicit user preference outranks inferred visual/style heuristic.
 - Refinements modify only relevant fields and preserve unrelated active constraints.
 - Category-specific constraints do not automatically bleed into other categories.
 
 ## Rejection learning
+
 Capture reason codes when possible:
+
 - too_expensive
 - too_flashy
 - too_plain
@@ -73,7 +83,9 @@ Capture reason codes when possible:
 Default feedback scope is session. Do not silently promote a session rejection to permanent profile preference.
 
 ## Product states
+
 Distinguish:
+
 - liked/positive feedback
 - shortlisted
 - saved
@@ -83,12 +95,15 @@ Distinguish:
 Only `selected` products should automatically become anchors for cross-product dependencies.
 
 ## Dependency types
+
 MVP:
+
 - complement
 - alternative_to
 - match
 
 ## VTO rules
+
 - Never call VTO for nonexistent products.
 - Verify category support and required image type.
 - Reuse valid cached analysis/results where appropriate.
@@ -96,13 +111,17 @@ MVP:
 - If failure occurs, state that rendering failed; never interpret failure as a style judgment.
 
 ## No-match behavior
+
 If no exact product satisfies all hard constraints, return no exact match and structured relaxation options. Never slip violating products into the main recommendation list.
 
 ## Explanation grounding
+
 Every recommendation explanation must map to real catalog attributes, active constraints, feedback history, or normalized visual signals. Avoid objective beauty claims.
 
 ## Response shape
+
 The agent should produce structured output equivalent to:
+
 ```ts
 interface AgentResponse {
   message: string;
@@ -124,3 +143,17 @@ Shared `decisionActionSchema` supports constraint update/reset, category switch,
 ## M2 catalog handoff
 
 The backend catalog lookup/search now supplies validated existing products, deterministic ranking evidence, and no-match proposals. Consume only its `exactMatches` as current recommendations. `relaxations` require user confirmation before the backend applies their explicit scoped updates; do not silently execute them or label their candidates exact matches. A `category_required` result does not authorize inventing a category. Orchestration/tool routing remains M3. Fixture records are synthetic test data, not verified merchant inventory or live VTO evidence.
+
+## M3 implemented trust boundary
+
+The mock provider proposes only `agentPlanSchema` tool calls; it cannot return product facts, state replacements, confirmations, tool results or arbitrary answer prose. The backend independently matches effects to the supported current-message grammar and executes them on a working snapshot through M1/M2. Unsupported/negated/ambiguous phrases do not partially update state. This bounded grammar is not general live LLM interpretation; M7 must preserve the same authority checks when broadening it.
+
+Typed client user actions require explicit update provenance. Relaxation acceptance is a separate `confirm_relaxation` request with a session-owned offer ID and current turn version; the backend retrieves/revalidates its own updates and reruns exact filtering. A model plan or plain yes cannot approve it. Failed/unknown tools, provider errors, invalid IDs and concurrent stale turns save no partial shopping changes. Structured responses expose actual M1 events and backend catalog facts only.
+
+## M6 try-on handoff
+
+The exact mock grammar `Try on <catalog ID>` supports `request_vto({productId})`. Backend catalog lookup validates the ID and returns `ui.type=request_image` with productId/requiredType. The tool does not accept photos, URLs, replacement state, provider parameters or results. It authorizes opening the same on-demand flow as a card action; image selection and explicit rendering remain separate owned API steps. Ambiguous try-on utterances remain unsupported rather than selecting a product from chat inference. No decision/constraint/rejection state changes and no provider call occur in this agent turn. Unknown IDs roll back. Comparison and dependencies remain later milestones.
+
+## M8 cross-product intelligence — 2026-10-04
+
+M8 enables strict `create_dependency` and `compare_products` tools. Plans must match the authoritative bounded intent, including exact anchor/compared IDs; no invented facts, extra state mutations or silent relaxation. Comparison UI contains normalized catalog facts, active criteria and eligibility. See [decision intelligence](DECISION_INTELLIGENCE.md).

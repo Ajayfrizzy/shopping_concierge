@@ -3,6 +3,13 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "exports": { ".": "./src/index.ts", "./fixtures": "./src/fixtures.ts" },
-  "dependencies": { "@youcam/shared": "*", "@youcam/decision-engine": "*", "zod": "^3.25.76" }
+  "exports": {
+    ".": "./src/index.ts",
+    "./fixtures": "./src/fixtures.ts"
+  },
+  "dependencies": {
+    "@youcam/shared": "*",
+    "@youcam/decision-engine": "*",
+    "zod": "^3.25.76"
+  }
 }

@@ -1,0 +1,21 @@
+{
+  "cancelUnchanged": true,
+  "categoryBudgetFixPassed": true,
+  "confirmationPassed": true,
+  "reloadStatePreserved": true,
+  "versions": [
+    8,
+    8,
+    9,
+    11
+  ],
+  "usage": {
+    "model": "gpt-5.6-terra",
+    "requests": 29,
+    "inputTokens": 74655,
+    "outputTokens": 3512,
+    "cachedTokens": 44911,
+    "estimatedOrReservedUsd": 0.11061419999999998,
+    "unknownUsageRequests": 0
+  }
+}

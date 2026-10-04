@@ -7,7 +7,16 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Choose an image only when you request an optional try-on.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ]
     ],
     "android": {
       "package": "com.youcam.shoppingconcierge",

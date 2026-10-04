@@ -1,0 +1,4 @@
+Final filtered runtime buffer, M4 test window 2026-10-02 from 13:00 local device time:
+10-02 13:00:17.371 18549 18753 I ReactNativeJS: Running "main" with {"rootTag":1,"initialProps":{},"fabric":true}
+10-02 13:20:36.615 22470 22554 I ReactNativeJS: Running "main" with {"rootTag":1,"initialProps":{},"fabric":true}
+No app fatal exception in crash buffer. Historical unrelated crash records omitted.

@@ -1,0 +1,12 @@
+{
+  "asset": {
+    "id": "192d387e-db00-4b46-a1ec-a801da2d5d95",
+    "sessionId": "264c936d-3a02-4b53-a647-08949cbc90fb",
+    "type": "hand",
+    "mimeType": "image/png",
+    "byteLength": 95,
+    "sha256": "7fd8cb6505e995dcbfe8965a4930f49c517e6d3b215e0cee812a8d56c71904a7"
+  },
+  "postgresAndS3Restart": "pass",
+  "bytesRetained": true
+}

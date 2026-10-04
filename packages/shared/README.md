@@ -9,3 +9,5 @@ Schemas are strict; malformed fields, invalid provenance, duplicate constraint s
 See `docs/DATA_MODEL.md` and the decision-engine README for exact state semantics. These are domain snapshots, not implemented database migrations or authentication contracts.
 
 M2 adds `src/catalog.ts`: unique catalog validation, scoring configuration, grounded ranking evidence, exact search results and confirmation-required relaxation proposals. Session/product schemas remain compatible; catalog data is owned by the backend.
+
+M3 adds `src/agent.ts`: strict intent/tool plans, message/action/confirmation requests, authoritative session envelopes, grounded agent responses, and normalized errors. Planner output cannot carry replacement state, catalog facts, tool results or prose.

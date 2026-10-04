@@ -1,0 +1,3 @@
+Current app PID 2546
+--------- beginning of main
+10-02 20:49:03.475  2546  2840 I ReactNativeJS: Running "main" with {"rootTag":1,"initialProps":{},"fabric":true}

@@ -1,6 +1,7 @@
 # Future Roadmap
 
 Potential post-hackathon expansion:
+
 - bracelets, bags, hats, shoes, apparel
 - real retailer feeds and live inventory
 - merchant onboarding and catalog tooling

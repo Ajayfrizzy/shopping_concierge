@@ -1,0 +1,36 @@
+# Local integration fixtures only. These public development credentials are not deployment secrets.
+name: shopping-concierge-m5
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: concierge_test
+      POSTGRES_PASSWORD: local_test_only
+      POSTGRES_DB: concierge_test
+    ports:
+      - '127.0.0.1:15432:5432'
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U concierge_test -d concierge_test']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  objects:
+    image: adobe/s3mock:4.11.0
+    environment:
+      COM_ADOBE_TESTING_S3MOCK_STORE_INITIALBUCKETS: concierge-test
+      COM_ADOBE_TESTING_S3MOCK_STORE_ROOT: /data
+      COM_ADOBE_TESTING_S3MOCK_STORE_RETAINFILESONEXIT: 'true'
+    ports:
+      - '127.0.0.1:19000:9090'
+    volumes:
+      - object-data:/data
+    healthcheck:
+      test: ['CMD-SHELL', 'wget -q -O /dev/null http://localhost:9090/concierge-test']
+      interval: 2s
+      timeout: 3s
+      retries: 30
+volumes:
+  postgres-data:
+  object-data:

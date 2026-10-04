@@ -1,0 +1,517 @@
+{
+  "view": {
+    "state": {
+      "id": "2990a510-5518-4a14-984a-7c11ad03c956",
+      "goal": "",
+      "feedback": [],
+      "revision": 3,
+      "decisions": {
+        "earrings": {
+          "liked": [],
+          "saved": [],
+          "rejected": [],
+          "selected": [],
+          "shortlisted": []
+        }
+      },
+      "constraints": [
+        {
+          "revision": 2,
+          "preference": {
+            "field": "material",
+            "scope": "global",
+            "value": "silver",
+            "source": "explicit"
+          }
+        },
+        {
+          "revision": 2,
+          "preference": {
+            "field": "occasion",
+            "scope": "global",
+            "value": "wedding",
+            "source": "explicit"
+          }
+        },
+        {
+          "revision": 2,
+          "preference": {
+            "field": "budget",
+            "scope": "global",
+            "value": {
+              "amount": 120,
+              "currency": "USD"
+            },
+            "source": "explicit"
+          }
+        },
+        {
+          "revision": 3,
+          "preference": {
+            "field": "pricePreference",
+            "scope": {
+              "category": "earrings"
+            },
+            "value": "lower",
+            "source": "explicit"
+          }
+        }
+      ],
+      "dependencies": [],
+      "recentChanges": [
+        {
+          "field": "constraints.earrings:pricePreference:explicit",
+          "current": {
+            "revision": 3,
+            "preference": {
+              "field": "pricePreference",
+              "scope": {
+                "category": "earrings"
+              },
+              "value": "lower",
+              "source": "explicit"
+            }
+          },
+          "previous": null
+        }
+      ],
+      "schemaVersion": 1,
+      "activeCategory": "earrings"
+    },
+    "version": 2,
+    "pendingRelaxations": []
+  },
+  "lastResponse": {
+    "ui": {
+      "type": "product_list",
+      "payload": {
+        "status": "matches",
+        "relaxations": [],
+        "exactMatches": [
+          {
+            "scores": {
+              "visual": 0,
+              "explicit": 14,
+              "feedback": 0,
+              "heuristic": 0,
+              "saved_preference": 0
+            },
+            "product": {
+              "id": "E09",
+              "name": "Fixture Oval Earrings",
+              "brand": "Concierge Fixtures",
+              "color": "silver",
+              "price": 50,
+              "inStock": true,
+              "category": "earrings",
+              "currency": "USD",
+              "imageUrl": "https://fixtures.invalid/catalog/E09.png",
+              "material": "silver",
+              "styleTags": [
+                "elegant",
+                "oval",
+                "balanced"
+              ],
+              "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+              "vtoAssetUrl": null,
+              "occasionTags": [
+                "wedding",
+                "everyday"
+              ]
+            },
+            "evidence": [
+              {
+                "tier": "explicit",
+                "signal": "occasion",
+                "source": "explicit",
+                "attributes": [
+                  "wedding"
+                ],
+                "contribution": 6
+              },
+              {
+                "tier": "explicit",
+                "signal": "pricePreference",
+                "source": "explicit",
+                "attributes": [
+                  "USD 50",
+                  "lower"
+                ],
+                "contribution": 8
+              }
+            ]
+          },
+          {
+            "scores": {
+              "visual": 0,
+              "explicit": 12,
+              "feedback": 0,
+              "heuristic": 0,
+              "saved_preference": 0
+            },
+            "product": {
+              "id": "E02",
+              "name": "Fixture Petal Earrings",
+              "brand": "Concierge Fixtures",
+              "color": "silver",
+              "price": 65,
+              "inStock": true,
+              "category": "earrings",
+              "currency": "USD",
+              "imageUrl": "https://fixtures.invalid/catalog/E02.png",
+              "material": "silver",
+              "styleTags": [
+                "elegant",
+                "delicate",
+                "romantic",
+                "small"
+              ],
+              "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+              "vtoAssetUrl": null,
+              "occasionTags": [
+                "wedding",
+                "date"
+              ]
+            },
+            "evidence": [
+              {
+                "tier": "explicit",
+                "signal": "occasion",
+                "source": "explicit",
+                "attributes": [
+                  "wedding"
+                ],
+                "contribution": 6
+              },
+              {
+                "tier": "explicit",
+                "signal": "pricePreference",
+                "source": "explicit",
+                "attributes": [
+                  "USD 65",
+                  "lower"
+                ],
+                "contribution": 6
+              }
+            ]
+          },
+          {
+            "scores": {
+              "visual": 0,
+              "explicit": 10,
+              "feedback": 0,
+              "heuristic": 0,
+              "saved_preference": 0
+            },
+            "product": {
+              "id": "E01",
+              "name": "Fixture Quiet Round Earrings",
+              "brand": "Concierge Fixtures",
+              "color": "silver",
+              "price": 35,
+              "inStock": true,
+              "category": "earrings",
+              "currency": "USD",
+              "imageUrl": "https://fixtures.invalid/catalog/E01.png",
+              "material": "silver",
+              "styleTags": [
+                "minimal",
+                "understated",
+                "round",
+                "small"
+              ],
+              "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+              "vtoAssetUrl": null,
+              "occasionTags": [
+                "everyday",
+                "work"
+              ]
+            },
+            "evidence": [
+              {
+                "tier": "explicit",
+                "signal": "pricePreference",
+                "source": "explicit",
+                "attributes": [
+                  "USD 35",
+                  "lower"
+                ],
+                "contribution": 10
+              }
+            ]
+          },
+          {
+            "scores": {
+              "visual": 0,
+              "explicit": 10,
+              "feedback": 0,
+              "heuristic": 0,
+              "saved_preference": 0
+            },
+            "product": {
+              "id": "E14",
+              "name": "Fixture Classic Earrings",
+              "brand": "Concierge Fixtures",
+              "color": "silver",
+              "price": 90,
+              "inStock": true,
+              "category": "earrings",
+              "currency": "USD",
+              "imageUrl": "https://fixtures.invalid/catalog/E14.png",
+              "material": "silver",
+              "styleTags": [
+                "elegant",
+                "balanced",
+                "round"
+              ],
+              "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+              "vtoAssetUrl": null,
+              "occasionTags": [
+                "work",
+                "wedding"
+              ]
+            },
+            "evidence": [
+              {
+                "tier": "explicit",
+                "signal": "occasion",
+                "source": "explicit",
+                "attributes": [
+                  "wedding"
+                ],
+                "contribution": 6
+              },
+              {
+                "tier": "explicit",
+                "signal": "pricePreference",
+                "source": "explicit",
+                "attributes": [
+                  "USD 90",
+                  "lower"
+                ],
+                "contribution": 4
+              }
+            ]
+          },
+          {
+            "scores": {
+              "visual": 0,
+              "explicit": 8,
+              "feedback": 0,
+              "heuristic": 0,
+              "saved_preference": 0
+            },
+            "product": {
+              "id": "E18",
+              "name": "Fixture Ceremony Earrings",
+              "brand": "Concierge Fixtures",
+              "color": "silver",
+              "price": 100,
+              "inStock": true,
+              "category": "earrings",
+              "currency": "USD",
+              "imageUrl": "https://fixtures.invalid/catalog/E18.png",
+              "material": "silver",
+              "styleTags": [
+                "elegant",
+                "understated",
+                "delicate"
+              ],
+              "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+              "vtoAssetUrl": null,
+              "occasionTags": [
+                "wedding"
+              ]
+            },
+            "evidence": [
+              {
+                "tier": "explicit",
+                "signal": "occasion",
+                "source": "explicit",
+                "attributes": [
+                  "wedding"
+                ],
+                "contribution": 6
+              },
+              {
+                "tier": "explicit",
+                "signal": "pricePreference",
+                "source": "explicit",
+                "attributes": [
+                  "USD 100",
+                  "lower"
+                ],
+                "contribution": 2
+              }
+            ]
+          },
+          {
+            "scores": {
+              "visual": 0,
+              "explicit": 6,
+              "feedback": 0,
+              "heuristic": 0,
+              "saved_preference": 0
+            },
+            "product": {
+              "id": "E05",
+              "name": "Fixture Gala Earrings",
+              "brand": "Concierge Fixtures",
+              "color": "silver",
+              "price": 110,
+              "inStock": true,
+              "category": "earrings",
+              "currency": "USD",
+              "imageUrl": "https://fixtures.invalid/catalog/E05.png",
+              "material": "silver",
+              "styleTags": [
+                "statement",
+                "oversized",
+                "ornate",
+                "dangling"
+              ],
+              "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+              "vtoAssetUrl": null,
+              "occasionTags": [
+                "party",
+                "wedding"
+              ]
+            },
+            "evidence": [
+              {
+                "tier": "explicit",
+                "signal": "occasion",
+                "source": "explicit",
+                "attributes": [
+                  "wedding"
+                ],
+                "contribution": 6
+              }
+            ]
+          }
+        ],
+        "totalExactMatches": 6
+      }
+    },
+    "mode": "live",
+    "tools": [
+      {
+        "name": "update_constraints",
+        "outcome": "completed"
+      },
+      {
+        "name": "search_products",
+        "outcome": "completed"
+      }
+    ],
+    "events": [
+      {
+        "action": "update_constraints",
+        "changes": [
+          {
+            "field": "constraints.earrings:pricePreference:explicit",
+            "current": {
+              "revision": 3,
+              "preference": {
+                "field": "pricePreference",
+                "scope": {
+                  "category": "earrings"
+                },
+                "value": "lower",
+                "source": "explicit"
+              }
+            },
+            "previous": null
+          }
+        ],
+        "revision": 3,
+        "sessionId": "2990a510-5518-4a14-984a-7c11ad03c956"
+      }
+    ],
+    "intent": "request_cheaper",
+    "status": "ok",
+    "message": "Here are the exact fixture catalog matches, ranked against your current preferences.",
+    "session": {
+      "state": {
+        "id": "2990a510-5518-4a14-984a-7c11ad03c956",
+        "goal": "",
+        "feedback": [],
+        "revision": 3,
+        "decisions": {
+          "earrings": {
+            "liked": [],
+            "saved": [],
+            "rejected": [],
+            "selected": [],
+            "shortlisted": []
+          }
+        },
+        "constraints": [
+          {
+            "revision": 2,
+            "preference": {
+              "field": "material",
+              "scope": "global",
+              "value": "silver",
+              "source": "explicit"
+            }
+          },
+          {
+            "revision": 2,
+            "preference": {
+              "field": "occasion",
+              "scope": "global",
+              "value": "wedding",
+              "source": "explicit"
+            }
+          },
+          {
+            "revision": 2,
+            "preference": {
+              "field": "budget",
+              "scope": "global",
+              "value": {
+                "amount": 120,
+                "currency": "USD"
+              },
+              "source": "explicit"
+            }
+          },
+          {
+            "revision": 3,
+            "preference": {
+              "field": "pricePreference",
+              "scope": {
+                "category": "earrings"
+              },
+              "value": "lower",
+              "source": "explicit"
+            }
+          }
+        ],
+        "dependencies": [],
+        "recentChanges": [
+          {
+            "field": "constraints.earrings:pricePreference:explicit",
+            "current": {
+              "revision": 3,
+              "preference": {
+                "field": "pricePreference",
+                "scope": {
+                  "category": "earrings"
+                },
+                "value": "lower",
+                "source": "explicit"
+              }
+            },
+            "previous": null
+          }
+        ],
+        "schemaVersion": 1,
+        "activeCategory": "earrings"
+      },
+      "version": 2,
+      "pendingRelaxations": []
+    }
+  }
+}

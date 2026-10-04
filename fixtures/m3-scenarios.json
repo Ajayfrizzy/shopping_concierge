@@ -1,0 +1,192 @@
+[
+  {
+    "id": "A01-A05-A13",
+    "steps": [
+      {
+        "message": "Silver earrings for a wedding under $120, elegant but not too loud.",
+        "category": "earrings",
+        "material": "silver",
+        "budget": 120,
+        "status": "ok"
+      },
+      {
+        "message": "Show me cheaper ones.",
+        "category": "earrings",
+        "material": "silver",
+        "budget": 120,
+        "pricePreference": "lower"
+      },
+      {
+        "message": "Actually gold.",
+        "material": "gold",
+        "budget": 120
+      },
+      {
+        "message": "No dangling earrings.",
+        "excludedTags": ["dangling"]
+      },
+      {
+        "message": "Show me necklaces instead.",
+        "category": "necklaces",
+        "material": "gold",
+        "budget": 120,
+        "excludedTags": null,
+        "pricePreference": null
+      },
+      {
+        "message": "Back to earrings.",
+        "category": "earrings",
+        "material": "gold",
+        "excludedTags": ["dangling"],
+        "pricePreference": "lower"
+      },
+      {
+        "message": "Select E03",
+        "selected": ["E03"]
+      },
+      {
+        "message": "Show me necklaces instead.",
+        "category": "necklaces"
+      },
+      {
+        "message": "Back to earrings.",
+        "selected": ["E03"]
+      }
+    ]
+  },
+  {
+    "id": "A06-A14-A16",
+    "steps": [
+      {
+        "message": "earrings",
+        "category": "earrings"
+      },
+      {
+        "message": "Reject E05 as too flashy",
+        "rejected": ["E05"],
+        "penalized": "E06"
+      },
+      {
+        "message": "Save E18",
+        "saved": ["E18"]
+      },
+      {
+        "message": "Save E18",
+        "saved": ["E18"],
+        "noEvents": true
+      },
+      {
+        "message": "Show me necklaces instead.",
+        "category": "necklaces",
+        "noFeedbackScores": true
+      },
+      {
+        "message": "Back to earrings.",
+        "rejected": ["E05"],
+        "saved": ["E18"],
+        "penalized": "E06"
+      }
+    ]
+  },
+  {
+    "id": "A07",
+    "steps": [
+      {
+        "message": "Platinum earrings under $1",
+        "status": "ok",
+        "noExact": true,
+        "relaxations": true,
+        "material": "platinum",
+        "budget": 1
+      },
+      {
+        "message": "Yes",
+        "status": "clarification",
+        "material": "platinum",
+        "budget": 1,
+        "noEvents": true
+      }
+    ]
+  },
+  {
+    "id": "A17",
+    "steps": [
+      {
+        "message": "Something nice for Saturday.",
+        "status": "clarification",
+        "category": null,
+        "noEvents": true
+      },
+      {
+        "message": "rings",
+        "status": "ok",
+        "category": "rings"
+      },
+      {
+        "message": "under 100",
+        "status": "clarification",
+        "budget": null,
+        "noEvents": true
+      },
+      {
+        "message": "under $100",
+        "status": "ok",
+        "budget": 100
+      }
+    ]
+  },
+  {
+    "id": "facts-and-state",
+    "steps": [
+      {
+        "message": "earrings",
+        "category": "earrings"
+      },
+      {
+        "message": "Tell me about E18",
+        "detail": "E18"
+      },
+      {
+        "message": "Show my state",
+        "category": "earrings",
+        "noEvents": true
+      },
+      {
+        "message": "under $50",
+        "budget": 50
+      },
+      {
+        "message": "Reset budget",
+        "budget": null
+      }
+    ]
+  },
+  {
+    "id": "implemented-comparison-vto-complement-boundaries",
+    "steps": [
+      {
+        "message": "earrings",
+        "category": "earrings"
+      },
+      {
+        "message": "Select E18",
+        "selected": ["E18"]
+      },
+      {
+        "message": "Compare E18 and E01",
+        "status": "ok",
+        "noEvents": true
+      },
+      {
+        "message": "Try on E18",
+        "status": "ok",
+        "noEvents": true
+      },
+      {
+        "message": "Find a necklace that works with it",
+        "status": "ok",
+        "category": "necklaces"
+      }
+    ]
+  }
+]

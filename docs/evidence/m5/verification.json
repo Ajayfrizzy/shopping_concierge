@@ -1,0 +1,41 @@
+{
+  "device": "Samsung SM-S908N / Android 16",
+  "package": "com.youcam.shoppingconcierge",
+  "restartDomainStateEquality": true,
+  "restartVersions": [
+    8,
+    9,
+    10
+  ],
+  "cancelPreservedFullView": true,
+  "confirmationMatchesOfferedUpdates": true,
+  "confirmedUpdates": [
+    {
+      "field": "budget",
+      "scope": {
+        "category": "earrings"
+      },
+      "value": {
+        "amount": 65,
+        "currency": "USD"
+      },
+      "source": "explicit"
+    },
+    {
+      "field": "material",
+      "scope": {
+        "category": "earrings"
+      },
+      "value": "silver",
+      "source": "explicit"
+    }
+  ],
+  "retryVersions": [
+    14,
+    15
+  ],
+  "retryPreservedDecisions": true,
+  "objectBytesRetained": true,
+  "appRuntimeErrorsObserved": false,
+  "toolingFailures": "Two overlapping UIAutomator helper crashes; affected checks repeated serially."
+}

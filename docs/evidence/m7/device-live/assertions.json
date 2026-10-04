@@ -1,0 +1,18 @@
+{
+  "catalogMatchAssertions": 126,
+  "constraintPreservation": true,
+  "savedE02": true,
+  "retryStatePreserved": true,
+  "coldStatePreserved": true,
+  "failedBudgetPlanAtomic": true,
+  "reload": "not independently established; version unchanged after attempted native reload",
+  "versions": {
+    "initial": 1,
+    "cheaper": 2,
+    "saved": 3,
+    "retry": 5,
+    "cold": 6,
+    "reload": 6,
+    "no-match": 6
+  }
+}

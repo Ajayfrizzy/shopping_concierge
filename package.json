@@ -21,21 +21,31 @@
     "lint": "eslint .",
     "check": "npm run lint && npm run typecheck && npm test",
     "export:android": "npm run export:android -w @youcam/mobile",
-    "android:build": "npm run android -w @youcam/mobile"
+    "android:build": "npm run android -w @youcam/mobile",
+    "test:integration": "M5_INTEGRATION=1 vitest run tests/persistence-postgres.test.ts",
+    "infra:local": "docker compose -f infra/compose.local.yml up -d --wait",
+    "db:migrate": "npm run db:migrate -w @youcam/api --",
+    "dev:persistent": "node --env-file=infra/local.env.example --import tsx apps/api/src/server.ts",
+    "db:local": "node --env-file=infra/local.env.example --import tsx apps/api/src/persistence/migrate.ts --seed-fixtures",
+    "verify:mobile-secrets": "node scripts/verify-mobile-secrets.mjs",
+    "test:llm:live": "node --env-file-if-exists=apps/api/.env --env-file-if-exists=.env --import tsx scripts/llm-live-regression.ts",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
     "@types/node": "^22.15.0",
     "concurrently": "^9.2.0",
     "eslint": "^9.39.0",
-    "typescript": "~5.9.2",
-    "typescript-eslint": "^8.46.0",
-    "vitest": "^4.1.11",
-    "vite": "^7.3.6",
+    "prettier": "3.6.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native-reanimated": "4.5.1",
-    "react-native-worklets": "0.10.1"
+    "react-native-worklets": "0.10.1",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.46.0",
+    "vite": "^7.3.6",
+    "vitest": "^4.1.11"
   },
   "overrides": {
     "vite": "$vite",

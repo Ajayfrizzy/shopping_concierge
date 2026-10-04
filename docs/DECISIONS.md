@@ -60,3 +60,54 @@
 - M2 learns only factual same-category similarity from active session rejections, using each product's latest reason. Unknown reasons/facts never justify inferred dislikes. Positive reversal clears active rejection influence; saving alone does not. Cross-category/dependency intelligence remains M8.
 - No-match proposals are shared structured explicit updates with existing candidate IDs and a confirmation requirement. Preview all updates through M1; return zero violating exact results. Preserve stock/category/currency and current rejections, and never apply proposals automatically. Multiple simultaneous changes can be necessary; global exclusion changes are visible in proposal scopes.
 - Price preference ranks within each currency, without foreign exchange or an invented cap. Missing category returns `category_required`; language extraction/clarification and tool/API routing remain M3.
+
+## M3 mock orchestration decisions — 2026-10-02
+
+- Keep M0 foundation routes/providers intact. Add backend in-memory session create/read/turn routes using the M1 engine and unmodified M2 catalog. M4 will connect the mobile shopping experience; M5 owns persistent authenticated storage.
+- Use an explicitly bounded full-string mock grammar for current-message interpretation. The mock planner proposes a strict plan, and the backend independently grounds the whole plan against that grammar/current state before tool execution. Do not promote conversational/model inference into explicit constraints. Arbitrary live-language authorization remains an M7 design responsibility, not a capability claimed by this mock.
+- Planner input is detached and chat history bounded; planner output has no state, product/result facts, response prose, confirmation tool, or execution capability. Render deterministic response text and shared normalized payloads from actual backend tools. Unknown products/plans fail closed.
+- Execute a turn atomically on a working state snapshot; compare session version after async planning before commit. Last 50 request IDs support replay/conflict detection. Store at most 1,000 mock sessions, 12 history messages per session, and 20 product records per planning context. Normalize provider failure/timeout without saving partial edits.
+- Confirm a relaxation only by explicit client request identifying a current session-owned opaque proposal and expected version. Recompute the offered changes against current catalog/state; do not accept model approval, plain yes, or client replacement facts/updates. Any successful turn replaces old offers. Confirmation and typed actions bypass planning and use the same deterministic services.
+- Existing M1/M2 state semantics and ranking weights remain unchanged. Unsupported comparison/VTO/dependency tools return honest unavailable responses; implement their full behavior in their designated milestones rather than fabricating results or expanding M3.
+
+## M4 mobile decisions — 2026-10-02
+
+- Keep conversational input primary. Display real normalized mock responses, exact fixture cards, scoped previous/current changes, structured rejection reasons and a separate summary route. Quick actions call the same strict M3 backend semantics.
+- Persist only a session reference, last 40 display messages, and pending idempotent request in Expo FileSystem. Require a successful write before mutation and re-fetch backend truth after delivery. Replay the exact request after connection loss/reload; stale versions require refresh, never silent reapplication. This is local guest recovery, not M5 persistence/auth.
+- Expo FileSystem 57.0.7 is now a direct SDK-aligned dependency via `npx expo install expo-file-system`; it was already transitive and its modern/legacy modules appear in the existing SDK57 native package list. No SDK upgrade, native-internal patch, or new paid service is introduced.
+- Review relaxation scopes before explicit confirmation, sending only the opaque proposal ID/version. Cancel or plain yes does not confirm. Existing selections are historical choices, not necessarily matches after a constraint change.
+- Fixture photos do not exist: say “No product photo” rather than fetching placeholder URLs or inventing images. Comparison and VTO remain honestly unavailable. No permissions/uploads or fake VTO lifecycle are added in M4.
+- API restart expires the in-memory backend session; report it and require deliberate new-session confirmation. App storage clearing loses the local pointer. A new session replaces this phone's pointer only, leaving old mock records to process lifetime/capacity policy.
+
+## Hackathon infrastructure decision — 2026-10-02 (after M4, before M5)
+
+- Use RumptyCloud managed app deployment for the backend/API, RumptyCloud Managed PostgreSQL for the database, and RumptyCloud S3-compatible storage for objects as the intended hackathon/demo target. Mobile remains Expo / React Native; external AI services remain YouCam APIs and the selected LLM provider.
+- This supersedes the earlier Supabase-specific infrastructure/auth assumption and is not a permanent production-cloud commitment. No identity provider is selected by choosing database or storage hosting. M5 still starts with guest sessions and retains optional email auth and its existing persistence/authorization acceptance criteria.
+- Keep PostgreSQL-compatible database access and S3-compatible object access behind server-side adapters. Configure endpoints/credentials through the server environment. Provider migration must not require changes to core decision, catalog, agent or shared domain logic. No RumptyCloud-specific assumptions enter those packages.
+- Secrets remain server-side; no infrastructure/AI credentials in mobile. Exact service settings will be verified in the milestone that implements the adapters, not guessed in this decision.
+- This pass changes documentation and the architecture skill only. It does not implement M5, deploy, create cloud resources or use live YouCam/LLM credits. The full intended infrastructure and execution boundary are in [INFRASTRUCTURE.md](INFRASTRUCTURE.md).
+
+## M5 portable persistence decisions — 2026-10-02
+
+- Implement PostgreSQL/S3 adapters in the API, with explicit memory defaults. Durable mode requires both services; no fallback to ephemeral data after a storage failure. Local Docker PostgreSQL and Adobe S3Mock provide tests without cloud resources or AI credits. Deployment provider remains configuration only.
+- Retain the synchronous pure/in-memory agent executor for existing scenarios; expose validated internal snapshot restore/export to server repositories. API transactions hold the authorized session lock during bounded execution and atomically write structured state/replay data and feedback/save/event projections. No restore endpoint, model database access or altered ranking/tool semantics.
+- Mobile generates a 32-byte guest bearer credential with Expo Crypto and saves it in SecureStore before use. Store only its SHA-256 principal ID on the backend. Session IDs are not credentials. Unowned old M4 records are not silently migrated/claimed; unavailable-session recovery is explicit.
+- Optional email verification is provider-neutral API functionality through an EmailSender/SMTP adapter; disabled by default. Owner-bound random hashed codes are single-use with ten-minute expiry and issuance bounds. Verified same-email installations can access sessions without rewriting their decisions. Tests use an in-process outbox, not live email.
+- Store private PNG/JPEG bytes through S3 with bounded decode/MIME/size validation and content-addressed keys; metadata and access authorization live in PostgreSQL. Image upload does not call YouCam or invent visual results. A failed cross-service write may leave a private orphan; safe retries take priority over deleting objects after an uncertain commit.
+- Migrate/seed explicitly with checksums and insert-only fixtures. Existing catalog facts are never overwritten on startup. Local fixture setup is documented in `PERSISTENCE.md`; no RumptyCloud resource was created or deployment performed.
+
+## 2026-10-02 — M6 visual integration
+
+Use the documented YouCam v2 category-specific file/task REST contract behind a server-only adapter, with injected HTTP tests and mock runtime by default. Use request-driven persisted visual jobs: create queues, explicit advance submits/polls, GET only reads. Persist a claim before provider I/O; do not retry uncertain paid submissions. One active job/session, bounded polling and result reuse protect credits. Keep visual metadata separate from shopping state in portable PostgreSQL JSONB.
+
+Mock completion must disclose that no image was generated. Image-type checks and file decoding must not be represented as anatomical detection. Optional live analysis remains unavailable without confirmed participant access and a useful feature contract; cached mock profiles contain no invented personal attributes. No live rendering/account entitlement is claimed from contract tests. Approved product assets and provider credentials remain prerequisites for activating live mode.
+
+Mobile uses SDK57 expo-image-picker for explicit photo selection only, with camera/microphone permissions disabled. Preserve the verified composer layout. Normalize the actual returned base64 format because Android picker metadata can describe the original PNG while returning JPEG bytes; retain server decoding as the final validator.
+
+## 2026-10-03 — M7 OpenAI validation decision
+
+User selected OpenAI Responses, configurable `gpt-5.6-terra`, low reasoning, server-only credentials, and a maximum 25 live attempts/$1 estimated spend. Mock regression remains default; the shared durable ledger also covers physical-device requests. Keep existing deterministic plan authorization rather than expanding natural-language permissions. No YouCam credits or deployment are authorized; real YouCam rendering/analysis remains an open final-submission gate. Details/rates/validation commands: `LLM.md`.
+
+## M8 cross-product intelligence — 2026-10-04
+
+M8 uses explicit selected-anchor dependencies and deterministic shared-attribute complement evidence at heuristic priority. Relevant feedback transfers only along these links; size/shape/price do not transfer across accessory categories. Comparisons expose catalog facts and scoped criteria without an overall winner. This completes existing A08/A12 scope, adds no cloud/provider dependency and spends no live credits. See [decision intelligence](DECISION_INTELLIGENCE.md).

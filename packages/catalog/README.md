@@ -40,14 +40,14 @@ Ranking compares **explicit current preference → active session rejection feed
 
 Within each tier, sum the contributions below. Config keys are strict finite integers from 0 to 1000; zero disables a contribution. The same catalog/state/config/options always produce the same result, including after catalog reordering and JSON restoration.
 
-| Signal/config key | Default | Rule |
-| --- | --- | --- |
-| `style` | 8 | Fraction of requested unique style tags present |
-| `occasion` | 6 | Exact case-insensitive occasion tag match |
-| `intensity` | 5 | Low: minimal/understated/delicate; medium: balanced; high: statement/oversized/ornate. Unknown tags give no signal |
-| `attribute` | 4 | Matching soft material/color; explicit material/color already filter |
-| `price` | 10 | Requested lower/higher preference gives normalized ordinal price position among eligible distinct prices **within the same currency**; singleton currency groups score zero |
-| `rejection` | 8 | Negative contribution per currently rejected same-category product with matching factual attributes |
+| Signal/config key | Default | Rule                                                                                                                                                                        |
+| ----------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `style`           | 8       | Fraction of requested unique style tags present                                                                                                                             |
+| `occasion`        | 6       | Exact case-insensitive occasion tag match                                                                                                                                   |
+| `intensity`       | 5       | Low: minimal/understated/delicate; medium: balanced; high: statement/oversized/ornate. Unknown tags give no signal                                                          |
+| `attribute`       | 4       | Matching soft material/color; explicit material/color already filter                                                                                                        |
+| `price`           | 10      | Requested lower/higher preference gives normalized ordinal price position among eligible distinct prices **within the same currency**; singleton currency groups score zero |
+| `rejection`       | 8       | Negative contribution per currently rejected same-category product with matching factual attributes                                                                         |
 
 Evidence contains signal, tier, contribution, matching attributes, and preference provenance or rejected-product ID. Positive decisions are preserved but do not invent a general style preference. Cross-product dependencies are preserved in state but do not affect M2 scoring. Price is a weighted soft preference; it does not replace budget or automatically dominate other explicit preferences.
 
@@ -75,3 +75,7 @@ Every proposal is previewed through M1's transition engine and eligibility guard
 ## Verification
 
 `tests/catalog.test.ts` covers all M2 acceptance criteria, independent hard-filter matrix checks, A06/A07/A14/A15 behavior, M1 scenario-prefix replay with catalog search, evidence grounding, currency boundaries, immutability, invalid input, proposal application, and deterministic output. `npm run check` also retains all M0/M1/native regressions; `npm run export:android` checks the shared contract import boundary. M2 adds no native/mobile interaction or required live/manual acceptance check.
+
+## M8
+
+Selected-anchor complement evidence stays in the heuristic tier after hard filtering. Relevant cross-category rejection signals require explicit dependencies; size/shape/price do not transfer. `compare(state, [idA, idB])` returns detached facts, active criteria and eligibility without mutating state. See [decision intelligence](../../docs/DECISION_INTELLIGENCE.md).
