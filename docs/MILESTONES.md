@@ -171,7 +171,7 @@ Status (2026-10-04): **complete and validated**. Original local illustrations co
 
 ## Deferred live YouCam gate — preflight
 
-Status (2026-10-04): **OPEN / blocked on external prerequisites**. Minimal four-category live validation authorized, but backend key/host allowlists and approved product/input asset set are absent. No live calls made. Account unit costs/ceiling and cumulative usage guard must be established before submission. See the latest `VALIDATION.md` entry. M9 has not started.
+Status (2026-10-04): **OPEN / blocked on external prerequisites**. Four initial renders plus up to four targeted retries authorized (8 maximum). Backend key is now present; S3 write/read passes after path-style configuration. PostgreSQL remains blocked by an untrusted self-signed certificate; approved asset locations and host allowlists remain missing. No live calls made. Durable usage protection and temporary asset access must be implemented before submission. See the latest `VALIDATION.md` entry. M9 has not started.
 
 ## M9 — Polish + hackathon submission
 

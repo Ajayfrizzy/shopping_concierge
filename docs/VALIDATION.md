@@ -1,5 +1,18 @@
 # Validation log
 
+## 2026-10-04 — Live YouCam infrastructure recheck: partially unblocked
+
+**Live gate remains OPEN.** Backend credential presence was confirmed without displaying values. User authorizes at most **8 live rendering submissions: four initial categories plus up to four targeted retries**. No broader reruns or additional OpenAI usage are authorized. No live YouCam request was made during this attempt.
+
+- PostgreSQL hostname resolves and the TLS server is reachable, but verified connection fails with `DEPTH_ZERO_SELF_SIGNED_CERT`. No query succeeded. Obtain the database provider's trusted CA certificate and configure trust server-side; TLS verification was not disabled.
+- S3 initially failed with `ENOTFOUND` in virtual-host mode. A path-style HEAD succeeded; changed only `S3_FORCE_PATH_STYLE=true` in the ignored backend environment. Bucket access and private PUT/GET round trip then passed with standard S3 SDK commands. No bucket policy/ACL change was made, and anonymous accessibility was not tested.
+- The small synthetic probe under `validation/youcam-preflight/` could not be deleted by the original exact-key cleanup. A proposed prefix/size cleanup was rejected by automatic approval review because it could delete unrelated data; that command did not execute. The remaining probe contains only a generic connectivity-test sentence, no credentials or personal image. Owner cleanup may be required.
+- Approved portrait/neckline, hand/wrist input locations and four corresponding product assets remain unspecified. Credentials/infrastructure do not supply these assets. The source catalog still has no approved VTO assets. Requested their locations and the trusted CA path.
+- Provider upload/output allowlists remain unconfigured. Existing live adapter also fixes its API origin rather than consuming `YOUCAM_BASE_URL`; validate the documented origin and implement configuration/strict host checks before live submission. Temporary private asset URLs and cumulative durable usage reservations still require implementation/validation before any paid render. Do not interpret successful storage access as completion of those items.
+- Optional analysis remains disabled; all four required rendering/device checks remain unrun. **Usage: 0 YouCam requests/units, 0 OpenAI requests.** No live mode was enabled and no application service was restarted into live mode. M9 has not started.
+
+No integration code was changed; only ignored S3 configuration and this validation record changed. Full automated validation must run after the subsequent integration fixes. Previous test counts are not new evidence for this blocked live gate.
+
 ## 2026-10-04 — Deferred live YouCam gate: preflight blocked
 
 **Gate remains OPEN; no live rendering has been validated. M9 has not started.** The user authorized a minimal first pass of one known-good render each for earrings, necklace, ring and watch, with actual Samsung output review. Preflight inspected the existing server adapter, provider selection, smoke runner and asset configuration without making provider requests.
