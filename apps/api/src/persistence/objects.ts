@@ -1,4 +1,10 @@
-import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
+import {
+  S3Client,
+  GetObjectCommand,
+  PutObjectCommand,
+  ListObjectsV2Command,
+} from '@aws-sdk/client-s3';
 export interface ObjectStore {
   put(key: string, bytes: Uint8Array, contentType: string): Promise<void>;
   get(key: string): Promise<Uint8Array>;
@@ -25,7 +31,11 @@ export function createS3ObjectStore(config: {
   accessKeyId: string;
   secretAccessKey: string;
   forcePathStyle: boolean;
-}): ObjectStore {
+  assetPrefix?: string;
+}): ObjectStore & {
+  listAssets(group: string): Promise<string[]>;
+  signGet(key: string, expiresIn?: number): Promise<string>;
+} {
   const { bucket, ...settings } = config;
   const client = new S3Client({
     endpoint: settings.endpoint,
@@ -36,6 +46,46 @@ export function createS3ObjectStore(config: {
     requestHandler: { connectionTimeout: 5000, requestTimeout: 10000 },
   });
   return {
+    async signGet(key, expiresIn = 900) {
+      if (!key || !Number.isInteger(expiresIn) || expiresIn < 1 || expiresIn > 3600)
+        throw new Error('Temporary asset access requires a key and expiry of 1–3600 seconds.');
+      return getSignedUrl(client, new GetObjectCommand({ Bucket: bucket, Key: key }), {
+        expiresIn,
+      });
+    },
+    /** Approved asset discovery only; existing persisted upload keys remain unchanged. */
+    async listAssets(group: string): Promise<string[]> {
+      if (
+        ![
+          'vto-products/earrings/',
+          'vto-products/necklaces/',
+          'vto-products/rings/',
+          'vto-products/watches/',
+          'vto-inputs/portrait/',
+          'vto-inputs/hand/',
+          'vto-inputs/wrist/',
+        ].includes(group)
+      )
+        throw new Error('Unsupported approved asset group.');
+      const keys: string[] = [];
+      let cursor: string | undefined;
+      do {
+        const result = await client.send(
+          new ListObjectsV2Command({
+            Bucket: bucket,
+            Prefix: (config.assetPrefix ?? '') + group,
+            MaxKeys: 100,
+            ContinuationToken: cursor,
+          }),
+        );
+        for (const item of result.Contents ?? [])
+          if (item.Key && (item.Size ?? 0) > 0) keys.push(item.Key);
+        cursor = result.IsTruncated ? result.NextContinuationToken : undefined;
+        if (result.IsTruncated && !cursor) throw new Error('Incomplete object listing.');
+        if (keys.length > 1000) throw new Error('Approved asset group exceeds discovery limit.');
+      } while (cursor);
+      return keys.sort();
+    },
     async put(key, bytes, contentType) {
       await client.send(
         new PutObjectCommand({ Bucket: bucket, Key: key, Body: bytes, ContentType: contentType }),

@@ -71,3 +71,17 @@ The current 72 synthetic products have null `vtoAssetUrl`; live requests fail be
 - [ ] Record real evidence, actual call count/spend and remaining limitations in `VALIDATION.md` before final submission.
 
 This gate remains **open** through M7 and is independent of live LLM validation. No YouCam calls are authorized by the M7 OpenAI budget.
+
+## 2026-10-07 live validation controls and status
+
+The first real four-category run completed upload/task/poll/image display and Samsung cold restoration. Earrings/rings/watches pass visual review. Necklaces remain gated because the pendant falls below the source portrait: a wider approved neck/chest image and one targeted retry are required. See `VALIDATION.md`; this gate is **not complete**. Four render reservations and four observed units are consumed; mocks are restored. Optional analysis remains disabled.
+
+Live configuration additionally requires `YOUCAM_USAGE_LEDGER`, pointing to the existing append-only ledger (`docs/evidence/youcam-live/render-reservations.jsonl` for this gate). Keep the same absolute server path across API and smoke invocations; never reset it or create another ledger to bypass the cap. Missing, corrupt or locked ledgers fail closed. The provider reserves before every paid task POST; max eight reservations, including unknown outcomes. A stale lock needs explicit accounting review. This guards one validation host, not distributed deployment.
+
+`YOUCAM_BASE_URL` selects the verified official HTTPS origin (blank uses the documented default); other origins are rejected before credentials are sent. Account-returned upload/result hostname verified in this run: `yce-us.s3-accelerate.amazonaws.com`. Approved private product URLs also require the configured S3 host in the product/output allowlist. The S3 adapter can issue exact-key temporary GET URLs (default 15 minutes, maximum one hour); URLs/signatures must not be logged or committed. Temporary references for this run did not permanently populate the 72 source fixtures.
+
+Live unit measurement used account balance and feature-cost endpoints, counted separately from paid render submissions. Provider protocol operations and balance deltas are in sanitized evidence. No user credentials, signed URLs, raw task identifiers or raw provider bodies are part of that evidence.
+
+## Final required rendering validation — 2026-10-07
+
+All four required VTO categories now pass live Samsung output review and cold restoration. The necklace-only retry used the new wide portrait and resolved pendant clipping. Final totals: five rendering submissions, five observed units, one targeted retry; preserved eight-render ledger, no OpenAI calls. Live server stopped and mock defaults restored. See the newest `VALIDATION.md` entry for evidence, connectivity recovery and temporary-output limitations. Earlier OPEN rendering status above is historical. Optional analysis is unused/disabled and remains unvalidated; the completed rendering gate does not certify that separate capability. M9 has not started.

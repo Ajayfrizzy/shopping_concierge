@@ -1,0 +1,6 @@
+
+> shopping-concierge@0.1.0 demo:android
+> node --import tsx scripts/demo.mts android
+
+Android SDK is incomplete. Set ANDROID_HOME to a complete SDK (see docs/DEMO_SETUP.md).
+Demo command stopped. Check the preceding output and docs/DEMO_SETUP.md.

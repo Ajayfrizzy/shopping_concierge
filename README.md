@@ -1,8 +1,12 @@
 # Shopping Concierge
 
-A mobile-first purchasing-decision agent for earrings, necklaces, rings, and watches. The planned concierge preserves constraints, learns from structured feedback, coordinates selected products, and uses YouCam visual evidence to help shoppers decide.
+A mobile-first purchasing-decision agent for earrings, necklaces, rings, and watches. The concierge preserves constraints, learns from structured feedback, coordinates selected products, and uses YouCam visual evidence to help shoppers decide.
 
-**Current state:** M0–M6 (mock-first validation), SDK 57 stabilization and the post-M5 keyboard fix are complete. Shopping, summary/navigation, explicit relaxation confirmation, guest credential storage, durable session restart and error/retry are validated on physical Android. PostgreSQL and private S3-compatible storage use portable server-side adapters; optional verified email is API-only and disabled by default. Deterministic filtering/ranking and structured session state remain authoritative. Products, prices and stock are synthetic fixtures; M8 adds criteria-grounded comparison and selected-anchor complement search. M6 adds on-demand photo selection and persistent mock try-on jobs; mock completion explicitly generates no rendering. A server-only live YouCam adapter is contract-tested, but live account access/product assets/rendering remain unverified. M7 implements a server-only OpenAI planning adapter and hard validation budget; M7 live/tool and physical-device checks are complete after the budget-scope fix, within the approved extension (29 requests, approximately $0.11061); M8 is complete with 345 passing tests and physical Samsung validation (mock-only); M9 has not started. See [M7 LLM configuration](docs/LLM.md). Real YouCam rendering/analysis remains an open final-submission gate. See [M5 persistence](docs/PERSISTENCE.md) for setup and boundaries.
+**Current state:** M0–M8 and the deferred four-category live YouCam rendering gate are validated. M9 is complete: 455 tests, native Samsung fresh-install/regression checks and a 1m 46s recorded rehearsal pass. See [milestones](docs/MILESTONES.md), [validation](docs/VALIDATION.md) and [demo recording](docs/evidence/m9/timed-demo.mp4). Public submission/deployment has not been performed. Products, prices and stock are synthetic fixtures. Both providers default to mocks. Live gate totals: 5/8 renders, 5 observed YouCam units, zero OpenAI calls during that gate. Optional live visual analysis remains disabled/unvalidated.
+
+## Judge/demo entry point
+
+Follow [fresh Android setup](docs/DEMO_SETUP.md), [judge guide](docs/JUDGE_GUIDE.md), [three-minute demo](docs/DEMO_SCRIPT.md) and [submission notes](docs/SUBMISSION_NOTES.md). The isolated **Concierge Demo** installation preserves existing Shopping Concierge data. Documented demo commands force local persistence and mocks even when private environment files exist; no shared account or live credentials are required.
 
 ## Local setup
 
@@ -43,7 +47,7 @@ M5_INTEGRATION=1 npm run check
 npm run verify:mobile-secrets
 ```
 
-The full run passes 281 tests; ordinary `npm test` skips the ten explicit PostgreSQL/S3 integration tests. No live AI credits are used.
+The integration-enabled run includes real local PostgreSQL/S3 tests; ordinary `npm test` skips them. See the validation log for current counts. No live AI credits are used.
 
 ## Android development build
 
@@ -58,7 +62,7 @@ npm ci
 npm run android:build
 ```
 
-This runs Expo prebuild before compiling/installing the app. Generated `android/` and `ios/` directories are ignored; `app.json` and the dependency lockfile own native configuration. Native dependency/config changes require rebuilding the binary, not just a Metro reload. The Expo Doctor app-config sync heuristic is disabled because it relies on Git tracking and this starter directory has no Git metadata; the build script always runs prebuild instead. All dependency/duplicate/New Architecture checks remain enabled.
+This runs Expo prebuild before compiling/installing the app. Generated `android/` and `ios/` directories are ignored; `app.json` and the dependency lockfile own native configuration. Native dependency/config changes require rebuilding the binary, not just a Metro reload. The Expo Doctor app-config sync heuristic is disabled because native directories are generated; the build script always runs prebuild. All dependency/duplicate/New Architecture checks remain enabled.
 
 For USB connectivity, use separate terminals:
 
@@ -88,13 +92,13 @@ For LAN use, start the API with `API_HOST=0.0.0.0 npm run dev:api` and Metro wit
 
 The demo target is **RumptyCloud managed app deployment** for the API, **RumptyCloud Managed PostgreSQL** for the database, and **RumptyCloud S3-compatible storage** for objects. Mobile remains Expo / React Native; external AI services remain YouCam APIs and the selected LLM provider. This is not a permanent production-cloud commitment.
 
-Use portable PostgreSQL/S3 adapters and server-side environment-driven secrets; keep infrastructure assumptions outside the core domain and agent logic. See [infrastructure](docs/INFRASTRUCTURE.md) for boundaries and the M5 implications. M5 implements and validates these adapter boundaries locally. No cloud resources are provisioned and RumptyCloud connectivity is not yet validated.
+Use portable PostgreSQL/S3 adapters and server-side environment-driven secrets; keep infrastructure assumptions outside the core domain and agent logic. See [infrastructure](docs/INFRASTRUCTURE.md) for boundaries and the M5 implications. M5 implements and validates these adapter boundaries locally. No API deployment is claimed. Later live-gate work verified configured PostgreSQL/S3 connectivity; see the validation log for TLS and asset-access boundaries.
 
 ## Configuration
 
 Copy `.env.example` to `.env` only if changing server defaults. API scripts read the root `.env`. Expo public configuration belongs in `apps/mobile/.env` or the shell; see `apps/mobile/.env.example`. Only `EXPO_PUBLIC_API_URL` belongs in the mobile environment. Do not place server credentials there.
 
-Mocks remain the default AI providers. `USE_MOCK_LLM=false` still fails closed; M6 permits explicit live YouCam configuration only with server credentials and host allowlists, and a render requires an approved catalog asset. Current fixture assets are null and cannot produce live VTO. See [YouCam integration](docs/YOUCAM.md) for activation limits and the isolated smoke script. No live calls were used in validation.
+Mocks remain the default AI providers. Live OpenAI and YouCam require explicit server configuration and retained budget ledgers; see [LLM](docs/LLM.md) and [YouCam](docs/YOUCAM.md). The required live VTO gate is complete; do not repeat it for normal development. Fixture VTO asset URLs remain null; temporary approved references used during validation do not turn synthetic artwork into approved live product imagery. `npm run credits:report` reports existing usage without contacting providers.
 
 ## Commands
 
@@ -135,4 +139,4 @@ Run `npm run format` to format supported source, configuration, fixtures and doc
 
 ## Catalog demo images
 
-All 72 fixtures now have original bundled accessory illustrations with loading/error/missing states. See [catalog image strategy](docs/CATALOG_IMAGES.md) for sources, licensing, regeneration and the existing-database migration. Catalog artwork is separate from YouCam rendering. This stabilization is validated; M9 remains unstarted.
+All 72 fixtures now have original bundled accessory illustrations with loading/error/missing states. See [catalog image strategy](docs/CATALOG_IMAGES.md) for sources, licensing, regeneration and the existing-database migration. Catalog artwork is separate from YouCam rendering. This stabilization is validated; see milestone tracking for M9 status.

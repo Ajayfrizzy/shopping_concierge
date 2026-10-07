@@ -171,9 +171,25 @@ Status (2026-10-04): **complete and validated**. Original local illustrations co
 
 ## Deferred live YouCam gate — preflight
 
+Final status (2026-10-07): **required live VTO rendering gate COMPLETE**. Necklace-only retry with the approved wider portrait passes full pendant visibility, Samsung display and cold restoration after the live API stopped. Earrings/rings/watches retain their prior passes. Final usage **5/8 renders, 5 observed units, one targeted retry, zero OpenAI calls**. Mock runtime restored; 452-test integration validation retained. Optional unused live analysis remains disabled/unvalidated and is not certified by this rendering gate. See latest `VALIDATION.md` and final evidence. M9 is unstarted. All OPEN/blocker entries below are historical.
+
+Latest live update (2026-10-07): **OPEN — necklace framing retry required**. All four initial live tasks completed and restored on Samsung. Earrings/ring/watch outputs are usable; necklace pendant is cropped at the source-image boundary, so HTTP completion is not accepted as a visual pass. Supply a wider approved front-facing neck/chest portrait and rerun only necklaces. Usage: **4/8 renders, 4 observable units, zero retries/OpenAI calls**; preserve the ledger. Lint/typechecks, 452 tests and Android export/secret scan pass. Mock defaults restored; isolated live API stopped. See current `VALIDATION.md` and `evidence/youcam-live/`. M9 remains unstarted. Earlier prerequisite blockers below are historical.
+
+Latest update (2026-10-07): **asset access resolved; gate OPEN**. Updated credentials permit listing and reading all seven project-prefixed assets. Original watch key is 404; its discovered replacement is readable. Exact old probe GET is 404, so no deletion was attempted. Preflight requires a side portrait with an unobstructed ear and a wrist image including all five fingers before paid validation. Temporary access/provider configuration and durable eight-render protection remain pending. Zero live calls; mocks unchanged; M9 unstarted. See latest `VALIDATION.md` and asset-discovery evidence. Earlier access-blocked entries below are historical.
+
+Latest discovery (2026-10-07): bucket identifier verified; configured project prefix and direct supplied watch key return S3 HTTP 403. Prefix discovery adapter added; 447 tests and Android export/secret scan pass. Samsung is connected, but live rendering remains blocked by asset access. No live calls.
+
+Asset discovery (2026-10-07): authenticated S3 listings return zero objects under all seven supplied asset groups and both parent prefixes, without truncation. Exact uploaded key/bucket confirmation requested. ADB shows no connected device. No renders submitted; gate remains OPEN.
+
+Update (2026-10-07): PostgreSQL now connects over TLSv1.3 using the explicit database-only `sslmode=require` verification exception. S3 access passes; exact probe deletion returns 403. 444 tests and Android export/secret scan pass. Live gate still OPEN awaiting approved assets; no live calls. Earlier CA-blocker status is superseded.
+
+Recheck (2026-10-07): S3 HEAD passes; PostgreSQL still fails trusted TLS (`DEPTH_ZERO_SELF_SIGNED_CERT`). Approved asset locations and provider host allowlists remain unavailable. Zero live calls; gate remains OPEN.
+
 Status (2026-10-04): **OPEN / blocked on external prerequisites**. Four initial renders plus up to four targeted retries authorized (8 maximum). Backend key is now present; S3 write/read passes after path-style configuration. PostgreSQL remains blocked by an untrusted self-signed certificate; approved asset locations and host allowlists remain missing. No live calls made. Durable usage protection and temporary asset access must be implemented before submission. See the latest `VALIDATION.md` entry. M9 has not started.
 
 ## M9 — Polish + hackathon submission
+
+Status (2026-10-07): **complete and validated**. All three acceptance criteria pass: clean dependency install and isolated fresh guest APK, documented credential-free local mock setup, and a **106.01-second (1m 46s)** continuous Samsung UI rehearsal including labeled prior live VTO evidence. Native build/install, shopping/dependency/comparison/no-match, cold shopping/job restore, keyboard, API timeout/idempotent retry and runtime checks pass. Final lint/typechecks and **455 tests across 20 files** pass; Android export/secret scan and **20/20 Expo Doctor** pass. README, judge guide, setup, measured demo script, API/use table, credit reporting and submission notes are maintained. Original app/guest data hashes are unchanged; no uninstall or data clear. **Zero M9 live calls.** See `VALIDATION.md` and `evidence/m9/`. Known dependency advisories and final public video/portal/publication review are documented; no external submission/deployment or later milestone was performed.
 
 Deliverables:
 
@@ -190,3 +206,7 @@ Acceptance:
 - clean fresh-install demo path
 - no dependence on developer-only hidden steps
 - 1–3 minute demo can show full differentiating workflow
+
+## Pre-deployment — Constraint-relaxation UX correction
+
+Status (2026-10-07): **complete and validated**. Search adjustments are explicitly distinguished from products, buttons name proposed changes, kept constraints are separate and confirmation/rerun copy is clear. Deterministic relaxation, ranking, catalog, state and product-card behavior are unchanged. Lint/typechecks, 458 tests/21 files and Android bundle/secret scan pass. Samsung visual review, cancel/confirm/rerun with actual catalog images, keyboard/navigation/cold restore and runtime checks pass. See `VALIDATION.md` and `evidence/relaxation-ux/`. No live credits consumed. Stop before deployment.

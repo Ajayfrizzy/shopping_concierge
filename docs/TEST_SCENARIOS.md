@@ -180,3 +180,7 @@ The explicitly isolated runner in `scripts/llm-live-regression.ts` tests actual 
 ## M8 cross-product intelligence — 2026-10-04
 
 A08 now compares actual catalog products against active criteria with explicit ineligibility. A12 selects E18, creates its necklace dependency under USD100, propagates only relevant rejection feedback and preserves earrings scope. Automated coverage: `tests/m8.test.ts` and PostgreSQL restart/replay case. Device checklist: select/reject anchor-category products; coordinated search; two-card comparison; summary action; reload/cold restoration; error/retry; keyboard; runtime scan. Live YouCam validation remains deferred and OPEN.
+
+## M9 published demo regression — 2026-10-07
+
+`fixtures/m9-demo.json` and `tests/m9-demo.test.ts` replay the published mock goal, reasoned rejection, cheaper refinement, grounded VTO image handoff, selected anchor, scoped necklace budget, eligible comparison, earrings return and honest no-match through authenticated HTTP routes. They verify state readback and plain-yes non-confirmation. `tests/demo-environment.test.ts` verifies that demo startup excludes inherited live credentials/cloud targets and forces local mocks. Existing A01–A18 coverage remains intact. These tests do not establish native installation, layout, photo picking or three-minute timing; those M9 checks subsequently passed on Samsung, with a 106.01-second recorded rehearsal and evidence in `VALIDATION.md`. A native-launcher regression also checks the actual flags against the installed Expo CLI bundler resolver.

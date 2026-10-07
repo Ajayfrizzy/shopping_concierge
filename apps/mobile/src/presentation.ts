@@ -20,6 +20,21 @@ export function displayValue(value: unknown): string {
 export function constraintLabel(p: ConstraintInput) {
   return `${titleCase(p.field)}: ${displayValue(p.value)} · ${p.scope === 'global' ? 'All categories' : titleCase(p.scope.category)}`;
 }
+export function adjustmentLabel(updates: ConstraintInput[]) {
+  return (
+    updates
+      .map((p, i) => {
+        const label =
+          p.field === 'budget'
+            ? `Set budget to ${displayValue(p.value)}`
+            : p.field === 'material' || p.field === 'color'
+              ? `Try ${displayValue(p.value)} instead`
+              : `Adjust ${titleCase(p.field).toLowerCase()}`;
+        return i === 0 ? label : label[0]!.toLowerCase() + label.slice(1);
+      })
+      .join(' and ') || 'Use this adjustment'
+  );
+}
 export function changeLabel(change: StateChange) {
   if (change.field.startsWith('constraints.')) {
     const record = (change.current ?? change.previous) as { preference?: ConstraintInput } | null;

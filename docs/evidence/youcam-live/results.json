@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-07",
+  "renderLimit": 8,
+  "renderSubmissions": 5,
+  "targetedRetries": 1,
+  "remainingRenderAllowance": 3,
+  "initialUnitBalance": 1040,
+  "finalUnitBalance": 1035,
+  "observedUnitDecrease": 5,
+  "accountHttpRequests": 11,
+  "fileMetadataHttpRequests": 5,
+  "renderHttpRequests": 5,
+  "pollHttpRequests": 5,
+  "signedUploadPuts": 5,
+  "authenticatedYouCamHttpRequests": 26,
+  "openAIRequests": 0,
+  "costs": [
+    {
+      "operation": "/s2s/v2.0/task/2d-vto/earring",
+      "amount": 2,
+      "unit": "result_image",
+      "proc_unit": 1
+    },
+    {
+      "operation": "/s2s/v2.0/task/2d-vto/earring",
+      "amount": 1,
+      "unit": "result_image",
+      "proc_unit": 1
+    },
+    {
+      "operation": "/s2s/v2.0/task/2d-vto/necklace",
+      "amount": 1,
+      "unit": "result_image",
+      "proc_unit": 1
+    },
+    {
+      "operation": "/s2s/v2.0/task/2d-vto/ring",
+      "amount": 2,
+      "unit": "result_image",
+      "proc_unit": 1
+    },
+    {
+      "operation": "/s2s/v2.0/task/2d-vto/ring",
+      "amount": 1,
+      "unit": "result_image",
+      "proc_unit": 1
+    },
+    {
+      "operation": "/s2s/v2.0/task/2d-vto/watch",
+      "amount": 1,
+      "unit": "result_image",
+      "proc_unit": 1
+    }
+  ],
+  "balanceChecks": [
+    {
+      "at": "2026-10-07T06:02:02.327Z",
+      "balance": 1039,
+      "observedDecrease": 1,
+      "reservations": 1,
+      "withinExpectedRange": true
+    },
+    {
+      "at": "2026-10-07T06:23:19.944Z",
+      "balance": 1038,
+      "observedDecrease": 2,
+      "reservations": 2,
+      "withinExpectedRange": true
+    },
+    {
+      "at": "2026-10-07T06:33:04.277Z",
+      "balance": 1037,
+      "observedDecrease": 3,
+      "reservations": 3,
+      "withinExpectedRange": true
+    },
+    {
+      "at": "2026-10-07T06:44:59.057Z",
+      "balance": 1036,
+      "observedDecrease": 4,
+      "reservations": 4,
+      "withinExpectedRange": true
+    },
+    {
+      "at": "2026-10-07T10:46:02.612Z",
+      "balance": 1036,
+      "observedDecrease": 4,
+      "reservations": 4,
+      "withinExpectedRange": true
+    },
+    {
+      "at": "2026-10-07T11:03:25.014Z",
+      "balance": 1035,
+      "observedDecrease": 5,
+      "reservations": 5,
+      "withinExpectedRange": true
+    }
+  ],
+  "categories": [
+    {
+      "category": "earrings",
+      "submissions": 1,
+      "providerCompleted": true,
+      "mobileImageLoaded": true,
+      "coldRestoration": true,
+      "visualPass": true,
+      "limitation": null
+    },
+    {
+      "category": "necklaces",
+      "submissions": 2,
+      "providerCompleted": true,
+      "mobileImageLoaded": true,
+      "coldRestoration": true,
+      "visualPass": true,
+      "limitation": null,
+      "initialFailure": "Original portrait cropped the pendant; corrected by approved wider portrait.",
+      "retryInput": "vto-inputs/portrait-necklace/usernecklacefrontwide01-a23dc3.png",
+      "retryDimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "category": "rings",
+      "submissions": 1,
+      "providerCompleted": true,
+      "mobileImageLoaded": true,
+      "coldRestoration": true,
+      "visualPass": true,
+      "limitation": null
+    },
+    {
+      "category": "watches",
+      "submissions": 1,
+      "providerCompleted": true,
+      "mobileImageLoaded": true,
+      "coldRestoration": true,
+      "visualPass": true,
+      "limitation": null
+    }
+  ],
+  "offlineRecoveryPassed": true,
+  "mockDefaultsRestored": true,
+  "gateComplete": true
+}

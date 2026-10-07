@@ -1,3 +1,4 @@
+import { postgresConnectionOptions } from './postgres-ssl.js';
 import { visualStateSchema } from '../youcam/state.js';
 import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
@@ -9,9 +10,9 @@ import type { ShoppingRepository, StoredAsset } from './repository.js';
 
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const missing = () => new AgentError('SESSION_NOT_FOUND', 'Shopping session not found.', 404);
-export function postgresPool(connectionString: string) {
+export function postgresPool(connectionString: string, verification?: string) {
   const pool = new Pool({
-    connectionString,
+    ...postgresConnectionOptions(connectionString, verification),
     max: 8,
     connectionTimeoutMillis: 5000,
     statement_timeout: 10000,

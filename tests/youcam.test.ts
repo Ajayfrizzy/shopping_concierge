@@ -332,6 +332,59 @@ describe('M6 live adapter contracts (injected HTTP; zero external calls)', () =>
       });
     },
   );
+  it('blocks task submission when the durable reservation fails', async () => {
+    const transport = vi.fn(async () =>
+      Response.json({
+        status: 200,
+        data: {
+          files: [
+            {
+              file_id: 'file',
+              requests: [{ method: 'PUT', url: 'https://uploads.test/x', headers: {} }],
+            },
+          ],
+        },
+      }),
+    );
+    const provider = new LiveYouCamProvider({
+      apiKey: 'secret',
+      uploadHosts: ['uploads.test'],
+      outputHosts: ['assets.test'],
+      fetch: transport,
+      reserveRender: () => {
+        throw new Error('budget exhausted');
+      },
+    });
+    await expect(
+      provider.start({
+        category: 'earrings',
+        asset,
+        bytes: new Uint8Array([1]),
+        productAssetUrl: 'https://assets.test/product',
+      }),
+    ).rejects.toThrow('budget exhausted');
+    expect(transport).toHaveBeenCalledTimes(2);
+    expect(JSON.stringify(transport.mock.calls)).not.toContain('/task/');
+  });
+  it('rejects unverified API origins before credentials can be sent', () => {
+    expect(
+      () =>
+        new LiveYouCamProvider({
+          apiKey: 'secret',
+          apiOrigin: 'https://untrusted.test',
+          uploadHosts: [],
+          outputHosts: [],
+        }),
+    ).toThrow('verified official');
+    expect(() =>
+      youcamProvider({
+        USE_MOCK_YOUCAM: 'false',
+        YOUCAM_API_KEY: 'secret',
+        YOUCAM_UPLOAD_HOSTS: 'uploads.test',
+        YOUCAM_ASSET_HOSTS: 'assets.test',
+      }),
+    ).toThrow('usage ledger');
+  });
   it.each([
     [401, 'PROVIDER_AUTH'],
     [429, 'PROVIDER_RATE_LIMIT'],

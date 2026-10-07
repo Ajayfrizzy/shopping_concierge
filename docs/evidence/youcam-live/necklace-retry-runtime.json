@@ -1,0 +1,9 @@
+{
+  "scope": "final cold-launched app process",
+  "runtimeErrorMatches": {
+    "FATAL EXCEPTION": 0,
+    "Invariant Violation": 0,
+    "TurboModuleRegistry": 0,
+    "ReactNativeJS.*(?:Error:|Exception:)": 0
+  }
+}

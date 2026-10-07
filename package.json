@@ -30,7 +30,12 @@
     "verify:mobile-secrets": "node scripts/verify-mobile-secrets.mjs",
     "test:llm:live": "node --env-file-if-exists=apps/api/.env --env-file-if-exists=.env --import tsx scripts/llm-live-regression.ts",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "demo:prepare": "node --import tsx scripts/demo.mts prepare",
+    "demo:api": "node --import tsx scripts/demo.mts api",
+    "demo:mobile": "node --import tsx scripts/demo.mts mobile",
+    "demo:android": "node --import tsx scripts/demo.mts android",
+    "credits:report": "node --import tsx scripts/credit-report.mts"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",

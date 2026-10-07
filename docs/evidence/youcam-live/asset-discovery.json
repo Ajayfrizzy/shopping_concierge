@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-07",
+  "pathStyle": true,
+  "environmentPrefix": true,
+  "assets": [
+    {
+      "group": "vto-products/earrings/",
+      "relativeKey": "vto-products/earrings/earring01-9493d1.png",
+      "width": 360,
+      "height": 395,
+      "format": "png",
+      "bytes": 161322,
+      "listAndGet": "passed"
+    },
+    {
+      "group": "vto-products/necklaces/",
+      "relativeKey": "vto-products/necklaces/necklace01-9444a6.png",
+      "width": 365,
+      "height": 395,
+      "format": "png",
+      "bytes": 139679,
+      "listAndGet": "passed"
+    },
+    {
+      "group": "vto-products/rings/",
+      "relativeKey": "vto-products/rings/ring01-5d89c0.png",
+      "width": 365,
+      "height": 395,
+      "format": "png",
+      "bytes": 164950,
+      "listAndGet": "passed"
+    },
+    {
+      "group": "vto-products/watches/",
+      "relativeKey": "vto-products/watches/watch01-c7069f.png",
+      "width": 360,
+      "height": 395,
+      "format": "png",
+      "bytes": 172208,
+      "listAndGet": "passed"
+    },
+    {
+      "group": "vto-inputs/portrait/",
+      "relativeKey": "vto-inputs/portrait/userportrait01-a6ca8a.jpg",
+      "width": 440,
+      "height": 395,
+      "format": "jpeg",
+      "bytes": 48231,
+      "listAndGet": "passed"
+    },
+    {
+      "group": "vto-inputs/hand/",
+      "relativeKey": "vto-inputs/hand/userhand01-fad351.jpg",
+      "width": 400,
+      "height": 395,
+      "format": "jpeg",
+      "bytes": 39181,
+      "listAndGet": "passed"
+    },
+    {
+      "group": "vto-inputs/wrist/",
+      "relativeKey": "vto-inputs/wrist/userwrist01-f67397.jpg",
+      "width": 440,
+      "height": 395,
+      "format": "jpeg",
+      "bytes": 41100,
+      "listAndGet": "passed"
+    }
+  ],
+  "liveYouCamSubmissions": 0,
+  "liveOpenAIRequests": 0
+}

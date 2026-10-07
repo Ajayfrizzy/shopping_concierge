@@ -1,0 +1,29 @@
+
+> shopping-concierge@0.1.0 check
+> npm run lint && npm run typecheck && npm test
+
+
+> shopping-concierge@0.1.0 lint
+> eslint .
+
+
+> shopping-concierge@0.1.0 typecheck
+> tsc --noEmit && npm run typecheck -w @youcam/mobile
+
+
+> @youcam/mobile@0.1.0 typecheck
+> tsc --noEmit
+
+
+> shopping-concierge@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /Users/oluwaseun/Desktop/shopping-concierge
+
+
+ Test Files  20 passed (20)
+      Tests  455 passed (455)
+   Start at  18:39:09
+   Duration  3.68s (transform 1.31s, setup 0ms, import 4.61s, tests 20.10s, environment 1ms)
+

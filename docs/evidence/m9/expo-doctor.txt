@@ -1,0 +1,3 @@
+The appConfigFieldsNotSyncedCheck is disabled. Set expo.doctor.appConfigFieldsNotSyncedCheck.enabled to true in package.json to re-enable this check.
+Running 20 checks on your project...
+20/20 checks passed. No issues detected!

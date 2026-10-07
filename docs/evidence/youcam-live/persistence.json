@@ -1,0 +1,34 @@
+{
+  "checkedAfterValidationServerStopped": true,
+  "repository": "local PostgreSQL",
+  "liveJobs": [
+    {
+      "category": "earrings",
+      "productId": "E03",
+      "status": "completed",
+      "resultKind": "image",
+      "taskReferencePersisted": true
+    },
+    {
+      "category": "necklaces",
+      "productId": "N03",
+      "status": "completed",
+      "resultKind": "image",
+      "taskReferencePersisted": true
+    },
+    {
+      "category": "rings",
+      "productId": "R03",
+      "status": "completed",
+      "resultKind": "image",
+      "taskReferencePersisted": true
+    },
+    {
+      "category": "watches",
+      "productId": "W03",
+      "status": "completed",
+      "resultKind": "image",
+      "taskReferencePersisted": true
+    }
+  ]
+}

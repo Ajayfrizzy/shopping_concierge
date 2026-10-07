@@ -1,3 +1,4 @@
+import { postgresConnectionOptions } from './postgres-ssl.js';
 import { createMemoryRepository } from './memory.js';
 import { createPostgresRepository, postgresPool } from './postgres.js';
 import { createMemoryObjectStore, createS3ObjectStore } from './objects.js';
@@ -28,6 +29,8 @@ export function persistenceConfig(env: NodeJS.ProcessEnv = process.env) {
     }
     if (!valid) throw new Error('DATABASE_URL must be a PostgreSQL connection URL.');
   }
+  const databaseSslVerification = env.DATABASE_SSL_REJECT_UNAUTHORIZED;
+  if (databaseUrl) postgresConnectionOptions(databaseUrl, databaseSslVerification);
   let s3;
   if (storage === 's3') {
     const endpoint = required('S3_ENDPOINT');
@@ -43,7 +46,18 @@ export function persistenceConfig(env: NodeJS.ProcessEnv = process.env) {
       !['true', 'false'].includes(env.S3_FORCE_PATH_STYLE)
     )
       throw new Error('S3_FORCE_PATH_STYLE must be true or false.');
+    const assetPrefix = env.S3_ASSET_PREFIX ?? '';
+    if (
+      assetPrefix &&
+      (assetPrefix.startsWith('/') ||
+        !assetPrefix.endsWith('/') ||
+        assetPrefix.split('/').some((part) => part === '..' || part === '.') ||
+        assetPrefix.includes(String.fromCharCode(92)) ||
+        [...assetPrefix].some((c) => c.charCodeAt(0) < 32))
+    )
+      throw new Error('S3_ASSET_PREFIX must be a relative object prefix ending in /.');
     s3 = {
+      assetPrefix,
       endpoint,
       region: required('S3_REGION'),
       bucket: required('S3_BUCKET'),
@@ -64,12 +78,12 @@ export function persistenceConfig(env: NodeJS.ProcessEnv = process.env) {
       throw new Error('SMTP_URL must use smtp or smtps.');
     }
   }
-  return { mode, databaseUrl, s3, smtp };
+  return { mode, databaseUrl, databaseSslVerification, s3, smtp };
 }
 export function persistenceServices(config: ReturnType<typeof persistenceConfig>) {
   return {
     repository: config.databaseUrl
-      ? createPostgresRepository(postgresPool(config.databaseUrl))
+      ? createPostgresRepository(postgresPool(config.databaseUrl, config.databaseSslVerification))
       : createMemoryRepository(),
     objects: config.s3 ? createS3ObjectStore(config.s3) : createMemoryObjectStore(),
     emailSender: config.smtp ? smtpEmailSender(config.smtp.url, config.smtp.from) : undefined,

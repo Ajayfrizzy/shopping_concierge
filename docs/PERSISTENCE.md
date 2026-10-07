@@ -60,3 +60,13 @@ M5 supplies authenticated upload/metadata/content APIs, not image capture UI or 
 Object keys include session ID, upload ID and content hash, not provider hostnames. The S3 adapter uploads bytes before the repository commits metadata. Upload IDs are idempotent; conflicting content/type cannot replace an existing reference. Downloads require session ownership and verify byte length/hash before returning private/no-store content. No public bucket URL, object key or permanent storage credential is returned. S3 adapters do not create buckets or set public ACLs.
 
 PostgreSQL and S3 cannot share an ACID transaction. An upload followed by a failed/uncertain metadata commit can leave an unreferenced private object; retry is safe and does not invent success. No automatic deletion runs after an uncertain commit, because another successful retry may reference those bytes. Orphan reconciliation and retention/deletion policy remain operational follow-up; M5 does not claim distributed atomicity or implement VTO jobs/visual analysis.
+
+## Database-only TLS configuration
+
+The PostgreSQL URL normally controls TLS verification (use `sslmode=verify-full` for a trusted provider). For the hackathon provider's user-approved self-signed connection, use `sslmode=require` together with server-only `DATABASE_SSL_REJECT_UNAUTHORIZED=false`. This preserves encrypted transport but skips server certificate verification **only for PostgreSQL**. It never changes global Node TLS, S3 or external AI HTTPS settings. Avoid this exception for providers supporting trusted certificates.
+
+The override accepts only `true`/`false`, requires `sslmode=require`, and cannot be combined with URL `ssl`, `sslcert`, `sslkey`, `sslrootcert` or `uselibpqcompat`. The adapter converts it to an explicit driver SSL object so URL parsing cannot silently override the choice. Both API pools and migration CLI use it. To return to full verification, omit the override and configure the trusted provider's verified connection URL, or set the override to `true` with `sslmode=require`. Local credential-free PostgreSQL integration settings remain unchanged.
+
+## Approved VTO asset prefix
+
+`S3_ASSET_PREFIX` optionally supplies a relative project prefix ending in `/` for `createS3ObjectStore(...).listAssets(group)`. Supported groups are the four `vto-products/` categories and portrait/hand/wrist `vto-inputs/` groups. Discovery returns exact bucket keys and propagates denied access; it never treats a permission failure as an empty group. Stored uploads and direct get/put keys are not automatically prefixed. Configure project-scoped ListBucket/GetObject permissions privately; never embed generated provider project paths in domain or application code.

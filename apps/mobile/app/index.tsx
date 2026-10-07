@@ -1,3 +1,4 @@
+import { RelaxationChoices } from '../src/relaxation-choices';
 import { ProductImage } from '../src/product-image';
 import { ComparisonView } from '../src/comparison-view';
 import { useEffect, useState } from 'react';
@@ -186,12 +187,14 @@ export default function Home() {
             ))}
           {result && (
             <>
-              <Text style={styles.heading}>
-                {result.totalExactMatches
-                  ? `${result.totalExactMatches} exact matches`
-                  : 'No exact matches'}
-              </Text>
-              {!result.totalExactMatches && (
+              {(!!result.totalExactMatches || !session?.pendingRelaxations.length) && (
+                <Text style={styles.heading}>
+                  {result.totalExactMatches
+                    ? `${result.totalExactMatches} exact matches`
+                    : 'No exact matches'}
+                </Text>
+              )}
+              {!result.totalExactMatches && !session?.pendingRelaxations.length && (
                 <Text style={styles.text}>
                   Your constraints are still active. Review a suggested change below, or describe a
                   different preference.
@@ -299,25 +302,7 @@ export default function Home() {
             </>
           )}
           {!!session?.pendingRelaxations.length && (
-            <Panel>
-              <Text style={styles.heading}>Changes you can review</Text>
-              <Text style={styles.text}>
-                These are proposals, not exact matches. Nothing changes until you confirm.
-              </Text>
-              {session.pendingRelaxations.map((proposal, i) => (
-                <View key={proposal.proposalId} style={{ gap: 8 }}>
-                  <Text style={styles.text}>
-                    {proposal.updates.map(constraintLabel).join('\n')}
-                  </Text>
-                  <Button
-                    title={`Review option ${i + 1}`}
-                    secondary
-                    disabled={disabled}
-                    onPress={() => setConfirming(proposal.proposalId)}
-                  />
-                </View>
-              ))}
-            </Panel>
+            <RelaxationChoices session={session} disabled={disabled} onReview={setConfirming} />
           )}
           {session?.state.activeCategory && (
             <View style={styles.row}>
@@ -442,13 +427,13 @@ export default function Home() {
       >
         <View style={styles.modal}>
           <Panel>
-            <Text style={styles.heading}>Confirm these changes?</Text>
+            <Text style={styles.heading}>Confirm this search adjustment?</Text>
             {offer ? (
               <>
                 <Text style={styles.text}>{offer.updates.map(constraintLabel).join('\n')}</Text>
                 <Text style={styles.muted}>
-                  Only these scoped updates will be applied. We’ll search again using your updated
-                  constraints.
+                  Only these proposed changes will be applied. Other constraints stay as recorded.
+                  We’ll search again and show product cards and images for exact matches.
                 </Text>
                 <Button
                   title="Confirm changes"

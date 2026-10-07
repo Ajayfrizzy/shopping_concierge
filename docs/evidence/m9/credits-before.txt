@@ -1,0 +1,27 @@
+
+> shopping-concierge@0.1.0 credits:report
+> node --import tsx scripts/credit-report.mts
+
+{
+  "scope": "historical validation ledgers; not current provider billing",
+  "openai": {
+    "model": "gpt-5.6-terra",
+    "requests": 29,
+    "inputTokens": 74655,
+    "outputTokens": 3512,
+    "cachedTokens": 44911,
+    "estimatedOrReservedUsd": 0.11061419999999998,
+    "unknownUsageRequests": 0
+  },
+  "youcam": {
+    "reservedRenders": 5,
+    "limit": 8,
+    "byCategory": {
+      "earrings": 1,
+      "necklaces": 2,
+      "rings": 1,
+      "watches": 1
+    },
+    "billingUnits": "Not inferred from reservations; gate evidence records 5 observed units."
+  }
+}

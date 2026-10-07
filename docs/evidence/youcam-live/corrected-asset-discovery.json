@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-07",
+  "assets": [
+    {
+      "group": "vto-products/earrings/",
+      "format": "png",
+      "width": 360,
+      "height": 395,
+      "bytes": 161322,
+      "relativeKey": "vto-products/earrings/earring01-9493d1.png"
+    },
+    {
+      "group": "vto-products/necklaces/",
+      "format": "png",
+      "width": 365,
+      "height": 395,
+      "bytes": 139679,
+      "relativeKey": "vto-products/necklaces/necklace01-9444a6.png"
+    },
+    {
+      "group": "vto-products/rings/",
+      "format": "png",
+      "width": 365,
+      "height": 395,
+      "bytes": 164950,
+      "relativeKey": "vto-products/rings/ring01-5d89c0.png"
+    },
+    {
+      "group": "vto-products/watches/",
+      "format": "png",
+      "width": 360,
+      "height": 395,
+      "bytes": 172208,
+      "relativeKey": "vto-products/watches/watch01-c7069f.png"
+    },
+    {
+      "group": "vto-inputs/portrait/",
+      "format": "png",
+      "width": 300,
+      "height": 375,
+      "bytes": 213955,
+      "relativeKey": "vto-inputs/portrait/userportrait01-a6ca8a-e9fdd0.png"
+    },
+    {
+      "group": "vto-inputs/hand/",
+      "format": "png",
+      "width": 300,
+      "height": 375,
+      "bytes": 170094,
+      "relativeKey": "vto-inputs/hand/userwrist01-f67397-941533.png"
+    },
+    {
+      "group": "vto-inputs/wrist/",
+      "format": "png",
+      "width": 500,
+      "height": 625,
+      "bytes": 465966,
+      "relativeKey": "vto-inputs/wrist/userwrist01-f67397jpg-2f2a53.png"
+    }
+  ],
+  "necklaceInput": "Previously approved local portrait JPEG retained before bucket replacement; 440x395.",
+  "earringProductPreparation": "123x327 crop of the front-facing single earring; private vto-prepared/live-gate/earring-single.png under configured prefix."
+}

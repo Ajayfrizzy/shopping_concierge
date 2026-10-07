@@ -1,0 +1,7 @@
+{
+  "cancelUnchanged": true,
+  "plainYesStateUnchanged": true,
+  "confirmationChangesRevisionOnce": true,
+  "retryStateUnchanged": true,
+  "retryVersionDelta": 1
+}

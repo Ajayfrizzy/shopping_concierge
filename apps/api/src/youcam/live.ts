@@ -9,7 +9,7 @@ import {
   type YouCamProvider,
 } from './provider.js';
 import type { Category } from '@youcam/shared';
-const apiOrigin = 'https://yce-api-01.makeupar.com';
+const defaultApiOrigin = 'https://yce-api-01.makeupar.com';
 const identifier = z.string().min(1).max(1024);
 const envelope = <T extends z.ZodTypeAny>(data: T) => z.object({ status: z.literal(200), data });
 const started = envelope(z.object({ task_id: identifier }));
@@ -66,6 +66,8 @@ export class LiveYouCamProvider implements YouCamProvider {
   constructor(
     private readonly options: {
       apiKey: string;
+      apiOrigin?: string;
+      reserveRender?: (category: Category) => void;
       uploadHosts: string[];
       outputHosts: string[];
       fetch?: typeof fetch;
@@ -78,6 +80,8 @@ export class LiveYouCamProvider implements YouCamProvider {
     },
   ) {
     if (!options.apiKey.trim()) throw new Error('Server-side YouCam API key is required.');
+    if (options.apiOrigin && options.apiOrigin !== defaultApiOrigin)
+      throw new Error('YouCam API origin must match the verified official HTTPS endpoint.');
   }
   private async request(url: string, init: RequestInit, operation: string): Promise<Response> {
     try {
@@ -114,7 +118,7 @@ export class LiveYouCamProvider implements YouCamProvider {
   }
   private async json<T>(path: string, schema: z.ZodType<T>, body?: unknown): Promise<T> {
     const response = await this.request(
-      apiOrigin + path,
+      (this.options.apiOrigin ?? defaultApiOrigin) + path,
       {
         method: body ? 'POST' : 'GET',
         headers: {
@@ -173,6 +177,7 @@ export class LiveYouCamProvider implements YouCamProvider {
       'upload',
     );
     // No automatic POST retry: an uncertain response may already have consumed credits.
+    this.options.reserveRender?.(input.category);
     const task = await this.json(`/s2s/v2.0/task/${path}`, started, {
       src_file_id: file.file_id,
       ref_file_urls: [productUrl],

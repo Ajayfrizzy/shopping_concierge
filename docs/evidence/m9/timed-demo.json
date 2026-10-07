@@ -1,0 +1,55 @@
+{
+  "elapsedSeconds": 106.01,
+  "method": "ADB-driven real Samsung UI rehearsal; no narration; historical live capture explicitly labeled; no paid calls",
+  "steps": [
+    {
+      "step": "goal",
+      "seconds": 7.77
+    },
+    {
+      "step": "catalog",
+      "seconds": 9.98
+    },
+    {
+      "step": "feedback-refinement",
+      "seconds": 24.64
+    },
+    {
+      "step": "image-on-demand",
+      "seconds": 35.93
+    },
+    {
+      "step": "historical-live-evidence",
+      "seconds": 39.75
+    },
+    {
+      "step": "complement",
+      "seconds": 61.27
+    },
+    {
+      "step": "comparison",
+      "seconds": 69.67
+    },
+    {
+      "step": "comparison-facts",
+      "seconds": 71.4
+    },
+    {
+      "step": "persistent-summary",
+      "seconds": 76.04
+    },
+    {
+      "step": "no-match",
+      "seconds": 93.65
+    },
+    {
+      "step": "review",
+      "seconds": 101.54
+    },
+    {
+      "step": "cancel-preserves-constraints",
+      "seconds": 106.01
+    }
+  ],
+  "withinThreeMinutes": true
+}

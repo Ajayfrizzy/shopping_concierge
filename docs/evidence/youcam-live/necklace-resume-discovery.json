@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-07T09:04:28.600Z",
+  "results": [
+    {
+      "group": "vto-inputs/portrait/",
+      "relativeKey": "vto-inputs/portrait/userportrait01-a6ca8a-e9fdd0.png",
+      "width": 300,
+      "height": 375,
+      "bytes": 213955,
+      "unchangedSinceInitialLivePass": true
+    },
+    {
+      "group": "vto-inputs/hand/",
+      "relativeKey": "vto-inputs/hand/userwrist01-f67397-941533.png",
+      "width": 300,
+      "height": 375,
+      "bytes": 170094,
+      "unchangedSinceInitialLivePass": true
+    },
+    {
+      "group": "vto-inputs/wrist/",
+      "relativeKey": "vto-inputs/wrist/userwrist01-f67397jpg-2f2a53.png",
+      "width": 500,
+      "height": 625,
+      "bytes": 465966,
+      "unchangedSinceInitialLivePass": true
+    }
+  ]
+}

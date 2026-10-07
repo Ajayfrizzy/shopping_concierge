@@ -111,3 +111,7 @@ User selected OpenAI Responses, configurable `gpt-5.6-terra`, low reasoning, ser
 ## M8 cross-product intelligence — 2026-10-04
 
 M8 uses explicit selected-anchor dependencies and deterministic shared-attribute complement evidence at heuristic priority. Relevant feedback transfers only along these links; size/shape/price do not transfer across accessory categories. Comparisons expose catalog facts and scoped criteria without an overall winner. This completes existing A08/A12 scope, adds no cloud/provider dependency and spends no live credits. See [decision intelligence](DECISION_INTELLIGENCE.md).
+
+## 2026-10-07 — Scoped hackathon PostgreSQL TLS exception
+
+Per explicit user authorization and their supplied RumptyCloud guidance, the backend may use encrypted `sslmode=require` with `DATABASE_SSL_REJECT_UNAUTHORIZED=false` for this provider's self-signed connection. Keep this exception inside the PostgreSQL adapter and migration composition, environment-driven and removable for a trusted-CA provider. Never disable TLS globally. Actual connection verified as TLSv1.3; this is an encryption check, not server certificate authentication. No domain/provider-specific logic or live AI calls are introduced.

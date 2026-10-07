@@ -1,3 +1,4 @@
+import { reserveYouCamRender } from './budget.js';
 import { MockVisualProvider } from './mock.js';
 import { LiveYouCamProvider } from './live.js';
 export function youcamProvider(
@@ -16,7 +17,12 @@ export function youcamProvider(
       .split(',')
       .map((s) => s.trim())
       .filter(Boolean);
+  if (!env.YOUCAM_USAGE_LEDGER)
+    throw new Error('Live YouCam requires an initialized usage ledger.');
+  const ledger = env.YOUCAM_USAGE_LEDGER;
   return new LiveYouCamProvider({
+    apiOrigin: env.YOUCAM_BASE_URL || undefined,
+    reserveRender: (category) => reserveYouCamRender(ledger, category),
     apiKey: env.YOUCAM_API_KEY,
     uploadHosts: hosts(env.YOUCAM_UPLOAD_HOSTS),
     outputHosts: hosts(env.YOUCAM_ASSET_HOSTS),

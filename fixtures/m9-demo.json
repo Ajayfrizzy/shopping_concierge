@@ -1,0 +1,11 @@
+{
+  "goal": "Silver earrings for a wedding under $120, elegant but not too loud.",
+  "reject": "Reject E05 as too flashy",
+  "cheaper": "Show me cheaper ones",
+  "tryOn": "Try on E18",
+  "select": "Select E18",
+  "complement": "Now find a necklace that works with this under $100",
+  "compare": "Compare N01 and N02",
+  "return": "Back to earrings",
+  "noMatch": "Platinum earrings under $1"
+}
