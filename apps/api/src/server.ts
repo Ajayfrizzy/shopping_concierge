@@ -1,3 +1,4 @@
+import { startupFailure } from './startup.js';
 import { initializeYouCamLedger } from './youcam/ledger-config.js';
 import { llmProvider } from './llm/config.js';
 import { youcamProvider } from './youcam/config.js';
@@ -30,14 +31,15 @@ for (const signal of ['SIGINT', 'SIGTERM'] as const) {
     void app.close();
   });
 }
+let stage: 'catalog' | 'listen' = 'catalog';
 try {
   if (!(await persistence.repository.products()).length)
-    throw new Error('Catalog is empty; run the explicit migration/fixture seed.');
+    throw Object.assign(new Error('Catalog is empty'), { code: 'CATALOG_EMPTY' });
+  stage = 'listen';
   await app.listen(config);
-} catch {
-  app.log.error(
-    'API startup failed. Check server-side configuration, migrations and service availability.',
-  );
+} catch (error) {
+  const failure = startupFailure(stage, error);
+  app.log.error({ stage: failure.stage, code: failure.code }, failure.message);
   await app.close();
   process.exitCode = 1;
 }
