@@ -81,7 +81,7 @@ Use this API instead of `dev:api`, with Metro in another terminal. The explicit 
 
 | Configuration         | Implemented environment variables                                                                                                      |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| API / runtime         | `NODE_ENV`, `API_HOST`, `API_PORT`, `PERSISTENCE_MODE`, `OBJECT_STORAGE_MODE`                                                          |
+| API / runtime         | `NODE_ENV`, `API_HOST`, `PORT`, `API_PORT`, `PERSISTENCE_MODE`, `OBJECT_STORAGE_MODE`                                                  |
 | PostgreSQL            | `DATABASE_URL`, optional `DATABASE_SSL_REJECT_UNAUTHORIZED`                                                                            |
 | S3-compatible storage | `S3_ENDPOINT`, `S3_REGION`, `S3_BUCKET`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`, `S3_FORCE_PATH_STYLE`, optional `S3_ASSET_PREFIX` |
 | OpenAI planning       | `USE_MOCK_LLM`, `LLM_PROVIDER`, `LLM_MODEL`, `LLM_REASONING_EFFORT`, `OPENAI_API_KEY`                                                  |
@@ -89,6 +89,16 @@ Use this API instead of `dev:api`, with Metro in another terminal. The explicit 
 | Optional email API    | `EMAIL_AUTH_ENABLED`, `SMTP_URL`, `EMAIL_FROM`                                                                                         |
 
 `PERSISTENCE_MODE=memory` requires `OBJECT_STORAGE_MODE=memory`; `postgres` requires `s3` and database/storage settings. `S3_ASSET_PREFIX`, when set, is a relative object prefix ending in `/`. Email is disabled by default. Leave both `USE_MOCK_*` flags `true` for development and tests. Live providers require reviewed configuration and retained usage ledgers; do not reset the ledgers. Provider secrets must never enter mobile configuration. Detailed mode requirements: [persistence](docs/PERSISTENCE.md), [OpenAI](docs/LLM.md), [YouCam](docs/YOUCAM.md).
+
+## Backend hosting commands
+
+With the repository root as the hosting build directory:
+
+- **Build:** `npm ci --include=dev && npm run build:api`
+- **Start:** `npm start`
+- Set `NODE_ENV=production` and `API_HOST=0.0.0.0`; the injected `PORT` overrides `API_PORT` (fallback 4000).
+
+This compiles and starts only the Fastify API, with no Expo process or TypeScript loader. Production reads host-injected environment variables. See [API production setup](apps/api/README.md#compiled-production-startup) for runtime files and persistence prerequisites. These commands do not deploy or initialize cloud resources automatically.
 
 ## Validation commands
 

@@ -35,7 +35,9 @@
     "demo:api": "node --import tsx scripts/demo.mts api",
     "demo:mobile": "node --import tsx scripts/demo.mts mobile",
     "demo:android": "node --import tsx scripts/demo.mts android",
-    "credits:report": "node --import tsx scripts/credit-report.mts"
+    "credits:report": "node --import tsx scripts/credit-report.mts",
+    "build:api": "npm run build -w @youcam/api",
+    "start": "npm run start -w @youcam/api"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",

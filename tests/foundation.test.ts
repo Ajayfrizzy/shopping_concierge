@@ -105,6 +105,21 @@ describe('server configuration', () => {
   it('defaults to mock services and loopback', () => {
     expect(readConfig({})).toEqual({ port: 4000, host: '127.0.0.1' });
   });
+  it('uses the platform port ahead of the API fallback in production', () => {
+    expect(readConfig({ NODE_ENV: 'production', PORT: '8080', API_PORT: '4000' })).toEqual({
+      port: 8080,
+      host: '0.0.0.0',
+    });
+    expect(readConfig({ NODE_ENV: 'production', API_PORT: '5000' }).port).toBe(5000);
+    expect(readConfig({ NODE_ENV: 'production' }).port).toBe(4000);
+    expect(readConfig({ NODE_ENV: 'production', API_HOST: '127.0.0.1' }).host).toBe('127.0.0.1');
+  });
+  it.each(['', '0', '-1', '65536', '4000.5', 'oops'])(
+    'rejects an invalid platform port without silently falling back: %s',
+    (port) => {
+      expect(() => readConfig({ PORT: port, API_PORT: '4000' })).toThrow('PORT');
+    },
+  );
   it.each(['USE_MOCK_LLM', 'USE_MOCK_YOUCAM'])(
     'fails closed for unsupported live mode: %s',
     (key) => {

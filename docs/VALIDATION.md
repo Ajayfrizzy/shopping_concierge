@@ -1,5 +1,11 @@
 # Validation log
 
+## Compiled API startup configuration — 2026-10-08
+
+Added root `build:api` / `start` scripts and a backend-only esbuild build. API production start now runs `node dist/runtime/server.js`; third-party runtime dependencies remain external, internal TypeScript workspaces are compiled, and migration/ledger-relative paths retain their directory depth. Development startup and mobile exports are unchanged. `PORT` takes precedence over `API_PORT`; production defaults to `0.0.0.0` unless `API_HOST` explicitly overrides it. Invalid injected ports fail closed.
+
+`npm run build:api`, lint and both typechecks pass. Offline suite: **453 passed, 12 integration tests skipped (465 total)**, including seven new hosting-config cases. A local compiled-server smoke test with TypeScript loading disabled verified the wildcard listening socket, injected-port precedence, mock `/health` and authenticated session creation. No live credits, cloud migration or deployment. See [exact hosting commands](../apps/api/README.md#compiled-production-startup).
+
 ## Publication review and compatible security patch — 2026-10-08
 
 **Ready for public repository push; not pushed or deployed.** The owner confirmed both visible portraits are synthetic/generated and explicitly chose to preserve existing Git history. Reviewed 163 screenshots and 104 one-second samples of the silent demo video; no real recognizable personal photo was identified and no image replacement was required. Current text remains sanitized; historical non-secret machine identifiers are retained by decision. See [image provenance](evidence/IMAGE_PROVENANCE.md).
