@@ -1,3 +1,13 @@
+# PostgreSQL YouCam ledger — 2026-10-08
+
+User-authorized deployment preparation is implemented; no deployment or cloud migration performed. Migration 004 imports the five checked-in render reservations once and retains the eight-request/unit ceilings. PostgreSQL startup checks, serialized reservations, job-ID duplicate protection, idempotent acknowledgement commits and conservative accounting for uncertain outcomes are covered. File validation remains available; LLM accounting is unchanged.
+
+Validation: lint and API/mobile typechecks pass. `M5_INTEGRATION=1 npm test -- --maxWorkers=2` passes **484 tests across 22 files**, including real local PostgreSQL/S3 integration. The initial sandbox run could not connect to loopback services; the unrestricted default-worker run hit existing catalog/demo 5-second timeouts. Two workers passed the complete suite without changing tests or timeouts. `npm run build:api` passes. `npm run verify:mobile-secrets` passes Android export and scans 94 files for seven server-secret sentinels. No live provider calls or credits consumed.
+
+Remaining operational steps: apply migration 004 explicitly to the target database, reconcile any newer file-ledger history, configure PostgreSQL ledger mode and deploy only when authorized. The five recorded renders leave three attempts under unchanged ceilings; higher operating ceilings require an explicit persisted budget/environment update. Exact settings and compatibility notes are in `apps/api/README.md`.
+
+---
+
 # Validation log
 
 ## Missing deployment artifact repair — 2026-10-08

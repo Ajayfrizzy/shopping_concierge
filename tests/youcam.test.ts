@@ -332,6 +332,64 @@ describe('M6 live adapter contracts (injected HTTP; zero external calls)', () =>
       });
     },
   );
+  it.each(['duplicate', 'unavailable', 'success', 'uncertain', 'commit-failure'] as const)(
+    'awaits persistent accounting and handles %s without extra submissions',
+    async (outcome) => {
+      const ledger = {
+        initialize: vi.fn(async () => {}),
+        reserve: vi.fn(async () => {
+          if (outcome === 'unavailable') throw new Error('ledger unavailable');
+          return outcome !== 'duplicate';
+        }),
+        commit: vi.fn(async () => {
+          if (outcome === 'commit-failure') throw new Error('commit failed');
+        }),
+      };
+      const transport = vi.fn(async (input: string | URL | Request) => {
+        const url = String(input);
+        if (url.includes('/task/')) {
+          expect(ledger.reserve).toHaveBeenCalledTimes(1);
+          if (outcome === 'uncertain') throw new Error('connection lost');
+          return Response.json({ status: 200, data: { task_id: 'task' } });
+        }
+        return Response.json({
+          status: 200,
+          data: {
+            files: [
+              {
+                file_id: 'file',
+                requests: [{ method: 'PUT', url: 'https://uploads.test/x', headers: {} }],
+              },
+            ],
+          },
+        });
+      });
+      const provider = new LiveYouCamProvider({
+        apiKey: 'test',
+        uploadHosts: ['uploads.test'],
+        outputHosts: ['assets.test'],
+        fetch: transport,
+        ledger,
+      });
+      const id = '11111111-1111-4111-8111-111111111111';
+      const pending = provider.start({
+        reservationId: id,
+        category: 'earrings',
+        asset,
+        bytes: new Uint8Array([1]),
+        productAssetUrl: 'https://assets.test/product',
+      });
+      if (outcome === 'success') await expect(pending).resolves.toBe('task');
+      else await expect(pending).rejects.toThrow();
+      expect(ledger.reserve).toHaveBeenCalledWith(id, 'earrings');
+      expect(transport.mock.calls.filter(([url]) => String(url).includes('/task/'))).toHaveLength(
+        ['duplicate', 'unavailable'].includes(outcome) ? 0 : 1,
+      );
+      expect(ledger.commit).toHaveBeenCalledTimes(
+        ['success', 'commit-failure'].includes(outcome) ? 1 : 0,
+      );
+    },
+  );
   it('blocks task submission when the durable reservation fails', async () => {
     const transport = vi.fn(async () =>
       Response.json({

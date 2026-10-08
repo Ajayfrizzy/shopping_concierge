@@ -67,6 +67,18 @@ export async function migrate(pool: Pool) {
       await client.query(imageSql);
       await client.query('INSERT INTO schema_migrations VALUES (3,$1)', [imageHash]);
     }
+    const usageSql = await readFile(
+      new URL('../../migrations/004_youcam_usage.sql', import.meta.url),
+      'utf8',
+    );
+    const usageHash = createHash('sha256').update(usageSql).digest('hex');
+    const usageOld = await client.query('SELECT checksum FROM schema_migrations WHERE version=4');
+    if (usageOld.rows[0] && usageOld.rows[0].checksum !== usageHash)
+      throw new Error('Migration checksum mismatch');
+    if (!usageOld.rows.length) {
+      await client.query(usageSql);
+      await client.query('INSERT INTO schema_migrations VALUES (4,$1)', [usageHash]);
+    }
     await client.query('COMMIT');
   } catch (error) {
     await client.query('ROLLBACK');

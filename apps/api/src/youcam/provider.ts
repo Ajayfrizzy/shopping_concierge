@@ -59,6 +59,7 @@ export type ProviderPoll =
   | { status: 'completed'; mock: true }
   | { status: 'failed'; error: z.infer<typeof visualFailureSchema> };
 export interface TryOnInput {
+  reservationId?: string;
   category: Category;
   asset: VisualAsset;
   bytes: Uint8Array;

@@ -231,6 +231,7 @@ export function visualService(
               'The catalog product is no longer available.',
             );
           const taskId = await provider.start({
+            reservationId: work.job.id,
             category: product.category,
             asset: stored.asset,
             bytes,

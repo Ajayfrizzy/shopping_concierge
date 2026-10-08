@@ -171,3 +171,7 @@ Migration `002_visual.sql` adds `visual_sessions(session_id PRIMARY KEY REFERENC
 ## M8 cross-product intelligence — 2026-10-04
 
 M8 activates persisted complement dependencies: selected catalog anchor, distinct target category, one anchor per target. Anchor rejection invalidates its relationships. Shared comparison schemas return two factual items, active criteria and eligibility/evidence; comparisons are not replacement decision state. See [decision intelligence](DECISION_INTELLIGENCE.md).
+
+## PostgreSQL YouCam accounting — 2026-10-08
+
+Migration `004_youcam_usage.sql` adds a singleton `youcam_usage_budget` (request/unit ceilings) and `youcam_usage_reservations` (server job ID, category, one reserved unit, reservation/commit timestamps, historical flag). Commit means submission acknowledgement; all reservations count even when acknowledgement is unknown. Historical commit markers reuse the original recorded reservation timestamps, not independently measured acknowledgement times. These server-only records contain no keys, images, URLs or provider response bodies. They are independent of session deletion and remain charged across deployments.

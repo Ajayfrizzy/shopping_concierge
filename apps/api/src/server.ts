@@ -1,21 +1,27 @@
+import { initializeYouCamLedger } from './youcam/ledger-config.js';
 import { llmProvider } from './llm/config.js';
 import { youcamProvider } from './youcam/config.js';
 import { buildApp } from './app.js';
 import { readConfig } from './config.js';
 import { persistenceConfig, persistenceServices } from './persistence/config.js';
 const config = readConfig();
-const persistence = persistenceServices(persistenceConfig());
+const storageConfig = persistenceConfig();
+const usage = await initializeYouCamLedger(process.env);
+const persistence = persistenceServices(storageConfig);
 const app = buildApp({
   logger: true,
   shopping: {
     ...persistence,
     planner: llmProvider(),
-    visualProvider: youcamProvider(process.env, (event) =>
-      console.info(JSON.stringify({ service: 'youcam', ...event })),
+    visualProvider: youcamProvider(
+      process.env,
+      (event) => console.info(JSON.stringify({ service: 'youcam', ...event })),
+      usage?.ledger,
     ),
   },
 });
 app.addHook('onClose', async () => {
+  await usage?.close();
   await persistence.repository.close();
   persistence.objects.close();
 });

@@ -77,7 +77,7 @@ Use this API instead of `dev:api`, with Metro in another terminal. The explicit 
 
 ## Configuration
 
-[.env.example](.env.example) lists safe defaults and empty credential placeholders. Copy it to root `.env` only to override API defaults; the normal API scripts load that file. They do not automatically load `apps/api/.env`. Existing shell variables take precedence. Mobile configuration belongs in `apps/mobile/.env` or the shell and contains only `EXPO_PUBLIC_API_URL`; see [the mobile example](apps/mobile/.env.example).
+[.env.example](.env.example) lists safe defaults and empty credential placeholders. Copy it to `apps/api/.env` or root `.env` to override API defaults. The API development and migration scripts load `apps/api/.env`, then root `.env` if present; root-file values override API-file values. Existing shell variables take precedence over both. Mobile configuration belongs in `apps/mobile/.env` or the shell and contains only `EXPO_PUBLIC_API_URL`; see [the mobile example](apps/mobile/.env.example).
 
 | Configuration         | Implemented environment variables                                                                                                      |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |

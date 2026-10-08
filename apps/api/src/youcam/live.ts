@@ -1,3 +1,5 @@
+import { randomUUID } from 'node:crypto';
+import type { UsageLedger } from './ledger.js';
 import { z } from 'zod';
 import {
   operationPath,
@@ -68,6 +70,7 @@ export class LiveYouCamProvider implements YouCamProvider {
       apiKey: string;
       apiOrigin?: string;
       reserveRender?: (category: Category) => void;
+      ledger?: UsageLedger;
       uploadHosts: string[];
       outputHosts: string[];
       fetch?: typeof fetch;
@@ -177,6 +180,12 @@ export class LiveYouCamProvider implements YouCamProvider {
       'upload',
     );
     // No automatic POST retry: an uncertain response may already have consumed credits.
+    const reservationId = input.reservationId ?? randomUUID();
+    if (this.options.ledger && !(await this.options.ledger.reserve(reservationId, input.category)))
+      throw new VisualError(
+        'PROVIDER_UNAVAILABLE',
+        'This render was already reserved. No duplicate submission was made.',
+      );
     this.options.reserveRender?.(input.category);
     const task = await this.json(`/s2s/v2.0/task/${path}`, started, {
       src_file_id: file.file_id,
@@ -184,6 +193,7 @@ export class LiveYouCamProvider implements YouCamProvider {
       source_info: { name: file.file_id },
       object_infos: [{ name: productUrl }],
     });
+    await this.options.ledger?.commit(reservationId);
     return task.data.task_id;
   }
   async poll(category: Category, taskId: string): Promise<ProviderPoll> {

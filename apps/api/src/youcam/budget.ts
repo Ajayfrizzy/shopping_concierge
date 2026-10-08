@@ -33,3 +33,15 @@ export function reserveYouCamRender(path: string, category: Category) {
     }
   }
 }
+
+export function validateFileLedger(path: string) {
+  try {
+    const lines = readFileSync(path, 'utf8').split('\n').filter(Boolean);
+    lines.forEach((line) => reservation.parse(JSON.parse(line)));
+    if (lines.length > 8) throw new Error();
+  } catch {
+    throw new Error(
+      'Live YouCam file ledger initialization failed: existing valid history is required.',
+    );
+  }
+}

@@ -1,9 +1,12 @@
+import { ledgerSettings } from './ledger-config.js';
+import type { UsageLedger } from './ledger.js';
 import { reserveYouCamRender } from './budget.js';
 import { MockVisualProvider } from './mock.js';
 import { LiveYouCamProvider } from './live.js';
 export function youcamProvider(
   env: NodeJS.ProcessEnv = process.env,
   log?: ConstructorParameters<typeof LiveYouCamProvider>[0]['log'],
+  usageLedger?: UsageLedger,
 ) {
   if (env.USE_MOCK_YOUCAM === undefined || env.USE_MOCK_YOUCAM === 'true')
     return new MockVisualProvider();
@@ -17,12 +20,18 @@ export function youcamProvider(
       .split(',')
       .map((s) => s.trim())
       .filter(Boolean);
-  if (!env.YOUCAM_USAGE_LEDGER)
-    throw new Error('Live YouCam requires an initialized usage ledger.');
-  const ledger = env.YOUCAM_USAGE_LEDGER;
+  const settings = ledgerSettings(env);
   return new LiveYouCamProvider({
     apiOrigin: env.YOUCAM_BASE_URL || undefined,
-    reserveRender: (category) => reserveYouCamRender(ledger, category),
+    ledger: usageLedger,
+    reserveRender:
+      settings.mode === 'file'
+        ? (category) => reserveYouCamRender(env.YOUCAM_USAGE_LEDGER!, category)
+        : usageLedger
+          ? undefined
+          : () => {
+              throw new Error('PostgreSQL YouCam ledger has not initialized.');
+            },
     apiKey: env.YOUCAM_API_KEY,
     uploadHosts: hosts(env.YOUCAM_UPLOAD_HOSTS),
     outputHosts: hosts(env.YOUCAM_ASSET_HOSTS),
