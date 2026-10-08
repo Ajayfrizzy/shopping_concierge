@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-07",
+  "currentPreviouslyTrackedFilesScanned": 611,
+  "reachableHistoricalBlobsScanned": 659,
+  "configuredPrivateValuesCompared": 9,
+  "configuredPrivateValueMatches": 0,
+  "credentialPatternMatches": 0,
+  "currentHomePathOrDeviceSerialMatches": 0,
+  "currentSignedUrlMatches": 0,
+  "privateEnvironmentFilesTracked": false,
+  "notes": [
+    "Scans report findings, not a guarantee that arbitrary secrets can be detected.",
+    "Public local integration credentials, fixture tokens and credential sentinels are intentional test data.",
+    "Historical machine paths/device serial remain in existing commits; no history rewrite performed.",
+    "Recognizable-photo publication permission remains a separate manual gate."
+  ]
+}

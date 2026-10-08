@@ -14,3 +14,44 @@ apps/mobile/android/
 apps/mobile/ios/
 
 artifacts/android/*.apk
+
+# Local editors, OS files and temporary work.
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+Thumbs.db
+__pycache__/
+*.pyc
+
+# Native build products, signing material and generated local configuration.
+*.apk
+*.aab
+*.ipa
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+local.properties
+*.tsbuildinfo
+.npmrc
+
+# Ad-hoc validation output is private until reviewed and copied to docs/evidence.
+/artifacts/*
+# Runtime budget accounting is intentionally retained; never reset this ledger.
+!/artifacts/m7-live-budget.json
+
+# Other local credential/config filenames; only reviewed examples are public.
+*.env
+*.env.*
+!*.env.example
+.envrc
+.netrc
+*.pem
+*.key
+/apps/mobile/google-services.json
+/apps/mobile/GoogleService-Info.plist
+.gradle/
+.cxx/
+*.log.*

@@ -20,7 +20,7 @@ The catalog has 72 synthetic records (18/category), original bundled illustratio
 
 ## Validated YouCam evidence
 
-The required live VTO gate passed on Samsung SM-S908N on 2026-10-07. Captures below are historical validation evidence, separate from the mocked walkthrough. The necklace wide-portrait retry supersedes the earlier cropped result.
+The required live VTO gate passed on Samsung SM-S908N on 2026-10-07. Captures below are historical validation evidence, separate from the mocked walkthrough. The necklace wide-portrait retry supersedes the earlier cropped result. Both visible portraits are owner-confirmed synthetic/generated; see [evidence image provenance](evidence/IMAGE_PROVENANCE.md).
 
 | Category | Passing on-device capture                                                     |
 | -------- | ----------------------------------------------------------------------------- |

@@ -1,0 +1,997 @@
+{
+  "date": "2026-10-08",
+  "ownerConfirmedBothPortraitsSynthetic": true,
+  "imagesReviewed": 163,
+  "personalPhotoRedactionsOrRemovals": 0,
+  "additionalHistoricalImageVersions": 0,
+  "video": {
+    "path": "docs/evidence/m9/timed-demo.mp4",
+    "sha256": "e3b9ab9a43f1f9b6ba92b1acd6db3a51dfb55a60dd4443e2340c4170f0fec764",
+    "durationSeconds": 103.84715555555556,
+    "sampledFrames": 104,
+    "sampleIntervalSeconds": 1,
+    "audioTracks": 0,
+    "action": "retain; historical portrait confirmed synthetic"
+  },
+  "images": [
+    {
+      "path": "docs/evidence/catalog-images/cold-fixed.png",
+      "sha256": "dffd5c16a8e76c10ffe6444e010887f01b862a0e1c373b7910a42a6b215da22f",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/cold-restored.png",
+      "sha256": "44cd3e95d8898b36a1d0d0e07866bff3f1d996eb40dbb8f82c715af6ccfb927d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/comparison-fixed.png",
+      "sha256": "c1740fa3424175a8f3dba953f723f62fce8daed5569cf2fbd87cacd28246958c",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/comparison-restored.png",
+      "sha256": "b2f16cbf9a53b7b1cc4fb7501fdd14600f2698656cd84e252e74547b52d4e36c",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/comparison.png",
+      "sha256": "e7c7cdb247e3e7747640548a07126c9df4975dc216b52e9173def56e4d202e9f",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/earrings.png",
+      "sha256": "6a5042eee76657f41eae1c398ba4bd40c62615a99d02bdeec575211c905b9208",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/failed-image.png",
+      "sha256": "9ea452a556cb547ace6cd52c8bb3046e338731ba80dc660828efd951ae0b3a23",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/initial.png",
+      "sha256": "936d912713827fc21108ba467520866d4f0b7e22611ad8b31fe630a196b73ae5",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/missing-image.png",
+      "sha256": "0c10d612e270f8d741a9483c242a507f8d5bcd6f1154747c81e13738ddeee13d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/necklaces-fixed.png",
+      "sha256": "2c95ede061d066fece7f8b505f4944b42c1ff210a2eb84292c8887f258b8d6ee",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/necklaces.png",
+      "sha256": "02fb8b9804d8e3c346377c5b8cf63340101e1e0d27bf736f02cadcbdb204c5df",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/rings.png",
+      "sha256": "c92219a5b84c37c06ac143e1f14844e5058bc0bb3336d40fa787c12056421037",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/summary-fixed.png",
+      "sha256": "849c369baa1ca999c231b82bb9ea2977fbfcbef4d70ea429cbb729b21b36fe5b",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/summary.png",
+      "sha256": "71e8787f45edd1f5b2c5859be5e243ab31879d8d6e8160b775430936bb693dab",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/watches-fixed.png",
+      "sha256": "4a009857a2c88834671a8ba43108df62000c4b7bccbe23b6b89e48ee1e0fe0b0",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/catalog-images/watches.png",
+      "sha256": "48ea45d1c8f052a7a586d8131a647de458dd0421f232f17a053bc55e15fe5e48",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/category-summary.png",
+      "sha256": "d256e5648fe90a575f8ab976831e52a6cc08d4ad6eda60c3066b5473523a0f85",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/confirmed.png",
+      "sha256": "3cba458fcfc9a3a5d7df04d61f95d09b4392111e506d31f44ba2856c5ba5194f",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/error.png",
+      "sha256": "44192ae620b50f517ce7c49506fa686bb2d0294c4736694cdbe95dde8aa616ea",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/home.png",
+      "sha256": "0754ce15a1dafb68ebb2e4735570747029b1eee2f5899cacbdbb1347138b4817",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/no-match.png",
+      "sha256": "6ce6fc87e5249836c1a920da72379c7fe049329a0b135cac86afc315835abaed",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/rejection-review.png",
+      "sha256": "a4b88a31c7cd1dfc950581e836843e8579fbfba2862fe6c96c0ada0f0c1b3d93",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/relaxation-review.png",
+      "sha256": "2ae72fa97df7c036b0df6e3090464c8a344e00220b0762bf8859d94f0436df82",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/restored-summary.png",
+      "sha256": "26414d36020be258fe3780b57baa13f703104d1d4c24d603cdee2078c1b8f46a",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/retry.png",
+      "sha256": "670889d814e521bf3e9e0fbe4929bbe0672fd401098d0cdd38d96288158131fd",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/search.png",
+      "sha256": "ef13038531ebc6cfaeecc6df83e87a319b3ad21e90ed86961496635bd2f4f8f3",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m4/summary.png",
+      "sha256": "1ace48c17268435dc12a71a39f21a749c35df64b3093f47081f253e16f5c1a68",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/after-restart.png",
+      "sha256": "cf113c17df48103598c922e17730561016417c6e3ef090903aa6ce4feaf85000",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/before-restart.png",
+      "sha256": "b4c46d294a4bb637d274d6c0d2cbf50d888f5f17551df822705909018388e927",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/confirmed.png",
+      "sha256": "94cfc93982f1bb5237c4cd69060c1d09ee3290799e85f7e8405a70d53fc1a1f6",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/error.png",
+      "sha256": "2b693755d2a0beb911b81c6b8d1c4b692b2ac233a7fff5bd1813fa7f527076e1",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/initial.png",
+      "sha256": "892c6593e03b82017111967270aae791465630c405e3b28cce46cce7496ea187",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/legacy-session-unavailable.png",
+      "sha256": "68930ca39c66a746411734da93b040d6d344778382d19a3381012a113ac1b1eb",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/persisted-summary.png",
+      "sha256": "257a52ca8fe7193132b91bba87060984841c2f6ede3fb73763a08080882b3b0f",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/recovered-interruption.png",
+      "sha256": "8b6f8bf33b02b8db65e4c8b1cd5f4935a2cff76e56568620bc6d2e560bc51fb5",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/relaxation-review.png",
+      "sha256": "9b2e6540b3e4a4f4d66fa3d2bc5c5898c0c8b049722c889b55e0039c9b58b091",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m5/retry.png",
+      "sha256": "d3d9e0020f8a0d7db56721b95c15ac4d6350641f1af080040e221bd4839b12e7",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/card-entry.png",
+      "sha256": "55c15120d3cad434a4ce05524d74a03f291418d4583abd7714f5c1fc3b6ca564",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/completed.png",
+      "sha256": "675f3ee6e1672db696b73b9d85ad2340e544a6269de8f6b75530d24d258af325",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/keyboard-multiline.png",
+      "sha256": "8af87c757e4bd6dccb91552f34c1a4fb7545e388eaedade384733b6cefd8bec3",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/picker-mime-error.png",
+      "sha256": "de8d211a3f1eb22257fe18ce622b2ceb40c1c1a4c5fb7745376f0549d577fc80",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/processing.png",
+      "sha256": "f146f688c1307b262b09044ccc4c295dc9ab742abdf613b18bde8bb45eb70d6d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/queued.png",
+      "sha256": "9e8ed7def02f055e0482de08977b043b1d01607c4243a8421d31be128e4ecce0",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/request-portrait.png",
+      "sha256": "3b8f56a0b5ca77f10d8ad8cc082de8e3603cbd1372c23a6ed8b7b5130deddb83",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/restored-job.png",
+      "sha256": "a057387d8b27104110bc0028018cd9a94bee44e29fd27651592e6487ec8fd95a",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m6/summary.png",
+      "sha256": "502b77f604da3d4390fac5e4ac633838b1a9ff84189893249efd8da0501d025b",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/01-restored-chat.png",
+      "sha256": "5a2c2f5e7f7d1935c2d166fea45a8da8bc451536d9ec3d8c1062d934cd06eb45",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/02-keyboard.png",
+      "sha256": "d6d73dfefbeff8a4dc6d995aeb6c68d84f0abf68c36db662c33f70a6a3c47209",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/03-summary.png",
+      "sha256": "84ec1a09c13be5a2a1f2d58d60d6aa9a7e89b4c0f8d86ee4e8f362325637c02d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/04-cold-restored.png",
+      "sha256": "0b66663d38e5533bfa4aafd5813dd28bd737519464cff7985711afb055bae761",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/05-timeout.png",
+      "sha256": "ab4513afbf9a3b270b262c40df6db690a62c18646c3fea28f203412a30fad79d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/06-recovered.png",
+      "sha256": "4f2f9434189b44b82bd6fb86a73f246f30944f62c0e955bcb11a0de5ee40afa9",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/01-keyboard.png",
+      "sha256": "e158e3dfc87f05dacb742b5a9fe9075162442d04935027710ead0b37c6db60aa",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/02-live-response.png",
+      "sha256": "3177444764be6366e0feb56ae4be43c55cac86621e2b88df3e060e1f8e450550",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/03-keyboard-cycles.png",
+      "sha256": "352c8b645d6b2381f102b0fbc95f530ed809b1519830dc33d1b8f8136d04db38",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/04-catalog-cards.png",
+      "sha256": "51d3a08d8e7fd62b8f36e088ff24faacb86e683af27d0fc15af5cf51b544091c",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/05-summary.png",
+      "sha256": "846c93204b7f0d915cefa34cf708293e9ec704988276f84b8ac37a35d4e9bd26",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/06-error.png",
+      "sha256": "59c9788582580484148a9fbdd167b1d4cca029dccdda857841be1bd99ed25a96",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/07-retry.png",
+      "sha256": "8c1b779ed3be917201e95abc190dcf7af9735f632780a949b84675ab1472d5d7",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/08-reload-summary.png",
+      "sha256": "006ade539b7a924c1e55c64b18151a82140162dc265cecaedc8d34aac37c5930",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/09-cold-summary.png",
+      "sha256": "b5a76fa993be5d0fca3ce687c7920f3afbe6fd06d441966923dd04dc89b3cfba",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/device-live/10-scope-error.png",
+      "sha256": "7d28d0be55c2e941c11d9d49001c6094177cbc0a988c363e17ac05b1d30a6e01",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/extension/01-proposals.png",
+      "sha256": "5992ff0ce7956fd06320f458f3e2569b16f56888e2becf1c6c5b3ccfdb2344ea",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/extension/02-confirm.png",
+      "sha256": "5e9aafb640329a61b9219f49bb17a1c4c9bb1c782dabe2f169948aa7bb0c263d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m7/extension/03-restored.png",
+      "sha256": "24e5fa9e5a486136288d669f420017599f54db9d1c055ef33e1fed48f1b765c4",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/cold-launch.png",
+      "sha256": "dc4806ba91976f950ac2480625ae4bbb5080b6751dd51455e0caa92118c96f25",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/compare-select.png",
+      "sha256": "c1297434bac79124dbddfe3cec7b34c14942edb999cee7f283c67f5d4acb81ed",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/comparison-criteria.png",
+      "sha256": "28b2a3e3993d8523103c767c285d6932ea10457ae74f658dc7bb382602579748",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/comparison.png",
+      "sha256": "71e42fc62aba777f2f73135ca466088c3c6e67d9ae9b86a7c733b346be168521",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/complement-cards.png",
+      "sha256": "ec0976c5ac23e3d60f59dcc4a5a0e8ff686b5d93056178852a1c2c774f549889",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/complement-top.png",
+      "sha256": "47ada827322b3f2d1d59a6e2045c3be79c428010fe0f8278eda66b2947649ca4",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/error.png",
+      "sha256": "8f4617c4597be3c10ddd733d121642ec6e4892fa563d944cef02d97971722381",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/feedback-fixed.png",
+      "sha256": "da764aedaa4f7ea7fb8fda978717fd2614aacacb1c97853092dfaa0b46b7506a",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/feedback-relevant.png",
+      "sha256": "4d8b0007b4e01f527f29e8f28f9209e175c9d87cea381af26ba147bf1b6d6093",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/feedback.png",
+      "sha256": "8388cb8feed122e280bedb6c6ab0d47d1978e91533ac16dbc08e6b375c8adcea",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/keyboard.png",
+      "sha256": "243f44e90e5a355419f50dce43d71a32670c60323765f1fe26125c28e5e558e6",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/native-menu.png",
+      "sha256": "9ea0c7343fa008c46cc792cc98619aa727ae07a536ead7b2e1fc35da68723edc",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/offline.png",
+      "sha256": "9c0fc0b80c15fc57678e7c80e36b5d127fac743df71a5435564a1579ea6ed6b8",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/recovered.png",
+      "sha256": "55c3468f07c23f696c5a28bb663f85c084d351ce551fcd45181f2e838747d6d1",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/reload.png",
+      "sha256": "dc4806ba91976f950ac2480625ae4bbb5080b6751dd51455e0caa92118c96f25",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m8/summary.png",
+      "sha256": "6821eaede3172b7c1bbb8e277492f0b11aaf7d9af39a646104260bee5d49b9e6",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/api-timeout.png",
+      "sha256": "d9e5460962b787df039fa1f5d9e5396d0fce9da6c09ed29c386ff944c8002ce5",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/cold-mock-job.png",
+      "sha256": "22451a2fb6d394da05bd13f671eb88080a929a84fbab73720712e5c81ec15772",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/cold-summary.png",
+      "sha256": "7274790361a4a3c19e0ca16172f6187ba284e571f89cc3a07bf86188cb9bae9e",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/comparison-criteria.png",
+      "sha256": "3f3ad4392f88e3a5b5e04d9593e7a42396fefb9c5e002405f3931397a65fac41",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/comparison-item.png",
+      "sha256": "77afa8d41dc98f2fe73b97a40bfade8e82720ada88309fb7263c8ed9e91c8a4f",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/complement.png",
+      "sha256": "84ba6df21eb7bcc67d75dcbee248bf6199104ad04abec1a3653d656c00c09ad0",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/first-results.png",
+      "sha256": "fe1ff0fd6e360b9ccb2cc88b0df5ae23b286b1c39e30461615d65093846677f2",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/fresh-home.png",
+      "sha256": "2918df6c9824c5226f8bb705a69cc1a8ffd4ca629d2fa2fa512c68c7b54bc44c",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/historical-live-viewer.png",
+      "sha256": "45416f7faf2c2f55027ad40c9db2d2d1448049d8c2313cba4f6df4c59786d9a8",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/keyboard-closed.png",
+      "sha256": "c1cf503e67fed306da8f680409c819ff968e8530c90950046977534762b49fd1",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/keyboard-multiline.png",
+      "sha256": "18fcb645fc1185544bb404ef08d7d639bdf37e8c24145de440b7fdfbc02258d5",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/keyboard-scroll.png",
+      "sha256": "aa2c9bbb048838122196c0223c5c26150b94db3de8e057c35537451fb7b0bdf5",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/keyboard-sent.png",
+      "sha256": "9c60c632ff90d56a65bfc263e0ccd57acaffe624e3f9ca7a3ac9b1ac83a819bc",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/keyboard-short.png",
+      "sha256": "5792a13d7f8bfa6c7ccfc5749e3917c3701979857b52717bc8a56626758434f6",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/keyboard-third-cycle.png",
+      "sha256": "97f84527004aea625d52bc575a41ad53e45b12c2abd99eada3461b92d5a7127c",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/mock-completed.png",
+      "sha256": "c8d4986f75bf296633c1eec3993558d53d135b1779cdfde43ee23da5e01fbacb",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/mock-processing.png",
+      "sha256": "df830dd1d5d3e46e1567842f8a8a2637b8b37f89afe86f845c4d86ccd6389a70",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/mock-queued.png",
+      "sha256": "3ecc2d48400c22b998b32a21030c3d31f313e3a17950553c120fcd1aaabfdcf3",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/no-match.png",
+      "sha256": "39b46e43a5d8c9cfe865b4c9010fda898bebeb03e0f92468afec59b762aa5c16",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/portrait-required.png",
+      "sha256": "33a6f67527f72e6a721f6b89e8c4347d34ea3ba4c993d3d868e53af339572e50",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/prior-live-labeled.png",
+      "sha256": "38966e2c27f6efde76e14cee96369f849468632a6f0f2e1909ccd12ab285f590",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/relaxation-review.png",
+      "sha256": "cb55827cb4e3d2d4772ef983a6d372347b31e98d11392cb183a68184b21f7c04",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/retry-recovered.png",
+      "sha256": "66d313c4c2b8fa8376c33ef971afcd9e28a804d841b935de10adde84abf56f94",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/summary.png",
+      "sha256": "4c048f446dec530c0b94f0b232171f87730fd8795c6f8506aa52d3ab3b9e2053",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-cancel-preserves-constraints.png",
+      "sha256": "ac58eb04478088297b4529d179ead6b82aa5db8e58234415b34947eb0afadf61",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-catalog.png",
+      "sha256": "f767a4aceb2366e889705428cfd32c5f1bfe66800f5b202276465829664ccbb0",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-comparison-facts.png",
+      "sha256": "a65a85ff4fee92795c53380ecd4e7af3a7cfef024eb16239215d16704ccfdcfc",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-comparison.png",
+      "sha256": "af407b45f9309e810a33294831c55de1059522881dc5e02b9e2bd91b4e2b5095",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-complement.png",
+      "sha256": "ba2895f2561fbc63a0a96b55c671419b9e41550e5b2df55596c598259f5193b6",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-feedback-refinement.png",
+      "sha256": "4eae5866ecdda8cd01b5d8616c0ccf57b3c9ba549ee580110d547e8a61524880",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-goal.png",
+      "sha256": "05cb05703708c3ad38b7f14ee77815ad392fc19e5703d1bd4bf9079559279708",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-historical-live-evidence.png",
+      "sha256": "194ebb7c6bf70c86a5288b7d71db36f79a4a821fe94e7f2fa41c034611a246ab",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-image-on-demand.png",
+      "sha256": "d2cea0e2a1eae4fcb5a12acab903d17a4d536631dab5f178896ff1169226b0b8",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-no-match.png",
+      "sha256": "abbc6a3d58c0374e79b77ad3602290e2f59d59f90fb50a6e6d3aec587cb398fa",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-persistent-summary.png",
+      "sha256": "92030fd27d15819b0a80581c0c6cab96f17febe3e7617c51672d922f4f278ee0",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/m9/timed-review.png",
+      "sha256": "4227272471b0c9bb84875b0e478cc252ffa45d7d4b727fd84be18fe04ffe025b",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/before-fix.png",
+      "sha256": "5c7b1db72c5179aca0aafd18e4cdf094c05589d7690113ed0d929371f3c058fa",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/closed-0.png",
+      "sha256": "687007eb06b01e5d59d76473665322561d2f72a6d16b5a2719a8d08cd655b48b",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/closed-1.png",
+      "sha256": "1f1847006d5a195c90e3a972cbff0d3f22466c67eb298312cd8ae940399481bb",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/closed-2.png",
+      "sha256": "5ced2c502b9114a3294d0b9caf5647cee69fe7df5a6ce571f53812e80923a61f",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/cold-launch-keyboard.png",
+      "sha256": "7618f07b67ca72657a90c14ad25ac80f21ec3ad7452d81b2a776cfaaf2d9409f",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/cold-launch.png",
+      "sha256": "e508caad7726cf2a202e1069f81d94ef4c8643a351e0e474e68e04d78b1af7db",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/error.png",
+      "sha256": "97cc498bb49fe789be359c92f4083936c762bb867c4de53e1772368aa7e490f2",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/multiline.png",
+      "sha256": "879fd0cc1b4c20b9515ba25091256dc5c9087df4bca6d2942e6c7b336cc1be98",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/ready-send.png",
+      "sha256": "0708ddf7a028a1c74ae231ed683bd29a65f82cd9a6aec339f3cea279d34d804d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/reopened-0.png",
+      "sha256": "6eade85d770968e5cce82c8191c2076b88db87d5958df18ae654bfe04bd359c3",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/reopened-1.png",
+      "sha256": "c6551168fe2a8c4da999dd47496fb898ec961129b196ee9a14761bc571078cdd",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/reopened-2.png",
+      "sha256": "38992668b1b312a96910eaded68dff4302337a6b56c37dcd11ac36ad47bea518",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/retry.png",
+      "sha256": "b1a46e7caa1d5c02fdff97c1f8155dfe6a42c043c68db4047c2140b845b6f5c4",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/returned.png",
+      "sha256": "9b1c89a681694979dbd6bb2a103f92e748611f11346de8ef4862f021026c9a4d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/scroll-open.png",
+      "sha256": "3b624afbec7cf5071115d7a96c9aefb1fa904c600d23850fd420c64158ed6a9b",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/sent.png",
+      "sha256": "fb8d1740bcf96b5f5f6118a46e33b549d3a356f66846c527825b2f3ce98dc7bd",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/short-text.png",
+      "sha256": "327234cb0e1eab82913f17c5f60c1ad80e294f85f9e53d88895ff58eedf8b263",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/post-m5-keyboard/summary.png",
+      "sha256": "cd51e55e0b17c62afac4bbbab51a45776e4e6eeb25bf4ca55a4ca07d618b55d9",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/accepted-product-image.png",
+      "sha256": "b3e65e8ac9a22226f4159d634896e07094fa13ee942ea83febb01bc27c3de7b0",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/accepted-products.png",
+      "sha256": "90bd08526dcd543ef1954cd60b104846f43261057d53c079363fbe1f0c5c41a0",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/accepted-summary.png",
+      "sha256": "2c9a1cd9664f46472da80f6f84efc534fc160f90487038726c1ba9031dcf98b0",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/adjustments-overview.png",
+      "sha256": "b90f7ac1b4ee579bdcb6c12dd5c6e205b372691413ad29970aabae6d635969c7",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/cold-summary.png",
+      "sha256": "856f9bf6141495dfdcec62b245b09aa735debf41cf182071e245d775a2ec3a32",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/keyboard-multiline.png",
+      "sha256": "f3f34d26c75bcceb2df9e1cbe661d6f1847383f00e1f01e13213e629b6a86cd9",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/keyboard-reopened.png",
+      "sha256": "f30aabdf50f7bba4a207300bd8d66a4ca9f16f8350b29375db0fd960ab018b37",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/keyboard-scroll.png",
+      "sha256": "54e2cadf756b71b9174e9aec16dd2e6ee1e1a6bd8373c8ec11fc0d05098fc81d",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/keyboard.png",
+      "sha256": "a1465c971c9b76301204101057637f8b0670849960419ab23b91b520659f2c5a",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/relaxation-ux/review.png",
+      "sha256": "b74d77b229d5805c39820afe523d0dad0e2a64b4649e56762e8a37a33690de4e",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/sdk57/error.png",
+      "sha256": "24ad057962dec922e0b96c07f4e2ae57e27e278de99d338a1ff32f63df446664",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/sdk57/launcher-open.png",
+      "sha256": "3c633d77bb334a3d1421ec3d85b4b475173bb6c6a4990acec8c4c2dbb64f3284",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/sdk57/launcher.png",
+      "sha256": "563073da78c113a9f85b98ae2f5fedc0b6dd9bb294c3289254a2e619a788c012",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/sdk57/retry.png",
+      "sha256": "3c633d77bb334a3d1421ec3d85b4b475173bb6c6a4990acec8c4c2dbb64f3284",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/sdk57/success.png",
+      "sha256": "3c633d77bb334a3d1421ec3d85b4b475173bb6c6a4990acec8c4c2dbb64f3284",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/sdk57/visible-launch.png",
+      "sha256": "d7f5e221c4423bd6a517f37f69c718fc56587b8df2d9b94058a2e66134893f15",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/earrings-cold-restored.png",
+      "sha256": "77902649941ea5f86719bb2d2f52208019d4a4bf6400809583e1dd7347164d71",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/earrings-result.png",
+      "sha256": "77902649941ea5f86719bb2d2f52208019d4a4bf6400809583e1dd7347164d71",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/necklace-cold-restored.png",
+      "sha256": "705917d25ba5559d349e3f2459b4ef66fb674286693f87f73306a61e19418af3",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/necklace-result.png",
+      "sha256": "705917d25ba5559d349e3f2459b4ef66fb674286693f87f73306a61e19418af3",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/necklace-retry-offline.png",
+      "sha256": "2df56ccec1f095ca74e57e6096ac45e2c97ac638b7777449b657abac0e826bf7",
+      "classification": "UI or generated accessory artwork",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/necklace-retry-passed.png",
+      "sha256": "ea58bbca0a04187982dbf0f514ad2426249ed2d283d289cb8719e65b7c9b7f13",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/recovery-offline.png",
+      "sha256": "4b466bcf60515ac8ae21709a0a193f336d24977043f4b8050d2a5e461d984a8a",
+      "classification": "hand/wrist-only; no identifying feature observed",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/recovery-restored.png",
+      "sha256": "77902649941ea5f86719bb2d2f52208019d4a4bf6400809583e1dd7347164d71",
+      "classification": "owner-confirmed synthetic portrait in historical YouCam output",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/ring-cold-restored.png",
+      "sha256": "0ecb3f0ed7bd35a48a5d0f7e2571481c6c734506f84f10dfdc278e13bce0a1a2",
+      "classification": "hand/wrist-only; no identifying feature observed",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/ring-result.png",
+      "sha256": "0ecb3f0ed7bd35a48a5d0f7e2571481c6c734506f84f10dfdc278e13bce0a1a2",
+      "classification": "hand/wrist-only; no identifying feature observed",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/watch-cold-restored.png",
+      "sha256": "bb59d62d52605902adfe9cd7c0361b0b8f73086b946803ab0eca74809bca47f1",
+      "classification": "hand/wrist-only; no identifying feature observed",
+      "action": "retain"
+    },
+    {
+      "path": "docs/evidence/youcam-live/watch-result.png",
+      "sha256": "bb59d62d52605902adfe9cd7c0361b0b8f73086b946803ab0eca74809bca47f1",
+      "classification": "hand/wrist-only; no identifying feature observed",
+      "action": "retain"
+    }
+  ],
+  "imagesWithExifXmpOrIptcMetadata": 0
+}

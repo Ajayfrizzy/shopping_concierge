@@ -14,4 +14,4 @@ M9 passed on Samsung SM-S908N / Android 16 with a new `com.youcam.shoppingconcie
 - `credits-before.txt` / `credits-after.txt`: identical historical ledgers; zero M9 live usage.
 - `dependency-audit.json`: known advisories; no claim of production security clearance.
 
-`native-preflight.txt` records the historical missing-NDK failure and is superseded by the successful native build. Earlier blocker entries in VALIDATION.md remain historical. Public publication still requires final video/portal/photo-rights review; these are local evidence artifacts only.
+`native-preflight.txt` records the historical missing-NDK failure and is superseded by the successful native build. Earlier blocker entries in VALIDATION.md remain historical. The 2026-10-08 [image review](../IMAGE_PROVENANCE.md) confirms synthetic portrait provenance for public repository evidence. Final narration/portal-format review remains separate; no external submission is claimed.

@@ -1,5 +1,21 @@
 # Validation log
 
+## Publication review and compatible security patch — 2026-10-08
+
+**Ready for public repository push; not pushed or deployed.** The owner confirmed both visible portraits are synthetic/generated and explicitly chose to preserve existing Git history. Reviewed 163 screenshots and 104 one-second samples of the silent demo video; no real recognizable personal photo was identified and no image replacement was required. Current text remains sanitized; historical non-secret machine identifiers are retained by decision. See [image provenance](evidence/IMAGE_PROVENANCE.md).
+
+Patched only the lockfile: `concurrently` 9.2.4 → 9.2.5 and `shell-quote` 1.9.0 → 1.12.0. Both critical entries are resolved. Final npm audit: **29 entries, 0 critical / 19 high / 10 moderate**; remaining advisory roots and SDK-compatible follow-up decisions are assessed in [the repository audit](REPOSITORY_AUDIT.md). No forced major upgrades, provider calls, product changes or new device installation.
+
+Fresh `npm ci`, Android prebuild, lint, both typechecks and **458 tests / 21 files** pass. Android export: **94 files, seven credential sentinels absent**. Expo Doctor: **20/20 checks pass**. Targeted quoting/launcher smoke and credential/history scans pass. [Evidence](evidence/publication-review/automated-check.txt). This entry supersedes the prior publication-permission/history blockers below; external portal submission and deployment remain separate.
+
+## Public repository cleanup — 2026-10-07
+
+Documentation and repository hygiene validated without product or dependency changes. A sanitized fresh copy passed `npm ci`, lint, both typechecks and the full local-integration suite: **458 tests / 21 files** after Expo prebuild. Before prebuild, 457 passed and the generated-native-config test correctly skipped. Android export passed with **94 files / seven credential sentinels absent**. No phone data, cloud resources or live credits were used.
+
+Removed eight duplicate reports, two one-off probes, two ignored stale APKs and an ignored export. Retained acceptance evidence, migrations, catalog assets and authoritative budget ledgers. Sanitized machine paths/device serials in current text. Credential-pattern/private-value scans of 659 reachable historical blobs found no matches. Existing history still contains old machine identifiers; recognizable-photo publication permission and publication-history choice remain pending. The dependency audit retains **30 findings (2 critical, 18 high, 10 moderate)**; no security-hardening or advisory-free claim is made.
+
+See [repository audit and exact file disposition](REPOSITORY_AUDIT.md) for validation output, security scope and remaining publication gates. **No public push or deployment performed.**
+
 ## 2026-10-07 — Pre-deployment relaxation UX correction COMPLETE
 
 **Complete and physically validated. Stop before deployment.** Samsung SM-S908N was connected/authorized after the initial empty ADB checks. The existing isolated mock demo was cold-reloaded with the updated JavaScript; no native/dependency change or app removal was needed. New device evidence below validates this correction independently of the earlier M9 captures.
@@ -80,7 +96,7 @@ Submission readiness review: guide/script/setup/architecture/API-use notes are p
 
 ## 2026-10-07 — M9 resumed: automated pass, native SDK blocker
 
-**M9 remains incomplete.** Samsung SM-S908N (`R3CT2019D9D`) is connected/authorized, resolving the prior device-availability blocker. The required fresh-install build is now blocked by missing native tooling: `/tmp/youcam-android-sdk` contains only directory remnants and reports **0 bytes**. `platform-tools/adb`, platform 36 `android.jar`, Build Tools, NDK and CMake binaries are absent. Homebrew ADB still connects independently. No existing app was uninstalled, cleared or replaced.
+**M9 remains incomplete.** Samsung SM-S908N (`DEVICE_SERIAL`) is connected/authorized, resolving the prior device-availability blocker. The required fresh-install build is now blocked by missing native tooling: the temporary Android SDK directory contains only directory remnants and reports **0 bytes**. `platform-tools/adb`, platform 36 `android.jar`, Build Tools, NDK and CMake binaries are absent. Homebrew ADB still connects independently. No existing app was uninstalled, cleared or replaced.
 
 Implemented before stopping:
 
@@ -594,7 +610,7 @@ Ordinary `npm test` skips the nine explicitly enabled integration tests; it alon
 Native build from `apps/mobile/android` after Expo native generation:
 
 ```sh
-ANDROID_HOME=/tmp/youcam-android-sdk ANDROID_SDK_ROOT=/tmp/youcam-android-sdk \
+ANDROID_HOME="$ANDROID_HOME" ANDROID_SDK_ROOT="$ANDROID_HOME" \
 JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home \
 JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true NODE_ENV=development \
 ./gradlew :app:assembleDebug -PreactNativeArchitectures=arm64-v8a \
@@ -609,7 +625,7 @@ APK SHA-256: `38f8dcd0674951e3caa6ddfbc018544508ecf90056c8bb29f342fe3a5ea6a017`.
 
 ### Physical Samsung acceptance
 
-Samsung SM-S908N, Android 16, serial `R3CT2019D9D`; USB reverse ports 4000/8082, persistent local API, mock AI and dedicated rebuilt app.
+Samsung SM-S908N, Android 16, serial `DEVICE_SERIAL`; USB reverse ports 4000/8082, persistent local API, mock AI and dedicated rebuilt app.
 
 | Check                              | Result                                                                                                                                                                                                              |
 | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -648,7 +664,7 @@ No deployment, cloud-resource creation, live provider calls or API-credit use oc
 
 ## 2026-10-02 — M4 complete: physical Android acceptance passed
 
-M4 is **complete and fully validated**. The remaining native shopping, navigation, cold-reload, confirmation, and error/retry checks passed on the connected Samsung SM-S908N (Android 16, serial `R3CT2019D9D`). Dedicated app `com.youcam.shoppingconcierge`, versionName 0.1.0 / versionCode 2; existing SDK57 development binary, cache-cleared Metro on port 8082 and mock API on port 4000 with USB reverse. **M5 has not started. Live LLM/YouCam calls: zero.**
+M4 is **complete and fully validated**. The remaining native shopping, navigation, cold-reload, confirmation, and error/retry checks passed on the connected Samsung SM-S908N (Android 16, serial `DEVICE_SERIAL`). Dedicated app `com.youcam.shoppingconcierge`, versionName 0.1.0 / versionCode 2; existing SDK57 development binary, cache-cleared Metro on port 8082 and mock API on port 4000 with USB reverse. **M5 has not started. Live LLM/YouCam calls: zero.**
 
 ### Physical checks
 
@@ -705,7 +721,7 @@ The existing SDK57 native build's generated `ExpoModulesPackageList.kt` contains
 
 ### Physical acceptance checklist used for the completed verification above
 
-Development servers were started with mock API on loopback port 4000 and cache-cleared Metro on IPv4 port 8082. Restart if no longer running, following the README USB commands. Use only Shopping Concierge (`com.youcam.shoppingconcierge`), never Recall/Expo Go. Expected phone from previous validation: Samsung SM-S908N, serial `R3CT2019D9D`, Android 16.
+Development servers were started with mock API on loopback port 4000 and cache-cleared Metro on IPv4 port 8082. Restart if no longer running, following the README USB commands. Use only Shopping Concierge (`com.youcam.shoppingconcierge`), never Recall/Expo Go. Expected phone from previous validation: Samsung SM-S908N, serial `DEVICE_SERIAL`, Android 16.
 
 1. Connect/unlock/authorize the phone. Forward ports 4000 and 8082 with ADB; open the development-client link from README. Verify visible home, no red runtime screen, and mock disclosure.
 2. Tap **Use this example**, then **Send to concierge**. Confirm actual fixture cards, prices and scoped state changes. Use **Cheaper options** and verify unrelated constraints remain. Exercise **Save**, **Shortlist**, **Select**, and **Reject** with a structured reason, then verify badges/removal/reranked results and summary.
@@ -838,7 +854,7 @@ Configured an opaque Expo icon plus Android adaptive foreground/background and m
 - Command from `apps/mobile/android`:
 
 ```sh
-ANDROID_HOME=/tmp/youcam-android-sdk ANDROID_SDK_ROOT=/tmp/youcam-android-sdk \
+ANDROID_HOME="$ANDROID_HOME" ANDROID_SDK_ROOT="$ANDROID_HOME" \
 JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home \
 JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true NODE_ENV=development \
 ./gradlew :app:assembleDebug -PreactNativeArchitectures=arm64-v8a \
@@ -849,13 +865,13 @@ JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true NODE_ENV=development \
 ```
 
 - APK: `artifacts/android/shopping-concierge-sdk57-development.apk`; SHA-256 `cd3083e13e06e3433c14f4f29132ec4a2ccb75652cce449014d561e0e9da74a8`.
-- `adb -s R3CT2019D9D install -r artifacts/android/shopping-concierge-sdk57-development.apk`: **Success** on Samsung SM-S908N. Installed versionCode **2** replaces versionCode 1. Recall was not changed.
+- `adb -s DEVICE_SERIAL install -r artifacts/android/shopping-concierge-sdk57-development.apk`: **Success** on Samsung SM-S908N. Installed versionCode **2** replaces versionCode 1. Recall was not changed.
 - `aapt dump badging` confirms Shopping Concierge label, adaptive launcher resources, package identity, and arm64-v8a. Generated BuildConfig confirms New Architecture and Hermes enabled.
 - USB forwarding for 8082/4000 restored; launched the new `exp+shopping-concierge` development URI. Metro compiled 1,416 development modules. The initial locked-device blocker was resolved when the user unlocked the phone; all visible checks below then passed.
 
 ### Physical-device stabilization — passed
 
-Device: Samsung SM-S908N, Android 16, USB serial `R3CT2019D9D`; installed package `com.youcam.shoppingconcierge`, versionCode 2. Checked the running SDK 57 development build against cache-cleared Metro and mock services only.
+Device: Samsung SM-S908N, Android 16, USB serial `DEVICE_SERIAL`; installed package `com.youcam.shoppingconcierge`, versionCode 2. Checked the running SDK 57 development build against cache-cleared Metro and mock services only.
 
 | Check               | Observed result                                                                                                                                                                                         | Evidence                                                 |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -867,7 +883,7 @@ Device: Samsung SM-S908N, Android 16, USB serial `R3CT2019D9D`; installed packag
 | Retry recovery      | Resume mock API, restore USB forwarding, tap Send again without restarting: HTTP 200, error clears, success response returns                                                                            | [Retry](evidence/sdk57/retry.png)                        |
 | Runtime errors      | Current process log (PID 30466, 986 lines) has zero matches for PlatformConstants, Invariant Violation, FATAL EXCEPTION, or ReactNativeJS Error/Exception; visible checks show no runtime error overlay | `/tmp/concierge-sdk57-device-final.log`                  |
 
-Commands: `adb shell am start -a android.intent.action.VIEW -d 'exp+shopping-concierge://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8082' com.youcam.shoppingconcierge`, `adb shell input`, `adb exec-out screencap -p`, `adb shell uiautomator dump`, `adb shell dumpsys activity activities`, and `adb logcat -d --pid=30466`. All device commands targeted serial `R3CT2019D9D`.
+Commands: `adb shell am start -a android.intent.action.VIEW -d 'exp+shopping-concierge://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8082' com.youcam.shoppingconcierge`, `adb shell input`, `adb exec-out screencap -p`, `adb shell uiautomator dump`, `adb shell dumpsys activity activities`, and `adb logcat -d --pid=30466`. All device commands targeted serial `DEVICE_SERIAL`.
 
 Failure injection: removing port 4000 forwarding alone preserved an existing HTTP keep-alive connection, so it was insufficient. `kill -STOP 53768` paused only the local mock API to exercise the actual timeout; `kill -CONT 53768` and `adb reverse tcp:4000 tcp:4000` restored it before retry. API log `/tmp/concierge-sdk57-api.log` confirms successful POST responses before/after failure. Metro forwarding on 8082 remained available. The mock API was left running, USB forwarding restored, and the healthy app foregrounded.
 
@@ -926,7 +942,7 @@ M2 catalog fixtures/filtering/ranking/no-match relaxations is next. The API/mobi
 **M0 is complete. M1 has not started**, per the user's instruction to stop at this milestone.
 
 - Device: Samsung SM-S908N, Android 16, arm64-v8a, connected by authorized USB debugging.
-- Installed `artifacts/android/youcam-m0-development.apk` using `adb -s R3CT2019D9D install -r`: **Success**. Installed identity: `com.youcam.shoppingconcierge`, version 0.1.0 (versionCode 1). Recall was left untouched.
+- Installed `artifacts/android/youcam-m0-development.apk` using `adb -s DEVICE_SERIAL install -r`: **Success**. Installed identity: `com.youcam.shoppingconcierge`, version 0.1.0 (versionCode 1). Recall was left untouched.
 - Restored USB forwarding for ports 8082 (Metro) and 4000 (mock API), then launched the explicit `exp+youcam-shopping-concierge://expo-development-client/?url=http%3A%2F%2F127.0.0.1%3A8082` URI targeted at the Shopping Concierge package. Metro had been started with `--clear` after correcting the dependency set.
 - **Native launch passed:** Shopping Concierge's concierge screen rendered without a red runtime screen. Verified via UIAutomator hierarchy and visual screenshot inspection. The running process belonged to the Shopping Concierge package; captured process logs contained no `PlatformConstants`, `Invariant Violation`, `FATAL EXCEPTION`, or ReactNativeJS error matches.
 - **Mock API success passed:** submitted a shopping goal on the device; UI displayed “The concierge foundation is connected. Shopping search and saved decisions are not available yet.”
@@ -955,7 +971,7 @@ The repair and build history below preceded the successful 2026-10-02 acceptance
 - Ignore generated native directories and exclude them from source linting. Expo Doctor’s app-config-sync heuristic is disabled for this Git-less CNG workspace; the build script always runs prebuild. Dependency, duplicate, and New Architecture checks remain enabled.
 - Add eight runtime-alignment regressions in `tests/mobile-runtime.test.ts` covering lockfile singletons, SDK versions, React module identity, native app identity, explicit architecture, and rebuild/cache-clear commands.
 - Update root/mobile README with dedicated-binary, USB forwarding, Metro isolation, and rebuild instructions.
-- Local build tooling: downloaded Android command-line tools/SDK 36 into `/tmp/youcam-android-sdk`; use existing JDK 17. Generated native project is a local artifact, not a hand-maintained source tree.
+- Local build tooling: downloaded Android command-line tools/SDK 36 into the temporary Android SDK directory; use existing JDK 17. Generated native project is a local artifact, not a hand-maintained source tree.
 
 ### JavaScript/configuration validation
 
@@ -976,7 +992,7 @@ The repair and build history below preceded the successful 2026-10-02 acceptance
 - After network retries, the successful command (from `apps/mobile/android`) was:
 
 ```sh
-ANDROID_HOME=/tmp/youcam-android-sdk ANDROID_SDK_ROOT=/tmp/youcam-android-sdk \
+ANDROID_HOME="$ANDROID_HOME" ANDROID_SDK_ROOT="$ANDROID_HOME" \
 JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true \
 ./gradlew :app:assembleDebug -PreactNativeArchitectures=arm64-v8a \
   -PreactNativeDevServerPort=8082 \
@@ -988,7 +1004,7 @@ JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true \
 - Result: `BUILD SUCCESSFUL`, 328 actionable tasks. Build log: `/tmp/youcam-android-build-ipv4.log`. APK copied to `artifacts/android/youcam-m0-development.apk` (ignored binary).
 - NDK and Build Tools 35 downloads needed retryable segments due connection resets; complete archives matched Google’s published SHA-1 checksums before extraction. No dependency internals were modified.
 - APK SHA-256: `f54b92945222e00e64b1e7b8aabad4f02cf2f1174ae5751cfdba840082f3f78a`. Generated `BuildConfig.java` confirms both `IS_NEW_ARCHITECTURE_ENABLED` and `IS_HERMES_ENABLED` are true.
-- Installation attempt encountered a disconnected device (`adb: device R3CT2019D9D not found`); requested reconnection. This was resolved by reconnection and the successful installation/verification on 2026-10-02 recorded above.
+- Installation attempt encountered a disconnected device (`adb: device DEVICE_SERIAL not found`); requested reconnection. This was resolved by reconnection and the successful installation/verification on 2026-10-02 recorded above.
 - Corrected `npm run export:android` passes. Final JavaScript checks: 29 passing tests, lint and typechecks pass.
 
 ### Dependency advisories

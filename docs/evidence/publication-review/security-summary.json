@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-08",
+  "historicalBlobs": 659,
+  "currentPublicCandidateFiles": 633,
+  "configuredPrivateValuesCompared": 9,
+  "findings": [],
+  "historyPolicy": "Existing non-secret identifiers retained by explicit owner decision.",
+  "imageReview": "See ../IMAGE_PROVENANCE.md; both visible portraits confirmed synthetic by owner.",
+  "scope": "Known credential patterns and exact locally configured private values/components; current machine-path/serial/signed-URL checks. Does not claim arbitrary secret detection."
+}

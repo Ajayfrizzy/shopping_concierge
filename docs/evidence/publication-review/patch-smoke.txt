@@ -1,0 +1,2 @@
+PASS: five shell argument round trips; comment/newline token rejected before execution; concurrently launches both fixed commands.
+concurrently=9.2.5; shell-quote=1.12.0

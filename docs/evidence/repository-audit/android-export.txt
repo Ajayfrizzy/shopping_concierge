@@ -1,0 +1,109 @@
+
+> shopping-concierge@0.1.0 verify:mobile-secrets
+> node scripts/verify-mobile-secrets.mjs
+
+
+> shopping-concierge@0.1.0 export:android
+> npm run export:android -w @youcam/mobile
+
+
+> @youcam/mobile@0.1.0 export:android
+> expo export --platform android
+
+Expo Autolinking module resolution enabled
+Starting Metro Bundler
+
+| (node:29684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+Android Bundled 3701ms node_modules/expo-router/entry.js (1359 modules)
+
+› Assets (92):
+../../node_modules/@expo-google-fonts/material-symbols/400Regular/MaterialSymbols_400Regular.ttf (967KB)
+../../node_modules/expo-router/assets/arrow_down.png (9.5KB)
+../../node_modules/expo-router/assets/arrow_right.xml (307B)
+../../node_modules/expo-router/assets/checkmark.xml (312B)
+../../node_modules/expo-router/assets/error.png (469B)
+../../node_modules/expo-router/assets/file.png (138B)
+../../node_modules/expo-router/assets/forward.png (188B)
+../../node_modules/expo-router/assets/pkg.png (364B)
+../../node_modules/expo-router/assets/react-navigation/elements/back-icon-mask.png (653B)
+../../node_modules/expo-router/assets/react-navigation/elements/back-icon.png (4 variations | 152B)
+../../node_modules/expo-router/assets/react-navigation/elements/clear-icon.png (4 variations | 425B)
+../../node_modules/expo-router/assets/react-navigation/elements/close-icon.png (4 variations | 235B)
+../../node_modules/expo-router/assets/react-navigation/elements/search-icon.png (4 variations | 599B)
+../../node_modules/expo-router/assets/sitemap.png (465B)
+../../node_modules/expo-router/assets/unmatched.png (4.8KB)
+assets/catalog/E01.png (28KB)
+assets/catalog/E02.png (32KB)
+assets/catalog/E03.png (29KB)
+assets/catalog/E04.png (30KB)
+assets/catalog/E05.png (33KB)
+assets/catalog/E06.png (33KB)
+assets/catalog/E07.png (27KB)
+assets/catalog/E08.png (27KB)
+assets/catalog/E09.png (30KB)
+assets/catalog/E10.png (33KB)
+assets/catalog/E11.png (28KB)
+assets/catalog/E12.png (30KB)
+assets/catalog/E13.png (31KB)
+assets/catalog/E14.png (32KB)
+assets/catalog/E15.png (27KB)
+assets/catalog/E16.png (28KB)
+assets/catalog/E17.png (27KB)
+assets/catalog/N01.png (39KB)
+assets/catalog/N02.png (41KB)
+assets/catalog/N03.png (40KB)
+assets/catalog/N04.png (39KB)
+assets/catalog/N05.png (40KB)
+assets/catalog/N06.png (40KB)
+assets/catalog/N07.png (38KB)
+assets/catalog/N08.png (39KB)
+assets/catalog/N09.png (40KB)
+assets/catalog/N10.png (42KB)
+assets/catalog/N11.png (39KB)
+assets/catalog/N13.png (40KB)
+assets/catalog/N14.png (41KB)
+assets/catalog/N15.png (39KB)
+assets/catalog/N16.png (39KB)
+assets/catalog/N17.png (40KB)
+assets/catalog/R01.png (39KB)
+assets/catalog/R02.png (42KB)
+assets/catalog/R03.png (41KB)
+assets/catalog/R04.png (40KB)
+assets/catalog/R05.png (40KB)
+assets/catalog/R06.png (41KB)
+assets/catalog/R07.png (38KB)
+assets/catalog/R08.png (40KB)
+assets/catalog/R09.png (40KB)
+assets/catalog/R10.png (43KB)
+assets/catalog/R11.png (39KB)
+assets/catalog/R13.png (40KB)
+assets/catalog/R14.png (41KB)
+assets/catalog/R15.png (42KB)
+assets/catalog/R16.png (39KB)
+assets/catalog/R17.png (41KB)
+assets/catalog/W01.png (50KB)
+assets/catalog/W02.png (50KB)
+assets/catalog/W03.png (52KB)
+assets/catalog/W04.png (50KB)
+assets/catalog/W05.png (50KB)
+assets/catalog/W06.png (52KB)
+assets/catalog/W07.png (48KB)
+assets/catalog/W08.png (44KB)
+assets/catalog/W09.png (50KB)
+assets/catalog/W10.png (52KB)
+assets/catalog/W11.png (45KB)
+assets/catalog/W13.png (52KB)
+assets/catalog/W14.png (50KB)
+assets/catalog/W15.png (49KB)
+assets/catalog/W16.png (50KB)
+assets/catalog/W17.png (50KB)
+
+› android bundles (1):
+_expo/static/js/android/entry-53a1e28f65f6969e2ca271a54df2b87c.hbc (3MB)
+
+› Files (1):
+metadata.json (5.9KB)
+
+Exported: dist
+PASS: 94 Android export files contain none of the 7 server-only credential sentinels.

@@ -47,7 +47,7 @@ All four demo commands discard inherited provider/database configuration, do not
 
 ## Rehearsal evidence
 
-The [recorded Samsung rehearsal](evidence/m9/timed-demo.mp4) is 1m 46s and uses mock providers. For the prior-live segment, open [the labeled historical capture](evidence/m9/prior-live-labeled.png) in a separate viewer. On a phone, copy it to Downloads and open it in Gallery before rehearsing; return to the demo with Back. This is a prior validated output for a different fixture, not a new rendering of the current E18 candidate. No signed URL, paid request or private account is needed. The final narrated/public video still needs its publication review.
+The [recorded Samsung rehearsal](evidence/m9/timed-demo.mp4) is 1m 46s and uses mock providers. For the prior-live segment, open [the labeled historical capture](evidence/m9/prior-live-labeled.png) in a separate viewer. On a phone, copy it to Downloads and open it in Gallery before rehearsing; return to the demo with Back. This is a prior validated output for a different fixture, not a new rendering of the current E18 candidate. No signed URL, paid request or private account is needed. The public repository image review confirms that the portrait is synthetic; see [image provenance](evidence/IMAGE_PROVENANCE.md). Final narration and portal-specific deliverable review remain separate.
 
 ## Recovery and visual evidence
 

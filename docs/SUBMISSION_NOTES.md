@@ -14,6 +14,14 @@
 
 **Credits:** existing M7 usage 29 requests / approximately $0.1106142; deferred live YouCam gate 5 renders / 5 observed units, including one necklace framing retry. Gate usage included zero OpenAI calls. `npm run credits:report` reads historical counters locally; it does not consume credits. M9 must not reset these ledgers or repeat completed renders.
 
-**Before external submission (manual):** record/review the final timed video, confirm the hackathon portal's required fields and deliverable format, confirm permission to publish any recognizable approved-photo evidence, and supply any required repository/video links. No portal submission, public upload, email, cloud deployment or new live call has been performed or authorized by these notes. Do not mark external submission complete based solely on local documentation.
+**Before external submission (manual):** record/review the final timed video, confirm the hackathon portal's required fields and deliverable format, re-review any newly added imagery under the no-personal-photo rule, and supply any required repository/video links. No portal submission, public upload, email, cloud deployment or new live call has been performed or authorized by these notes. Do not mark external submission complete based solely on local documentation.
 
 **Current M9 readiness (2026-10-07):** complete for local milestone acceptance. 455 tests, clean install, 20/20 Expo Doctor, native build/fresh Samsung installation and physical regressions pass. A continuous **106.01-second** [device rehearsal](evidence/m9/timed-demo.mp4) includes clearly labeled historical live evidence and consumes zero credits. Original phone data is preserved. Dependency advisories remain documented. Final narration/publication/portal review and any external submission or deployment are separate, unperformed tasks.
+
+## Public repository review — 2026-10-07
+
+The subsequent documentation cleanup passes a fresh locked install, lint/typechecks, all 458 tests and Android export. See [repository audit](REPOSITORY_AUDIT.md) for file disposition and the current dependency advisory report. The 2026-10-08 publication review resolves the earlier photo/history decisions: both visible portraits are owner-confirmed synthetic, no recognizable personal photo was identified, and existing history is retained by explicit instruction. No external submission or deployment has occurred.
+
+## Publication readiness — 2026-10-08
+
+The repository is ready for public push with documented residual advisories: 0 critical, 19 high and 10 moderate. A compatible concurrently/shell-quote patch resolves both prior critical entries. Fresh install, lint/typechecks, 458 tests, Android export, 20/20 Expo Doctor and secret scans pass. See [repository audit](REPOSITORY_AUDIT.md) and [image provenance](evidence/IMAGE_PROVENANCE.md). No push, deployment or external submission has been performed.

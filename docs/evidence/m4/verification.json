@@ -1,6 +1,6 @@
 {
   "device": "Samsung SM-S908N",
-  "serial": "R3CT2019D9D",
+  "serial": "DEVICE_SERIAL",
   "android": 16,
   "package": "com.youcam.shoppingconcierge",
   "versionCode": 2,
