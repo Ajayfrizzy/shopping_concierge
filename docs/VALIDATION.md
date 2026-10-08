@@ -1,5 +1,13 @@
 # Validation log
 
+## Missing deployment artifact repair — 2026-10-08
+
+The hosting screenshot reports missing `/app/apps/api/dist/runtime/server.js`. Local compilation creates that exact relative path; the screenshot alone cannot distinguish a skipped build from discarded build output. Added a root Dockerfile with explicit build/output checks and a final-stage copy, plus a source-allowlisted `.dockerignore`. Added root `build` alias for standard npm build detection. No application/domain/provider behavior changed.
+
+Local Linux Docker build passes. The final image runs as a non-root user with external networking disabled during smoke validation: compiled JavaScript starts with TypeScript loading disabled, listens on wildcard injected `PORT=8080` despite `API_PORT=1`, and passes mock health plus authenticated session creation. Runtime checks confirm no private environment files, API source, TypeScript loader, Expo package or evidence screenshots; migrations and original usage ledgers are retained. Test container removed afterward. Live modes remain mocked; image-layer ledger copies do not provide durable accounting across redeployments.
+
+`npm run build`, lint, both typechecks and offline tests pass: **453 passed / 12 integration tests skipped**. No cloud deployment, push, resource migration, phone change or paid call. [Hosting instructions](../apps/api/README.md#docker-deployment-recommended) specify repository-root Docker context and image CMD.
+
 ## Compiled API startup configuration — 2026-10-08
 
 Added root `build:api` / `start` scripts and a backend-only esbuild build. API production start now runs `node dist/runtime/server.js`; third-party runtime dependencies remain external, internal TypeScript workspaces are compiled, and migration/ledger-relative paths retain their directory depth. Development startup and mobile exports are unchanged. `PORT` takes precedence over `API_PORT`; production defaults to `0.0.0.0` unless `API_HOST` explicitly overrides it. Invalid injected ports fail closed.

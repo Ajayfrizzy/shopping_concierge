@@ -92,7 +92,9 @@ Use this API instead of `dev:api`, with Metro in another terminal. The explicit 
 
 ## Backend hosting commands
 
-With the repository root as the hosting build directory:
+The root [Dockerfile](Dockerfile) explicitly builds and copies the compiled backend into the runtime image. Use repository root `.` as its build context and the image CMD for startup; see [Docker setup](apps/api/README.md#docker-deployment-recommended).
+
+For a non-Docker builder with the repository root as its build directory:
 
 - **Build:** `npm ci --include=dev && npm run build:api`
 - **Start:** `npm start`

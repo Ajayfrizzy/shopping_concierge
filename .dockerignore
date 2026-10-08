@@ -1,0 +1,26 @@
+# Allowlist: no private environment, Git history, evidence images or local builds.
+**
+!package.json
+!package-lock.json
+!apps/api/package.json
+!apps/api/build.mjs
+!apps/api/src/**
+!apps/api/migrations/**
+!apps/mobile/package.json
+!packages/*/package.json
+!packages/*/src/**
+!fixtures/catalog.ts
+!artifacts/m7-live-budget.json
+!docs/evidence/youcam-live/render-reservations.jsonl
+
+# Defense in depth inside allowed source directories.
+**/node_modules
+**/dist
+**/.env*
+**/*.env
+**/*.env.*
+**/.npmrc
+**/*.pem
+**/*.key
+**/*.log
+**/.DS_Store
