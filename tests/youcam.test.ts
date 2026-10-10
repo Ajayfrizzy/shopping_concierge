@@ -1,3 +1,4 @@
+import { fixtureProducts } from '../fixtures/catalog.js';
 import { createVisualAPI, pickedImageMime } from '../apps/mobile/src/visual-client.js';
 import { randomUUID } from 'node:crypto';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -18,7 +19,9 @@ afterEach(async () => {
   vi.useRealTimers();
 });
 async function setup(provider = new MockVisualProvider()) {
-  const repository = createMemoryRepository(),
+  const repository = createMemoryRepository(
+      fixtureProducts.map((p) => ({ ...p, vtoEligible: true })),
+    ),
     objects = createMemoryObjectStore();
   const app = buildApp({ shopping: { repository, objects, visualProvider: provider } });
   apps.push(app);

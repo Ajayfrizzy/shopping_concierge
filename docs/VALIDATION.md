@@ -1,3 +1,65 @@
+# Final N12 upload recheck — 2026-10-10
+
+Read-only listing and authenticated reads of all five necklace objects verified the new N12 reference: image/png, decoded PNG 1319×1192, SHA-256 and actual suffixed key recorded. Offline inspection confirms complete chain/clasp and pendant with margins. All eight additions now pass offline appearance review; remain uploaded/ineligible pending approval and registration. Historical N03 hash unchanged; other categories were not downloaded again in this recheck. No provider calls, cloud writes, deployment or budget activation.
+
+Manifest/eligibility tests: 12 passed across two files. This recheck updates asset data/documentation only; prior full-suite/API/Android results are historical. Evidence: `evidence/vto-uploads/n12-final-2026-10-10.json`.
+
+---
+
+# VTO replacement inspection — 2026-10-10
+
+Read-only S3 recheck found four replacement objects among 16 total category objects. All replacements are readable image/png and decode to PNG 1254×1254. Exact final suffixed keys and SHA-256 values replace the rejected candidates in the manifest; prior evidence remains retained. Historical four approved asset hashes still match.
+
+E12/R08/W11 now match intended visible shape/color. N12 is silver but its upper chain is cropped at the image boundary, so it needs a complete wider reference before asset approval. Seven of eight added products pass offline appearance review; all eight remain uploaded/ineligible with no registration performed. No paid provider calls, deployment, production database writes, budget activation or S3 mutations. Image appearance does not certify physical material composition or live output quality.
+
+Manifest/eligibility regression tests pass (12 tests across two files); git diff whitespace check passes. This task changes asset records/documentation only, so the prior API/Android build results were not re-run or claimed as new verification. Details and exact keys: VTO_UPLOAD_REVIEW.md and evidence/vto-uploads/replacements-2026-10-10.json.
+
+---
+
+# Uploaded VTO asset inspection — 2026-10-10
+
+Listed all four private S3 category prefixes and successfully read all 12 objects. Eight additions are image/png, decoded PNG 1254×1254, with exact final suffixed keys and SHA-256 recorded in the judge manifest and `docs/evidence/vto-uploads/inspection-2026-10-10.json`. Historical four hashes/evidence are unchanged. Filename/appearance swaps E01↔E12 and W08↔W11 were explicitly mapped by visible product. E01/N01/R01/W08 pass offline appearance review; E12/N12/R08/W11 need color/finish corrections. All eight remain uploaded, not validated or eligible. No live render quality or physical material composition is inferred.
+
+Registration verifier (read-only) passes the four historical candidates and excludes all eight uploaded-only entries. Inspected production database has migrations 1–4 only; private registration requires migration 006 and a compatible backend. No schema/catalog writes, deployment, provider-mode changes, budget activation, S3 writes or paid provider calls occurred.
+
+Checks: lint, API/mobile typechecks and API build pass. Relevant suite with `M5_INTEGRATION=1` passes **57 tests across four files**, none skipped (YouCam, manifest, eligibility and PostgreSQL validation ledger). Initial non-integration run passed 47 with 10 skipped; the enabled rerun covers all 57. Android export and secret scan pass: 94 files free of seven server credential sentinels. `git diff --check` passes. New exact-key resolver prevents silently targeting another configured prefix; uploaded statuses/hashes cannot bypass the validated-only registration gate.
+
+Twelve-product VTO readiness remains incomplete: four corrections plus later compatible-backend registration required. Exact keys and findings: VTO_UPLOAD_REVIEW.md. No cloud activation performed.
+
+---
+
+# Curated VTO asset preparation — 2026-10-09
+
+Selection and upload preparation are complete; actual inventory remains **four validated assets and eight missing assets**. Selected additional IDs: E01/E12, N01/N12, R01/R08, W11/W08. Exact catalog names, versioned filenames, prefix-relative private S3 paths, status and product/endpoint requirements are recorded in `fixtures/vto/judge-assets.json` and `VTO_ASSET_PREPARATION.md`. Earlier 04/13 placeholders are superseded. No catalog metadata/ranking, provider modes, budget activation, cloud state or historical validation records changed in this task.
+
+Manifest version 2 supports missing/uploaded/validated transitions without database changes. Registration candidates must be validated, have SHA-256 and review evidence, and match the actual catalog. The existing importer additionally checks S3 bytes and database name/category before its separately requested transactional apply. Uploaded-only entries remain ineligible. Four original asset paths/hashes are retained; the eight additions have null hashes/evidence and remain unavailable. No image generation, upload, deployment or paid provider call occurred.
+
+Validation: `npm run lint`, `npm run typecheck`, `npm run build:api` pass. `M5_INTEGRATION=1 npm test -- --maxWorkers=2` passes **526 tests across 26 files**, including local PostgreSQL/S3 integrations, eight new manifest tests and all existing eligibility/accounting regressions. `npm run verify:mobile-secrets` passes Android export and scans 94 files for seven server-only credential sentinels. `git diff --check` passes. No unresolved test failures. No native-device layout or new live-render quality certification is claimed.
+
+Remaining asset gate: create/source and upload the eight matching isolated product assets, verify actual bytes and appearance, record review evidence and hashes, then authorize registration against a compatible backend. A 1024-square PNG is a preparation recommendation, not a claimed provider reference-image size limit; see per-category source framing constraints in the asset guide. Stop before deployment, live switches or judge-budget activation.
+
+---
+
+# Judge runtime hardening — 2026-10-09
+
+**Backend implementation validated; full judge-release scope remains incomplete pending eight additional approved isolated product assets, later deployment/catalog activation and OpenAI budget review.** No provider modes, production database/catalog records or historical ledgers were changed. No deployment or paid provider calls occurred.
+
+Implemented liveness/readiness separation with allowlisted runtime modes and dependency failure/recovery, PostgreSQL OpenAI judge accounting, separate 50-render YouCam judge capacity, explicit VTO eligibility and normal unsupported-product handling, and private asset signing immediately before submission. Migration 005 creates judge budget/usage tables; migration 006 creates private approved VTO references. Historical OpenAI 29/30 evidence and YouCam 5/8 reservations remain untouched. The proposed OpenAI 200-request/$3 budget defaults to unapproved in PostgreSQL and cannot be used live until reviewed.
+
+Validation completed:
+
+- `npm run db:local`: migrations 005/006 apply successfully to local PostgreSQL; fresh test schemas independently exercise migration replay/history preservation.
+- `npm run lint`, `npm run typecheck`, `npm run build:api`: pass.
+- `M5_INTEGRATION=1 npm test -- --maxWorkers=2`: **518 tests pass across 25 files**, none skipped. New coverage includes approval gating, monetary/request/unit ceilings, concurrent reservations, idempotent/conflicting settlement, cached tokens, restart, malformed usage, failed commit recovery, overrun blocking, private VTO signing, normal unavailable responses and secret-safe readiness.
+- Compiled backend smoke with local PostgreSQL/S3 and explicit mock providers: `/health` 200; `/ready` 200 reports postgres/s3, mock/mock, postgres/postgres and judge scope. No provider calls are made by readiness.
+- `npm run verify:mobile-secrets`: Android export passes, 94 files contain none of seven server credential sentinels. Native device layout was not re-certified by this export.
+- `scripts/prepare-judge-vto.mts` read-only check: all four existing S3 assets match approved SHA-256 and catalog categories. Local configured S3 presigned hostname passes the provider allowlist. No permanent URL or secret was exposed. Actual production host settings still require review.
+- `git diff --check`: clean. Initial eligibility regression failures were corrected by explicitly supplying eligible test fixtures, retaining their lifecycle coverage; real catalog fixtures default to ineligible. The initial asset script ESM extension issue was fixed and the read-only run passed.
+
+Prepared existing asset mappings: E03/earring01-9493d1.png, N03/necklace01-9444a6.png, R03/ring01-5d89c0.png, W03/watch01-c7069f.png. Eight provisional slots E04/E13/N04/N13/R04/R13/W04/W13 remain ineligible without assets. Do not label the twelve-product target complete. The manifest importer is read-only by default and must only apply catalog eligibility after a compatible backend is deployed; the currently deployed strict legacy product schema cannot read that new field. See PRODUCTION_READINESS.md for exact settings and deployment order.
+
+---
+
 # PostgreSQL YouCam ledger — 2026-10-08
 
 User-authorized deployment preparation is implemented; no deployment or cloud migration performed. Migration 004 imports the five checked-in render reservations once and retains the eight-request/unit ceilings. PostgreSQL startup checks, serialized reservations, job-ID duplicate protection, idempotent acknowledgement commits and conservative accounting for uncertain outcomes are covered. File validation remains available; LLM accounting is unchanged.

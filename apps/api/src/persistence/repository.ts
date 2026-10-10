@@ -16,6 +16,7 @@ export interface ShoppingRepository {
   read(owner: string, id: string): Promise<AgentSessionRecord>;
   list(owner: string): Promise<string[]>;
   products(): Promise<Product[]>;
+  vtoAssetKey?(productId: string): Promise<string | null>;
   update(
     owner: string,
     id: string,

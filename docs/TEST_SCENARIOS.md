@@ -188,3 +188,7 @@ A08 now compares actual catalog products against active criteria with explicit i
 ## PostgreSQL YouCam ledger — 2026-10-08
 
 `tests/youcam-ledger.test.ts` covers configuration, initialization, once-only migration/history import, atomic reservation, idempotent commit, conflicting/parallel duplicates, concurrent ceilings, independent request/unit limits, restart persistence, missing schema, limit mismatch, database failure rollback and commit recovery. Real PostgreSQL cases require `M5_INTEGRATION=1`. `tests/youcam.test.ts` additionally verifies that persistent reservation rejection/duplicates prevent paid POST, acknowledgement commits once, and uncertain provider/commit outcomes never trigger an automatic resubmission. All provider HTTP is injected; no paid calls occur.
+
+## Judge runtime hardening
+
+Runtime accounting tests apply migrations to fresh isolated PostgreSQL schemas, preserve validation history, and verify approval gating, concurrent caps, duplicate/conflicting settlement, cached-token spend, restart, missing schema, malformed usage and failure recovery. Eligibility tests verify normal unavailable responses and typed agent fallback, private signing at submission, and absence of private references in responses. Readiness tests inject dependency failure/recovery and secret-bearing errors; live provider calls are never made.

@@ -77,6 +77,18 @@ export function visualService(
       const product = (await repository.products()).find((p) => p.id === input.productId);
       if (!product)
         throw new AgentError('UNKNOWN_PRODUCT', 'No catalog product exists for this ID.', 404);
+      if (!product.vtoEligible)
+        return vtoResponseSchema.parse({
+          type: 'unavailable',
+          message:
+            'Try-on is not available for this product. You can still compare, save or select it.',
+        });
+      const approvedKey = await repository.vtoAssetKey?.(product.id);
+      if (provider.mode === 'live' && !approvedKey && !product.vtoAssetUrl)
+        return vtoResponseSchema.parse({
+          type: 'unavailable',
+          message: 'Try-on is not available for this product yet. You can continue shopping.',
+        });
       if (!input.assetId)
         return vtoResponseSchema.parse({
           type: 'request_image',
@@ -91,7 +103,7 @@ export function visualService(
           message: `This operation needs a ${requiredImage[product.category]} image.`,
         });
       validateImageType(product.category, stored.asset);
-      if (provider.mode === 'live' && !product.vtoAssetUrl)
+      if (provider.mode === 'live' && !approvedKey && !product.vtoAssetUrl)
         throw new VisualError(
           'PRODUCT_ASSET_MISSING',
           'This catalog item has no approved try-on image. Choose another product.',
@@ -111,6 +123,7 @@ export function visualService(
         }
         const cached = state.jobs.find(
           (j) =>
+            (j.productAssetKey ?? null) === (approvedKey ?? null) &&
             j.productAssetUrl === product.vtoAssetUrl &&
             j.job.mode === provider.mode &&
             j.job.productId === product.id &&
@@ -146,6 +159,7 @@ export function visualService(
         });
         state.jobs.push({
           job: result,
+          productAssetKey: approvedKey ?? null,
           productAssetUrl: product.vtoAssetUrl,
           taskId: null,
           lastPollAt: 0,
@@ -230,12 +244,20 @@ export function visualService(
               'PRODUCT_ASSET_MISSING',
               'The catalog product is no longer available.',
             );
+          if (!product.vtoEligible)
+            throw new VisualError(
+              'PRODUCT_ASSET_MISSING',
+              'Try-on is no longer available for this product.',
+            );
+          const key = await repository.vtoAssetKey?.(product.id);
+          const productAssetUrl =
+            key && objects.signGet ? await objects.signGet(key) : product.vtoAssetUrl;
           const taskId = await provider.start({
             reservationId: work.job.id,
             category: product.category,
             asset: stored.asset,
             bytes,
-            productAssetUrl: product.vtoAssetUrl,
+            productAssetUrl,
           });
           await repository.visual(owner, sessionId, (state) => {
             const r = state.jobs.find((j) => j.job.id === id)!;

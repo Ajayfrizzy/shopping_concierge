@@ -274,15 +274,17 @@ export default function Home() {
                       disabled={disabled || choices?.selected.includes(product.id)}
                       onPress={() => feedback(product, 'select')}
                     />
-                    <Button
-                      title="Try on"
-                      accessibilityLabel={`Try on ${product.id}`}
-                      secondary
-                      disabled={disabled}
-                      onPress={() =>
-                        router.push({ pathname: '/try-on', params: { productId: product.id } })
-                      }
-                    />
+                    {product.vtoEligible && (
+                      <Button
+                        title="Try on"
+                        accessibilityLabel={`Try on ${product.id}`}
+                        secondary
+                        disabled={disabled}
+                        onPress={() =>
+                          router.push({ pathname: '/try-on', params: { productId: product.id } })
+                        }
+                      />
+                    )}
                     <Button
                       title="Reject"
                       accessibilityLabel={`Reject ${product.id}`}

@@ -408,7 +408,9 @@ export function createAgentService(
             : comparison
               ? 'Compare the stored catalog facts and current criteria below. Ineligible or rejected items are not recommendations.'
               : visualProduct
-                ? 'Open try-on to provide the required image and explicitly start rendering. Your shopping decisions are unchanged.'
+                ? !visualProduct.vtoEligible
+                  ? 'Try-on is not available for this product. You can still compare, save or select it.'
+                  : 'Open try-on to provide the required image and explicitly start rendering. Your shopping decisions are unchanged.'
                 : detail
                   ? 'Here are the stored catalog facts for this product.'
                   : searched
@@ -425,29 +427,31 @@ export function createAgentService(
         events,
         ui: comparison
           ? { type: 'comparison', payload: comparison }
-          : visualProduct
-            ? {
-                type: 'request_image',
-                payload: {
-                  productId: visualProduct.id,
-                  requiredType: (
-                    {
-                      earrings: 'portrait',
-                      necklaces: 'portrait',
-                      rings: 'hand',
-                      watches: 'wrist',
-                    } as const
-                  )[visualProduct.category],
-                },
-              }
-            : detail
-              ? { type: 'product_detail', payload: detail }
-              : searched && !clarification
-                ? {
-                    type: results.status === 'matches' ? 'product_list' : 'empty_state',
-                    payload: results,
-                  }
-                : { type: 'constraint_update', payload: state },
+          : visualProduct && !visualProduct.vtoEligible
+            ? { type: 'product_detail', payload: visualProduct }
+            : visualProduct
+              ? {
+                  type: 'request_image',
+                  payload: {
+                    productId: visualProduct.id,
+                    requiredType: (
+                      {
+                        earrings: 'portrait',
+                        necklaces: 'portrait',
+                        rings: 'hand',
+                        watches: 'wrist',
+                      } as const
+                    )[visualProduct.category],
+                  },
+                }
+              : detail
+                ? { type: 'product_detail', payload: detail }
+                : searched && !clarification
+                  ? {
+                      type: results.status === 'matches' ? 'product_list' : 'empty_state',
+                      payload: results,
+                    }
+                  : { type: 'constraint_update', payload: state },
         tools: plan.calls.map((call) => ({ name: call.name, outcome: 'completed' })),
       });
       const text =

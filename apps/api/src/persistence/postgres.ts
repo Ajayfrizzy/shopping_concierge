@@ -79,6 +79,22 @@ export async function migrate(pool: Pool) {
       await client.query(usageSql);
       await client.query('INSERT INTO schema_migrations VALUES (4,$1)', [usageHash]);
     }
+    for (const [version, name] of [
+      [5, '005_judge_accounting.sql'],
+      [6, '006_vto_capability.sql'],
+    ] as const) {
+      const content = await readFile(new URL('../../migrations/' + name, import.meta.url), 'utf8');
+      const checksum = createHash('sha256').update(content).digest('hex');
+      const prior = await client.query('SELECT checksum FROM schema_migrations WHERE version=$1', [
+        version,
+      ]);
+      if (prior.rows[0] && prior.rows[0].checksum !== checksum)
+        throw new Error('Migration checksum mismatch');
+      if (!prior.rows.length) {
+        await client.query(content);
+        await client.query('INSERT INTO schema_migrations VALUES($1,$2)', [version, checksum]);
+      }
+    }
     await client.query('COMMIT');
   } catch (error) {
     await client.query('ROLLBACK');
@@ -164,6 +180,13 @@ export function createPostgresRepository(pool: Pool): ShoppingRepository {
           [owner],
         )
       ).rows.map((r) => r.id as string);
+    },
+    async vtoAssetKey(productId) {
+      const result = await pool.query(
+        'SELECT object_key FROM product_vto_assets WHERE product_id=$1',
+        [productId],
+      );
+      return result.rows[0]?.object_key ?? null;
     },
     async products() {
       return products(pool);

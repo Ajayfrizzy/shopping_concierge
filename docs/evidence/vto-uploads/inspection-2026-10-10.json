@@ -1,0 +1,243 @@
+{
+  "date": "2026-10-10",
+  "providerCalls": 0,
+  "databaseMigrations": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "registrationApplied": false,
+  "objects": [
+    {
+      "index": 0,
+      "category": "earrings",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e01-quiet-round-vto-v1-f50c17.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "size": 1585871,
+      "sha256": "f535ddf35c27d1ea300f4c23cc4056de0b24c138851c96fc60e89e69e8bd4c8c"
+    },
+    {
+      "index": 1,
+      "category": "earrings",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v1-aa1d5a.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "size": 1061812,
+      "sha256": "be0da996cee1b62b85b5750f4051a4d6a5a506d9bcb336a94c980789b791aa8a"
+    },
+    {
+      "index": 2,
+      "category": "earrings",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/earring01-9493d1.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 360,
+      "height": 395,
+      "size": 161322,
+      "sha256": "24356f4991671da7fa90794e520f334b0f2a9d3383b6c9734e009127827a6ff6"
+    },
+    {
+      "index": 3,
+      "category": "necklaces",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n01-quiet-round-vto-v1-848458.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "size": 1029030,
+      "sha256": "70bb1ee5359a70986fd05cfc9c87b05d123ebbd79ad96b1a45aa26a10f4ac5a6"
+    },
+    {
+      "index": 4,
+      "category": "necklaces",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-ab6469.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "size": 1334554,
+      "sha256": "b3d8a63d7855dc6019a23c828306e64674babc1e6318b413dd38de2e7d8ad1e9"
+    },
+    {
+      "index": 5,
+      "category": "necklaces",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/necklace01-9444a6.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 365,
+      "height": 395,
+      "size": 139679,
+      "sha256": "bab8defe30d19b9a8e3880ec15929fe67919717a724e3cb9626463621a919225"
+    },
+    {
+      "index": 6,
+      "category": "rings",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/r01-quiet-round-vto-v1-780571.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "size": 1187833,
+      "sha256": "12cc686ac52e146513e4593da8b09b2fdbd6594661f153c0f2c60a4361e48bed"
+    },
+    {
+      "index": 7,
+      "category": "rings",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/r08-square-vto-v1-d0e860.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "size": 1178724,
+      "sha256": "4ef7517a8312e0204c51be05322eaba60bf5f51bfd5aa20ec157cc77695f16a2"
+    },
+    {
+      "index": 8,
+      "category": "rings",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/ring01-5d89c0.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 365,
+      "height": 395,
+      "size": 164950,
+      "sha256": "b215093bf7bfa6c055f6e4c73e493f73f6d4a32cd23663c05f9c0071798cdf4a"
+    },
+    {
+      "index": 9,
+      "category": "watches",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/w08-square-vto-v1-222e61.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "size": 1585503,
+      "sha256": "b358746ed8da44586d38e4455afa4c4495c199be12962c1d563b359819d7e558"
+    },
+    {
+      "index": 10,
+      "category": "watches",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/w11-everyday-vto-v1-6510f3.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 1254,
+      "height": 1254,
+      "size": 1521553,
+      "sha256": "f116e737da06241781045eb21e37c952260f38035f3137b7d9b161f5278c85fd"
+    },
+    {
+      "index": 11,
+      "category": "watches",
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/watch01-c7069f.png",
+      "mime": "image/png",
+      "format": "png",
+      "width": 360,
+      "height": 395,
+      "size": 172208,
+      "sha256": "5d72740f9cd8a91f901233b40aadc6531bc8ad954e700f91bb03b43bec911558"
+    }
+  ],
+  "review": [
+    {
+      "productId": "E01",
+      "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v1-aa1d5a.png",
+      "filenameMatchesProductId": false,
+      "mimeCheck": "passed",
+      "readCheck": "passed",
+      "decodeCheck": "passed",
+      "visualReview": "passed",
+      "note": "Filename swap: e12 file contains silver round stud pair matching E01; map by visible product, not filename.",
+      "status": "uploaded",
+      "eligibility": false
+    },
+    {
+      "productId": "E12",
+      "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e01-quiet-round-vto-v1-f50c17.png",
+      "filenameMatchesProductId": false,
+      "mimeCheck": "passed",
+      "readCheck": "passed",
+      "decodeCheck": "passed",
+      "visualReview": "needs-correction",
+      "note": "Filename swap: e01 file contains statement dangling earrings appropriate in shape for E12, but metal is gold-colored; E12 requires silver. Replace with silver version.",
+      "status": "uploaded",
+      "eligibility": false
+    },
+    {
+      "productId": "N01",
+      "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n01-quiet-round-vto-v1-848458.png",
+      "filenameMatchesProductId": true,
+      "mimeCheck": "passed",
+      "readCheck": "passed",
+      "decodeCheck": "passed",
+      "visualReview": "passed",
+      "note": "Complete silver-colored chain with restrained round pendant matches N01.",
+      "status": "uploaded",
+      "eligibility": false
+    },
+    {
+      "productId": "N12",
+      "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-ab6469.png",
+      "filenameMatchesProductId": true,
+      "mimeCheck": "passed",
+      "readCheck": "passed",
+      "decodeCheck": "passed",
+      "visualReview": "needs-correction",
+      "note": "Complete statement necklace but gold-colored; N12 requires silver. Replace with silver version.",
+      "status": "uploaded",
+      "eligibility": false
+    },
+    {
+      "productId": "R01",
+      "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/r01-quiet-round-vto-v1-780571.png",
+      "filenameMatchesProductId": true,
+      "mimeCheck": "passed",
+      "readCheck": "passed",
+      "decodeCheck": "passed",
+      "visualReview": "passed",
+      "note": "Silver-colored round ring with restrained solitaire setting; broadly consistent with minimal round R01. Image cannot establish gemstone composition or metal purity.",
+      "status": "uploaded",
+      "eligibility": false
+    },
+    {
+      "productId": "R08",
+      "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/r08-square-vto-v1-d0e860.png",
+      "filenameMatchesProductId": true,
+      "mimeCheck": "passed",
+      "readCheck": "passed",
+      "decodeCheck": "passed",
+      "visualReview": "needs-correction",
+      "note": "Square black face but large silver-colored body/band; intended R08 is black titanium. Replace with a consistently black-finished square design.",
+      "status": "uploaded",
+      "eligibility": false
+    },
+    {
+      "productId": "W11",
+      "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/w08-square-vto-v1-222e61.png",
+      "filenameMatchesProductId": false,
+      "mimeCheck": "passed",
+      "readCheck": "passed",
+      "decodeCheck": "passed",
+      "visualReview": "needs-correction",
+      "note": "Filename swap: w08 file contains round watch, but silver-colored case and pale dial conflict with black W11. Replace with small round black-finished watch.",
+      "status": "uploaded",
+      "eligibility": false
+    },
+    {
+      "productId": "W08",
+      "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/w11-everyday-vto-v1-6510f3.png",
+      "filenameMatchesProductId": false,
+      "mimeCheck": "passed",
+      "readCheck": "passed",
+      "decodeCheck": "passed",
+      "visualReview": "passed",
+      "note": "Filename swap: w11 file contains black square watch matching W08 shape/color. Image cannot establish titanium composition.",
+      "status": "uploaded",
+      "eligibility": false
+    }
+  ]
+}

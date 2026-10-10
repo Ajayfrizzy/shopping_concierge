@@ -32,3 +32,7 @@ Typed actions and quick actions must hit the same backend semantics. UI must ren
 ## Demo target
 
 Android first. Keep navigation and actions obvious enough for a judge to understand without onboarding narration.
+
+## Judge runtime hardening
+
+Try-on is a per-product capability: show the action only for vtoEligible === true. Handle the normal unavailable VTO response without an error state or image request, including direct routes to old/ineligible products.

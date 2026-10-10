@@ -1,11 +1,14 @@
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import {
   S3Client,
+  HeadBucketCommand,
   GetObjectCommand,
   PutObjectCommand,
   ListObjectsV2Command,
 } from '@aws-sdk/client-s3';
 export interface ObjectStore {
+  ready?(): Promise<void>;
+  signGet?(key: string, expiresIn?: number): Promise<string>;
   put(key: string, bytes: Uint8Array, contentType: string): Promise<void>;
   get(key: string): Promise<Uint8Array>;
   close(): void;
@@ -46,6 +49,9 @@ export function createS3ObjectStore(config: {
     requestHandler: { connectionTimeout: 5000, requestTimeout: 10000 },
   });
   return {
+    async ready() {
+      await client.send(new HeadBucketCommand({ Bucket: bucket }));
+    },
     async signGet(key, expiresIn = 900) {
       if (!key || !Number.isInteger(expiresIn) || expiresIn < 1 || expiresIn > 3600)
         throw new Error('Temporary asset access requires a key and expiry of 1–3600 seconds.');

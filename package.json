@@ -22,7 +22,7 @@
     "check": "npm run lint && npm run typecheck && npm test",
     "export:android": "npm run export:android -w @youcam/mobile",
     "android:build": "npm run android -w @youcam/mobile",
-    "test:integration": "M5_INTEGRATION=1 vitest run tests/persistence-postgres.test.ts tests/youcam-ledger.test.ts",
+    "test:integration": "M5_INTEGRATION=1 vitest run tests/persistence-postgres.test.ts tests/youcam-ledger.test.ts tests/runtime-accounting.test.ts",
     "infra:local": "docker compose -f infra/compose.local.yml up -d --wait",
     "db:migrate": "npm run db:migrate -w @youcam/api --",
     "dev:persistent": "node --env-file=infra/local.env.example --import tsx apps/api/src/server.ts",

@@ -85,7 +85,8 @@ export class LiveBudget {
       return ledger.entries.length - 1;
     });
   }
-  settle(index: number, raw: unknown) {
+  settle(index: number | string, raw: unknown) {
+    if (typeof index !== 'number') throw new Error('Invalid file reservation ID');
     const { usage, usd } = usageCost(raw);
     this.change((ledger) => {
       const entry = ledger.entries[index];
@@ -113,4 +114,13 @@ export class LiveBudget {
       unknownUsageRequests: ledger.entries.filter((e) => !e.usage).length,
     };
   }
+}
+
+export interface OpenAIBudget {
+  reserve(
+    model: string,
+    bodyBytes: number,
+    maxOutputTokens: number,
+  ): number | string | Promise<number | string>;
+  settle(id: number | string, raw: unknown): void | Promise<void>;
 }

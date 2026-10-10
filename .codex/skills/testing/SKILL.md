@@ -24,3 +24,7 @@ Every discovered bug that could recur should gain a test/fixture before or with 
 ## Completion report
 
 For every milestone report: commands run, tests passed, known failures, live calls made, and unmet acceptance criteria.
+
+## Judge runtime hardening
+
+Use fresh isolated PostgreSQL schemas to test budget approval, independent request/spend limits, duplicate settlement, concurrent reservations, restart and failure recovery. Test readiness failure/recovery and secret redaction with injected failures; never use paid calls for readiness checks. VTO tests must explicitly supply eligible fixtures, and separately prove unsupported products do not request images or render. Run Android export plus credential-sentinel scan after shared/UI changes.

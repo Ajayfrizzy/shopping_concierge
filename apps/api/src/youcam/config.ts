@@ -21,6 +21,11 @@ export function youcamProvider(
       .map((s) => s.trim())
       .filter(Boolean);
   const settings = ledgerSettings(env);
+  if (
+    env.NODE_ENV === 'production' &&
+    (settings.mode !== 'postgres' || env.YOUCAM_LEDGER_SCOPE !== 'judge')
+  )
+    throw new Error('Production live YouCam requires PostgreSQL judge accounting.');
   return new LiveYouCamProvider({
     apiOrigin: env.YOUCAM_BASE_URL || undefined,
     ledger: usageLedger,

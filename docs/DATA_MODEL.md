@@ -175,3 +175,7 @@ M8 activates persisted complement dependencies: selected catalog anchor, distinc
 ## PostgreSQL YouCam accounting — 2026-10-08
 
 Migration `004_youcam_usage.sql` adds a singleton `youcam_usage_budget` (request/unit ceilings) and `youcam_usage_reservations` (server job ID, category, one reserved unit, reservation/commit timestamps, historical flag). Commit means submission acknowledgement; all reservations count even when acknowledgement is unknown. Historical commit markers reuse the original recorded reservation timestamps, not independently measured acknowledgement times. These server-only records contain no keys, images, URLs or provider response bodies. They are independent of session deletion and remain charged across deployments.
+
+## Judge runtime accounting and VTO capability
+
+Migration 005 creates separate runtime_budgets/runtime_usage records for judge OpenAI and YouCam. No historical ledger is repurposed. OpenAI usage stores request reservations, normalized input/output/cached token totals, conservative reserved USD, settled USD and timestamps. Migration 006 creates private product_vto_assets references with SHA-256. Public products expose only vtoEligible, defaulting absent legacy fields to unavailable at the service boundary; they never contain private asset keys or presigned URLs.

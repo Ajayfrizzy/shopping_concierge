@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-10",
+  "scope": "Read-only necklace prefix listing and all five object reads using backend S3 credentials",
+  "objects": [
+    {
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n01-quiet-round-vto-v1-848458.png",
+      "mime": "image/png",
+      "width": 1254,
+      "height": 1254,
+      "format": "png",
+      "sha256": "70bb1ee5359a70986fd05cfc9c87b05d123ebbd79ad96b1a45aa26a10f4ac5a6",
+      "lastModified": "2026-10-10T00:03:18.693Z"
+    },
+    {
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-241860.png",
+      "mime": "image/png",
+      "width": 1319,
+      "height": 1192,
+      "format": "png",
+      "sha256": "62df66d79c57212397d1a6ac551c37bafaa2461b197f32fb6def71537520845d",
+      "lastModified": "2026-10-10T09:15:31.614Z"
+    },
+    {
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-41d6a3.png",
+      "mime": "image/png",
+      "width": 1254,
+      "height": 1254,
+      "format": "png",
+      "sha256": "a9bcc4020b0401d73349b96c53918d3e1b784c5d1e6a694faabc4d4f2686cb25",
+      "lastModified": "2026-10-10T02:59:16.210Z"
+    },
+    {
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-ab6469.png",
+      "mime": "image/png",
+      "width": 1254,
+      "height": 1254,
+      "format": "png",
+      "sha256": "b3d8a63d7855dc6019a23c828306e64674babc1e6318b413dd38de2e7d8ad1e9",
+      "lastModified": "2026-10-10T00:03:21.582Z"
+    },
+    {
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/necklace01-9444a6.png",
+      "mime": "image/png",
+      "width": 365,
+      "height": 395,
+      "format": "png",
+      "sha256": "bab8defe30d19b9a8e3880ec15929fe67919717a724e3cb9626463621a919225",
+      "lastModified": "2026-10-07T03:49:32.924Z"
+    }
+  ],
+  "productId": "N12",
+  "selectedObjectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-241860.png",
+  "supersededObjectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-41d6a3.png",
+  "offlineAppearance": "passed: complete silver-colored statement necklace, chain/clasp/pendant visible with margins; no visible presentation border",
+  "status": "uploaded",
+  "registered": false,
+  "liveRenderTested": false,
+  "note": "1319x1192 is not square; square preparation target is a recommendation, not a verified mandatory provider limit. Historical N03 hash matches previous evidence."
+}

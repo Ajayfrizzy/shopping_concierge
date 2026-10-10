@@ -16,6 +16,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E01.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -33,6 +34,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E02.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -50,6 +52,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E03.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -67,6 +70,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E04.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -84,6 +88,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E05.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -101,6 +106,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E06.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -118,6 +124,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E07.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -135,6 +142,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E08.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -152,6 +160,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E09.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -169,6 +178,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E10.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -186,6 +196,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E11.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -203,6 +214,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E12.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -220,6 +232,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E13.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -237,6 +250,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E14.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -254,6 +268,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E15.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -271,6 +286,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E16.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: false,
   },
@@ -288,6 +304,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E17.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -305,6 +322,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/E18.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -322,6 +340,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N01.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -339,6 +358,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N02.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -356,6 +376,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N03.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -373,6 +394,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N04.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -390,6 +412,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N05.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -407,6 +430,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N06.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -424,6 +448,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N07.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -441,6 +466,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N08.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -458,6 +484,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N09.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -475,6 +502,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N10.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -492,6 +520,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N11.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -509,6 +538,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N12.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -526,6 +556,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N13.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -543,6 +574,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N14.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -560,6 +592,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N15.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -577,6 +610,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N16.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: false,
   },
@@ -594,6 +628,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N17.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -611,6 +646,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/N18.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -628,6 +664,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R01.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -645,6 +682,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R02.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -662,6 +700,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R03.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -679,6 +718,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R04.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -696,6 +736,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R05.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -713,6 +754,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R06.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -730,6 +772,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R07.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -747,6 +790,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R08.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -764,6 +808,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R09.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -781,6 +826,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R10.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -798,6 +844,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R11.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -815,6 +862,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R12.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -832,6 +880,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R13.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -849,6 +898,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R14.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -866,6 +916,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R15.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -883,6 +934,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R16.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: false,
   },
@@ -900,6 +952,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R17.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -917,6 +970,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/R18.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -934,6 +988,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W01.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -951,6 +1006,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W02.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -968,6 +1024,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W03.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -985,6 +1042,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W04.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1002,6 +1060,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W05.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1019,6 +1078,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W06.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1036,6 +1096,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W07.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1053,6 +1114,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W08.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1070,6 +1132,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W09.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1087,6 +1150,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W10.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1104,6 +1168,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W11.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1121,6 +1186,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W12.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1138,6 +1204,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W13.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1155,6 +1222,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W14.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1172,6 +1240,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W15.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1189,6 +1258,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W16.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: false,
   },
@@ -1206,6 +1276,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W17.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },
@@ -1223,6 +1294,7 @@ export const fixtureProducts = [
     description:
       'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
     imageUrl: 'catalog://demo/W18.png',
+    vtoEligible: false,
     vtoAssetUrl: null,
     inStock: true,
   },

@@ -74,3 +74,7 @@ Duplicate job IDs do not re-submit a paid task; conflicting categories fail clos
 Startup validates schema/access and matching persisted ceilings before listening. Missing migration, unavailable database or mismatched limits produces a clear ledger initialization error. Runtime database failures block new task submissions. To change a reviewed operating ceiling, explicitly update both `youcam_usage_budget` columns in a database transaction and the matching environment values, preserving all reservations; coordinate workers during this change. Environment changes alone cannot silently raise a persisted limit.
 
 Local validation may retain `YOUCAM_LEDGER_MODE=file` with an existing `YOUCAM_USAGE_LEDGER` and fixed eight-render cap. Never use file mode for the judge deployment. No automatic deployment is performed by these changes.
+
+## Judge hardening (supersedes live settings above)
+
+See [production readiness](../../docs/PRODUCTION_READINESS.md) for migration 005/006, separate judge accounting, exact mock-preserving runtime settings, the reviewed asset inventory and deployment order. Production live OpenAI now requires PostgreSQL accounting and persisted budget approval; production live YouCam requires PostgreSQL judge scope. `/health` reports liveness only; `/ready` reports actual configured modes and dependency readiness without secrets. Do not set the hosting probe to `/ready` until this backend version is deployed.

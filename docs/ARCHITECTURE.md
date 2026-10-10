@@ -120,3 +120,7 @@ The API composes an environment-selected mock or OpenAI Responses planner behind
 ## M8 cross-product intelligence — 2026-10-04
 
 M8 adds deterministic dependency transitions to the decision engine and complement evidence/comparison to the catalog. Strict agent plans compose those services; mobile presents their normalized results. PostgreSQL stores existing session JSON without a migration. See [decision intelligence](DECISION_INTELLIGENCE.md).
+
+## Judge runtime preparation
+
+API-only accounting adapters provide PostgreSQL judge ledgers behind existing provider interfaces. Historical validation remains separate. Production composition supplies an allowlisted runtime description to /ready, with catalog/S3/ledger dependency checks; /health remains basic liveness. Provider credentials are never probed by readiness. Private catalog VTO references are resolved and signed server-side at submission, while product eligibility drives the agent/UI. See PRODUCTION_READINESS.md for limits, activation order and outstanding assets.

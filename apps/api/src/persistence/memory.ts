@@ -3,7 +3,9 @@ import { AgentError, type AgentSessionRecord } from '@youcam/agent';
 import { fixtureProducts } from '../../../../fixtures/catalog.ts';
 import type { EmailChallenge, ShoppingRepository, StoredAsset } from './repository.js';
 /** Injectable local mock. The server selects PostgreSQL explicitly for durable operation. */
-export function createMemoryRepository(): ShoppingRepository {
+export function createMemoryRepository(
+  products: import('@youcam/shared').Product[] = fixtureProducts,
+): ShoppingRepository {
   const records = new Map<string, { owner: string; record: AgentSessionRecord }>();
   const visuals = new Map<string, VisualState>();
   const emails = new Map<string, string>();
@@ -35,7 +37,7 @@ export function createMemoryRepository(): ShoppingRepository {
         .sort();
     },
     async products() {
-      return structuredClone(fixtureProducts);
+      return structuredClone(products);
     },
     async update(owner, id, operation) {
       const previous = queues.get(id) ?? Promise.resolve();
@@ -43,10 +45,7 @@ export function createMemoryRepository(): ShoppingRepository {
         .catch(() => {})
         .then(async () => {
           const row = load(owner, id);
-          const result = await operation(
-            structuredClone(row.record),
-            structuredClone(fixtureProducts),
-          );
+          const result = await operation(structuredClone(row.record), structuredClone(products));
           records.set(id, { owner: row.owner, record: structuredClone(result.record) });
           return structuredClone(result.response);
         });

@@ -1,3 +1,5 @@
+import { runtimeState } from './runtime.js';
+import { runtimeStateSchema } from '@youcam/shared';
 import Fastify from 'fastify';
 import { registerShopping, type ShoppingOptions } from './shopping.js';
 import {
@@ -11,6 +13,8 @@ import { MockLLMService, MockYouCamService } from '@youcam/testing';
 export function buildApp(
   options: {
     logger?: boolean;
+    runtime?: ReturnType<typeof runtimeState>;
+    readiness?: () => Promise<void>;
     llm?: MockLLMService;
     youcam?: MockYouCamService;
     shopping?: ShoppingOptions;
@@ -26,9 +30,16 @@ export function buildApp(
     youcam: options.youcam ?? new MockYouCamService(),
   };
   app.decorate('providers', providers);
-  app.get('/health', async () =>
-    healthSchema.parse({ status: 'ok', service: 'youcam-api', mode: 'mock' }),
-  );
+  app.get('/health', async () => healthSchema.parse({ status: 'ok', service: 'youcam-api' }));
+  const runtime = runtimeStateSchema.parse(options.runtime ?? runtimeState({}));
+  app.get('/ready', async (_request, reply) => {
+    try {
+      await options.readiness?.();
+      return { status: 'ready', service: 'youcam-api', runtime };
+    } catch {
+      return reply.code(503).send({ status: 'unavailable', service: 'youcam-api', runtime });
+    }
+  });
   registerShopping(app, {
     ...options.shopping,
     planner: options.planner ?? options.shopping?.planner,

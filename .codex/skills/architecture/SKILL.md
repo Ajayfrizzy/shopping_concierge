@@ -41,3 +41,7 @@ Read [M5 persistence](../../../docs/PERSISTENCE.md) for repository, ownership, t
 ## Change discipline
 
 When changing a contract, update shared schema + tests + docs together.
+
+## Judge runtime hardening
+
+Provider accounting belongs in API adapters (src/accounting), never domain state. Preserve validation ledgers; judge limits use separate PostgreSQL records. Read docs/PRODUCTION_READINESS.md before changing deployment settings. /health is liveness and /ready exposes only allowlisted runtime modes and dependency status. Never serialize environment/options/raw driver errors. Do not activate budget approval or provider modes as a migration side effect.

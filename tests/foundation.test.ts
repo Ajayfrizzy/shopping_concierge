@@ -21,7 +21,6 @@ describe('foundation API', () => {
     expect(healthSchema.parse(response.json())).toEqual({
       status: 'ok',
       service: 'youcam-api',
-      mode: 'mock',
     });
   });
   it('wires both mock providers', async () => {

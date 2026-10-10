@@ -48,6 +48,7 @@ export const vtoJobSchema = z
   });
 export type VtoJob = z.infer<typeof vtoJobSchema>;
 export const vtoResponseSchema = z.discriminatedUnion('type', [
+  z.object({ type: z.literal('unavailable'), message: z.string() }).strict(),
   z
     .object({
       type: z.literal('request_image'),

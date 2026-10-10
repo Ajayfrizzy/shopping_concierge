@@ -1,8 +1,19 @@
 import { z } from 'zod';
 export * from './domain.ts';
 
+export const runtimeStateSchema = z
+  .object({
+    persistence: z.enum(['memory', 'postgres']),
+    objectStorage: z.enum(['memory', 's3']),
+    llm: z.enum(['mock', 'openai']),
+    youcam: z.enum(['mock', 'live']),
+    youcamLedger: z.enum(['file', 'postgres']),
+    openaiLedger: z.enum(['file', 'postgres']),
+    youcamLedgerScope: z.enum(['validation', 'judge']),
+  })
+  .strict();
 export const healthSchema = z
-  .object({ status: z.literal('ok'), service: z.literal('youcam-api'), mode: z.literal('mock') })
+  .object({ status: z.literal('ok'), service: z.literal('youcam-api') })
   .strict();
 export type Health = z.infer<typeof healthSchema>;
 export const foundationRequestSchema = z

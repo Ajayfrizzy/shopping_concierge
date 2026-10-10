@@ -1,3 +1,5 @@
+import { fixtureProducts } from '../fixtures/catalog.js';
+import { createMemoryRepository } from '../apps/api/src/persistence/memory.js';
 import { readFileSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
 import { expect, it } from 'vitest';
@@ -8,7 +10,13 @@ import { buildApp } from '../apps/api/src/app.js';
 const demo = JSON.parse(readFileSync('fixtures/m9-demo.json', 'utf8')) as Record<string, string>;
 
 it('replays the published M9 demo through owned HTTP routes without paid providers', async () => {
-  const app = buildApp();
+  const app = buildApp({
+    shopping: {
+      repository: createMemoryRepository(
+        fixtureProducts.map((p) => ({ ...p, vtoEligible: p.id === 'E18' })),
+      ),
+    },
+  });
   const headers = { authorization: `Bearer ${'9'.repeat(64)}` };
   try {
     let view = sessionViewSchema.parse(

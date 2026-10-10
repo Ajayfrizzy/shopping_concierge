@@ -17,6 +17,7 @@ export function buildLLMContext(context: PlanningContext, maxBytes = 64_000) {
     styleTags: [...p.styleTags],
     occasionTags: [...p.occasionTags],
     inStock: p.inStock,
+    vtoEligible: p.vtoEligible === true,
   }));
   const payload = {
     currentMessage: context.message,

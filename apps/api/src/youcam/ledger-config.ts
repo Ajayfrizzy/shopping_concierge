@@ -29,6 +29,7 @@ export function ledgerSettings(env: NodeJS.ProcessEnv) {
 export async function initializeYouCamLedger(env: NodeJS.ProcessEnv) {
   if (env.USE_MOCK_YOUCAM !== 'false') return undefined;
   const settings = ledgerSettings(env);
+  if (env.YOUCAM_LEDGER_SCOPE === 'judge') return undefined;
   if (settings.mode === 'file') {
     const { validateFileLedger } = await import('./budget.js');
     validateFileLedger(env.YOUCAM_USAGE_LEDGER!);

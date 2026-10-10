@@ -25,3 +25,7 @@ Given the same catalog + state + scoring config, ranking should be reproducible.
 ## MVP catalog
 
 Target 60–80 products total, approximately balanced across four categories and deliberately varied across budget/material/style/occasion.
+
+## Judge runtime hardening
+
+vtoEligible is an explicit capability, not a ranking requirement. All 72 products remain searchable; only approved isolated product assets may enable VTO. Keep display imagery and private VTO references separate. Missing legacy eligibility is false, and fixture/test eligibility never establishes production approval.

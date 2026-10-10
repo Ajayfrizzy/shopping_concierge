@@ -210,3 +210,24 @@ Acceptance:
 ## Pre-deployment — Constraint-relaxation UX correction
 
 Status (2026-10-07): **complete and validated**. Search adjustments are explicitly distinguished from products, buttons name proposed changes, kept constraints are separate and confirmation/rerun copy is clear. Deterministic relaxation, ranking, catalog, state and product-card behavior are unchanged. Lint/typechecks, 458 tests/21 files and Android bundle/secret scan pass. Samsung visual review, cancel/confirm/rerun with actual catalog images, keyboard/navigation/cold restore and runtime checks pass. See `VALIDATION.md` and `evidence/relaxation-ux/`. No live credits consumed. Stop before deployment.
+
+## Judge runtime hardening — 2026-10-09
+
+Backend readiness/accounting and VTO eligibility are implemented and tested. Migration 005 separates judge from validation accounting; migration 006 adds private approved product assets. This work is **not fully complete for the final judge APK**: only four existing isolated product assets are available; eight more matching approved assets, later backend/catalog activation and OpenAI budget review remain. No deployment or live credit use is authorized by this status entry. See PRODUCTION_READINESS.md and latest VALIDATION.md.
+
+## Curated VTO selection and upload preparation
+
+Selection/manifest preparation complete: exactly two additional IDs per category (E01/E12, N01/N12, R01/R08, W11/W08). Catalog remains 72 products with unchanged ranking. Eight assets remain missing and ineligible; existing four approved references and validation ledgers are preserved. Version-2 status tracking and importer support later registration without schema changes. Remaining acceptance: obtain/upload/review eight matching assets, then separately authorized compatible-backend catalog activation. No deployment, budget activation or provider calls. See VTO_ASSET_PREPARATION.md and latest VALIDATION.md.
+
+## Uploaded VTO assets — 2026-10-10
+
+S3 discovery/read/MIME/hash inspection complete for all 12 objects. Eight additions recorded as uploaded; E01/E12 and W08/W11 filenames were visually swapped. E12/N12/R08/W11 require color/finish corrections. No new eligibility activated; migration 006 is not installed in the inspected database. Twelve-product readiness remains incomplete. See VTO_UPLOAD_REVIEW.md.
+
+## VTO replacement recheck — 2026-10-10
+
+Four corrected uploads found and verified readable with PNG MIME/decoding and hashes. E12/R08/W11 appearance mismatches resolved. N12 color resolved but top of chain cropped; one wider full-chain image still required. Seven of eight additions pass offline appearance review, none activated. Historical approved assets and budgets unchanged.
+
+
+### Final N12 asset recheck — 2026-10-10
+
+N12 full-chain replacement passes offline appearance review; all eight additions now pass this check. Exact key/hash recorded in judge manifest and n12-final evidence. Eight remain uploaded/ineligible; approval, compatible backend/schema and registration remain outstanding. No live provider calls or deployment.

@@ -1,3 +1,5 @@
+> Latest N12 recheck (2026-10-10): the new `n12-evening-vto-v1-241860.png` passes offline appearance review with complete chain/clasp and pendant. All eight additions now pass offline appearance review and remain uploaded/ineligible pending approval and registration. Live rendering remains untested. See [VTO upload review](VTO_UPLOAD_REVIEW.md).
+
 # M6 YouCam integration boundary
 
 The server supports mock VTO by default and an explicit live REST adapter. Normal development/tests never consume YouCam or LLM credits. Mobile, the agent, catalog and decision engine do not hold provider credentials. PostgreSQL/S3 remain portable API adapters; nothing was deployed to RumptyCloud.
@@ -85,3 +87,7 @@ Live unit measurement used account balance and feature-cost endpoints, counted s
 ## Final required rendering validation — 2026-10-07
 
 All four required VTO categories now pass live Samsung output review and cold restoration. The necklace-only retry used the new wide portrait and resolved pendant clipping. Final totals: five rendering submissions, five observed units, one targeted retry; preserved eight-render ledger, no OpenAI calls. Live server stopped and mock defaults restored. See the newest `VALIDATION.md` entry for evidence, connectivity recovery and temporary-output limitations. Earlier OPEN rendering status above is historical. Optional analysis is unused/disabled and remains unvalidated; the completed rendering gate does not certify that separate capability. M9 has not started.
+
+## Curated capability inventory
+
+Current eligibility is explicit; unsupported products do not request images or offer Try on. The selected 12-product subset comprises E03/E01/E12, N03/N01/N12, R03/R01/R08 and W03/W11/W08. Only the existing 03 references are validated; the eight additions are missing and remain ineligible. See [asset preparation requirements](VTO_ASSET_PREPARATION.md) and the version-2 judge manifest. Upload alone does not approve an asset; registration checks reviewed hashes and matching catalog metadata. No new live output quality is claimed.

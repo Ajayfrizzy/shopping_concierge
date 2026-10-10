@@ -8,6 +8,7 @@ export const visualStateSchema = z
         z
           .object({
             job: vtoJobSchema,
+            productAssetKey: z.string().nullable().optional(),
             productAssetUrl: z.string().url().nullable(),
             taskId: z.string().nullable(),
             lastPollAt: z.number().int(),

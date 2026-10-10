@@ -18,6 +18,7 @@ export default function TryOn() {
   const id = session?.state.id;
   const [product, setProduct] = useState<Product | null>(null),
     [job, setJob] = useState<VtoJob | null>(null);
+  const [unavailable, setUnavailable] = useState<string | null>(null);
   const [needed, setNeeded] = useState<VisualAssetType | null>(null),
     [busy, setBusy] = useState(false),
     [error, setError] = useState<string | null>(null);
@@ -47,7 +48,14 @@ export default function TryOn() {
     const jobs = await api.list(id);
     if (alive.current) setJob(jobs.filter((j) => j.productId === productId).at(-1) ?? null);
     const result = await api.create(id, { requestId: requestId.current, productId });
-    if (alive.current && result.type === 'request_image') setNeeded(result.requiredType);
+    if (alive.current && result.type === 'unavailable') {
+      setUnavailable(result.message);
+      setNeeded(null);
+    }
+    if (alive.current && result.type === 'request_image') {
+      setUnavailable(null);
+      setNeeded(result.requiredType);
+    }
   }
   useEffect(() => {
     alive.current = true;
@@ -85,6 +93,7 @@ export default function TryOn() {
     <SafeAreaView style={styles.screen}>
       <View style={styles.header}>
         <Text style={styles.title}>Try on</Text>
+        {unavailable && <Text style={styles.text}>{unavailable}</Text>}
         <Button title="Back to shopping" secondary onPress={() => router.back()} />
       </View>
       <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
@@ -124,7 +133,7 @@ export default function TryOn() {
             {(job.status === 'queued' || job.status === 'processing') && (
               <Button
                 title={job.status === 'queued' ? 'Start rendering' : 'Check result'}
-                disabled={busy}
+                disabled={busy || (job.status === 'queued' && !!unavailable)}
                 onPress={() => {
                   if (id)
                     void run(async () => {
@@ -202,6 +211,10 @@ export default function TryOn() {
                         assetId: asset.id,
                       });
                       if (alive.current && result.type === 'job') setJob(result.job);
+                      if (alive.current && result.type === 'unavailable') {
+                        setUnavailable(result.message);
+                        setNeeded(null);
+                      }
                     });
                 }}
               />

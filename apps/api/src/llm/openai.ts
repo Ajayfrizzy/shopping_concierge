@@ -3,7 +3,7 @@ import { zodToJsonSchema } from 'zod-to-json-schema';
 import { agentPlanSchema } from '@youcam/shared';
 import type { Planner, PlanningContext } from '@youcam/agent';
 import { buildLLMContext } from './context.js';
-import { LiveBudget } from './budget.js';
+import type { OpenAIBudget } from './budget.js';
 
 // Put discriminators before shared fields so constrained decoding selects the variant first.
 // Singleton enum is the documented strict-schema representation of a literal.
@@ -80,7 +80,7 @@ export class OpenAIPlanner implements Planner {
       apiKey: string;
       model: string;
       reasoning: 'low' | 'medium' | 'high';
-      budget: LiveBudget;
+      budget: OpenAIBudget;
       fetch?: typeof fetch;
     },
   ) {}
@@ -109,7 +109,7 @@ export class OpenAIPlanner implements Planner {
     const transport = this.options.fetch ?? fetch;
     for (let attempt = 0; attempt < 2; attempt++) {
       signal.throwIfAborted();
-      const reservation = this.options.budget.reserve(
+      const reservation = await this.options.budget.reserve(
         this.options.model,
         Buffer.byteLength(body),
         2048,
@@ -139,7 +139,7 @@ export class OpenAIPlanner implements Planner {
         output?: { type?: string; name?: string; arguments?: string }[];
       };
       // Malformed or missing usage leaves the conservative reservation intact and fails closed.
-      this.options.budget.settle(reservation, raw.usage);
+      await this.options.budget.settle(reservation, raw.usage);
       if (raw.status !== 'completed' || !Array.isArray(raw.output))
         throw new Error('Incomplete OpenAI plan.');
       const calls = raw.output.filter((item) => item.type === 'function_call');

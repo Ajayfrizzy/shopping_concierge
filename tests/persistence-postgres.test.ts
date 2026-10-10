@@ -66,6 +66,9 @@ describe.runIf(process.env.M5_INTEGRATION === '1')(
       await admin.query(`CREATE SCHEMA ${schema}`);
       await migrate(pool);
       await seedFixtures(pool);
+      await pool.query(
+        "UPDATE products SET product=jsonb_set(product,'{vtoEligible}','true') WHERE id IN ('E01','R01','W01','N01')",
+      );
     }, 30_000);
     afterAll(async () => {
       await Promise.all(apps.map((a) => a.close()));

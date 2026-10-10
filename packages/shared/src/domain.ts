@@ -29,6 +29,7 @@ export const productSchema = z
     occasionTags: tags,
     description: z.string().optional(),
     imageUrl: z.string().url(),
+    vtoEligible: z.boolean().optional(),
     vtoAssetUrl: z.string().url().nullable(),
     inStock: z.boolean(),
   })
