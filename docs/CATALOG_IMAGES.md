@@ -1,3 +1,5 @@
+> E12 now uses a separate display derivative of the user-approved silver chandelier replacement. Its private full-resolution single-earring VTO asset remains separate. The generator preserves this approved design; other 71 images are unchanged. Existing installed bundles require a later mobile build to show the new artwork. See `apps/mobile/assets/catalog/README.md` for provenance.
+
 # Catalog image stabilization
 
 The 72 synthetic products use original repository-authored geometric accessory illustrations. Editable SVGs and 512×512 PNGs are in `apps/mobile/assets/catalog`; their source/license statement is [here](../apps/mobile/assets/catalog/README.md). The repository MIT license applies. No retailer photography, external stock assets, brand marks or generative service credits were used. Some closely related fixtures share motifs; these are demo illustrations, not real merchandise photography or visual verification.

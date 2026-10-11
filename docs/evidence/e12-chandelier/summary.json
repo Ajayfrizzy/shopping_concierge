@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-10",
+  "productId": "E12",
+  "authorizedDesignReplacement": true,
+  "demoApproved": true,
+  "assessment": "Single chandelier aligned at lobe, upright, full branching drops visible; materially larger than v2, broadly similar apparent drop length to historical E03. Small details limited by 300x375 output; not a physical size certification.",
+  "productionDescriptionUpdated": true,
+  "productionRegistrationUpdated": true,
+  "eligibilityUnchanged": true,
+  "catalogCount": 72,
+  "eligibleCount": 12,
+  "otherProductsUnchanged": true,
+  "displayArtwork": "Separate padded 512x512 bundle derivative prepared; existing installed mobile apps need next build for new artwork.",
+  "additionalRenders": 1,
+  "judgeCommitted": 6,
+  "remaining": 44,
+  "duplicateReservations": 0,
+  "openaiCalls": 0,
+  "readiness": "HTTP 200 ready; LLM mock",
+  "validation": {
+    "tests": 162,
+    "files": 4,
+    "lint": "passed",
+    "typechecks": "passed",
+    "apiBuild": "passed",
+    "exportSecretScanFiles": 95,
+    "sentinels": 7
+  },
+  "storageDeletion": "Old E12 v1-71a2f4 and v2-tight-pair objects have only completed historical job references, no current mappings. Safe for current runtime to remove; archives retained. No objects deleted by assistant. Keep e12-v1-aa1d5a, which belongs to E01."
+}

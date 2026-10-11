@@ -1,3 +1,5 @@
+> E12 exception (2026-10-10): the user approved replacing the old E12 design with the silver chandelier asset. `sources/E12-chandelier.png` is the user-supplied approved source; E12.png and its embedded-raster SVG wrapper are separate padded catalog display derivatives. Provenance is the user upload, not repository-authored geometric artwork; no third-party license is asserted for this source. The generator preserves this replacement. Other 71 illustrations are unchanged. Display artwork reaches installed apps on the next mobile build; no APK was built here.
+
 # Original demo catalog illustrations
 
 All 72 SVG originals and corresponding 512×512 PNGs were authored for this repository using `scripts/generate-catalog-art.mts`. They use original geometric accessory designs, no photographs, retailer assets, brand marks, remote downloads or generative API calls. Distributed under the repository MIT license (see root LICENSE). Run `node --import tsx scripts/generate-catalog-art.mts` to reproduce assets and the Metro manifest.

@@ -1,0 +1,21 @@
+{
+  "productId": "E12",
+  "category": "earrings",
+  "catalogName": "Fixture Evening Earrings",
+  "filename": "e12-evening-vto-v2-tight-pair-cbff6f35187b.png",
+  "assetPath": "vto-products/earrings/e12-evening-vto-v2-tight-pair-cbff6f35187b.png",
+  "status": "validated",
+  "sha256": "cbff6f35187b9e893e53895d8c664a680ad2ab0857167696633b66d0851bdfa6",
+  "evidence": "2026-10-10: offline-reviewed lossless tighter crop of the same full silver pair, registered after authenticated S3 read, image/png decode and exact SHA-256 verification. Product pixels/proportions unchanged; no asset overwritten. Prior asset identity/hash/evidence preserved in docs/evidence/e12-fidelity/replacement.json. Diagnosis recorded before mutation in docs/evidence/e12-fidelity/DIAGNOSIS.md. Exactly one follow-up live render completed and decoded/displayed, but scale and design fidelity did not materially improve. Not approved as a faithful final-demo statement-earring example. Technical asset validation/registration remains valid; likely provider pair/category scaling limitation. No further render attempted. See docs/evidence/e12-fidelity/summary.json. Subsequent uploaded v3 single candidate reviewed and rejected for product-identity mismatch; current v2 key/hash/eligibility retained. Exact candidate key, dimensions and hash recorded in docs/evidence/e12-v3-review/candidate.json. No live render submitted for v3.",
+  "rationale": "Premium silver statement wedding/party option supports rejection of large or dangling styles.",
+  "requirements": [
+    "Large silver statement dangling earrings; show the complete pair and every hanging component.",
+    "Endpoint: POST /s2s/v2.0/task/2d-vto/earring; one approved reference URL in ref_file_urls.",
+    "Isolate one matching pair; keep both pieces complete and non-overlapping. Source portrait needs a clearly visible, unobstructed ear.",
+    "Preparation target, not a claimed provider limit: PNG, 1024x1024 or larger square canvas, clean white background, sharp edges, visible margin, no wearer, props, text, watermark, collage or decorative card frame.",
+    "Match catalog material/color/style; use an original isolated product asset, not the catalog display illustration.",
+    "Provider delivery: private S3 object, Content-Type image/png, fresh server-signed HTTPS GET URL on YOUCAM_ASSET_HOSTS; no redirects.",
+    "Do not invent masks, anchors, dimensions, stone composition, brand or size claims. New asset approval requires actual uploaded bytes, hash and human visual review; live rendering remains untested until separately authorized."
+  ],
+  "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v2-tight-pair-cbff6f35187b.png"
+}

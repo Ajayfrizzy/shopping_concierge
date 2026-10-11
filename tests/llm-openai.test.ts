@@ -403,3 +403,120 @@ describe('M7 OpenAI transport and tool boundary (injected HTTP only)', () => {
     ).toBe('live');
   });
 });
+
+describe('sanitized internal OpenAI diagnostics', () => {
+  it.each([
+    [400, 'invalid_function_parameters', 'invalid_request_error'],
+    [401, 'invalid_api_key', 'authentication_error'],
+    [403, 'permission_denied', 'permission_error'],
+    [404, 'model_not_found', 'invalid_request_error'],
+  ])(
+    'records safe metadata for HTTP %s without provider messages or secrets',
+    async (status, code, type) => {
+      const events: unknown[] = [];
+      const budget = setup().budget;
+      const planner = new OpenAIPlanner({
+        apiKey: 'secret-fixture',
+        model: APPROVED_MODEL,
+        reasoning: 'low',
+        budget,
+        onDiagnostic: (event) => events.push(event),
+        fetch: async () =>
+          Response.json(
+            {
+              error: {
+                code,
+                type,
+                message: 'secret-fixture sensitive prompt',
+                param: 'sensitive prompt',
+              },
+            },
+            { status: Number(status), headers: { 'x-request-id': 'req_safe123' } },
+          ),
+      });
+      await expect(planner.plan(context(), new AbortController().signal)).rejects.toThrow('failed');
+      expect(events).toEqual([
+        {
+          stage: 'http',
+          status,
+          requestId: 'req_safe123',
+          errorCode: code,
+          errorType: type,
+          aborted: false,
+        },
+      ]);
+      expect(JSON.stringify(events)).not.toMatch(/secret-fixture|sensitive prompt/);
+      expect(budget.summary().unknownUsageRequests).toBe(1);
+    },
+  );
+  it('redacts arbitrary metadata and bounds error bodies', async () => {
+    const { providerErrorMetadata, diagnosticRequestId } = await import(
+      '../apps/api/src/llm/diagnostics.js'
+    );
+    expect(
+      await providerErrorMetadata(
+        Response.json({ error: { code: 'secret-value', type: 'user-text' } }),
+      ),
+    ).toEqual({ errorCode: 'unrecognized', errorType: 'unrecognized' });
+    expect(await providerErrorMetadata(new Response('x'.repeat(9000)))).toEqual({});
+    expect(
+      diagnosticRequestId(
+        new Response(null, { headers: { 'x-request-id': 'Bearer secret' } }),
+        'secret',
+      ),
+    ).toBeUndefined();
+  });
+  it.each([
+    'reservation',
+    'transport',
+    'response_json',
+    'settlement',
+    'response_shape',
+    'plan_schema',
+  ] as const)('identifies %s failures without raw errors', async (stage) => {
+    const events: { stage: string }[] = [];
+    const planner = new OpenAIPlanner({
+      apiKey: 'secret-fixture',
+      model: APPROVED_MODEL,
+      reasoning: 'low',
+      budget: {
+        reserve: () => {
+          if (stage === 'reservation') throw new Error('secret');
+          return 'reservation';
+        },
+        settle: () => {
+          if (stage === 'settlement') throw new Error('secret');
+        },
+      },
+      onDiagnostic: (e) => events.push(e),
+      fetch: async () => {
+        if (stage === 'transport') throw new Error('secret');
+        if (stage === 'response_json') return new Response('not json');
+        if (stage === 'response_shape') return Response.json({ status: 'incomplete', usage });
+        return wire({ invalid: 'secret' });
+      },
+    });
+    await expect(planner.plan(context(), new AbortController().signal)).rejects.toThrow();
+    expect(events).toHaveLength(1);
+    expect(events[0]?.stage).toBe(stage);
+    expect(JSON.stringify(events)).not.toContain('secret');
+  });
+  it('does not let a failing logger cause retries or interrupt settlement', async () => {
+    const budget = setup().budget;
+    const transport = vi.fn<typeof fetch>(async () => new Response(null, { status: 401 }));
+    const planner = new OpenAIPlanner({
+      apiKey: 'fixture',
+      model: APPROVED_MODEL,
+      reasoning: 'low',
+      budget,
+      fetch: transport,
+      onDiagnostic: () => {
+        throw new Error('logger failure');
+      },
+    });
+    await expect(planner.plan(context(), new AbortController().signal)).rejects.toThrow(
+      'OpenAI planning request failed',
+    );
+    expect(transport).toHaveBeenCalledTimes(1);
+  });
+});

@@ -3,6 +3,11 @@ import { zodToJsonSchema } from 'zod-to-json-schema';
 import { agentPlanSchema } from '@youcam/shared';
 import type { Planner, PlanningContext } from '@youcam/agent';
 import { buildLLMContext } from './context.js';
+import {
+  diagnosticRequestId,
+  providerErrorMetadata,
+  type OpenAIDiagnostic,
+} from './diagnostics.js';
 import type { OpenAIBudget } from './budget.js';
 
 // Put discriminators before shared fields so constrained decoding selects the variant first.
@@ -82,8 +87,16 @@ export class OpenAIPlanner implements Planner {
       reasoning: 'low' | 'medium' | 'high';
       budget: OpenAIBudget;
       fetch?: typeof fetch;
+      onDiagnostic?: (event: OpenAIDiagnostic) => void;
     },
   ) {}
+  private report(event: OpenAIDiagnostic) {
+    try {
+      this.options.onDiagnostic?.(event);
+    } catch {
+      /* Logging cannot change accounting or retries. */
+    }
+  }
   async plan(context: PlanningContext, signal: AbortSignal) {
     const body = JSON.stringify({
       model: this.options.model,
@@ -109,48 +122,66 @@ export class OpenAIPlanner implements Planner {
     const transport = this.options.fetch ?? fetch;
     for (let attempt = 0; attempt < 2; attempt++) {
       signal.throwIfAborted();
-      const reservation = await this.options.budget.reserve(
-        this.options.model,
-        Buffer.byteLength(body),
-        2048,
-      );
-      // No SDK retries, redirects or provider-controlled URLs. Ambiguous network failures are not retried.
-      const response = await transport('https://api.openai.com/v1/responses', {
-        method: 'POST',
-        redirect: 'error',
-        signal,
-        headers: {
-          Authorization: `Bearer ${this.options.apiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body,
-      });
-      if (!response.ok) {
-        await response.body?.cancel();
-        if (attempt === 0 && [429, 502, 503, 504].includes(response.status)) {
-          await delay(250, undefined, { signal });
-          continue;
+      let stage: OpenAIDiagnostic['stage'] = 'reservation';
+      let status: number | undefined;
+      let requestId: string | undefined;
+      let metadata = {};
+      try {
+        const reservation = await this.options.budget.reserve(
+          this.options.model,
+          Buffer.byteLength(body),
+          2048,
+        );
+        // No SDK retries, redirects or provider-controlled URLs. Ambiguous network failures are not retried.
+        stage = 'transport';
+        const response = await transport('https://api.openai.com/v1/responses', {
+          method: 'POST',
+          redirect: 'error',
+          signal,
+          headers: {
+            Authorization: `Bearer ${this.options.apiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body,
+        });
+        status = response.status;
+        requestId = diagnosticRequestId(response, this.options.apiKey);
+        if (!response.ok) {
+          stage = 'http';
+          metadata = await providerErrorMetadata(response);
+          if (attempt === 0 && [429, 502, 503, 504].includes(response.status)) {
+            this.report({ stage, status, requestId, ...metadata, aborted: signal.aborted });
+            await delay(250, undefined, { signal });
+            continue;
+          }
+          throw new Error('OpenAI planning request failed.');
         }
-        throw new Error('OpenAI planning request failed.');
+        stage = 'response_json';
+        const raw = (await response.json()) as {
+          status?: string;
+          usage?: unknown;
+          output?: { type?: string; name?: string; arguments?: string }[];
+        };
+        // Malformed or missing usage leaves the conservative reservation intact and fails closed.
+        stage = 'settlement';
+        await this.options.budget.settle(reservation, raw.usage);
+        stage = 'response_shape';
+        if (raw.status !== 'completed' || !Array.isArray(raw.output))
+          throw new Error('Incomplete OpenAI plan.');
+        const calls = raw.output.filter((item) => item.type === 'function_call');
+        if (
+          calls.length !== 1 ||
+          calls[0]?.name !== 'submit_shopping_plan' ||
+          typeof calls[0].arguments !== 'string' ||
+          raw.output.some((item) => !['reasoning', 'function_call'].includes(item.type ?? ''))
+        )
+          throw new Error('Invalid OpenAI tool response.');
+        stage = 'plan_schema';
+        return agentPlanSchema.parse(normalizeOptionalFields(JSON.parse(calls[0].arguments)));
+      } catch (error) {
+        this.report({ stage, status, requestId, ...metadata, aborted: signal.aborted });
+        throw error;
       }
-      const raw = (await response.json()) as {
-        status?: string;
-        usage?: unknown;
-        output?: { type?: string; name?: string; arguments?: string }[];
-      };
-      // Malformed or missing usage leaves the conservative reservation intact and fails closed.
-      await this.options.budget.settle(reservation, raw.usage);
-      if (raw.status !== 'completed' || !Array.isArray(raw.output))
-        throw new Error('Incomplete OpenAI plan.');
-      const calls = raw.output.filter((item) => item.type === 'function_call');
-      if (
-        calls.length !== 1 ||
-        calls[0]?.name !== 'submit_shopping_plan' ||
-        typeof calls[0].arguments !== 'string' ||
-        raw.output.some((item) => !['reasoning', 'function_call'].includes(item.type ?? ''))
-      )
-        throw new Error('Invalid OpenAI tool response.');
-      return agentPlanSchema.parse(normalizeOptionalFields(JSON.parse(calls[0].arguments)));
     }
     throw new Error('OpenAI retry limit reached.');
   }

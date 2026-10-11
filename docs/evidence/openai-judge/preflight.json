@@ -1,0 +1,86 @@
+{
+  "at": "2026-10-10T15:38:46.768Z",
+  "tables": {
+    "budgets": "runtime_budgets",
+    "usage": "runtime_usage"
+  },
+  "migrations": [
+    {
+      "version": 1
+    },
+    {
+      "version": 2
+    },
+    {
+      "version": 3
+    },
+    {
+      "version": 4
+    },
+    {
+      "version": 5
+    },
+    {
+      "version": 6
+    }
+  ],
+  "budgets": [
+    {
+      "provider": "openai",
+      "max_requests": 200,
+      "max_units": 0,
+      "max_usd": "3.00000000",
+      "approved": false,
+      "blocked": false
+    },
+    {
+      "provider": "youcam",
+      "max_requests": 50,
+      "max_units": 50,
+      "max_usd": "0.00000000",
+      "approved": true,
+      "blocked": false
+    }
+  ],
+  "usage": [
+    {
+      "provider": "youcam",
+      "requests": 6,
+      "committed": 6,
+      "usd": "0.00000000"
+    }
+  ],
+  "historical": {
+    "sha256": "35b2cc9a0605a0ce71d2a23b7d212bec37e752d2202955bc5cb61d29654759f0",
+    "unchangedFromHead": true,
+    "requests": 29,
+    "requestCeiling": 30,
+    "spendCeiling": 1,
+    "chargedUsd": 0.11061419999999998
+  },
+  "productionKeyPresence": "Not observable through public API; deployment settings confirmation required",
+  "localKeyPresent": true,
+  "health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "service": "youcam-api"
+    }
+  },
+  "readiness": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "mock",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  }
+}

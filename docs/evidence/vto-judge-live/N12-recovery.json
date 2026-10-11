@@ -1,0 +1,48 @@
+{
+  "at": "2026-10-10T11:09:48.064Z",
+  "productId": "N12",
+  "newSubmissions": 0,
+  "existingProviderTaskConfirmed": true,
+  "status": "completed",
+  "mode": "live",
+  "error": null,
+  "result": {
+    "httpStatus": 200,
+    "mime": "binary/octet-stream",
+    "format": "png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "d33988ff6edb124f40cc46536cce0d0d16da621c76eec1804858f786ca8ee616"
+  },
+  "terminalReplaySameJob": true,
+  "ledgerAfter": [
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "category": "necklaces",
+      "units": 1,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "category": "earrings",
+      "units": 1,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    }
+  ],
+  "readinessAfter": {
+    "status": "ready",
+    "service": "youcam-api",
+    "runtime": {
+      "persistence": "postgres",
+      "objectStorage": "s3",
+      "llm": "mock",
+      "youcam": "live",
+      "youcamLedger": "postgres",
+      "openaiLedger": "postgres",
+      "youcamLedgerScope": "judge"
+    }
+  },
+  "recovered": true
+}

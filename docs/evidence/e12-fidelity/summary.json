@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-10",
+  "diagnosisRecordedBeforeMutation": true,
+  "framingMainCauseProven": false,
+  "mostLikelyRemainingCause": "Provider pair interpretation/category placement-scaling; no physical-size metadata establishes a small design.",
+  "replacement": "replacement.json",
+  "productIdentityPreserved": "Verified every decoded cropped pixel equals the corresponding original pixel. Both full earrings visible; no resizing/recoloring/generation.",
+  "oldVsNew": "No material improvement; same small lobe-level ornaments, upright but full hoop/connector/teardrop fidelity not discernible. Not clipped by output canvas.",
+  "pixelComparison": {
+    "comparedChannels": 337500,
+    "changedChannels": 140,
+    "meanAbsoluteChannelDifference": 0.0010607407407407408,
+    "maxChannelDifference": 34,
+    "decodedPixelsIdentical": false
+  },
+  "additionalRenders": 1,
+  "correctiveRetryBeyondAuthorizedRender": 0,
+  "judgeTotal": 5,
+  "judgeRemaining": 45,
+  "duplicateReservations": 0,
+  "openaiCalls": 0,
+  "readiness": "HTTP 200 ready; LLM mock",
+  "demoAcceptable": false,
+  "registration": "E12 remains registered/eligible with v2 asset; no automatic eligibility or provider changes were made. Technical availability does not certify fidelity.",
+  "validation": {
+    "testsPassed": 12,
+    "files": 2,
+    "lint": "passed",
+    "typechecks": "passed"
+  },
+  "nextAction": "Stop paid iteration. Use a previously visually validated product for the demo; further provider investigation needs a separate decision."
+}

@@ -1,0 +1,63 @@
+{
+  "activationSucceeded": true,
+  "validationPassed": false,
+  "flows": {
+    "A": "Failed: HTTP 503 PLANNER_UNAVAILABLE; no state committed",
+    "B": "Not run: stopped after A",
+    "C": "Not run: stopped after A"
+  },
+  "openaiRequestsConsumedFromJudgeBudget": 1,
+  "confirmedSettlements": 0,
+  "inputTokens": null,
+  "outputTokens": null,
+  "cachedTokens": null,
+  "tokensNote": "Unknown: no provider usage received/persisted; do not report zero token consumption.",
+  "confirmedEstimatedSpendUsd": null,
+  "conservativeReservedUsd": "0.06750400",
+  "remainingRequests": 199,
+  "remainingUsd": "2.93249600",
+  "duplicateReservations": 0,
+  "persistedSessionVersion": 0,
+  "youcamAdditionalCalls": 0,
+  "youcamRemaining": 44,
+  "readiness": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  },
+  "health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "service": "youcam-api"
+    }
+  },
+  "tests": {
+    "passed": 91,
+    "files": 5,
+    "lint": "passed",
+    "typechecks": "passed",
+    "apiBuild": "passed",
+    "secretSentinelFiles": 95,
+    "sentinels": 7
+  },
+  "limitations": [
+    "Generic planner error does not establish whether upstream authorization/model/transport/deadline or settlement failed.",
+    "Adapter reserves before network submission; reservation alone does not prove OpenAI accepted the request.",
+    "Live planner deadline is 20 seconds in source; timeout is a possible cause, not established by this response.",
+    "Independent local PostgreSQL connection timeouts occurred and recovered; they do not establish the deployed planner root cause.",
+    "No live idempotent replay attempted after unresolved outcome.",
+    "Fresh database connection confirmed retained reservation; no production restart performed."
+  ]
+}

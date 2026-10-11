@@ -1,0 +1,40 @@
+{
+  "at": "2026-10-10T13:59:59.892Z",
+  "registration": {
+    "product_id": "E12",
+    "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v2-tight-pair-cbff6f35187b.png",
+    "sha256": "cbff6f35187b9e893e53895d8c664a680ad2ab0857167696633b66d0851bdfa6",
+    "approved_at": "2026-10-10T13:22:29.746Z",
+    "eligible": "true"
+  },
+  "usage": [
+    {
+      "provider": "youcam",
+      "requests": 5,
+      "committed": 5
+    }
+  ],
+  "budget": {
+    "max_requests": 50,
+    "max_units": 50,
+    "approved": true,
+    "blocked": false
+  },
+  "readiness": {
+    "httpStatus": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "mock",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  },
+  "additionalRenders": 0
+}

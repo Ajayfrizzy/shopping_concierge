@@ -8,10 +8,11 @@ import {
 } from '../apps/api/src/youcam/asset-manifest.js';
 const raw = () => JSON.parse(readFileSync('fixtures/vto/judge-assets.json', 'utf8'));
 describe('curated VTO manifest', () => {
-  it('contains 12 catalog-grounded products, three per category, and eight uploaded/ineligible assets', () => {
+  it('contains 12 catalog-grounded products, three per category, and twelve approved assets while local fixtures remain ineligible', () => {
     const m = parseJudgeAssets(raw(), fixtureProducts);
     expect(m.assets).toHaveLength(12);
-    const missing = m.assets.filter((a) => a.status === 'uploaded');
+    expect(registrationCandidates(m)).toHaveLength(12);
+    const missing = m.assets.filter((a) => !['E03', 'N03', 'R03', 'W03'].includes(a.productId));
     expect(missing.map((a) => a.productId)).toEqual([
       'E01',
       'E12',
@@ -30,7 +31,9 @@ describe('curated VTO manifest', () => {
     expect(fixtureProducts).toHaveLength(72);
   });
   it('preserves the four historical registration candidates', () => {
-    const selected = registrationCandidates(parseJudgeAssets(raw(), fixtureProducts));
+    const selected = registrationCandidates(parseJudgeAssets(raw(), fixtureProducts)).filter((a) =>
+      ['E03', 'N03', 'R03', 'W03'].includes(a.productId),
+    );
     expect(selected.map((a) => a.productId)).toEqual(['E03', 'N03', 'R03', 'W03']);
     expect(selected.map((a) => a.filename)).toEqual([
       'earring01-9493d1.png',
@@ -41,15 +44,15 @@ describe('curated VTO manifest', () => {
   });
   it('supports later upload and validation without enabling uploaded-only assets', () => {
     const m = raw();
-    const a = m.assets.find((x: { status: string }) => x.status === 'uploaded');
+    const a = m.assets.find((x: { productId: string }) => x.productId === 'E01');
     a.status = 'uploaded';
     a.sha256 = 'a'.repeat(64);
-    expect(registrationCandidates(parseJudgeAssets(m, fixtureProducts))).toHaveLength(4);
+    expect(registrationCandidates(parseJudgeAssets(m, fixtureProducts))).toHaveLength(11);
     a.status = 'validated';
     a.evidence = null;
     expect(() => parseJudgeAssets(m, fixtureProducts)).toThrow();
     a.evidence = 'Reviewed uploaded bytes and matching product appearance';
-    expect(registrationCandidates(parseJudgeAssets(m, fixtureProducts))).toHaveLength(5);
+    expect(registrationCandidates(parseJudgeAssets(m, fixtureProducts))).toHaveLength(12);
   });
   it.each(['traversal', 'duplicate', 'category', 'name', 'false-evidence'])(
     'rejects invalid manifest %s',

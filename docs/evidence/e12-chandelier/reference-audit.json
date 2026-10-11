@@ -1,0 +1,76 @@
+{
+  "at": "2026-10-10T15:06:35.267Z",
+  "references": [
+    {
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v1-71a2f4.png",
+      "matches": [
+        {
+          "table": "visual_sessions",
+          "column": "state",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v2-tight-pair-cbff6f35187b.png",
+      "matches": [
+        {
+          "table": "visual_sessions",
+          "column": "state",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "currentMappings": [
+    {
+      "product_id": "E01",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v1-aa1d5a.png"
+    },
+    {
+      "product_id": "E03",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/earring01-9493d1.png"
+    },
+    {
+      "product_id": "E12",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v3-single-f19910.png"
+    },
+    {
+      "product_id": "N01",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n01-quiet-round-vto-v1-848458.png"
+    },
+    {
+      "product_id": "N03",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/necklace01-9444a6.png"
+    },
+    {
+      "product_id": "N12",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-241860.png"
+    },
+    {
+      "product_id": "R01",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/r01-quiet-round-vto-v1-780571.png"
+    },
+    {
+      "product_id": "R03",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/ring01-5d89c0.png"
+    },
+    {
+      "product_id": "R08",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/r08-square-vto-v1-cb5304.png"
+    },
+    {
+      "product_id": "W03",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/watch01-c7069f.png"
+    },
+    {
+      "product_id": "W08",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/w11-everyday-vto-v1-6510f3.png"
+    },
+    {
+      "product_id": "W11",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/w11-everyday-vto-v1-43af00.png"
+    }
+  ],
+  "note": "Historical local evidence intentionally retains old keys; no object deleted. Existing stored provider results are independent of old input objects."
+}

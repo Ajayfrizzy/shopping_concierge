@@ -231,3 +231,18 @@ Four corrected uploads found and verified readable with PNG MIME/decoding and ha
 ### Final N12 asset recheck — 2026-10-10
 
 N12 full-chain replacement passes offline appearance review; all eight additions now pass this check. Exact key/hash recorded in judge manifest and n12-final evidence. Eight remain uploaded/ineligible; approval, compatible backend/schema and registration remain outstanding. No live provider calls or deployment.
+
+
+## Production VTO registration and controlled live verification — 2026-10-10
+
+All twelve curated assets registered; 12 eligible/60 ineligible. E12/N12/R08/W08 completed live rendering with decoded/displayed outputs and idempotent ledger checks. Four judge requests/units consumed, 46 remain; no OpenAI use. E12 output scale remains a quality caveat. N12 existing-task poll recovery used no extra render. 85 relevant tests pass plus lint/typechecks/build/secret scans. See VALIDATION.md and evidence/vto-judge-live/summary.json. No APK or final demo script created.
+
+
+## E12 fidelity follow-up — 2026-10-10
+
+Recorded offline diagnosis before a lossless pair-preserving tighter crop; exact v2 key/hash registered only for E12. One authorized live follow-up produced no material scale/fidelity improvement. Stop further paid iteration; E12 is not approved as a faithful statement-earring demo example. Technical registration remains active. Judge use 5/50; 45 remain. OpenAI untouched. See evidence/e12-fidelity/summary.json.
+
+
+## E12 approved chandelier replacement — 2026-10-10
+
+Explicit replacement design approved and registered; matching catalog description/display art updated. One controlled live render passed visual review with clear chandelier detail and appropriate scale. Six judge renders committed, 44 remain. Other 71 products unchanged. 162 relevant tests plus lint/types/build/export-secret scan pass. APK/demo-script work remains unstarted.

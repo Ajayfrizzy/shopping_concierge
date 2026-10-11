@@ -1,0 +1,95 @@
+{
+  "flow": "A",
+  "startedAt": "2026-10-10T16:11:37.324Z",
+  "readyBefore": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  },
+  "ledgerBefore": [
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "units": 1,
+      "usage": null,
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "units": 1,
+      "usage": null,
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "units": 1,
+      "usage": null,
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "units": 1,
+      "usage": null,
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "units": 1,
+      "usage": null,
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "units": 1,
+      "usage": null,
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "sessionId": "a040037f-b4b1-485e-ad92-3916ce6dcf44",
+  "request": {
+    "type": "message",
+    "requestId": "a3ae42a8-3b82-4cdf-a1f7-230f6bb36fe4",
+    "expectedVersion": 0,
+    "message": "I need elegant silver earrings under $80 for an evening event. I prefer something noticeable but not too heavy."
+  },
+  "response": {
+    "status": 503,
+    "body": {
+      "error": {
+        "code": "PLANNER_UNAVAILABLE",
+        "message": "The shopping planner is unavailable. Please retry.",
+        "recoverable": true
+      }
+    }
+  },
+  "failure": "Connection terminated due to connection timeout",
+  "ledgerAtStop": null
+}

@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-10T15:03:33.073Z",
+  "authorizedDesignReplacement": true,
+  "oldRegistration": {
+    "product_id": "E12",
+    "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v2-tight-pair-cbff6f35187b.png",
+    "sha256": "cbff6f35187b9e893e53895d8c664a680ad2ab0857167696633b66d0851bdfa6",
+    "approved_at": "2026-10-10T13:22:29.746Z"
+  },
+  "newAsset": {
+    "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v3-single-f19910.png",
+    "sha256": "fc85563834e740cfa65732d07f1a360a1a6768a395013885299f4b621daa3a8c",
+    "width": 1254,
+    "height": 1254,
+    "mime": "image/png",
+    "checkedAt": "2026-10-10T13:58:30.037Z"
+  },
+  "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data. Silver-colored statement chandelier earrings with a marquise-shaped top, branching drops and a teardrop focal pendant. The approved single-earring reference represents this replacement design.",
+  "otherProductsAndRegistrationsUnchanged": true,
+  "eligibleUnchanged": true,
+  "catalogCount": 72,
+  "judgeBefore": 5
+}

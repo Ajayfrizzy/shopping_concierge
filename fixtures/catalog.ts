@@ -212,7 +212,7 @@ export const fixtureProducts = [
     styleTags: ['elegant', 'statement', 'large', 'dangling'],
     occasionTags: ['party', 'wedding'],
     description:
-      'Synthetic development fixture; not a real merchant listing. Prices and stock are test data.',
+      'Synthetic development fixture; not a real merchant listing. Prices and stock are test data. Silver-colored statement chandelier earrings with a marquise-shaped top, branching drops and a teardrop focal pendant. The approved single-earring reference represents this replacement design.',
     imageUrl: 'catalog://demo/E12.png',
     vtoEligible: false,
     vtoAssetUrl: null,

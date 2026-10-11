@@ -1,0 +1,107 @@
+{
+  "at": "2026-10-10T11:04:02.088Z",
+  "registered": [
+    "E01",
+    "E12",
+    "N01",
+    "N12",
+    "R01",
+    "R08",
+    "W11",
+    "W08",
+    "E03",
+    "N03",
+    "R03",
+    "W03"
+  ],
+  "eligible": [
+    "E01",
+    "E03",
+    "E12",
+    "N01",
+    "N03",
+    "N12",
+    "R01",
+    "R03",
+    "R08",
+    "W03",
+    "W08",
+    "W11"
+  ],
+  "catalogCount": 72,
+  "unrelatedMetadataUnchanged": true,
+  "registrations": [
+    {
+      "product_id": "E01",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v1-aa1d5a.png",
+      "sha256": "be0da996cee1b62b85b5750f4051a4d6a5a506d9bcb336a94c980789b791aa8a",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "E03",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/earring01-9493d1.png",
+      "sha256": "24356f4991671da7fa90794e520f334b0f2a9d3383b6c9734e009127827a6ff6",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "E12",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v1-71a2f4.png",
+      "sha256": "df69d04bc94f8a043891245f8895a4f2bd9106d85d784b60bd27e67dfc8565db",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "N01",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n01-quiet-round-vto-v1-848458.png",
+      "sha256": "70bb1ee5359a70986fd05cfc9c87b05d123ebbd79ad96b1a45aa26a10f4ac5a6",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "N03",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/necklace01-9444a6.png",
+      "sha256": "bab8defe30d19b9a8e3880ec15929fe67919717a724e3cb9626463621a919225",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "N12",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-241860.png",
+      "sha256": "62df66d79c57212397d1a6ac551c37bafaa2461b197f32fb6def71537520845d",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "R01",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/r01-quiet-round-vto-v1-780571.png",
+      "sha256": "12cc686ac52e146513e4593da8b09b2fdbd6594661f153c0f2c60a4361e48bed",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "R03",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/ring01-5d89c0.png",
+      "sha256": "b215093bf7bfa6c055f6e4c73e493f73f6d4a32cd23663c05f9c0071798cdf4a",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "R08",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/rings/r08-square-vto-v1-cb5304.png",
+      "sha256": "96eba285caa956248a584012f9eb99c99445f7ce2b3504f1cde0f09ef5077728",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "W03",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/watch01-c7069f.png",
+      "sha256": "5d72740f9cd8a91f901233b40aadc6531bc8ad954e700f91bb03b43bec911558",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "W08",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/w11-everyday-vto-v1-6510f3.png",
+      "sha256": "f116e737da06241781045eb21e37c952260f38035f3137b7d9b161f5278c85fd",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    },
+    {
+      "product_id": "W11",
+      "object_key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/watches/w11-everyday-vto-v1-43af00.png",
+      "sha256": "8a8457fde192a59aaefcfd25f2d4e89df0183f0586948b67cd450c81b5f48d34",
+      "approved_at": "2026-10-10T11:03:50.381Z"
+    }
+  ]
+}

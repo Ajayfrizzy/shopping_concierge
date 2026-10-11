@@ -1,0 +1,22 @@
+{
+  "at": "2026-10-10T15:39:38.634Z",
+  "authorization": "User explicitly authorized approval of existing 200-request/$3 judge budget",
+  "before": {
+    "provider": "openai",
+    "max_requests": 200,
+    "max_units": 0,
+    "max_usd": "3.00000000",
+    "approved": false,
+    "blocked": false
+  },
+  "after": {
+    "provider": "openai",
+    "max_requests": 200,
+    "max_units": 0,
+    "max_usd": "3.00000000",
+    "approved": true,
+    "blocked": false
+  },
+  "usageAtApproval": 0,
+  "liveLedgerInitializationPassed": true
+}

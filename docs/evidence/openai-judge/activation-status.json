@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-10T15:42:01.088Z",
+  "readiness": {
+    "httpStatus": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "mock",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  },
+  "openai": {
+    "requests": 0,
+    "input_tokens": "0",
+    "output_tokens": "0",
+    "cached_tokens": "0",
+    "usd": "0"
+  },
+  "approved": true,
+  "requestCeiling": 200,
+  "spendCeilingUsd": 3,
+  "remainingRequests": 200,
+  "remainingUsd": 3,
+  "flows": {
+    "A": "not run; awaiting deployment live activation",
+    "B": "not run",
+    "C": "not run"
+  }
+}

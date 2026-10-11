@@ -1,0 +1,81 @@
+{
+  "method": "Approximate product bounds: minimum RGB channel <180, excluding outer ten pixels; shadows and pale edges mean these are image estimates, not physical measurements.",
+  "results": [
+    {
+      "id": "E03",
+      "width": 360,
+      "height": 395,
+      "boxes": [
+        {
+          "label": "pair",
+          "x": 66,
+          "y": 61,
+          "width": 223,
+          "height": 292,
+          "widthFraction": 0.6194444444444445,
+          "heightFraction": 0.739240506329114,
+          "darkPixels": 16633
+        },
+        {
+          "label": "left",
+          "x": 66,
+          "y": 61,
+          "width": 94,
+          "height": 292,
+          "widthFraction": 0.2611111111111111,
+          "heightFraction": 0.739240506329114,
+          "darkPixels": 6417
+        },
+        {
+          "label": "right",
+          "x": 184,
+          "y": 62,
+          "width": 105,
+          "height": 291,
+          "widthFraction": 0.2916666666666667,
+          "heightFraction": 0.7367088607594937,
+          "darkPixels": 10216
+        }
+      ],
+      "gap": 24
+    },
+    {
+      "id": "E12",
+      "width": 1254,
+      "height": 1254,
+      "boxes": [
+        {
+          "label": "pair",
+          "x": 193,
+          "y": 177,
+          "width": 822,
+          "height": 932,
+          "widthFraction": 0.6555023923444976,
+          "heightFraction": 0.7432216905901117,
+          "darkPixels": 141953
+        },
+        {
+          "label": "left",
+          "x": 193,
+          "y": 177,
+          "width": 353,
+          "height": 932,
+          "widthFraction": 0.28149920255183414,
+          "heightFraction": 0.7432216905901117,
+          "darkPixels": 72283
+        },
+        {
+          "label": "right",
+          "x": 663,
+          "y": 178,
+          "width": 352,
+          "height": 930,
+          "widthFraction": 0.2807017543859649,
+          "heightFraction": 0.7416267942583732,
+          "darkPixels": 69670
+        }
+      ],
+      "gap": 117
+    }
+  ]
+}

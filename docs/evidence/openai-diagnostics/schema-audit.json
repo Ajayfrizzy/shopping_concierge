@@ -1,0 +1,23 @@
+{
+  "schemaSha256": "835e130b32ffaac3db00e75a79a0bd2decd28069b94afb4ec94c585585d97666",
+  "objectSchemas": 49,
+  "objectsWithMissingRequiredFields": 0,
+  "objectsAllowingAdditionalProperties": 0,
+  "keywords": [
+    "$schema",
+    "additionalProperties",
+    "anyOf",
+    "enum",
+    "items",
+    "maxItems",
+    "maxLength",
+    "minItems",
+    "minLength",
+    "minimum",
+    "pattern",
+    "properties",
+    "required",
+    "type"
+  ],
+  "note": "Offline structural verification only; does not establish account/model entitlement or provider acceptance."
+}

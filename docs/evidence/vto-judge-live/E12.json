@@ -1,0 +1,65 @@
+{
+  "productId": "E12",
+  "category": "earrings",
+  "startedAt": "2026-10-10T11:04:26.002Z",
+  "submitted": true,
+  "readinessBefore": {
+    "status": "ready",
+    "service": "youcam-api",
+    "runtime": {
+      "persistence": "postgres",
+      "objectStorage": "s3",
+      "llm": "mock",
+      "youcam": "live",
+      "youcamLedger": "postgres",
+      "openaiLedger": "postgres",
+      "youcamLedgerScope": "judge"
+    }
+  },
+  "ledgerBefore": [],
+  "sessionId": "7414c616-e540-451b-bda2-9187a2351559",
+  "jobId": "a8d2f981-30d5-415e-9274-18344056bc62",
+  "queueReplaySameJob": true,
+  "reservation": {
+    "provider": "youcam",
+    "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+    "category": "earrings",
+    "units": 1,
+    "committed_at": "2026-10-10T11:05:09.337Z"
+  },
+  "status": "completed",
+  "mode": "live",
+  "error": null,
+  "result": {
+    "httpStatus": 200,
+    "mime": "binary/octet-stream",
+    "format": "png",
+    "width": 300,
+    "height": 375,
+    "sha256": "38e08aec179b099fc103869f8e603ab47673ed950bf904e1e66e595ce5824ea8"
+  },
+  "terminalReplaySameJob": true,
+  "ledgerAfter": [
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "category": "earrings",
+      "units": 1,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    }
+  ],
+  "readinessAfter": {
+    "status": "ready",
+    "service": "youcam-api",
+    "runtime": {
+      "persistence": "postgres",
+      "objectStorage": "s3",
+      "llm": "mock",
+      "youcam": "live",
+      "youcamLedger": "postgres",
+      "openaiLedger": "postgres",
+      "youcamLedgerScope": "judge"
+    }
+  },
+  "completedAt": "2026-10-10T11:05:56.596Z"
+}

@@ -1,8 +1,10 @@
-> Latest N12 recheck (2026-10-10): the new `n12-evening-vto-v1-241860.png` passes offline appearance review with complete chain/clasp and pendant. All eight additions now pass offline appearance review and remain uploaded/ineligible pending approval and registration. Live rendering remains untested. See [VTO upload review](VTO_UPLOAD_REVIEW.md).
+> E12 now uses the user-approved v3 silver chandelier replacement, which passed the controlled live demo review. Judge allowance 44/50 remaining. The old E12 fidelity exclusions below are historical. See [current validation](VALIDATION.md) and `evidence/e12-chandelier/summary.json`.
+
+> Production registration completed 2026-10-10: exactly E01/E03/E12, N01/N03/N12, R01/R03/R08 and W03/W08/W11 are registered and eligible; the other 60 products remain ineligible. All recorded asset identities/hashes are preserved. Registration evidence: [judge registration](evidence/vto-uploads/judge-registration-2026-10-10.json). Controlled live verification is recorded separately in VALIDATION.md. Earlier pending-upload/registration notes below are historical.
 
 # Curated judge VTO assets
 
-The selection is complete: 12 existing catalog products, three per category. Current asset inventory is **4 historically validated + 8 uploaded**, with all eight additions passing offline appearance review. New assets remain unregistered and ineligible. The table below records original planned filenames; actual suffixed keys are in the manifest and latest upload evidence. The full 72-product catalog, display images, prices and ranking remain unchanged.
+The selection is complete: 12 existing catalog products, three per category. Current asset inventory is **12 validated and registered**, including the four historical assets and eight reviewed additions. All 12 are eligible in production; local fixtures remain ineligible by default. The table below records original planned filenames; actual suffixed keys are in the manifest and latest upload evidence. The full 72-product catalog, display images, prices and ranking remain unchanged.
 
 `fixtures/vto/judge-assets.json` is the registration manifest. Every entry records ID, category, exact catalog name, filename, relative object path, status, hash/evidence and product-specific requirements. Full S3 key = the existing **S3_ASSET_PREFIX + assetPath** (prefix ends in `/`; do not add an extra separator). This uses the existing private bucket; it is not a public URL. Never substitute a decorative catalog image.
 

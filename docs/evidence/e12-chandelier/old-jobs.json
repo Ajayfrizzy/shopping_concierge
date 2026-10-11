@@ -1,0 +1,30 @@
+[
+  {
+    "jobId": "a8d2f981-30d5-415e-9274-18344056bc62",
+    "status": "completed",
+    "recordFields": [
+      "job",
+      "taskId",
+      "lastPollAt",
+      "productAssetKey",
+      "productAssetUrl"
+    ],
+    "productAssetKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v1-71a2f4.png",
+    "taskStored": true,
+    "resultKind": "image"
+  },
+  {
+    "jobId": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+    "status": "completed",
+    "recordFields": [
+      "job",
+      "taskId",
+      "lastPollAt",
+      "productAssetKey",
+      "productAssetUrl"
+    ],
+    "productAssetKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v2-tight-pair-cbff6f35187b.png",
+    "taskStored": true,
+    "resultKind": "image"
+  }
+]

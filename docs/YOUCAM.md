@@ -1,4 +1,6 @@
-> Latest N12 recheck (2026-10-10): the new `n12-evening-vto-v1-241860.png` passes offline appearance review with complete chain/clasp and pendant. All eight additions now pass offline appearance review and remain uploaded/ineligible pending approval and registration. Live rendering remains untested. See [VTO upload review](VTO_UPLOAD_REVIEW.md).
+> E12 now uses the user-approved v3 silver chandelier replacement, which passed the controlled live demo review. Judge allowance 44/50 remaining. The old E12 fidelity exclusions below are historical. See [current validation](VALIDATION.md) and `evidence/e12-chandelier/summary.json`.
+
+> Production registration completed 2026-10-10: exactly E01/E03/E12, N01/N03/N12, R01/R03/R08 and W03/W08/W11 are registered and eligible; the other 60 products remain ineligible. All recorded asset identities/hashes are preserved. Registration evidence: [judge registration](evidence/vto-uploads/judge-registration-2026-10-10.json). Controlled live verification is recorded separately in VALIDATION.md. Earlier pending-upload/registration notes below are historical.
 
 # M6 YouCam integration boundary
 

@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-11T10:40:59.387Z",
+  "rows": [
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "usage": null,
+      "reserved_usd": "0.06750400",
+      "charged_usd": "0.06750400",
+      "committed_at": null
+    }
+  ],
+  "budget": {
+    "provider": "openai",
+    "max_requests": 200,
+    "max_units": 0,
+    "max_usd": "3.00000000",
+    "approved": true,
+    "blocked": false
+  },
+  "readiness": {
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  },
+  "decision": "Retain unresolved reservation. No proof of zero billable usage; no release/cancel mechanism in existing ledger. No provider request made."
+}

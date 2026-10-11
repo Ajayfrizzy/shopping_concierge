@@ -1,5 +1,5 @@
 /** Original geometric demo illustrations. No external imagery or AI service calls. */
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import sharp from 'sharp';
 import { fixtureProducts } from '../fixtures/catalog.ts';
 const directory = new URL('../apps/mobile/assets/catalog/', import.meta.url);
@@ -44,6 +44,14 @@ function motif(n: number) {
 }
 const manifest: Record<string, string> = {};
 for (const p of fixtureProducts) {
+  if (p.id === 'E12') {
+    const source = await readFile(new URL('sources/E12-chandelier.png', directory));
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><rect width="512" height="512" fill="white"/><image x="24" y="24" width="464" height="464" href="data:image/png;base64,${source.toString('base64')}"/></svg>`;
+    await writeFile(new URL('E12.svg', directory), svg + '\n');
+    await sharp(Buffer.from(svg)).png().toFile(new URL('E12.png', directory).pathname);
+    manifest[p.imageUrl] = p.id;
+    continue;
+  }
   const n = Number(p.id.slice(1));
   const colors =
     p.color === 'gold'

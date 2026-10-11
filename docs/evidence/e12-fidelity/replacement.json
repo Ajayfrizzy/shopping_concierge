@@ -1,0 +1,42 @@
+{
+  "at": "2026-10-10T13:22:31.908Z",
+  "oldAsset": {
+    "productId": "E12",
+    "category": "earrings",
+    "catalogName": "Fixture Evening Earrings",
+    "filename": "e12-evening-vto-v1-71a2f4.png",
+    "assetPath": "vto-products/earrings/e12-evening-vto-v1-71a2f4.png",
+    "status": "validated",
+    "sha256": "df69d04bc94f8a043891245f8895a4f2bd9106d85d784b60bd27e67dfc8565db",
+    "evidence": "2026-10-10 replacement review: ListObjectsV2/GetObject succeeded with backend credentials; image/png, decoded PNG 1254x1254; SHA-256 recorded. Silver-colored statement dangling pair; previous gold-color mismatch corrected. Product appearance passes offline review. No live rendering or database registration performed. See docs/evidence/vto-uploads/replacements-2026-10-10.json. Registration update 2026-10-10: user-approved offline asset validation and production registration completed with exact key/hash after PNG decoding and metadata verification. Earlier pending-registration statements are historical. Asset validation status does not itself claim live rendering success; see docs/evidence/vto-uploads/judge-registration-2026-10-10.json and controlled-live results. Controlled deployed-backend live check: terminal success, PNG retrieved/displayed, exactly one committed judge reservation and safe replay. See docs/evidence/vto-judge-live/summary.json. Visual limitation: earring appears very small; statement/dangling fidelity is not certified.",
+    "rationale": "Premium silver statement wedding/party option supports rejection of large or dangling styles.",
+    "requirements": [
+      "Large silver statement dangling earrings; show the complete pair and every hanging component.",
+      "Endpoint: POST /s2s/v2.0/task/2d-vto/earring; one approved reference URL in ref_file_urls.",
+      "Isolate one matching pair; keep both pieces complete and non-overlapping. Source portrait needs a clearly visible, unobstructed ear.",
+      "Preparation target, not a claimed provider limit: PNG, 1024x1024 or larger square canvas, clean white background, sharp edges, visible margin, no wearer, props, text, watermark, collage or decorative card frame.",
+      "Match catalog material/color/style; use an original isolated product asset, not the catalog display illustration.",
+      "Provider delivery: private S3 object, Content-Type image/png, fresh server-signed HTTPS GET URL on YOUCAM_ASSET_HOSTS; no redirects.",
+      "Do not invent masks, anchors, dimensions, stone composition, brand or size claims. New asset approval requires actual uploaded bytes, hash and human visual review; live rendering remains untested until separately authorized."
+    ],
+    "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v1-71a2f4.png"
+  },
+  "newAsset": {
+    "filename": "e12-evening-vto-v2-tight-pair-cbff6f35187b.png",
+    "objectKey": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v2-tight-pair-cbff6f35187b.png",
+    "sha256": "cbff6f35187b9e893e53895d8c664a680ad2ab0857167696633b66d0851bdfa6",
+    "width": 862,
+    "height": 972,
+    "mime": "image/png"
+  },
+  "operation": "Lossless crop x173 y157 width862 height972; no resizing, recoloring, generation or product-pixel changes. Full separated pair reviewed before registration.",
+  "productBounds": {
+    "width": 822,
+    "height": 932,
+    "widthPercent": 95.36,
+    "heightPercent": 95.88
+  },
+  "registered": true,
+  "otherRegistrationsUnchanged": true,
+  "usageBefore": 4
+}

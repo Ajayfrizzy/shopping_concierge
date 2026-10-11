@@ -1,0 +1,20 @@
+{
+  "at": "2026-10-10T11:08:46.862Z",
+  "publicProductsChecked": 72,
+  "eligible": [
+    "E01",
+    "E03",
+    "E12",
+    "N01",
+    "N03",
+    "N12",
+    "R01",
+    "R03",
+    "R08",
+    "W03",
+    "W08",
+    "W11"
+  ],
+  "ineligible": 60,
+  "registrationCount": 12
+}

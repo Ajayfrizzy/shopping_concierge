@@ -1,3 +1,4 @@
+import type { OpenAIDiagnostic } from './diagnostics.js';
 import type { OpenAIBudget } from './budget.js';
 import { accountingConfig } from '../accounting/config.js';
 import { fileURLToPath } from 'node:url';
@@ -7,7 +8,11 @@ import { OpenAIPlanner } from './openai.js';
 export const liveLedgerPath = fileURLToPath(
   new URL('../../../../artifacts/m7-live-budget.json', import.meta.url),
 );
-export function llmProvider(env: NodeJS.ProcessEnv = process.env, budget?: OpenAIBudget) {
+export function llmProvider(
+  env: NodeJS.ProcessEnv = process.env,
+  budget?: OpenAIBudget,
+  onDiagnostic?: (event: OpenAIDiagnostic) => void,
+) {
   if (env.USE_MOCK_LLM === undefined || env.USE_MOCK_LLM === 'true') return new MockAgentPlanner();
   if (env.USE_MOCK_LLM !== 'false') throw new Error('USE_MOCK_LLM must be true or false.');
   if (env.LLM_PROVIDER !== 'openai' || !env.OPENAI_API_KEY?.trim() || !env.LLM_MODEL?.trim())
@@ -27,6 +32,7 @@ export function llmProvider(env: NodeJS.ProcessEnv = process.env, budget?: OpenA
   if (mode === 'postgres' && (env.PERSISTENCE_MODE !== 'postgres' || !env.DATABASE_URL))
     throw new Error('OpenAI PostgreSQL accounting requires PostgreSQL persistence.');
   return new OpenAIPlanner({
+    onDiagnostic,
     apiKey: env.OPENAI_API_KEY,
     model: env.LLM_MODEL,
     reasoning,

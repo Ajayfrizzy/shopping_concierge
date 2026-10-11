@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-10",
+  "backend": "https://shoppingconcierge.rumptycloud.app",
+  "migrations": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "registeredIds": [
+    "E01",
+    "E03",
+    "E12",
+    "N01",
+    "N03",
+    "N12",
+    "R01",
+    "R03",
+    "R08",
+    "W03",
+    "W08",
+    "W11"
+  ],
+  "catalogCount": 72,
+  "eligibleCount": 12,
+  "ineligibleCount": 60,
+  "historicalManifestEntriesUnchanged": true,
+  "catalogFieldsExceptEligibilityUnchanged": true,
+  "tested": [
+    {
+      "productId": "E12",
+      "category": "earrings",
+      "status": "completed",
+      "retrievedAndDisplayed": true,
+      "limitation": "Earring appears very small; technical pipeline passes, statement/dangling product fidelity needs review."
+    },
+    {
+      "productId": "N12",
+      "category": "necklaces",
+      "status": "completed",
+      "retrievedAndDisplayed": true,
+      "recovery": "Submission client operation interrupted; existing committed task recovered by polling only. No new submission. Original error type was suppressed, so timeout cause is not conclusively established."
+    },
+    {
+      "productId": "R08",
+      "category": "rings",
+      "status": "completed",
+      "retrievedAndDisplayed": true
+    },
+    {
+      "productId": "W08",
+      "category": "watches",
+      "status": "completed",
+      "retrievedAndDisplayed": true
+    }
+  ],
+  "youcamJudgeRequestsBefore": 0,
+  "youcamJudgeRequestsAfter": 4,
+  "youcamJudgeUnits": 4,
+  "committed": 4,
+  "rendersConsumed": 4,
+  "remainingAllowance": 46,
+  "duplicateReservations": 0,
+  "correctiveRenders": 0,
+  "openaiCalls": 0,
+  "openaiApproved": false,
+  "readinessHttpStatus": 200,
+  "readinessStatus": "ready",
+  "tests": {
+    "passed": 85,
+    "files": 6,
+    "lint": "passed",
+    "typechecks": "passed",
+    "apiBuild": "passed",
+    "androidSentinelScan": {
+      "files": 94,
+      "sentinels": 7,
+      "passed": true
+    }
+  },
+  "limitations": [
+    "Only four of eight additions live-tested by design.",
+    "Output CDN labels bytes binary/octet-stream; all four decode as PNG and display successfully.",
+    "No fresh physical Android UI test or APK build performed.",
+    "E12 visual scale needs review before using it as the statement-earring showcase."
+  ]
+}

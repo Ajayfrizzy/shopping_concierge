@@ -1,0 +1,29 @@
+{
+  "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/earrings/e12-evening-vto-v3-single-f19910.png",
+  "sha256": "fc85563834e740cfa65732d07f1a360a1a6768a395013885299f4b621daa3a8c",
+  "width": 1254,
+  "height": 1254,
+  "mime": "image/png",
+  "checkedAt": "2026-10-10T13:58:30.037Z",
+  "productId": "E12",
+  "status": "uploaded",
+  "offlineReview": "failed",
+  "reason": "Product identity mismatch: v1/v2 has a stone-set hoop with one teardrop pendant; v3 has a marquise-shaped top, branching chandelier structure and multiple hanging drops.",
+  "checks": {
+    "readable": true,
+    "mimePng": true,
+    "decoded": true,
+    "singleCompleteEarring": true,
+    "silverAppearance": true,
+    "noTextPropsModelBorder": true,
+    "consistentProductIdentity": false
+  },
+  "registrationUpdated": false,
+  "eligibilityChanged": false,
+  "liveSubmitted": false,
+  "additionalRenders": 0,
+  "judgeRequests": 5,
+  "judgeRemaining": 45,
+  "readiness": "HTTP 200 ready",
+  "testsPassed": 12
+}
