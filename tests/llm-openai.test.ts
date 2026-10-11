@@ -520,3 +520,35 @@ describe('sanitized internal OpenAI diagnostics', () => {
     expect(transport).toHaveBeenCalledTimes(1);
   });
 });
+
+describe('single-attempt OpenAI diagnostic mode', () => {
+  it.each([429, 502, 503, 504])(
+    'does not retry HTTP %s or reserve twice when capped at one',
+    async (status) => {
+      const budget = setup().budget;
+      const transport = vi.fn<typeof fetch>(async () => new Response(null, { status }));
+      const planner = new OpenAIPlanner({
+        apiKey: 'fixture',
+        model: APPROVED_MODEL,
+        reasoning: 'low',
+        budget,
+        fetch: transport,
+        maxAttempts: 1,
+      });
+      await expect(planner.plan(context(), new AbortController().signal)).rejects.toThrow('failed');
+      expect(transport).toHaveBeenCalledTimes(1);
+      expect(budget.summary()).toMatchObject({ requests: 1, unknownUsageRequests: 1 });
+    },
+  );
+  it('rejects invalid attempt configuration before provider I/O', () => {
+    expect(() =>
+      llmProvider({
+        USE_MOCK_LLM: 'false',
+        LLM_PROVIDER: 'openai',
+        OPENAI_API_KEY: 'fixture',
+        LLM_MODEL: APPROVED_MODEL,
+        OPENAI_MAX_ATTEMPTS: '3',
+      }),
+    ).toThrow('OPENAI_MAX_ATTEMPTS');
+  });
+});

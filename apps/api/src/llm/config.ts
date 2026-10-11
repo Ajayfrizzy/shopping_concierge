@@ -26,12 +26,16 @@ export function llmProvider(
   const reasoning = env.LLM_REASONING_EFFORT ?? 'low';
   if (reasoning !== 'low' && reasoning !== 'medium' && reasoning !== 'high')
     throw new Error('Invalid LLM_REASONING_EFFORT.');
+  const maxAttempts = env.OPENAI_MAX_ATTEMPTS ?? '2';
+  if (maxAttempts !== '1' && maxAttempts !== '2')
+    throw new Error('OPENAI_MAX_ATTEMPTS must be 1 or 2.');
   const mode = accountingConfig(env).openaiMode;
   if (env.NODE_ENV === 'production' && mode !== 'postgres')
     throw new Error('Production live OpenAI requires OPENAI_LEDGER_MODE=postgres.');
   if (mode === 'postgres' && (env.PERSISTENCE_MODE !== 'postgres' || !env.DATABASE_URL))
     throw new Error('OpenAI PostgreSQL accounting requires PostgreSQL persistence.');
   return new OpenAIPlanner({
+    maxAttempts: maxAttempts === '1' ? 1 : 2,
     onDiagnostic,
     apiKey: env.OPENAI_API_KEY,
     model: env.LLM_MODEL,

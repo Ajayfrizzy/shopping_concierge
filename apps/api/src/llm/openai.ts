@@ -87,6 +87,7 @@ export class OpenAIPlanner implements Planner {
       reasoning: 'low' | 'medium' | 'high';
       budget: OpenAIBudget;
       fetch?: typeof fetch;
+      maxAttempts?: 1 | 2;
       onDiagnostic?: (event: OpenAIDiagnostic) => void;
     },
   ) {}
@@ -120,7 +121,7 @@ export class OpenAIPlanner implements Planner {
       tool_choice: { type: 'function', name: 'submit_shopping_plan' },
     });
     const transport = this.options.fetch ?? fetch;
-    for (let attempt = 0; attempt < 2; attempt++) {
+    for (let attempt = 0; attempt < (this.options.maxAttempts ?? 2); attempt++) {
       signal.throwIfAborted();
       let stage: OpenAIDiagnostic['stage'] = 'reservation';
       let status: number | undefined;
@@ -149,7 +150,10 @@ export class OpenAIPlanner implements Planner {
         if (!response.ok) {
           stage = 'http';
           metadata = await providerErrorMetadata(response);
-          if (attempt === 0 && [429, 502, 503, 504].includes(response.status)) {
+          if (
+            attempt + 1 < (this.options.maxAttempts ?? 2) &&
+            [429, 502, 503, 504].includes(response.status)
+          ) {
             this.report({ stage, status, requestId, ...metadata, aborted: signal.aborted });
             await delay(250, undefined, { signal });
             continue;
