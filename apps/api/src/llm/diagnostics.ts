@@ -71,3 +71,32 @@ export function diagnosticRequestId(response: Response, secret: string) {
   const id = response.headers.get('x-request-id');
   return id && /^req_[a-zA-Z0-9_-]{1,128}$/.test(id) && !id.includes(secret) ? id : undefined;
 }
+
+export function sanitizeDiagnostic(event: OpenAIDiagnostic): OpenAIDiagnostic {
+  const stages = [
+    'reservation',
+    'transport',
+    'http',
+    'response_json',
+    'settlement',
+    'response_shape',
+    'plan_schema',
+  ];
+  if (!stages.includes(event.stage)) throw new Error('Invalid diagnostic stage');
+  return {
+    stage: event.stage,
+    ...(Number.isInteger(event.status) && event.status! >= 100 && event.status! <= 599
+      ? { status: event.status }
+      : {}),
+    ...(event.requestId && /^req_[a-zA-Z0-9_-]{1,128}$/.test(event.requestId)
+      ? { requestId: event.requestId }
+      : {}),
+    ...(event.errorCode
+      ? { errorCode: codes.has(event.errorCode) ? event.errorCode : 'unrecognized' }
+      : {}),
+    ...(event.errorType
+      ? { errorType: types.has(event.errorType) ? event.errorType : 'unrecognized' }
+      : {}),
+    aborted: event.aborted === true,
+  };
+}

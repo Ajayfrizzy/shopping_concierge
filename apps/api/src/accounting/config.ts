@@ -1,3 +1,4 @@
+import { PostgresDiagnosticStore } from '../llm/diagnostic-store.js';
 import { postgresPool } from '../persistence/postgres.js';
 import { RuntimeLedger, PostgresOpenAIBudget } from './postgres.js';
 export function accountingConfig(env: NodeJS.ProcessEnv) {
@@ -46,9 +47,11 @@ export async function initializeRuntimeAccounting(env: NodeJS.ProcessEnv) {
   if (youcam && env.YOUCAM_LEDGER_MODE !== 'postgres')
     throw new Error('Judge YouCam requires YOUCAM_LEDGER_MODE=postgres.');
   const pool = postgresPool(env.DATABASE_URL, env.DATABASE_SSL_REJECT_UNAUTHORIZED);
+  const diagnostics = openai ? new PostgresDiagnosticStore(pool) : undefined;
   const o = openai ? new RuntimeLedger(pool, 'openai', c.openai) : undefined;
   const y = youcam ? new RuntimeLedger(pool, 'youcam', c.youcam) : undefined;
   const check = async () => {
+    await diagnostics?.initialize();
     await o?.initialize(env.USE_MOCK_LLM === 'false');
     await y?.initialize(env.USE_MOCK_YOUCAM === 'false');
   };
@@ -59,6 +62,7 @@ export async function initializeRuntimeAccounting(env: NodeJS.ProcessEnv) {
     throw error;
   }
   return {
+    diagnostics,
     openai: o ? new PostgresOpenAIBudget(o) : undefined,
     youcam: y
       ? {

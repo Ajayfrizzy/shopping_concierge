@@ -1,3 +1,17 @@
+# Single-attempt Flow A diagnostic — 2026-10-12
+
+Flow A submitted exactly once after HTTP 200 health/readiness and unchanged accounting preflight. User-confirmed deployed OPENAI_MAX_ATTEMPTS=1 was verified through the actual configuration path with injected 429/502/503/504 responses (one provider attempt/reservation each), not inferred from readiness. The observed live delta was exactly one new reservation.
+
+Result: **503 PLANNER_UNAVAILABLE**, no recommendations, persisted session version 0. No follow-up message/retry, Flow B/C, YouCam request, APK or demo script. Final readiness remains HTTP 200 ready with live OpenAI/YouCam, postgres persistence/ledgers and S3.
+
+One new unresolved reservation **$0.067514**, no usage/settlement; old **$0.067504** reservation unchanged. Total 2 requests / **$0.135018 held**, remaining **198 requests / $2.864982**. Actual token usage/spend unknown; reservation is not proof of provider acceptance. No duplicate accounting or release.
+
+Retrieve RumptyCloud logs for **2026-10-12 12:30:10–12:30:40 WAT**, equivalent **11:30:10–11:30:40 UTC**. Actual HTTP request window: 2026-10-12T11:30:16.651Z to 2026-10-12T11:30:25.569Z. Search `service=openai`, plus session `056c987d-5377-410a-b7ad-8886c8e76ac8` or messages route `/v1/sessions/056c987d-5377-410a-b7ad-8886c8e76ac8/messages`. Client request ID: `4b94e679-4a00-4039-bd97-18a3d9fdcd1a`. Ledger reservation ID: `b1f95cd8-2fb4-42c8-b473-05901b5a2d8d`. These are correlation identifiers, not an OpenAI request ID; callback logs may not include session/client IDs. The public response supplied no x-request-id.
+
+Provide the sanitized diagnostic fields stage/status/errorCode/errorType/requestId/aborted. Provider response status, receipt/parsing state and exact root cause remain unknown until that entry is available. No error is inferred from the generic response. Evidence: `evidence/openai-diagnostic-retry-2026-10-12/attempt.json`, `attempt-cap.json`, `summary.json`.
+
+---
+
 # Single-reservation diagnostic retry preflight — 2026-10-11
 
 Health and readiness both returned HTTP 200. Readiness confirms live OpenAI/YouCam, PostgreSQL persistence, S3 storage and PostgreSQL ledgers. The historical unresolved reservation remains unchanged: one request, USD 0.06750400, usage/settlement null; 199 requests / USD 2.93249600 available.
@@ -212,3 +226,9 @@ Existing fixture catalogs default to `vtoEligible=false`; old records missing th
 ## Completed subset selection
 
 The 12-product selection, version-2 manifest and production registration are complete. See [VTO asset preparation](VTO_ASSET_PREPARATION.md) for exact filenames, prefix-relative S3 keys, per-product briefs and endpoint constraints. The importer accepts later uploaded/validated entries without schema changes and registers only validated entries whose actual bytes match their reviewed hash. Production eligibility was activated only by the separately authorized 2026-10-10 registration; other catalog fields were preserved.
+
+## Durable OpenAI diagnostic persistence — 2026-10-12
+
+Migration 007 and the internal PostgreSQL inspection CLI are implemented; see [OpenAI diagnostics](OPENAI_DIAGNOSTICS.md) for schema, failure semantics and operator commands. New code fails closed if PostgreSQL diagnostics cannot initialize. Existing unresolved reservations, provider settings and budgets are preserved. No production migration/deployment or live retry was performed. Production retry is gated on deploying this change, applying 007, healthy readiness and verified `OPENAI_MAX_ATTEMPTS=1`.
+
+Validation: **556 tests passed**, including fresh PostgreSQL integration and migration tests; lint, typechecks, API build and the seven-sentinel Android secret scan passed. No live provider credits consumed; no APK built.

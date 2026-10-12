@@ -1,0 +1,51 @@
+{
+  "flowA": "failed",
+  "httpStatus": 503,
+  "publicError": "PLANNER_UNAVAILABLE",
+  "attemptCapEvidence": "User-confirmed deployed OPENAI_MAX_ATTEMPTS=1 plus real configuration-path injected-HTTP checks; observed one new reservation. No remote environment introspection.",
+  "requestWindowUtc": {
+    "start": "2026-10-12T11:30:16.651Z",
+    "end": "2026-10-12T11:30:25.569Z"
+  },
+  "logWindowLagos": "2026-10-12 12:30:10\u201312:30:40 WAT (UTC+1)",
+  "sessionId": "056c987d-5377-410a-b7ad-8886c8e76ac8",
+  "clientRequestId": "4b94e679-4a00-4039-bd97-18a3d9fdcd1a",
+  "reservationId": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+  "providerDiagnostic": "Not accessible via public API. Retrieve service=openai JSON entry in RumptyCloud logs.",
+  "providerHttpStatus": null,
+  "providerCode": null,
+  "providerType": null,
+  "providerRequestId": null,
+  "providerResponseReceived": null,
+  "responseParsingFailed": null,
+  "aborted": null,
+  "newReservations": 1,
+  "newSettlements": 0,
+  "tokens": null,
+  "totalReservations": 2,
+  "totalReservedUsd": "0.13501800",
+  "remainingRequests": 198,
+  "remainingUsd": "2.86498200",
+  "oldReservationUnchanged": true,
+  "youcamUnchanged": true,
+  "persistedVersion": 0,
+  "finalReady": {
+    "startedAt": "2026-10-12T11:30:29.179Z",
+    "finishedAt": "2026-10-12T11:30:35.037Z",
+    "status": 200,
+    "requestId": null,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  }
+}

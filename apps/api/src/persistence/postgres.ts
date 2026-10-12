@@ -82,6 +82,7 @@ export async function migrate(pool: Pool) {
     for (const [version, name] of [
       [5, '005_judge_accounting.sql'],
       [6, '006_vto_capability.sql'],
+      [7, '007_openai_diagnostics.sql'],
     ] as const) {
       const content = await readFile(new URL('../../migrations/' + name, import.meta.url), 'utf8');
       const checksum = createHash('sha256').update(content).digest('hex');

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-12",
+  "deploymentEvidence": "User confirms latest code deployed and deployed OPENAI_MAX_ATTEMPTS=1",
+  "verification": "Actual llmProvider configuration path exercised with production-mode settings and injected HTTP; not inferred from readiness or claimed as remote env introspection",
+  "openaiMaxAttempts": 1,
+  "results": [
+    {
+      "status": 429,
+      "providerAttempts": 1,
+      "reservations": 1
+    },
+    {
+      "status": 502,
+      "providerAttempts": 1,
+      "reservations": 1
+    },
+    {
+      "status": 503,
+      "providerAttempts": 1,
+      "reservations": 1
+    },
+    {
+      "status": 504,
+      "providerAttempts": 1,
+      "reservations": 1
+    }
+  ]
+}

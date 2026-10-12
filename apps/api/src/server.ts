@@ -23,8 +23,11 @@ const app = buildApp({
   },
   shopping: {
     ...persistence,
-    planner: llmProvider(process.env, accounting?.openai, (event) =>
-      console.error(JSON.stringify({ service: 'openai', ...event })),
+    planner: llmProvider(
+      process.env,
+      accounting?.openai,
+      (event) => console.error(JSON.stringify({ service: 'openai', ...event })),
+      accounting?.diagnostics,
     ),
     visualProvider: youcamProvider(
       process.env,

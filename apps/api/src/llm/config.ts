@@ -1,3 +1,4 @@
+import type { DiagnosticStore } from './diagnostic-store.js';
 import type { OpenAIDiagnostic } from './diagnostics.js';
 import type { OpenAIBudget } from './budget.js';
 import { accountingConfig } from '../accounting/config.js';
@@ -12,6 +13,7 @@ export function llmProvider(
   env: NodeJS.ProcessEnv = process.env,
   budget?: OpenAIBudget,
   onDiagnostic?: (event: OpenAIDiagnostic) => void,
+  diagnostics?: DiagnosticStore,
 ) {
   if (env.USE_MOCK_LLM === undefined || env.USE_MOCK_LLM === 'true') return new MockAgentPlanner();
   if (env.USE_MOCK_LLM !== 'false') throw new Error('USE_MOCK_LLM must be true or false.');
@@ -34,9 +36,12 @@ export function llmProvider(
     throw new Error('Production live OpenAI requires OPENAI_LEDGER_MODE=postgres.');
   if (mode === 'postgres' && (env.PERSISTENCE_MODE !== 'postgres' || !env.DATABASE_URL))
     throw new Error('OpenAI PostgreSQL accounting requires PostgreSQL persistence.');
+  if (mode === 'postgres' && !diagnostics)
+    throw new Error('OpenAI PostgreSQL diagnostics are not initialized.');
   return new OpenAIPlanner({
     maxAttempts: maxAttempts === '1' ? 1 : 2,
     onDiagnostic,
+    diagnostics,
     apiKey: env.OPENAI_API_KEY,
     model: env.LLM_MODEL,
     reasoning,

@@ -1,3 +1,4 @@
+import type { DiagnosticStore } from './diagnostic-store.js';
 import { setTimeout as delay } from 'node:timers/promises';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { agentPlanSchema } from '@youcam/shared';
@@ -88,6 +89,7 @@ export class OpenAIPlanner implements Planner {
       budget: OpenAIBudget;
       fetch?: typeof fetch;
       maxAttempts?: 1 | 2;
+      diagnostics?: DiagnosticStore;
       onDiagnostic?: (event: OpenAIDiagnostic) => void;
     },
   ) {}
@@ -127,12 +129,19 @@ export class OpenAIPlanner implements Planner {
       let status: number | undefined;
       let requestId: string | undefined;
       let metadata = {};
+      let success = false;
+      const diagnosticId = await this.options.diagnostics?.start(
+        context.state.id,
+        context.clientRequestId,
+      );
       try {
         const reservation = await this.options.budget.reserve(
           this.options.model,
           Buffer.byteLength(body),
           2048,
         );
+        if (diagnosticId) await this.options.diagnostics!.attach(diagnosticId, String(reservation));
+        signal.throwIfAborted();
         // No SDK retries, redirects or provider-controlled URLs. Ambiguous network failures are not retried.
         stage = 'transport';
         const response = await transport('https://api.openai.com/v1/responses', {
@@ -154,7 +163,6 @@ export class OpenAIPlanner implements Planner {
             attempt + 1 < (this.options.maxAttempts ?? 2) &&
             [429, 502, 503, 504].includes(response.status)
           ) {
-            this.report({ stage, status, requestId, ...metadata, aborted: signal.aborted });
             await delay(250, undefined, { signal });
             continue;
           }
@@ -181,10 +189,13 @@ export class OpenAIPlanner implements Planner {
         )
           throw new Error('Invalid OpenAI tool response.');
         stage = 'plan_schema';
-        return agentPlanSchema.parse(normalizeOptionalFields(JSON.parse(calls[0].arguments)));
-      } catch (error) {
-        this.report({ stage, status, requestId, ...metadata, aborted: signal.aborted });
-        throw error;
+        const plan = agentPlanSchema.parse(normalizeOptionalFields(JSON.parse(calls[0].arguments)));
+        success = true;
+        return plan;
+      } finally {
+        const event = { stage, status, requestId, ...metadata, aborted: signal.aborted };
+        if (!success) this.report(event);
+        if (diagnosticId) await this.options.diagnostics!.finish(diagnosticId, event, success);
       }
     }
     throw new Error('OpenAI retry limit reached.');

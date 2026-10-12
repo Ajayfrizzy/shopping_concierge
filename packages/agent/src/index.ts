@@ -22,6 +22,7 @@ import { actionCall, interpretMockMessage } from './interpreter.ts';
 export { interpretMockMessage } from './interpreter.ts';
 
 export interface PlanningContext {
+  clientRequestId?: string;
   message: string;
   state: ShoppingSession;
   recentMessages: { role: 'user' | 'assistant'; text: string }[];
@@ -306,6 +307,7 @@ export function createAgentService(
           ]),
         ].slice(0, 100);
         const context: PlanningContext = {
+          clientRequestId: request.requestId,
           message: request.message,
           state,
           recentMessages: record.history.slice(-12),
