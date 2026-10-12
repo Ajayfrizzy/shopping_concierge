@@ -1,0 +1,287 @@
+{
+  "health": {
+    "startedAt": "2026-10-12T16:10:58.952Z",
+    "finishedAt": "2026-10-12T16:11:00.678Z",
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "service": "youcam-api"
+    }
+  },
+  "ready": {
+    "startedAt": "2026-10-12T16:11:00.682Z",
+    "finishedAt": "2026-10-12T16:11:10.792Z",
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  },
+  "migrations": [
+    {
+      "version": 1
+    },
+    {
+      "version": 2
+    },
+    {
+      "version": 3
+    },
+    {
+      "version": 4
+    },
+    {
+      "version": 5
+    },
+    {
+      "version": 6
+    },
+    {
+      "version": 7
+    }
+  ],
+  "before": [
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "reserved_usd": "0.06751400",
+      "charged_usd": "0.06751400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "reserved_usd": "0.06750400",
+      "charged_usd": "0.06750400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "budgets": [
+    {
+      "provider": "openai",
+      "max_requests": 200,
+      "max_units": 0,
+      "max_usd": "3.00000000",
+      "approved": true,
+      "blocked": false
+    },
+    {
+      "provider": "youcam",
+      "max_requests": 50,
+      "max_units": 50,
+      "max_usd": "0.00000000",
+      "approved": true,
+      "blocked": false
+    }
+  ],
+  "confirmedSettingsResolvedMaxAttempts": 1,
+  "remoteAttemptEvidence": "User-confirmed deployed OPENAI_MAX_ATTEMPTS=1; deployed corrected configuration path; no remote environment introspection",
+  "sessionId": "037fb94f-7ff9-4392-a353-dd4a30216380",
+  "clientRequestId": "a6832750-f879-422b-8bdf-a79c9baca5fe",
+  "submittedAt": "2026-10-12T16:11:25.701Z",
+  "flowA": {
+    "startedAt": "2026-10-12T16:11:25.702Z",
+    "finishedAt": "2026-10-12T16:11:36.670Z",
+    "status": 503,
+    "body": {
+      "error": {
+        "code": "PLANNER_UNAVAILABLE",
+        "message": "The shopping planner is unavailable. Please retry.",
+        "recoverable": true
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "id": "55f4c9cd-5b50-44d3-9300-c82e02d7ede3",
+      "created_at": "2026-10-12T16:11:31.703Z",
+      "finished_at": "2026-10-12T16:11:35.739Z",
+      "session_id": "037fb94f-7ff9-4392-a353-dd4a30216380",
+      "client_request_id": "a6832750-f879-422b-8bdf-a79c9baca5fe",
+      "ledger_reservation_id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "stage": "http",
+      "http_status": 400,
+      "error_code": "invalid_function_parameters",
+      "error_type": "invalid_request_error",
+      "provider_request_id": "req_8bcd00e121494bc8889892dd178609a9",
+      "aborted": false,
+      "outcome": "failure"
+    }
+  ],
+  "after": [
+    {
+      "provider": "openai",
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "reserved_usd": "0.06750800",
+      "charged_usd": "0.06750800",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "reserved_usd": "0.06751400",
+      "charged_usd": "0.06751400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "reserved_usd": "0.06750400",
+      "charged_usd": "0.06750400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "persistedSession": {
+    "startedAt": "2026-10-12T16:11:41.821Z",
+    "finishedAt": "2026-10-12T16:11:43.592Z",
+    "status": 200,
+    "body": {
+      "state": {
+        "id": "037fb94f-7ff9-4392-a353-dd4a30216380",
+        "schemaVersion": 1,
+        "revision": 0,
+        "goal": "Controlled durable-diagnostic Flow A",
+        "activeCategory": null,
+        "constraints": [],
+        "decisions": {},
+        "feedback": [],
+        "dependencies": [],
+        "recentChanges": []
+      },
+      "version": 0,
+      "pendingRelaxations": []
+    }
+  },
+  "finalReady": {
+    "startedAt": "2026-10-12T16:11:43.592Z",
+    "finishedAt": "2026-10-12T16:11:48.736Z",
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    }
+  },
+  "remainingRequests": 197,
+  "remainingUsd": "2.79747400",
+  "oldReservationsUnchanged": true,
+  "youcamUnchanged": true
+}
