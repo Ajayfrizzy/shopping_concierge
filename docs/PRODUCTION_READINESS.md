@@ -232,3 +232,7 @@ The 12-product selection, version-2 manifest and production registration are com
 Migration 007 and the internal PostgreSQL inspection CLI are implemented; see [OpenAI diagnostics](OPENAI_DIAGNOSTICS.md) for schema, failure semantics and operator commands. New code fails closed if PostgreSQL diagnostics cannot initialize. Existing unresolved reservations, provider settings and budgets are preserved. No production migration/deployment or live retry was performed. Production retry is gated on deploying this change, applying 007, healthy readiness and verified `OPENAI_MAX_ATTEMPTS=1`.
 
 Validation: **556 tests passed**, including fresh PostgreSQL integration and migration tests; lint, typechecks, API build and the seven-sentinel Android secret scan passed. No live provider credits consumed; no APK built.
+
+## OpenAI strict-schema correction — 2026-10-12
+
+The `submit_shopping_plan` transport contained tuple-style `compare_products.productIds.items`. It now uses one string items schema with exact length two; empty args now explicitly require `[]`. A recursive checker and exact wire fixtures guard compatibility while authoritative domain validation remains unchanged. See [schema audit](OPENAI_TOOL_SCHEMA_AUDIT.md) for exact paths, official documentation comparison and limitations. **588 tests passed**, plus lint, typechecks, API build and secret scan. No live calls or deployment; one retry is gated on deploying this fix and checking readiness/`OPENAI_MAX_ATTEMPTS=1`.

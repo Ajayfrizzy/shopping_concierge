@@ -1,0 +1,1124 @@
+[
+  {
+    "type": "function",
+    "name": "submit_shopping_plan",
+    "description": "Propose a typed shopping tool plan for independent backend authorization. Does not execute or confirm anything.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "intent": {
+          "type": "string",
+          "enum": [
+            "start_search",
+            "refine_search",
+            "switch_category",
+            "select_product",
+            "shortlist_product",
+            "reject_product",
+            "save_product",
+            "like_product",
+            "request_vto",
+            "compare_products",
+            "request_alternatives",
+            "request_similar",
+            "request_cheaper",
+            "request_more_premium",
+            "create_cross_product_search",
+            "ask_product_question",
+            "reset_constraint",
+            "start_new_session",
+            "clarify"
+          ]
+        },
+        "calls": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "compare_products"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "productIds": {
+                        "type": "array",
+                        "minItems": 2,
+                        "maxItems": 2,
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "required": [
+                      "productIds"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "create_dependency"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "anchorProductId": {
+                        "type": "string"
+                      },
+                      "anchorCategory": {
+                        "type": "string",
+                        "enum": [
+                          "earrings",
+                          "necklaces",
+                          "rings",
+                          "watches"
+                        ]
+                      },
+                      "targetCategory": {
+                        "type": "string",
+                        "enum": [
+                          "earrings",
+                          "necklaces",
+                          "rings",
+                          "watches"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "complement",
+                          "alternative_to",
+                          "match"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "anchorProductId",
+                      "anchorCategory",
+                      "targetCategory",
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "get_session_state"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "search_products"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {},
+                    "additionalProperties": false,
+                    "required": []
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "get_product"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "productId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "productId"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "request_vto"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "productId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "productId"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "update_constraints"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "updates": {
+                        "type": "array",
+                        "items": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "budget"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "object",
+                                  "properties": {
+                                    "amount": {
+                                      "type": "number",
+                                      "minimum": 0
+                                    },
+                                    "currency": {
+                                      "type": "string",
+                                      "pattern": "^[A-Z]{3}$"
+                                    }
+                                  },
+                                  "required": [
+                                    "amount",
+                                    "currency"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "material"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit",
+                                    "saved_preference",
+                                    "visual",
+                                    "heuristic"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "color"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit",
+                                    "saved_preference",
+                                    "visual",
+                                    "heuristic"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "excludedProductIds"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "excludedTags"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "maxItems": 100
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "styleTags"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit",
+                                    "saved_preference",
+                                    "visual",
+                                    "heuristic"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  },
+                                  "maxItems": 100
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "occasion"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit",
+                                    "saved_preference",
+                                    "visual",
+                                    "heuristic"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "visualIntensity"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit",
+                                    "saved_preference",
+                                    "visual",
+                                    "heuristic"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "enum": [
+                                    "low",
+                                    "medium",
+                                    "high"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": [
+                                    "pricePreference"
+                                  ]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": [
+                                        "global"
+                                      ]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": [
+                                            "earrings",
+                                            "necklaces",
+                                            "rings",
+                                            "watches"
+                                          ]
+                                        }
+                                      },
+                                      "required": [
+                                        "category"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "explicit"
+                                  ]
+                                },
+                                "value": {
+                                  "type": "string",
+                                  "enum": [
+                                    "lower",
+                                    "higher"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "field",
+                                "scope",
+                                "source",
+                                "value"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "minItems": 1,
+                        "maxItems": 50
+                      }
+                    },
+                    "required": [
+                      "updates"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "switch_category"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "category": {
+                        "type": "string",
+                        "enum": [
+                          "earrings",
+                          "necklaces",
+                          "rings",
+                          "watches"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "category"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "reset_constraint"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "field": {
+                        "type": "string",
+                        "enum": [
+                          "budget",
+                          "material",
+                          "color",
+                          "excludedProductIds",
+                          "excludedTags",
+                          "styleTags",
+                          "occasion",
+                          "visualIntensity",
+                          "pricePreference"
+                        ]
+                      },
+                      "scope": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "global"
+                            ]
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "category": {
+                                "type": "string",
+                                "enum": [
+                                  "earrings",
+                                  "necklaces",
+                                  "rings",
+                                  "watches"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "category"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "field",
+                      "scope"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "select_product"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "productId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "productId"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "shortlist_product"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "productId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "productId"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "save_product"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "productId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "productId"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "like_product"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "productId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "productId"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "reject_product"
+                    ]
+                  },
+                  "args": {
+                    "type": "object",
+                    "properties": {
+                      "productId": {
+                        "type": "string"
+                      },
+                      "reasonCode": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "too_expensive",
+                              "too_flashy",
+                              "too_plain",
+                              "too_large",
+                              "too_small",
+                              "wrong_material",
+                              "wrong_color",
+                              "wrong_style",
+                              "wrong_occasion",
+                              "dislikes_shape",
+                              "owns_similar",
+                              "other"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "reasonText": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "productId",
+                      "reasonCode",
+                      "reasonText"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "name",
+                  "args"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "maxItems": 8
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "execute",
+            "clarify",
+            "unsupported"
+          ]
+        },
+        "question": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "category",
+                "instruction",
+                "currency",
+                "confirmation",
+                "anchor"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "intent",
+        "calls",
+        "disposition",
+        "question"
+      ],
+      "additionalProperties": false
+    },
+    "strict": true
+  }
+]
