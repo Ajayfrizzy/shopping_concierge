@@ -36,3 +36,7 @@ A non-null HTTP status proves response headers were received; status 200 with `r
 `npm run lint`, `npm run typecheck`, `npm run build:api` passed. `npm run verify:mobile-secrets` passed: 95 Android export files, seven server credential sentinels absent. This scan creates an Android JS export, not an APK.
 
 This work did not apply production migrations, deploy, alter production settings, modify existing reservations or call OpenAI/YouCam. Exactly one diagnostic Flow A retry remains gated on deployment of this change, migration 007, healthy readiness and verification that deployed `OPENAI_MAX_ATTEMPTS=1` resolves through the adapter configuration. No retry was submitted.
+
+## Startup regression correction — 2026-10-12
+
+The first deployment crashed with `OpenAI PostgreSQL diagnostics are not initialized.` because `readConfig()` constructed the provider before `initializeRuntimeAccounting()` could create its diagnostic store. This was a code initialization-order bug, not evidence that migration 007 was missing. Environment validation now uses a separate pure `readLLMConfig()` function; provider construction still requires diagnostics after accounting initialization. No persistence safeguard was removed. The production startup regression test verifies both phases and resolution of `OPENAI_MAX_ATTEMPTS=1`. Regression suite: 557 tests passed, including local PostgreSQL integration tests. Lint, typechecks and API build passed. No production deployment or live provider calls were performed for this correction.

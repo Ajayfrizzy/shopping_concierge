@@ -1,7 +1,7 @@
-import { llmProvider } from './llm/config.js';
+import { readLLMConfig } from './llm/config.js';
 import { youcamProvider } from './youcam/config.js';
 export function readConfig(env: NodeJS.ProcessEnv = process.env) {
-  llmProvider(env); // Validate configuration without making requests.
+  readLLMConfig(env); // Validate configuration without making requests.
   youcamProvider(env); // Validate explicit live configuration without making any calls.
   const portKey = env.PORT !== undefined ? 'PORT' : 'API_PORT';
   const port = Number(env.PORT ?? env.API_PORT ?? '4000');
