@@ -35,7 +35,7 @@ export async function initializeYouCamLedger(env: NodeJS.ProcessEnv) {
     validateFileLedger(env.YOUCAM_USAGE_LEDGER!);
     return undefined;
   }
-  const pool = postgresPool(env.DATABASE_URL!, env.DATABASE_SSL_REJECT_UNAUTHORIZED);
+  const pool = postgresPool(env.DATABASE_URL!, env.DATABASE_SSL_REJECT_UNAUTHORIZED, 'validation');
   const ledger = new PostgresUsageLedger(pool, settings.maxRequests, settings.maxUnits);
   try {
     await ledger.initialize();

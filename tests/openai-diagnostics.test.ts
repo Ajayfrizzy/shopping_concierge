@@ -231,4 +231,119 @@ describe.runIf(process.env.M5_INTEGRATION === '1')('durable OpenAI diagnostics',
       provider_request_id: null,
     });
   });
+  it('blocks replay after uncertain settlement and preserves receipt for restart reconciliation', async () => {
+    const { ReceiptBudget, parseReceipt, receiptKey } = await import(
+      '../apps/api/src/accounting/receipts.js'
+    );
+    const { createMemoryObjectStore } = await import('../apps/api/src/persistence/objects.js');
+    const objects = createMemoryObjectStore();
+    const wrapped = new ReceiptBudget(budget, objects);
+    const settle = vi
+      .spyOn(budget, 'settle')
+      .mockRejectedValueOnce(Object.assign(new Error('timeout'), { code: 'ETIMEDOUT' }));
+    const fetch = vi.fn<typeof globalThis.fetch>(async () => success());
+    const p = new OpenAIPlanner({
+      apiKey: 'fixture',
+      model: APPROVED_MODEL,
+      reasoning: 'low',
+      maxAttempts: 1,
+      budget: wrapped,
+      diagnostics: store,
+      fetch,
+    });
+    try {
+      await expect(p.plan(ctx, new AbortController().signal)).rejects.toThrow();
+      const rows = await store.list();
+      expect(rows).toHaveLength(1);
+      const id = rows[0].ledger_reservation_id;
+      const receipt = JSON.parse(Buffer.from(await objects.get(receiptKey('', id))).toString());
+      await expect(p.plan(ctx, new AbortController().signal)).rejects.toThrow('already attempted');
+      expect(fetch).toHaveBeenCalledTimes(1);
+      expect((await pool.query('SELECT id FROM runtime_usage')).rows).toHaveLength(1);
+      const restarted = new RuntimeLedger(pool, 'openai', {
+        maxRequests: 200,
+        maxUnits: 0,
+        maxUsd: 3,
+      });
+      await restarted.commitAttempt(id, parseReceipt(receipt, id));
+      await wrapped.reconcilePending(); // same settlement after an ambiguous commit is safe
+      expect(
+        (await pool.query('SELECT usage FROM runtime_usage WHERE id=$1', [id])).rows[0].usage,
+      ).toEqual(usage);
+      expect(await store.list()).toHaveLength(1);
+    } finally {
+      settle.mockRestore();
+    }
+  });
+  it('serializes duplicate client request starts without duplicate reservations', async () => {
+    const outcomes = await Promise.allSettled([
+      store.start(ctx.state.id, ctx.clientRequestId),
+      store.start(ctx.state.id, ctx.clientRequestId),
+    ]);
+    expect(outcomes.filter((r) => r.status === 'fulfilled')).toHaveLength(1);
+    expect(await store.list()).toHaveLength(1);
+  });
+  it('fails closed on diagnostic connection timeout and recovers with the same pool', async () => {
+    const connect = vi
+      .spyOn(pool, 'connect')
+      .mockRejectedValueOnce(Object.assign(new Error('timeout'), { code: 'ETIMEDOUT' }) as never);
+    const transport = vi.fn<typeof fetch>(async () => success());
+    try {
+      await expect(planner(transport).plan(ctx, new AbortController().signal)).rejects.toThrow();
+    } finally {
+      connect.mockRestore();
+    }
+    expect(transport).not.toHaveBeenCalled();
+    await store.initialize();
+    await planner(transport).plan(ctx, new AbortController().signal);
+    expect(transport).toHaveBeenCalledTimes(1);
+    expect((await pool.query('SELECT id FROM runtime_usage')).rows).toHaveLength(1);
+  });
+  it('never creates a second reservation after diagnostic linking times out', async () => {
+    const attach = vi
+      .spyOn(store, 'attach')
+      .mockRejectedValueOnce(Object.assign(new Error('timeout'), { code: 'ETIMEDOUT' }));
+    const transport = vi.fn<typeof fetch>(async () => success());
+    try {
+      await expect(planner(transport).plan(ctx, new AbortController().signal)).rejects.toThrow();
+      await expect(planner(transport).plan(ctx, new AbortController().signal)).rejects.toThrow(
+        'already attempted',
+      );
+      expect(transport).not.toHaveBeenCalled();
+      expect((await pool.query('SELECT id FROM runtime_usage')).rows).toHaveLength(1);
+    } finally {
+      attach.mockRestore();
+    }
+  });
+  it('recovers a lost settlement acknowledgement idempotently without duplicate provider use', async () => {
+    const { ReceiptBudget } = await import('../apps/api/src/accounting/receipts.js');
+    const { createMemoryObjectStore } = await import('../apps/api/src/persistence/objects.js');
+    const original = budget.settle.bind(budget);
+    const settle = vi.spyOn(budget, 'settle').mockImplementationOnce(async (id, raw) => {
+      await original(id, raw);
+      throw Object.assign(new Error('ack lost'), { code: 'ETIMEDOUT' });
+    });
+    const wrapped = new ReceiptBudget(budget, createMemoryObjectStore());
+    const transport = vi.fn<typeof fetch>(async () => success());
+    const p = new OpenAIPlanner({
+      apiKey: 'fixture',
+      model: APPROVED_MODEL,
+      reasoning: 'low',
+      maxAttempts: 1,
+      budget: wrapped,
+      diagnostics: store,
+      fetch: transport,
+    });
+    try {
+      await expect(p.plan(ctx, new AbortController().signal)).rejects.toThrow();
+      const before = (await pool.query('SELECT * FROM runtime_usage')).rows;
+      await wrapped.reconcilePending();
+      expect((await pool.query('SELECT * FROM runtime_usage')).rows).toEqual(before);
+      expect(before).toHaveLength(1);
+      expect(before[0].usage).toEqual(usage);
+      expect(transport).toHaveBeenCalledTimes(1);
+    } finally {
+      settle.mockRestore();
+    }
+  });
 });

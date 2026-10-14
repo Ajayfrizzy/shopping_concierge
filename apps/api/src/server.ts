@@ -1,3 +1,4 @@
+import { ReceiptBudget } from './accounting/receipts.js';
 import { initializeRuntimeAccounting } from './accounting/config.js';
 import { runtimeState } from './runtime.js';
 import { startupFailure } from './startup.js';
@@ -12,6 +13,9 @@ const storageConfig = persistenceConfig();
 const accounting = await initializeRuntimeAccounting(process.env);
 const usage = await initializeYouCamLedger(process.env);
 const persistence = persistenceServices(storageConfig);
+const openaiBudget = accounting?.openai
+  ? new ReceiptBudget(accounting.openai, persistence.objects, storageConfig.s3?.assetPrefix)
+  : undefined;
 const app = buildApp({
   logger: true,
   runtime: runtimeState(process.env),
@@ -25,13 +29,21 @@ const app = buildApp({
     },
     objectStorage: () => persistence.objects.ready?.(),
     ...accounting?.checks,
+    ...(accounting?.checks.openaiLedger
+      ? {
+          openaiLedger: async () => {
+            openaiBudget?.assertReady();
+            await accounting.checks.openaiLedger!();
+          },
+        }
+      : {}),
     ...(usage ? { youcamLedger: () => usage.ledger.initialize() } : {}),
   },
   shopping: {
     ...persistence,
     planner: llmProvider(
       process.env,
-      accounting?.openai,
+      openaiBudget,
       (event) => console.error(JSON.stringify({ service: 'openai', ...event })),
       accounting?.diagnostics,
     ),
@@ -42,7 +54,15 @@ const app = buildApp({
     ),
   },
 });
+// Retry only retained receipt/settlement writes, never a provider call or reservation.
+const recoveryTimer = openaiBudget
+  ? setInterval(() => {
+      void openaiBudget.reconcilePending().catch(() => {});
+    }, 30000)
+  : undefined;
+recoveryTimer?.unref();
 app.addHook('onClose', async () => {
+  if (recoveryTimer) clearInterval(recoveryTimer);
   await accounting?.close();
   await usage?.close();
   await persistence.repository.close();

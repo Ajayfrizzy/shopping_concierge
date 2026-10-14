@@ -49,6 +49,7 @@ export class RuntimeLedger {
     z.number().int().nonnegative().parse(units);
     z.number().finite().nonnegative().parse(usd);
     const db = await this.pool.connect();
+    let discard = false;
     try {
       await db.query('BEGIN');
       const budget = (
@@ -89,15 +90,17 @@ export class RuntimeLedger {
       await db.query('COMMIT');
       return true;
     } catch (error) {
+      discard = true;
       await db.query('ROLLBACK').catch(() => {});
       throw error;
     } finally {
-      db.release();
+      db.release(discard);
     }
   }
   async commitAttempt(id: string, raw?: unknown) {
     const settlement = this.provider === 'openai' ? usageCost(raw) : null;
     const db = await this.pool.connect();
+    let discard = false;
     try {
       await db.query('BEGIN');
       await db.query('SELECT provider FROM runtime_budgets WHERE provider=$1 FOR UPDATE', [
@@ -137,10 +140,11 @@ export class RuntimeLedger {
         ]);
       await db.query('COMMIT');
     } catch (error) {
+      discard = true;
       await db.query('ROLLBACK').catch(() => {});
       throw error;
     } finally {
-      db.release();
+      db.release(discard);
     }
   }
 }

@@ -109,6 +109,7 @@ export class OpenAIPlanner implements Planner {
       const diagnosticId = await this.options.diagnostics?.start(
         context.state.id,
         context.clientRequestId,
+        attempt,
       );
       try {
         const reservation = await this.options.budget.reserve(

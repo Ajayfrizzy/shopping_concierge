@@ -46,13 +46,23 @@ export async function initializeRuntimeAccounting(env: NodeJS.ProcessEnv) {
     throw new Error('Judge accounting requires PostgreSQL persistence.');
   if (youcam && env.YOUCAM_LEDGER_MODE !== 'postgres')
     throw new Error('Judge YouCam requires YOUCAM_LEDGER_MODE=postgres.');
-  const pool = postgresPool(env.DATABASE_URL, env.DATABASE_SSL_REJECT_UNAUTHORIZED);
+  const pool = postgresPool(env.DATABASE_URL, env.DATABASE_SSL_REJECT_UNAUTHORIZED, 'accounting');
   const diagnostics = openai ? new PostgresDiagnosticStore(pool) : undefined;
   const o = openai ? new RuntimeLedger(pool, 'openai', c.openai) : undefined;
   const y = youcam ? new RuntimeLedger(pool, 'youcam', c.youcam) : undefined;
   const checks = {
     ...(diagnostics ? { openaiDiagnostics: () => diagnostics.initialize() } : {}),
-    ...(o ? { openaiLedger: () => o.initialize(env.USE_MOCK_LLM === 'false') } : {}),
+    ...(o
+      ? {
+          openaiLedger: async () => {
+            await o.initialize(env.USE_MOCK_LLM === 'false');
+            const pending = await pool.query(
+              "SELECT d.id FROM openai_provider_diagnostics d JOIN runtime_usage u ON u.provider='openai' AND u.id=d.ledger_reservation_id WHERE d.stage='settlement' AND u.committed_at IS NULL LIMIT 1",
+            );
+            if (pending.rowCount) throw new Error('OpenAI settlement requires reconciliation');
+          },
+        }
+      : {}),
     ...(y ? { youcamLedger: () => y.initialize(env.USE_MOCK_YOUCAM === 'false') } : {}),
   };
   const check = async () => {

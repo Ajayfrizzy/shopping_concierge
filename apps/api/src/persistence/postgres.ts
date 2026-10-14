@@ -10,10 +10,23 @@ import type { ShoppingRepository, StoredAsset } from './repository.js';
 
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const missing = () => new AgentError('SESSION_NOT_FOUND', 'Shopping session not found.', 404);
-export function postgresPool(connectionString: string, verification?: string) {
+export const poolLimits = { repository: 4, accounting: 2, validation: 2 } as const;
+export function postgresPool(
+  connectionString: string,
+  verification?: string,
+  role: keyof typeof poolLimits = 'repository',
+) {
   const pool = new Pool({
     ...postgresConnectionOptions(connectionString, verification),
-    max: 8,
+    max: poolLimits[role],
+    min: 0,
+    idleTimeoutMillis: 30000,
+    maxLifetimeSeconds: 300,
+    keepAlive: true,
+    keepAliveInitialDelayMillis: 10000,
+    application_name: `shopping-concierge-${role}`,
+    query_timeout: 12000,
+    lock_timeout: 5000,
     connectionTimeoutMillis: 5000,
     statement_timeout: 10000,
     idle_in_transaction_session_timeout: 30000,
@@ -149,16 +162,19 @@ export function createPostgresRepository(pool: Pool): ShoppingRepository {
     );
   async function transaction<T>(fn: (db: PoolClient) => Promise<T>) {
     const db = await pool.connect();
+    let discard = false;
     try {
       await db.query('BEGIN');
       const value = await fn(db);
       await db.query('COMMIT');
       return value;
     } catch (error) {
-      await db.query('ROLLBACK');
+      // Never recycle a client after an uncertain transaction/COMMIT failure.
+      discard = true;
+      await db.query('ROLLBACK').catch(() => {});
       throw error;
     } finally {
-      db.release();
+      db.release(discard);
     }
   }
   return {
