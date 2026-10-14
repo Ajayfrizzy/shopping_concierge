@@ -1,3 +1,4 @@
+import { readinessErrorCode } from '../readiness.js';
 import { randomUUID } from 'node:crypto';
 import type { Pool } from 'pg';
 import { z } from 'zod';
@@ -17,8 +18,10 @@ export class PostgresDiagnosticStore implements DiagnosticStore {
         "SELECT has_table_privilege(current_user,'openai_provider_diagnostics','INSERT') AND has_table_privilege(current_user,'openai_provider_diagnostics','UPDATE') AS allowed",
       );
       if (!r.rows[0]?.allowed) throw new Error();
-    } catch {
-      throw new Error('OpenAI diagnostics unavailable: check migration 007 and privileges.');
+    } catch (cause) {
+      throw new Error('OpenAI diagnostics unavailable: check migration 007 and privileges.', {
+        cause: { code: readinessErrorCode(cause) },
+      });
     }
   }
   async start(sessionId: string, clientRequestId?: string) {

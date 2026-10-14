@@ -1,0 +1,381 @@
+{
+  "environment": "Production-style modes with local backend credentials; remote environment not introspected",
+  "rounds": [
+    {
+      "at": "2026-10-12T19:22:08.507Z",
+      "checks": [
+        {
+          "name": "configuration",
+          "status": "ready",
+          "durationMs": 2
+        },
+        {
+          "name": "database",
+          "status": "ready",
+          "durationMs": 633
+        },
+        {
+          "name": "migrations",
+          "status": "ready",
+          "durationMs": 383,
+          "versions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "objectStorage",
+          "status": "ready",
+          "durationMs": 1630
+        },
+        {
+          "name": "openaiDiagnostics",
+          "status": "ready",
+          "durationMs": 1046
+        },
+        {
+          "name": "openaiLedger",
+          "status": "ready",
+          "durationMs": 1710
+        },
+        {
+          "name": "youcamLedger",
+          "status": "ready",
+          "durationMs": 1545
+        }
+      ]
+    },
+    {
+      "at": "2026-10-12T19:22:14.132Z",
+      "checks": [
+        {
+          "name": "configuration",
+          "status": "ready",
+          "durationMs": 0
+        },
+        {
+          "name": "database",
+          "status": "ready",
+          "durationMs": 586
+        },
+        {
+          "name": "migrations",
+          "status": "ready",
+          "durationMs": 335,
+          "versions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "objectStorage",
+          "status": "ready",
+          "durationMs": 431
+        },
+        {
+          "name": "openaiDiagnostics",
+          "status": "ready",
+          "durationMs": 977
+        },
+        {
+          "name": "openaiLedger",
+          "status": "ready",
+          "durationMs": 1504
+        },
+        {
+          "name": "youcamLedger",
+          "status": "ready",
+          "durationMs": 1792
+        }
+      ]
+    },
+    {
+      "at": "2026-10-12T19:22:19.576Z",
+      "checks": [
+        {
+          "name": "configuration",
+          "status": "ready",
+          "durationMs": 2
+        },
+        {
+          "name": "database",
+          "status": "ready",
+          "durationMs": 592
+        },
+        {
+          "name": "migrations",
+          "status": "ready",
+          "durationMs": 372,
+          "versions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "objectStorage",
+          "status": "ready",
+          "durationMs": 409
+        },
+        {
+          "name": "openaiDiagnostics",
+          "status": "ready",
+          "durationMs": 778
+        },
+        {
+          "name": "openaiLedger",
+          "status": "ready",
+          "durationMs": 1569
+        },
+        {
+          "name": "youcamLedger",
+          "status": "ready",
+          "durationMs": 1721
+        }
+      ]
+    },
+    {
+      "at": "2026-10-12T19:22:24.975Z",
+      "checks": [
+        {
+          "name": "configuration",
+          "status": "ready",
+          "durationMs": 0
+        },
+        {
+          "name": "database",
+          "status": "ready",
+          "durationMs": 573
+        },
+        {
+          "name": "migrations",
+          "status": "ready",
+          "durationMs": 355,
+          "versions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "objectStorage",
+          "status": "ready",
+          "durationMs": 407
+        },
+        {
+          "name": "openaiDiagnostics",
+          "status": "ready",
+          "durationMs": 783
+        },
+        {
+          "name": "openaiLedger",
+          "status": "ready",
+          "durationMs": 1623
+        },
+        {
+          "name": "youcamLedger",
+          "status": "ready",
+          "durationMs": 1657
+        }
+      ]
+    },
+    {
+      "at": "2026-10-12T19:22:30.497Z",
+      "checks": [
+        {
+          "name": "configuration",
+          "status": "ready",
+          "durationMs": 0
+        },
+        {
+          "name": "database",
+          "status": "ready",
+          "durationMs": 613
+        },
+        {
+          "name": "migrations",
+          "status": "ready",
+          "durationMs": 364,
+          "versions": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "objectStorage",
+          "status": "ready",
+          "durationMs": 404
+        },
+        {
+          "name": "openaiDiagnostics",
+          "status": "ready",
+          "durationMs": 872
+        },
+        {
+          "name": "openaiLedger",
+          "status": "ready",
+          "durationMs": 1743
+        },
+        {
+          "name": "youcamLedger",
+          "status": "ready",
+          "durationMs": 1526
+        }
+      ]
+    }
+  ],
+  "before": [
+    {
+      "provider": "openai",
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "charged_usd": "0.06750800",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "charged_usd": "0.06751400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "charged_usd": "0.06750400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "after": [
+    {
+      "provider": "openai",
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "charged_usd": "0.06750800",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "charged_usd": "0.06751400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "charged_usd": "0.06750400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "ledgerUnchanged": true
+}

@@ -236,3 +236,7 @@ Validation: **556 tests passed**, including fresh PostgreSQL integration and mig
 ## OpenAI strict-schema correction — 2026-10-12
 
 The `submit_shopping_plan` transport contained tuple-style `compare_products.productIds.items`. It now uses one string items schema with exact length two; empty args now explicitly require `[]`. A recursive checker and exact wire fixtures guard compatibility while authoritative domain validation remains unchanged. See [schema audit](OPENAI_TOOL_SCHEMA_AUDIT.md) for exact paths, official documentation comparison and limitations. **588 tests passed**, plus lint, typechecks, API build and secret scan. No live calls or deployment; one retry is gated on deploying this fix and checking readiness/`OPENAI_MAX_ATTEMPTS=1`.
+
+## Readiness dependency investigation — 2026-10-12
+
+See [readiness diagnostics](READINESS_DIAGNOSTICS.md). Initial DB/S3/diagnostic/ledger probes passed five times, but later accounting initialization reproduced `DB_CONNECTION_TIMEOUT`. The original 18:05 failure cannot be conclusively attributed because its handler discarded dependency identity. Safe per-dependency reporting, bounded readiness checks and an operator harness are implemented; deployment is pending. Sustained production readiness remains unverified, so Flow A stays blocked. No live provider calls or budget changes. Final verification: 599 tests, lint, typechecks, API build and secret scan passed (test-runner timing caveats documented).

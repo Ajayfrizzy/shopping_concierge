@@ -1,0 +1,35 @@
+{
+  "flowASubmitted": false,
+  "reason": "Final readiness gate failed before session creation/provider submission",
+  "health": {
+    "status": 200,
+    "finishedAt": "2026-10-12T18:05:24.569Z"
+  },
+  "ready": {
+    "status": 503,
+    "body": {
+      "status": "unavailable",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      }
+    },
+    "startedAt": "2026-10-12T18:05:24.572Z",
+    "finishedAt": "2026-10-12T18:05:38.143Z"
+  },
+  "newReservations": 0,
+  "tokensConsumed": 0,
+  "newSpendUsd": 0,
+  "lastVerifiedRemainingRequests": 197,
+  "lastVerifiedRemainingUsd": "2.79747400",
+  "migration007Verified": true,
+  "diagnosticAccessVerified": true,
+  "attemptConfigurationEvidence": "Previously user-confirmed deployed setting 1 resolves through code to one; remote environment not independently accessible",
+  "youcamCalled": false
+}

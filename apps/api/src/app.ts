@@ -1,3 +1,4 @@
+import { readinessMonitor, type ReadinessChecks } from './readiness.js';
 import { runtimeState } from './runtime.js';
 import { runtimeStateSchema } from '@youcam/shared';
 import Fastify from 'fastify';
@@ -15,6 +16,7 @@ export function buildApp(
     logger?: boolean;
     runtime?: ReturnType<typeof runtimeState>;
     readiness?: () => Promise<void>;
+    readinessChecks?: ReadinessChecks;
     llm?: MockLLMService;
     youcam?: MockYouCamService;
     shopping?: ShoppingOptions;
@@ -32,7 +34,23 @@ export function buildApp(
   app.decorate('providers', providers);
   app.get('/health', async () => healthSchema.parse({ status: 'ok', service: 'youcam-api' }));
   const runtime = runtimeStateSchema.parse(options.runtime ?? runtimeState({}));
+  const inspect = readinessMonitor(options.readinessChecks ?? {});
   app.get('/ready', async (_request, reply) => {
+    if (options.readinessChecks) {
+      const results = await inspect();
+      const dependencies = Object.fromEntries(
+        Object.entries(results).map(([name, result]) => [name, result.status]),
+      );
+      const ready = Object.values(dependencies).every((status) => status === 'ready');
+      return reply
+        .code(ready ? 200 : 503)
+        .send({
+          status: ready ? 'ready' : 'unavailable',
+          service: 'youcam-api',
+          runtime,
+          dependencies,
+        });
+    }
     try {
       await options.readiness?.();
       return { status: 'ready', service: 'youcam-api', runtime };

@@ -50,10 +50,13 @@ export async function initializeRuntimeAccounting(env: NodeJS.ProcessEnv) {
   const diagnostics = openai ? new PostgresDiagnosticStore(pool) : undefined;
   const o = openai ? new RuntimeLedger(pool, 'openai', c.openai) : undefined;
   const y = youcam ? new RuntimeLedger(pool, 'youcam', c.youcam) : undefined;
+  const checks = {
+    ...(diagnostics ? { openaiDiagnostics: () => diagnostics.initialize() } : {}),
+    ...(o ? { openaiLedger: () => o.initialize(env.USE_MOCK_LLM === 'false') } : {}),
+    ...(y ? { youcamLedger: () => y.initialize(env.USE_MOCK_YOUCAM === 'false') } : {}),
+  };
   const check = async () => {
-    await diagnostics?.initialize();
-    await o?.initialize(env.USE_MOCK_LLM === 'false');
-    await y?.initialize(env.USE_MOCK_YOUCAM === 'false');
+    for (const probe of Object.values(checks)) await probe();
   };
   try {
     await check();
@@ -62,6 +65,7 @@ export async function initializeRuntimeAccounting(env: NodeJS.ProcessEnv) {
     throw error;
   }
   return {
+    checks,
     diagnostics,
     openai: o ? new PostgresOpenAIBudget(o) : undefined,
     youcam: y

@@ -15,11 +15,17 @@ const persistence = persistenceServices(storageConfig);
 const app = buildApp({
   logger: true,
   runtime: runtimeState(process.env),
-  readiness: async () => {
-    if (!(await persistence.repository.products()).length) throw new Error();
-    await persistence.objects.ready?.();
-    await accounting?.check();
-    await usage?.ledger.initialize();
+  readinessChecks: {
+    configuration: () => {
+      readConfig();
+      persistenceConfig();
+    },
+    database: async () => {
+      if (!(await persistence.repository.products()).length) throw new Error();
+    },
+    objectStorage: () => persistence.objects.ready?.(),
+    ...accounting?.checks,
+    ...(usage ? { youcamLedger: () => usage.ledger.initialize() } : {}),
   },
   shopping: {
     ...persistence,

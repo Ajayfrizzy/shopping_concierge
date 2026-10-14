@@ -1,0 +1,76 @@
+[
+  {
+    "at": "2026-10-12T19:39:25.328Z",
+    "health": {
+      "status": 200,
+      "ms": 24055,
+      "body": {
+        "status": "ok",
+        "service": "youcam-api"
+      }
+    },
+    "ready": {
+      "status": 503,
+      "ms": 33080,
+      "body": {
+        "status": "unavailable",
+        "service": "youcam-api",
+        "runtime": {
+          "persistence": "postgres",
+          "objectStorage": "s3",
+          "llm": "openai",
+          "youcam": "live",
+          "youcamLedger": "postgres",
+          "openaiLedger": "postgres",
+          "youcamLedgerScope": "judge"
+        }
+      }
+    }
+  },
+  {
+    "at": "2026-10-12T19:40:22.474Z",
+    "health": {
+      "status": 200,
+      "ms": 1632,
+      "body": {
+        "status": "ok",
+        "service": "youcam-api"
+      }
+    },
+    "ready": {
+      "failure": "transport or non-JSON response"
+    }
+  },
+  {
+    "at": "2026-10-12T19:41:11.353Z",
+    "health": {
+      "status": 200,
+      "ms": 1851,
+      "body": {
+        "status": "ok",
+        "service": "youcam-api"
+      }
+    },
+    "ready": {
+      "failure": "transport or non-JSON response"
+    }
+  },
+  {
+    "at": "2026-10-12T19:42:15.191Z",
+    "health": {
+      "failure": "transport or non-JSON response"
+    },
+    "ready": {
+      "failure": "transport or non-JSON response"
+    }
+  },
+  {
+    "at": "2026-10-12T19:44:03.737Z",
+    "health": {
+      "failure": "transport or non-JSON response"
+    },
+    "ready": {
+      "failure": "transport or non-JSON response"
+    }
+  }
+]

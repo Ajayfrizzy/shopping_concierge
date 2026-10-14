@@ -1,3 +1,4 @@
+import { readinessErrorCode } from '../readiness.js';
 import { randomUUID } from 'node:crypto';
 import type { Pool } from 'pg';
 import type { Category } from '@youcam/shared';
@@ -36,9 +37,10 @@ export class RuntimeLedger {
         'INSERT INTO runtime_usage(provider,id,units,reserved_usd,charged_usd) SELECT $1,$2,0,0,0 WHERE false',
         [this.provider, randomUUID()],
       );
-    } catch {
+    } catch (cause) {
       throw new Error(
         `${this.provider} judge ledger unavailable: check migration 005, privileges, budget approval and matching limits.`,
+        { cause: { code: readinessErrorCode(cause) } },
       );
     }
   }
