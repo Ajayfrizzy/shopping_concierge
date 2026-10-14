@@ -1,0 +1,516 @@
+{
+  "rounds": [
+    {
+      "number": 1,
+      "startedAt": "2026-10-14T22:26:20.328Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1551,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2772,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:26:24.658Z"
+    },
+    {
+      "number": 2,
+      "startedAt": "2026-10-14T22:26:52.459Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1300,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2668,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:26:56.428Z"
+    },
+    {
+      "number": 3,
+      "startedAt": "2026-10-14T22:27:16.431Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1448,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2489,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:27:20.370Z"
+    },
+    {
+      "number": 4,
+      "startedAt": "2026-10-14T22:27:40.374Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1711,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2667,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:27:44.754Z"
+    },
+    {
+      "number": 5,
+      "startedAt": "2026-10-14T22:28:04.757Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1303,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2884,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:28:08.946Z"
+    },
+    {
+      "number": 6,
+      "startedAt": "2026-10-14T22:28:28.950Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1409,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2297,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:28:32.658Z"
+    },
+    {
+      "number": 7,
+      "startedAt": "2026-10-14T22:28:52.663Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1903,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2755,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:28:57.323Z"
+    },
+    {
+      "number": 8,
+      "startedAt": "2026-10-14T22:29:17.327Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1946,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2667,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:29:21.941Z"
+    },
+    {
+      "number": 9,
+      "startedAt": "2026-10-14T22:29:41.945Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1621,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 2955,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:29:46.524Z"
+    },
+    {
+      "number": 10,
+      "startedAt": "2026-10-14T22:30:06.528Z",
+      "health": {
+        "status": 200,
+        "durationMs": 1533,
+        "body": {
+          "status": "ok",
+          "service": "youcam-api"
+        }
+      },
+      "ready": {
+        "status": 200,
+        "durationMs": 3010,
+        "body": {
+          "status": "ready",
+          "service": "youcam-api",
+          "runtime": {
+            "persistence": "postgres",
+            "objectStorage": "s3",
+            "llm": "openai",
+            "youcam": "live",
+            "youcamLedger": "postgres",
+            "openaiLedger": "postgres",
+            "youcamLedgerScope": "judge"
+          },
+          "dependencies": {
+            "configuration": "ready",
+            "database": "ready",
+            "objectStorage": "ready",
+            "openaiDiagnostics": "ready",
+            "openaiLedger": "ready",
+            "youcamLedger": "ready"
+          }
+        }
+      },
+      "finishedAt": "2026-10-14T22:30:11.072Z"
+    }
+  ],
+  "attemptLimitEvidence": "Previously user-confirmed production OPENAI_MAX_ATTEMPTS=1; code path unchanged. Remote environment not independently readable.",
+  "providerCalls": 0,
+  "database": {
+    "migrations": [
+      {
+        "version": 1
+      },
+      {
+        "version": 2
+      },
+      {
+        "version": 3
+      },
+      {
+        "version": 4
+      },
+      {
+        "version": 5
+      },
+      {
+        "version": 6
+      },
+      {
+        "version": 7
+      }
+    ],
+    "diagnosticsAccessible": true,
+    "previousReservationsUnchanged": true,
+    "usage": [
+      {
+        "provider": "openai",
+        "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+        "reserved_usd": "0.06750800",
+        "charged_usd": "0.06750800",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "openai",
+        "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+        "reserved_usd": "0.06751400",
+        "charged_usd": "0.06751400",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "openai",
+        "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+        "reserved_usd": "0.06750400",
+        "charged_usd": "0.06750400",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "youcam",
+        "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:07:25.990Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:05:09.337Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:15:37.384Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:11:37.020Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T13:23:50.691Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T15:06:16.490Z"
+      }
+    ],
+    "pending": [],
+    "budgets": [
+      {
+        "provider": "openai",
+        "max_requests": 200,
+        "max_units": 0,
+        "max_usd": "3.00000000",
+        "approved": true,
+        "blocked": false
+      },
+      {
+        "provider": "youcam",
+        "max_requests": 50,
+        "max_units": 50,
+        "max_usd": "0.00000000",
+        "approved": true,
+        "blocked": false
+      }
+    ]
+  },
+  "receiptAccess": {
+    "passed": true,
+    "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/accounting/openai/receipts/access-check-ee56bcbc-054e-476a-9085-be850295abd2.json",
+    "sha256": "51ca16e03fd1cce94c8ba786d44a5dabdce13337d03ccaed1026329163ee9b1d",
+    "note": "Non-usage access-check object; not a settlement receipt or reservation"
+  },
+  "tenChecksPassed": true,
+  "ledgerUnchanged": true,
+  "completedAt": "2026-10-14T22:30:15.061Z",
+  "clearance": "Ten-check infrastructure gate passed; exactly one controlled Flow A is cleared relying on the previously user-confirmed unchanged deployed OPENAI_MAX_ATTEMPTS=1. No remote environment introspection."
+}
