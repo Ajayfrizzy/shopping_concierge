@@ -1,0 +1,88 @@
+{
+  "sessionId": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+  "success": true,
+  "flows": {
+    "flowB": {
+      "status": 200,
+      "requestId": "2668d754-5821-4dd7-8bab-ad375ebb01fa",
+      "reservation": {
+        "provider": "openai",
+        "id": "f451b4d4-7006-407a-9ae6-7356d3828de3",
+        "reserved_usd": "0.07491600",
+        "charged_usd": "0.00778400",
+        "usage": {
+          "input_tokens": 3316,
+          "output_tokens": 96,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "committed_at": "2026-10-16T18:27:17.327Z"
+      },
+      "diagnostic": {
+        "id": "b2d87bcf-f690-4c7a-9786-d5cb7923f74e",
+        "created_at": "2026-10-16T18:27:12.272Z",
+        "finished_at": "2026-10-16T18:27:17.596Z",
+        "session_id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+        "client_request_id": "2668d754-5821-4dd7-8bab-ad375ebb01fa",
+        "ledger_reservation_id": "f451b4d4-7006-407a-9ae6-7356d3828de3",
+        "stage": "plan_schema",
+        "http_status": 200,
+        "error_code": null,
+        "error_type": null,
+        "provider_request_id": "req_c39bd78f291140448214a65c34deb321",
+        "aborted": false,
+        "outcome": "success"
+      },
+      "products": [
+        "E09",
+        "E02"
+      ],
+      "version": 2
+    },
+    "flowC": {
+      "status": 200,
+      "requestId": "c86df328-31a5-489f-a5d0-3a96b87f1037",
+      "reservation": {
+        "provider": "openai",
+        "id": "dbd17b28-b9c0-4ef8-b33e-6c88f1329f4f",
+        "reserved_usd": "0.07648200",
+        "charged_usd": "0.00397400",
+        "usage": {
+          "input_tokens": 3499,
+          "output_tokens": 90,
+          "input_tokens_details": {
+            "cached_tokens": 2280
+          }
+        },
+        "committed_at": "2026-10-16T18:27:30.111Z"
+      },
+      "diagnostic": {
+        "id": "527b335c-9f75-4e59-9df5-746a5035e624",
+        "created_at": "2026-10-16T18:27:25.748Z",
+        "finished_at": "2026-10-16T18:27:30.511Z",
+        "session_id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+        "client_request_id": "c86df328-31a5-489f-a5d0-3a96b87f1037",
+        "ledger_reservation_id": "dbd17b28-b9c0-4ef8-b33e-6c88f1329f4f",
+        "stage": "plan_schema",
+        "http_status": 200,
+        "error_code": null,
+        "error_type": null,
+        "provider_request_id": "req_3ec1becb40d34db08ca142487c399bfc",
+        "aborted": false,
+        "outcome": "success"
+      },
+      "products": [
+        "N09",
+        "N02",
+        "N01"
+      ],
+      "version": 4
+    }
+  },
+  "selectionVersion": 3,
+  "selectionNoProviderReservation": true,
+  "remainingRequests": 193,
+  "remainingUsd": "2.77017800",
+  "finalReady": 200
+}

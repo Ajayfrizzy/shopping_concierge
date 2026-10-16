@@ -1,0 +1,2030 @@
+{
+  "startedAt": "2026-10-16T18:26:58.654Z",
+  "attemptConfiguration": "Operator-confirmed deployed OPENAI_MAX_ATTEMPTS=1; not inferred from readiness or remotely introspected",
+  "health": {
+    "start": "2026-10-16T18:26:58.655Z",
+    "end": "2026-10-16T18:26:59.887Z",
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "service": "youcam-api"
+    }
+  },
+  "finalReady": {
+    "start": "2026-10-16T18:27:35.316Z",
+    "end": "2026-10-16T18:27:36.454Z",
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      },
+      "dependencies": {
+        "configuration": "ready",
+        "database": "ready",
+        "objectStorage": "ready",
+        "openaiDiagnostics": "ready",
+        "openaiLedger": "ready",
+        "youcamLedger": "ready"
+      }
+    }
+  },
+  "ready": {
+    "start": "2026-10-16T18:26:59.888Z",
+    "end": "2026-10-16T18:27:01.711Z",
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      },
+      "dependencies": {
+        "configuration": "ready",
+        "database": "ready",
+        "objectStorage": "ready",
+        "openaiDiagnostics": "ready",
+        "openaiLedger": "ready",
+        "youcamLedger": "ready"
+      }
+    }
+  },
+  "diagnosticsAccessible": true,
+  "pending": [],
+  "before": [
+    {
+      "provider": "openai",
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "reserved_usd": "0.06750800",
+      "charged_usd": "0.06750800",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "20026c98-35c1-4768-bbf7-1bda5b0f8a3c",
+      "reserved_usd": "0.06817400",
+      "charged_usd": "0.00765200",
+      "usage": {
+        "input_tokens": 2650,
+        "output_tokens": 196,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "committed_at": "2026-10-16T14:28:36.255Z"
+    },
+    {
+      "provider": "openai",
+      "id": "7972d444-b7d5-48f1-927b-d4cae74191a2",
+      "reserved_usd": "0.06638600",
+      "charged_usd": "0.00788600",
+      "usage": {
+        "input_tokens": 2473,
+        "output_tokens": 245,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "committed_at": "2026-10-14T22:35:55.455Z"
+    },
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "reserved_usd": "0.06751400",
+      "charged_usd": "0.06751400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "reserved_usd": "0.06750400",
+      "charged_usd": "0.06750400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "historicalUnchanged": true,
+  "budget": {
+    "provider": "openai",
+    "max_requests": 200,
+    "max_units": 0,
+    "max_usd": "3.00000000",
+    "approved": true,
+    "blocked": false
+  },
+  "preflightPassed": true,
+  "sessionId": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+  "reconstruction": "New mock-generated equivalent v1 session; old guest token was not retained. No Flow A provider call.",
+  "flowB": {
+    "requestId": "2668d754-5821-4dd7-8bab-ad375ebb01fa",
+    "submittedAt": "2026-10-16T18:27:10.426Z",
+    "http": {
+      "start": "2026-10-16T18:27:10.426Z",
+      "end": "2026-10-16T18:27:18.930Z",
+      "status": 200,
+      "body": {
+        "mode": "live",
+        "status": "ok",
+        "intent": "reject_product",
+        "message": "Here are the exact fixture catalog matches, ranked against your current preferences.",
+        "session": {
+          "state": {
+            "id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+            "schemaVersion": 1,
+            "revision": 3,
+            "goal": "Controlled durable-diagnostic Flow A",
+            "activeCategory": "earrings",
+            "constraints": [
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "material",
+                  "value": "silver"
+                },
+                "revision": 2
+              },
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "occasion",
+                  "value": "evening"
+                },
+                "revision": 2
+              },
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "budget",
+                  "value": {
+                    "amount": 80,
+                    "currency": "USD"
+                  }
+                },
+                "revision": 2
+              },
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "styleTags",
+                  "value": [
+                    "elegant",
+                    "lightweight"
+                  ]
+                },
+                "revision": 2
+              },
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "visualIntensity",
+                  "value": "high"
+                },
+                "revision": 2
+              }
+            ],
+            "decisions": {
+              "earrings": {
+                "liked": [],
+                "shortlisted": [],
+                "saved": [],
+                "selected": [],
+                "rejected": [
+                  "E01"
+                ]
+              }
+            },
+            "feedback": [
+              {
+                "input": {
+                  "productId": "E01",
+                  "action": "reject",
+                  "reasonCode": "too_plain",
+                  "reasonText": "I don't like this one because it feels too minimal."
+                },
+                "category": "earrings",
+                "scope": "session",
+                "revision": 3
+              }
+            ],
+            "dependencies": [],
+            "recentChanges": [
+              {
+                "field": "decisions.earrings",
+                "previous": {
+                  "liked": [],
+                  "shortlisted": [],
+                  "saved": [],
+                  "selected": [],
+                  "rejected": []
+                },
+                "current": {
+                  "liked": [],
+                  "shortlisted": [],
+                  "saved": [],
+                  "selected": [],
+                  "rejected": [
+                    "E01"
+                  ]
+                }
+              },
+              {
+                "field": "feedback",
+                "previous": [],
+                "current": [
+                  {
+                    "input": {
+                      "productId": "E01",
+                      "action": "reject",
+                      "reasonCode": "too_plain",
+                      "reasonText": "I don't like this one because it feels too minimal."
+                    },
+                    "category": "earrings",
+                    "scope": "session",
+                    "revision": 3
+                  }
+                ]
+              }
+            ]
+          },
+          "version": 2,
+          "pendingRelaxations": []
+        },
+        "events": [
+          {
+            "sessionId": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+            "revision": 3,
+            "action": "feedback",
+            "changes": [
+              {
+                "field": "decisions.earrings",
+                "previous": {
+                  "liked": [],
+                  "shortlisted": [],
+                  "saved": [],
+                  "selected": [],
+                  "rejected": []
+                },
+                "current": {
+                  "liked": [],
+                  "shortlisted": [],
+                  "saved": [],
+                  "selected": [],
+                  "rejected": [
+                    "E01"
+                  ]
+                }
+              },
+              {
+                "field": "feedback",
+                "previous": [],
+                "current": [
+                  {
+                    "input": {
+                      "productId": "E01",
+                      "action": "reject",
+                      "reasonCode": "too_plain",
+                      "reasonText": "I don't like this one because it feels too minimal."
+                    },
+                    "category": "earrings",
+                    "scope": "session",
+                    "revision": 3
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "ui": {
+          "type": "product_list",
+          "payload": {
+            "status": "matches",
+            "exactMatches": [
+              {
+                "product": {
+                  "id": "E09",
+                  "name": "Fixture Oval Earrings",
+                  "category": "earrings",
+                  "price": 50,
+                  "currency": "USD",
+                  "brand": "Concierge Fixtures",
+                  "material": "silver",
+                  "color": "silver",
+                  "styleTags": [
+                    "elegant",
+                    "oval",
+                    "balanced"
+                  ],
+                  "occasionTags": [
+                    "wedding",
+                    "everyday"
+                  ],
+                  "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                  "imageUrl": "catalog://demo/E09.png",
+                  "vtoAssetUrl": null,
+                  "inStock": true
+                },
+                "scores": {
+                  "explicit": 7,
+                  "feedback": 0,
+                  "saved_preference": 0,
+                  "visual": 0,
+                  "heuristic": 0
+                },
+                "evidence": [
+                  {
+                    "signal": "occasion",
+                    "tier": "explicit",
+                    "contribution": 3,
+                    "attributes": [
+                      "wedding"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "styleTags",
+                    "tier": "explicit",
+                    "contribution": 4,
+                    "attributes": [
+                      "elegant"
+                    ],
+                    "source": "explicit"
+                  }
+                ]
+              },
+              {
+                "product": {
+                  "id": "E02",
+                  "name": "Fixture Petal Earrings",
+                  "category": "earrings",
+                  "price": 65,
+                  "currency": "USD",
+                  "brand": "Concierge Fixtures",
+                  "material": "silver",
+                  "color": "silver",
+                  "styleTags": [
+                    "elegant",
+                    "delicate",
+                    "romantic",
+                    "small"
+                  ],
+                  "occasionTags": [
+                    "wedding",
+                    "date"
+                  ],
+                  "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                  "imageUrl": "catalog://demo/E02.png",
+                  "vtoAssetUrl": null,
+                  "inStock": true
+                },
+                "scores": {
+                  "explicit": 4.5,
+                  "feedback": 0,
+                  "saved_preference": 0,
+                  "visual": 0,
+                  "heuristic": 0
+                },
+                "evidence": [
+                  {
+                    "signal": "occasion",
+                    "tier": "explicit",
+                    "contribution": 3,
+                    "attributes": [
+                      "date",
+                      "wedding"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "styleTags",
+                    "tier": "explicit",
+                    "contribution": 4,
+                    "attributes": [
+                      "elegant"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "visualIntensity",
+                    "tier": "explicit",
+                    "contribution": -2.5,
+                    "attributes": [
+                      "delicate"
+                    ],
+                    "source": "explicit"
+                  }
+                ]
+              }
+            ],
+            "totalExactMatches": 2,
+            "relaxations": []
+          }
+        },
+        "tools": [
+          {
+            "name": "reject_product",
+            "outcome": "completed"
+          },
+          {
+            "name": "search_products",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    "diagnostics": [
+      {
+        "id": "b2d87bcf-f690-4c7a-9786-d5cb7923f74e",
+        "created_at": "2026-10-16T18:27:12.272Z",
+        "finished_at": "2026-10-16T18:27:17.596Z",
+        "session_id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+        "client_request_id": "2668d754-5821-4dd7-8bab-ad375ebb01fa",
+        "ledger_reservation_id": "f451b4d4-7006-407a-9ae6-7356d3828de3",
+        "stage": "plan_schema",
+        "http_status": 200,
+        "error_code": null,
+        "error_type": null,
+        "provider_request_id": "req_c39bd78f291140448214a65c34deb321",
+        "aborted": false,
+        "outcome": "success"
+      }
+    ],
+    "after": [
+      {
+        "provider": "openai",
+        "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+        "reserved_usd": "0.06750800",
+        "charged_usd": "0.06750800",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "openai",
+        "id": "20026c98-35c1-4768-bbf7-1bda5b0f8a3c",
+        "reserved_usd": "0.06817400",
+        "charged_usd": "0.00765200",
+        "usage": {
+          "input_tokens": 2650,
+          "output_tokens": 196,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "committed_at": "2026-10-16T14:28:36.255Z"
+      },
+      {
+        "provider": "openai",
+        "id": "7972d444-b7d5-48f1-927b-d4cae74191a2",
+        "reserved_usd": "0.06638600",
+        "charged_usd": "0.00788600",
+        "usage": {
+          "input_tokens": 2473,
+          "output_tokens": 245,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "committed_at": "2026-10-14T22:35:55.455Z"
+      },
+      {
+        "provider": "openai",
+        "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+        "reserved_usd": "0.06751400",
+        "charged_usd": "0.06751400",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "openai",
+        "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+        "reserved_usd": "0.06750400",
+        "charged_usd": "0.06750400",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "openai",
+        "id": "f451b4d4-7006-407a-9ae6-7356d3828de3",
+        "reserved_usd": "0.07491600",
+        "charged_usd": "0.00778400",
+        "usage": {
+          "input_tokens": 3316,
+          "output_tokens": 96,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "committed_at": "2026-10-16T18:27:17.327Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:07:25.990Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:05:09.337Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:15:37.384Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:11:37.020Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T13:23:50.691Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T15:06:16.490Z"
+      }
+    ],
+    "newReservations": [
+      {
+        "provider": "openai",
+        "id": "f451b4d4-7006-407a-9ae6-7356d3828de3",
+        "reserved_usd": "0.07491600",
+        "charged_usd": "0.00778400",
+        "usage": {
+          "input_tokens": 3316,
+          "output_tokens": 96,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "committed_at": "2026-10-16T18:27:17.327Z"
+      }
+    ],
+    "persisted": {
+      "start": "2026-10-16T18:27:19.837Z",
+      "end": "2026-10-16T18:27:20.315Z",
+      "status": 200,
+      "body": {
+        "state": {
+          "id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+          "schemaVersion": 1,
+          "revision": 3,
+          "goal": "Controlled durable-diagnostic Flow A",
+          "activeCategory": "earrings",
+          "constraints": [
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "material",
+                "value": "silver"
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "occasion",
+                "value": "evening"
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "budget",
+                "value": {
+                  "amount": 80,
+                  "currency": "USD"
+                }
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "styleTags",
+                "value": [
+                  "elegant",
+                  "lightweight"
+                ]
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "visualIntensity",
+                "value": "high"
+              },
+              "revision": 2
+            }
+          ],
+          "decisions": {
+            "earrings": {
+              "liked": [],
+              "shortlisted": [],
+              "saved": [],
+              "selected": [],
+              "rejected": [
+                "E01"
+              ]
+            }
+          },
+          "feedback": [
+            {
+              "input": {
+                "productId": "E01",
+                "action": "reject",
+                "reasonCode": "too_plain",
+                "reasonText": "I don't like this one because it feels too minimal."
+              },
+              "category": "earrings",
+              "scope": "session",
+              "revision": 3
+            }
+          ],
+          "dependencies": [],
+          "recentChanges": [
+            {
+              "field": "decisions.earrings",
+              "previous": {
+                "liked": [],
+                "saved": [],
+                "rejected": [],
+                "selected": [],
+                "shortlisted": []
+              },
+              "current": {
+                "liked": [],
+                "saved": [],
+                "rejected": [
+                  "E01"
+                ],
+                "selected": [],
+                "shortlisted": []
+              }
+            },
+            {
+              "field": "feedback",
+              "previous": [],
+              "current": [
+                {
+                  "input": {
+                    "action": "reject",
+                    "productId": "E01",
+                    "reasonCode": "too_plain",
+                    "reasonText": "I don't like this one because it feels too minimal."
+                  },
+                  "scope": "session",
+                  "category": "earrings",
+                  "revision": 3
+                }
+              ]
+            }
+          ]
+        },
+        "version": 2,
+        "pendingRelaxations": []
+      }
+    },
+    "products": [
+      "E09",
+      "E02"
+    ]
+  },
+  "selection": {
+    "start": "2026-10-16T18:27:21.521Z",
+    "end": "2026-10-16T18:27:24.111Z",
+    "status": 200,
+    "body": {
+      "mode": "live",
+      "status": "ok",
+      "intent": "select_product",
+      "message": "Here are the exact fixture catalog matches, ranked against your current preferences.",
+      "session": {
+        "state": {
+          "id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+          "schemaVersion": 1,
+          "revision": 4,
+          "goal": "Controlled durable-diagnostic Flow A",
+          "activeCategory": "earrings",
+          "constraints": [
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "material",
+                "value": "silver"
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "occasion",
+                "value": "evening"
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "budget",
+                "value": {
+                  "amount": 80,
+                  "currency": "USD"
+                }
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "styleTags",
+                "value": [
+                  "elegant",
+                  "lightweight"
+                ]
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "visualIntensity",
+                "value": "high"
+              },
+              "revision": 2
+            }
+          ],
+          "decisions": {
+            "earrings": {
+              "liked": [],
+              "shortlisted": [],
+              "saved": [],
+              "selected": [
+                "E09"
+              ],
+              "rejected": [
+                "E01"
+              ]
+            }
+          },
+          "feedback": [
+            {
+              "input": {
+                "productId": "E01",
+                "action": "reject",
+                "reasonCode": "too_plain",
+                "reasonText": "I don't like this one because it feels too minimal."
+              },
+              "category": "earrings",
+              "scope": "session",
+              "revision": 3
+            },
+            {
+              "input": {
+                "productId": "E09",
+                "action": "select"
+              },
+              "category": "earrings",
+              "scope": "session",
+              "revision": 4
+            }
+          ],
+          "dependencies": [],
+          "recentChanges": [
+            {
+              "field": "decisions.earrings",
+              "previous": {
+                "liked": [],
+                "shortlisted": [],
+                "saved": [],
+                "selected": [],
+                "rejected": [
+                  "E01"
+                ]
+              },
+              "current": {
+                "liked": [],
+                "shortlisted": [],
+                "saved": [],
+                "selected": [
+                  "E09"
+                ],
+                "rejected": [
+                  "E01"
+                ]
+              }
+            },
+            {
+              "field": "feedback",
+              "previous": [
+                {
+                  "input": {
+                    "productId": "E01",
+                    "action": "reject",
+                    "reasonCode": "too_plain",
+                    "reasonText": "I don't like this one because it feels too minimal."
+                  },
+                  "category": "earrings",
+                  "scope": "session",
+                  "revision": 3
+                }
+              ],
+              "current": [
+                {
+                  "input": {
+                    "productId": "E01",
+                    "action": "reject",
+                    "reasonCode": "too_plain",
+                    "reasonText": "I don't like this one because it feels too minimal."
+                  },
+                  "category": "earrings",
+                  "scope": "session",
+                  "revision": 3
+                },
+                {
+                  "input": {
+                    "productId": "E09",
+                    "action": "select"
+                  },
+                  "category": "earrings",
+                  "scope": "session",
+                  "revision": 4
+                }
+              ]
+            }
+          ]
+        },
+        "version": 3,
+        "pendingRelaxations": []
+      },
+      "events": [
+        {
+          "sessionId": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+          "revision": 4,
+          "action": "feedback",
+          "changes": [
+            {
+              "field": "decisions.earrings",
+              "previous": {
+                "liked": [],
+                "shortlisted": [],
+                "saved": [],
+                "selected": [],
+                "rejected": [
+                  "E01"
+                ]
+              },
+              "current": {
+                "liked": [],
+                "shortlisted": [],
+                "saved": [],
+                "selected": [
+                  "E09"
+                ],
+                "rejected": [
+                  "E01"
+                ]
+              }
+            },
+            {
+              "field": "feedback",
+              "previous": [
+                {
+                  "input": {
+                    "productId": "E01",
+                    "action": "reject",
+                    "reasonCode": "too_plain",
+                    "reasonText": "I don't like this one because it feels too minimal."
+                  },
+                  "category": "earrings",
+                  "scope": "session",
+                  "revision": 3
+                }
+              ],
+              "current": [
+                {
+                  "input": {
+                    "productId": "E01",
+                    "action": "reject",
+                    "reasonCode": "too_plain",
+                    "reasonText": "I don't like this one because it feels too minimal."
+                  },
+                  "category": "earrings",
+                  "scope": "session",
+                  "revision": 3
+                },
+                {
+                  "input": {
+                    "productId": "E09",
+                    "action": "select"
+                  },
+                  "category": "earrings",
+                  "scope": "session",
+                  "revision": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "ui": {
+        "type": "product_list",
+        "payload": {
+          "status": "matches",
+          "exactMatches": [
+            {
+              "product": {
+                "id": "E09",
+                "name": "Fixture Oval Earrings",
+                "category": "earrings",
+                "price": 50,
+                "currency": "USD",
+                "brand": "Concierge Fixtures",
+                "material": "silver",
+                "color": "silver",
+                "styleTags": [
+                  "elegant",
+                  "oval",
+                  "balanced"
+                ],
+                "occasionTags": [
+                  "wedding",
+                  "everyday"
+                ],
+                "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                "imageUrl": "catalog://demo/E09.png",
+                "vtoAssetUrl": null,
+                "inStock": true
+              },
+              "scores": {
+                "explicit": 7,
+                "feedback": 0,
+                "saved_preference": 0,
+                "visual": 0,
+                "heuristic": 0
+              },
+              "evidence": [
+                {
+                  "signal": "occasion",
+                  "tier": "explicit",
+                  "contribution": 3,
+                  "attributes": [
+                    "wedding"
+                  ],
+                  "source": "explicit"
+                },
+                {
+                  "signal": "styleTags",
+                  "tier": "explicit",
+                  "contribution": 4,
+                  "attributes": [
+                    "elegant"
+                  ],
+                  "source": "explicit"
+                }
+              ]
+            },
+            {
+              "product": {
+                "id": "E02",
+                "name": "Fixture Petal Earrings",
+                "category": "earrings",
+                "price": 65,
+                "currency": "USD",
+                "brand": "Concierge Fixtures",
+                "material": "silver",
+                "color": "silver",
+                "styleTags": [
+                  "elegant",
+                  "delicate",
+                  "romantic",
+                  "small"
+                ],
+                "occasionTags": [
+                  "wedding",
+                  "date"
+                ],
+                "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                "imageUrl": "catalog://demo/E02.png",
+                "vtoAssetUrl": null,
+                "inStock": true
+              },
+              "scores": {
+                "explicit": 4.5,
+                "feedback": 0,
+                "saved_preference": 0,
+                "visual": 0,
+                "heuristic": 0
+              },
+              "evidence": [
+                {
+                  "signal": "occasion",
+                  "tier": "explicit",
+                  "contribution": 3,
+                  "attributes": [
+                    "date",
+                    "wedding"
+                  ],
+                  "source": "explicit"
+                },
+                {
+                  "signal": "styleTags",
+                  "tier": "explicit",
+                  "contribution": 4,
+                  "attributes": [
+                    "elegant"
+                  ],
+                  "source": "explicit"
+                },
+                {
+                  "signal": "visualIntensity",
+                  "tier": "explicit",
+                  "contribution": -2.5,
+                  "attributes": [
+                    "delicate"
+                  ],
+                  "source": "explicit"
+                }
+              ]
+            }
+          ],
+          "totalExactMatches": 2,
+          "relaxations": []
+        }
+      },
+      "tools": [
+        {
+          "name": "select_product",
+          "outcome": "completed"
+        },
+        {
+          "name": "search_products",
+          "outcome": "completed"
+        }
+      ]
+    }
+  },
+  "selectionNoProviderReservation": true,
+  "flowC": {
+    "requestId": "c86df328-31a5-489f-a5d0-3a96b87f1037",
+    "submittedAt": "2026-10-16T18:27:25.218Z",
+    "http": {
+      "start": "2026-10-16T18:27:25.219Z",
+      "end": "2026-10-16T18:27:31.367Z",
+      "status": 200,
+      "body": {
+        "mode": "live",
+        "status": "ok",
+        "intent": "create_cross_product_search",
+        "message": "Here are the exact fixture catalog matches, ranked against your current preferences.",
+        "session": {
+          "state": {
+            "id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+            "schemaVersion": 1,
+            "revision": 6,
+            "goal": "Controlled durable-diagnostic Flow A",
+            "activeCategory": "necklaces",
+            "constraints": [
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "material",
+                  "value": "silver"
+                },
+                "revision": 2
+              },
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "occasion",
+                  "value": "evening"
+                },
+                "revision": 2
+              },
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "budget",
+                  "value": {
+                    "amount": 80,
+                    "currency": "USD"
+                  }
+                },
+                "revision": 2
+              },
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "styleTags",
+                  "value": [
+                    "elegant",
+                    "lightweight"
+                  ]
+                },
+                "revision": 2
+              },
+              {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "visualIntensity",
+                  "value": "high"
+                },
+                "revision": 2
+              }
+            ],
+            "decisions": {
+              "earrings": {
+                "liked": [],
+                "shortlisted": [],
+                "saved": [],
+                "selected": [
+                  "E09"
+                ],
+                "rejected": [
+                  "E01"
+                ]
+              },
+              "necklaces": {
+                "liked": [],
+                "shortlisted": [],
+                "saved": [],
+                "selected": [],
+                "rejected": []
+              }
+            },
+            "feedback": [
+              {
+                "input": {
+                  "productId": "E01",
+                  "action": "reject",
+                  "reasonCode": "too_plain",
+                  "reasonText": "I don't like this one because it feels too minimal."
+                },
+                "category": "earrings",
+                "scope": "session",
+                "revision": 3
+              },
+              {
+                "input": {
+                  "productId": "E09",
+                  "action": "select"
+                },
+                "category": "earrings",
+                "scope": "session",
+                "revision": 4
+              }
+            ],
+            "dependencies": [
+              {
+                "anchorProductId": "E09",
+                "anchorCategory": "earrings",
+                "targetCategory": "necklaces",
+                "type": "complement"
+              }
+            ],
+            "recentChanges": [
+              {
+                "field": "activeCategory",
+                "previous": "earrings",
+                "current": "necklaces"
+              },
+              {
+                "field": "decisions.necklaces",
+                "previous": null,
+                "current": {
+                  "liked": [],
+                  "shortlisted": [],
+                  "saved": [],
+                  "selected": [],
+                  "rejected": []
+                }
+              }
+            ]
+          },
+          "version": 4,
+          "pendingRelaxations": []
+        },
+        "events": [
+          {
+            "sessionId": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+            "revision": 5,
+            "action": "create_dependency",
+            "changes": [
+              {
+                "field": "dependencies",
+                "previous": [],
+                "current": [
+                  {
+                    "anchorProductId": "E09",
+                    "anchorCategory": "earrings",
+                    "targetCategory": "necklaces",
+                    "type": "complement"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "sessionId": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+            "revision": 6,
+            "action": "switch_category",
+            "changes": [
+              {
+                "field": "activeCategory",
+                "previous": "earrings",
+                "current": "necklaces"
+              },
+              {
+                "field": "decisions.necklaces",
+                "previous": null,
+                "current": {
+                  "liked": [],
+                  "shortlisted": [],
+                  "saved": [],
+                  "selected": [],
+                  "rejected": []
+                }
+              }
+            ]
+          }
+        ],
+        "ui": {
+          "type": "product_list",
+          "payload": {
+            "status": "matches",
+            "exactMatches": [
+              {
+                "product": {
+                  "id": "N09",
+                  "name": "Fixture Oval Necklaces",
+                  "category": "necklaces",
+                  "price": 65,
+                  "currency": "USD",
+                  "brand": "Concierge Fixtures",
+                  "material": "silver",
+                  "color": "silver",
+                  "styleTags": [
+                    "elegant",
+                    "oval",
+                    "balanced"
+                  ],
+                  "occasionTags": [
+                    "wedding",
+                    "everyday"
+                  ],
+                  "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                  "imageUrl": "catalog://demo/N09.png",
+                  "vtoAssetUrl": null,
+                  "inStock": true
+                },
+                "scores": {
+                  "explicit": 7,
+                  "feedback": 0,
+                  "saved_preference": 0,
+                  "visual": 0,
+                  "heuristic": 16
+                },
+                "evidence": [
+                  {
+                    "signal": "occasion",
+                    "tier": "explicit",
+                    "contribution": 3,
+                    "attributes": [
+                      "wedding"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "styleTags",
+                    "tier": "explicit",
+                    "contribution": 4,
+                    "attributes": [
+                      "elegant"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "complement",
+                    "tier": "heuristic",
+                    "contribution": 16,
+                    "attributes": [
+                      "material: silver",
+                      "color: silver",
+                      "style: balanced",
+                      "style: elegant",
+                      "style: oval",
+                      "occasion: everyday",
+                      "occasion: wedding"
+                    ],
+                    "anchorProductId": "E09"
+                  }
+                ]
+              },
+              {
+                "product": {
+                  "id": "N02",
+                  "name": "Fixture Petal Necklaces",
+                  "category": "necklaces",
+                  "price": 80,
+                  "currency": "USD",
+                  "brand": "Concierge Fixtures",
+                  "material": "silver",
+                  "color": "silver",
+                  "styleTags": [
+                    "elegant",
+                    "delicate",
+                    "romantic",
+                    "small"
+                  ],
+                  "occasionTags": [
+                    "wedding",
+                    "date"
+                  ],
+                  "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                  "imageUrl": "catalog://demo/N02.png",
+                  "vtoAssetUrl": null,
+                  "inStock": true
+                },
+                "scores": {
+                  "explicit": 4.5,
+                  "feedback": 0,
+                  "saved_preference": 0,
+                  "visual": 0,
+                  "heuristic": 16
+                },
+                "evidence": [
+                  {
+                    "signal": "occasion",
+                    "tier": "explicit",
+                    "contribution": 3,
+                    "attributes": [
+                      "date",
+                      "wedding"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "styleTags",
+                    "tier": "explicit",
+                    "contribution": 4,
+                    "attributes": [
+                      "elegant"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "visualIntensity",
+                    "tier": "explicit",
+                    "contribution": -2.5,
+                    "attributes": [
+                      "delicate"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "complement",
+                    "tier": "heuristic",
+                    "contribution": 16,
+                    "attributes": [
+                      "material: silver",
+                      "color: silver",
+                      "style: elegant",
+                      "occasion: wedding"
+                    ],
+                    "anchorProductId": "E09"
+                  }
+                ]
+              },
+              {
+                "product": {
+                  "id": "N01",
+                  "name": "Fixture Quiet Round Necklaces",
+                  "category": "necklaces",
+                  "price": 50,
+                  "currency": "USD",
+                  "brand": "Concierge Fixtures",
+                  "material": "silver",
+                  "color": "silver",
+                  "styleTags": [
+                    "minimal",
+                    "understated",
+                    "round",
+                    "small"
+                  ],
+                  "occasionTags": [
+                    "everyday",
+                    "work"
+                  ],
+                  "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                  "imageUrl": "catalog://demo/N01.png",
+                  "vtoEligible": true,
+                  "vtoAssetUrl": null,
+                  "inStock": true
+                },
+                "scores": {
+                  "explicit": -2.5,
+                  "feedback": -8,
+                  "saved_preference": 0,
+                  "visual": 0,
+                  "heuristic": 12
+                },
+                "evidence": [
+                  {
+                    "signal": "visualIntensity",
+                    "tier": "explicit",
+                    "contribution": -2.5,
+                    "attributes": [
+                      "minimal",
+                      "understated"
+                    ],
+                    "source": "explicit"
+                  },
+                  {
+                    "signal": "complement",
+                    "tier": "heuristic",
+                    "contribution": 12,
+                    "attributes": [
+                      "material: silver",
+                      "color: silver",
+                      "occasion: everyday"
+                    ],
+                    "anchorProductId": "E09"
+                  },
+                  {
+                    "signal": "rejection",
+                    "tier": "feedback",
+                    "contribution": -8,
+                    "attributes": [
+                      "minimal",
+                      "understated"
+                    ],
+                    "feedbackProductId": "E01"
+                  }
+                ]
+              }
+            ],
+            "totalExactMatches": 3,
+            "relaxations": []
+          }
+        },
+        "tools": [
+          {
+            "name": "create_dependency",
+            "outcome": "completed"
+          },
+          {
+            "name": "switch_category",
+            "outcome": "completed"
+          },
+          {
+            "name": "search_products",
+            "outcome": "completed"
+          }
+        ]
+      }
+    },
+    "diagnostics": [
+      {
+        "id": "527b335c-9f75-4e59-9df5-746a5035e624",
+        "created_at": "2026-10-16T18:27:25.748Z",
+        "finished_at": "2026-10-16T18:27:30.511Z",
+        "session_id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+        "client_request_id": "c86df328-31a5-489f-a5d0-3a96b87f1037",
+        "ledger_reservation_id": "dbd17b28-b9c0-4ef8-b33e-6c88f1329f4f",
+        "stage": "plan_schema",
+        "http_status": 200,
+        "error_code": null,
+        "error_type": null,
+        "provider_request_id": "req_3ec1becb40d34db08ca142487c399bfc",
+        "aborted": false,
+        "outcome": "success"
+      }
+    ],
+    "after": [
+      {
+        "provider": "openai",
+        "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+        "reserved_usd": "0.06750800",
+        "charged_usd": "0.06750800",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "openai",
+        "id": "20026c98-35c1-4768-bbf7-1bda5b0f8a3c",
+        "reserved_usd": "0.06817400",
+        "charged_usd": "0.00765200",
+        "usage": {
+          "input_tokens": 2650,
+          "output_tokens": 196,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "committed_at": "2026-10-16T14:28:36.255Z"
+      },
+      {
+        "provider": "openai",
+        "id": "7972d444-b7d5-48f1-927b-d4cae74191a2",
+        "reserved_usd": "0.06638600",
+        "charged_usd": "0.00788600",
+        "usage": {
+          "input_tokens": 2473,
+          "output_tokens": 245,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "committed_at": "2026-10-14T22:35:55.455Z"
+      },
+      {
+        "provider": "openai",
+        "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+        "reserved_usd": "0.06751400",
+        "charged_usd": "0.06751400",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "openai",
+        "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+        "reserved_usd": "0.06750400",
+        "charged_usd": "0.06750400",
+        "usage": null,
+        "committed_at": null
+      },
+      {
+        "provider": "openai",
+        "id": "dbd17b28-b9c0-4ef8-b33e-6c88f1329f4f",
+        "reserved_usd": "0.07648200",
+        "charged_usd": "0.00397400",
+        "usage": {
+          "input_tokens": 3499,
+          "output_tokens": 90,
+          "input_tokens_details": {
+            "cached_tokens": 2280
+          }
+        },
+        "committed_at": "2026-10-16T18:27:30.111Z"
+      },
+      {
+        "provider": "openai",
+        "id": "f451b4d4-7006-407a-9ae6-7356d3828de3",
+        "reserved_usd": "0.07491600",
+        "charged_usd": "0.00778400",
+        "usage": {
+          "input_tokens": 3316,
+          "output_tokens": 96,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          }
+        },
+        "committed_at": "2026-10-16T18:27:17.327Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:07:25.990Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:05:09.337Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:15:37.384Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T11:11:37.020Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T13:23:50.691Z"
+      },
+      {
+        "provider": "youcam",
+        "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+        "reserved_usd": "0.00000000",
+        "charged_usd": "0.00000000",
+        "usage": null,
+        "committed_at": "2026-10-10T15:06:16.490Z"
+      }
+    ],
+    "newReservations": [
+      {
+        "provider": "openai",
+        "id": "dbd17b28-b9c0-4ef8-b33e-6c88f1329f4f",
+        "reserved_usd": "0.07648200",
+        "charged_usd": "0.00397400",
+        "usage": {
+          "input_tokens": 3499,
+          "output_tokens": 90,
+          "input_tokens_details": {
+            "cached_tokens": 2280
+          }
+        },
+        "committed_at": "2026-10-16T18:27:30.111Z"
+      }
+    ],
+    "persisted": {
+      "start": "2026-10-16T18:27:32.080Z",
+      "end": "2026-10-16T18:27:33.835Z",
+      "status": 200,
+      "body": {
+        "state": {
+          "id": "e358a5d6-038d-45cf-9e95-114b1fb95b8b",
+          "schemaVersion": 1,
+          "revision": 6,
+          "goal": "Controlled durable-diagnostic Flow A",
+          "activeCategory": "necklaces",
+          "constraints": [
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "material",
+                "value": "silver"
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "occasion",
+                "value": "evening"
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "budget",
+                "value": {
+                  "amount": 80,
+                  "currency": "USD"
+                }
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "styleTags",
+                "value": [
+                  "elegant",
+                  "lightweight"
+                ]
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "visualIntensity",
+                "value": "high"
+              },
+              "revision": 2
+            }
+          ],
+          "decisions": {
+            "earrings": {
+              "liked": [],
+              "shortlisted": [],
+              "saved": [],
+              "selected": [
+                "E09"
+              ],
+              "rejected": [
+                "E01"
+              ]
+            },
+            "necklaces": {
+              "liked": [],
+              "shortlisted": [],
+              "saved": [],
+              "selected": [],
+              "rejected": []
+            }
+          },
+          "feedback": [
+            {
+              "input": {
+                "productId": "E01",
+                "action": "reject",
+                "reasonCode": "too_plain",
+                "reasonText": "I don't like this one because it feels too minimal."
+              },
+              "category": "earrings",
+              "scope": "session",
+              "revision": 3
+            },
+            {
+              "input": {
+                "productId": "E09",
+                "action": "select"
+              },
+              "category": "earrings",
+              "scope": "session",
+              "revision": 4
+            }
+          ],
+          "dependencies": [
+            {
+              "anchorProductId": "E09",
+              "anchorCategory": "earrings",
+              "targetCategory": "necklaces",
+              "type": "complement"
+            }
+          ],
+          "recentChanges": [
+            {
+              "field": "activeCategory",
+              "previous": "earrings",
+              "current": "necklaces"
+            },
+            {
+              "field": "decisions.necklaces",
+              "previous": null,
+              "current": {
+                "liked": [],
+                "saved": [],
+                "rejected": [],
+                "selected": [],
+                "shortlisted": []
+              }
+            }
+          ]
+        },
+        "version": 4,
+        "pendingRelaxations": []
+      }
+    },
+    "products": [
+      "N09",
+      "N02",
+      "N01"
+    ]
+  },
+  "success": true,
+  "after": [
+    {
+      "provider": "openai",
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "reserved_usd": "0.06750800",
+      "charged_usd": "0.06750800",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "20026c98-35c1-4768-bbf7-1bda5b0f8a3c",
+      "reserved_usd": "0.06817400",
+      "charged_usd": "0.00765200",
+      "usage": {
+        "input_tokens": 2650,
+        "output_tokens": 196,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "committed_at": "2026-10-16T14:28:36.255Z"
+    },
+    {
+      "provider": "openai",
+      "id": "7972d444-b7d5-48f1-927b-d4cae74191a2",
+      "reserved_usd": "0.06638600",
+      "charged_usd": "0.00788600",
+      "usage": {
+        "input_tokens": 2473,
+        "output_tokens": 245,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "committed_at": "2026-10-14T22:35:55.455Z"
+    },
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "reserved_usd": "0.06751400",
+      "charged_usd": "0.06751400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "reserved_usd": "0.06750400",
+      "charged_usd": "0.06750400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "dbd17b28-b9c0-4ef8-b33e-6c88f1329f4f",
+      "reserved_usd": "0.07648200",
+      "charged_usd": "0.00397400",
+      "usage": {
+        "input_tokens": 3499,
+        "output_tokens": 90,
+        "input_tokens_details": {
+          "cached_tokens": 2280
+        }
+      },
+      "committed_at": "2026-10-16T18:27:30.111Z"
+    },
+    {
+      "provider": "openai",
+      "id": "f451b4d4-7006-407a-9ae6-7356d3828de3",
+      "reserved_usd": "0.07491600",
+      "charged_usd": "0.00778400",
+      "usage": {
+        "input_tokens": 3316,
+        "output_tokens": 96,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "committed_at": "2026-10-16T18:27:17.327Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "remainingRequests": 193,
+  "remainingUsd": "2.77017800"
+}

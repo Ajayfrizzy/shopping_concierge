@@ -1,3 +1,17 @@
+## Controlled live B/C passed — 2026-10-16
+
+Production preflight passed: health/readiness HTTP200, every dependency ready, live OpenAI/YouCam with PostgreSQL ledgers/persistence and S3, diagnostics accessible, no pending diagnostic reconciliation and historical usage unchanged. Attempt limit relies on operator-confirmed deployed OPENAI_MAX_ATTEMPTS=1, not remote environment introspection. [Evidence](evidence/openai-flow-bc-2026-10-16/result.json) and [summary](evidence/openai-flow-bc-2026-10-16/summary.json).
+
+The earlier ephemeral guest token was unavailable. A fresh mock-generated Flow A-equivalent snapshot was checked against the prior constraints/decisions and inserted via the repository at version1, with no live Flow A request. Session `e358a5d6-038d-45cf-9e95-114b1fb95b8b` then completed:
+
+- B HTTP200: E01 rejected with too_plain and exact original sentence as reasonText; version2, E09/E02 recommendations, unchanged constraints.
+- Deterministic E09 select HTTP200: version3, E09 explicitly selected, no new provider reservation.
+- C HTTP200: version4, necklaces active, E09 earrings-to-necklaces complement dependency; N09/N02/N01 recommendations verified against the catalog. Global USD80/silver and evening/elegant/lightweight/high-intensity preferences unchanged, no relaxation. N01 remains eligible with -8 feedback penalty for minimal/understated similarity to rejected E01, not a hard exclusion.
+
+B: one reservation/settlement, 3316 input /96 output /0 cached tokens, $0.007784. C: one reservation/settlement, 3499 input /90 output /2280 cached tokens, $0.003974. Total2 requests, 6815 input /186 output /2280 cached tokens, $0.011758. Remaining193 requests/$2.770178 including existing unresolved holds. Historical ledger rows unchanged; no YouCam ledger change. Final readiness HTTP200/all dependencies ready at18:27:36 UTC. No automatic retry, APK or demo script.
+
+Quality limits remain: recommendations are synthetic catalog fixtures, not verified merchant inventory; statement choices are constrained by USD80/silver inventory and weight remains unverified. N01 is still an eligible low-ranked alternative, not a strong match for noticeable/evening intent. This task ran controlled production validation assertions, not a new regression suite; implementation suite previously passed673 tests.
+
 ## Flow B/C context implemented — 2026-10-16
 
 [Explicit context implementation](FLOW_BC_CONTEXT.md) adds optional message productContext, a card-bound mobile explanation input, catalog-derived category validation, exact rejection reason preservation, and selected-state resolution for the requested continuation sentence. Local sequence passes: A v1 → E01 rejection v2 → E09 deliberate selection v3 → necklace dependency/search v4. Existing global USD80/silver constraints remain unchanged. Invalid targets, ambiguous references and unrelated actions fail closed atomically.
