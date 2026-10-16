@@ -1,3 +1,5 @@
+import { Agent as HttpAgent } from 'node:http';
+import { Agent as HttpsAgent } from 'node:https';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import {
   S3Client,
@@ -46,11 +48,40 @@ export function createS3ObjectStore(config: {
     forcePathStyle: settings.forcePathStyle,
     credentials: { accessKeyId: settings.accessKeyId, secretAccessKey: settings.secretAccessKey },
     maxAttempts: 2,
-    requestHandler: { connectionTimeout: 5000, requestTimeout: 10000 },
+    requestHandler: {
+      connectionTimeout: 5000,
+      requestTimeout: 10000,
+      throwOnRequestTimeout: true,
+      socketTimeout: 10000,
+      httpAgent: new HttpAgent({
+        keepAlive: true,
+        maxSockets: 8,
+        maxFreeSockets: 2,
+        timeout: 30000,
+      }),
+      httpsAgent: new HttpsAgent({
+        keepAlive: true,
+        maxSockets: 8,
+        maxFreeSockets: 2,
+        timeout: 30000,
+      }),
+    },
   });
+  let readiness: Promise<void> | undefined;
   return {
-    async ready() {
-      await client.send(new HeadBucketCommand({ Bucket: bucket }));
+    ready() {
+      if (!readiness) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 12000);
+        readiness = client
+          .send(new HeadBucketCommand({ Bucket: bucket }), { abortSignal: controller.signal })
+          .then(() => undefined)
+          .finally(() => {
+            clearTimeout(timer);
+            readiness = undefined;
+          });
+      }
+      return readiness;
     },
     async signGet(key, expiresIn = 900) {
       if (!key || !Number.isInteger(expiresIn) || expiresIn < 1 || expiresIn > 3600)

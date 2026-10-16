@@ -1,3 +1,9 @@
+# S3 access blocker — 2026-10-16
+
+Flow A remains blocked. Production readiness reports only object storage unavailable; direct backend-credential probes reproduce HTTP 403 `AccessDenied` while DNS/TLS pass. Fresh and reused clients fail alike. The exact credential/policy cause needs RumptyCloud operator inspection; this is not established as a transient timeout. See [S3 investigation](S3_READINESS_INVESTIGATION.md) and its sanitized evidence. Separate timeout/connection hardening is prepared but not deployed and cannot fix authorization denial. **653 tests passed**, plus lint, typechecks, API build and secret scan. No provider calls, accounting changes, VTO changes, APK or demo script.
+
+---
+
 # Single-attempt Flow A diagnostic — 2026-10-12
 
 Flow A submitted exactly once after HTTP 200 health/readiness and unchanged accounting preflight. User-confirmed deployed OPENAI_MAX_ATTEMPTS=1 was verified through the actual configuration path with injected 429/502/503/504 responses (one provider attempt/reservation each), not inferred from readiness. The observed live delta was exactly one new reservation.

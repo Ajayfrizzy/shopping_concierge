@@ -1,0 +1,390 @@
+{
+  "config": {
+    "source": "local backend credentials with documented production storage modes; remote environment not introspected",
+    "https": true,
+    "forcePathStyle": true,
+    "regionConfigured": true,
+    "maxAttempts": 2
+  },
+  "checks": [
+    {
+      "stage": "dns",
+      "status": "ready",
+      "durationMs": 161,
+      "result": {
+        "addresses": 1
+      }
+    },
+    {
+      "stage": "tls",
+      "status": "ready",
+      "durationMs": 997,
+      "result": {
+        "authorized": true,
+        "protocol": "TLSv1.3"
+      }
+    },
+    {
+      "stage": "authenticatedHeadBucket",
+      "status": "unavailable",
+      "durationMs": 1261,
+      "code": "unclassified",
+      "httpStatus": 403,
+      "attempts": 1,
+      "category": "authorization",
+      "retryable": false
+    },
+    {
+      "stage": "listReceiptPrefix",
+      "status": "unavailable",
+      "durationMs": 435,
+      "code": "AccessDenied",
+      "httpStatus": 403,
+      "requestId": "tx000006550725f73c99e45-006ad17bb0-41899361-rumpty-object",
+      "attempts": 1,
+      "category": "authorization",
+      "retryable": false
+    },
+    {
+      "stage": "writeReadProbe",
+      "status": "unavailable",
+      "durationMs": 378,
+      "code": "AccessDenied",
+      "httpStatus": 403,
+      "requestId": "tx00000f8e093a4dc7bee1d-006ad17bb0-41899361-rumpty-object",
+      "attempts": 1,
+      "category": "authorization",
+      "retryable": false
+    }
+  ],
+  "rounds": [
+    {
+      "number": 1,
+      "at": "2026-10-16T01:19:48.359Z",
+      "checks": [
+        {
+          "stage": "reusedClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 349,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "freshClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 1030,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "publicReadiness",
+          "status": "unavailable",
+          "durationMs": 2401,
+          "result": {
+            "httpStatus": 503,
+            "dependencies": {
+              "configuration": "ready",
+              "database": "ready",
+              "objectStorage": "unavailable",
+              "openaiDiagnostics": "ready",
+              "openaiLedger": "ready",
+              "youcamLedger": "ready"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "at": "2026-10-16T01:20:22.263Z",
+      "checks": [
+        {
+          "stage": "reusedClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 362,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "freshClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 1244,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "publicReadiness",
+          "status": "unavailable",
+          "durationMs": 2296,
+          "result": {
+            "httpStatus": 503,
+            "dependencies": {
+              "configuration": "ready",
+              "database": "ready",
+              "objectStorage": "unavailable",
+              "openaiDiagnostics": "ready",
+              "openaiLedger": "ready",
+              "youcamLedger": "ready"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "at": "2026-10-16T01:20:56.394Z",
+      "checks": [
+        {
+          "stage": "reusedClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 370,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "freshClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 1186,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "publicReadiness",
+          "status": "unavailable",
+          "durationMs": 2571,
+          "result": {
+            "httpStatus": 503,
+            "dependencies": {
+              "configuration": "ready",
+              "database": "ready",
+              "objectStorage": "unavailable",
+              "openaiDiagnostics": "ready",
+              "openaiLedger": "ready",
+              "youcamLedger": "ready"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "at": "2026-10-16T01:21:29.903Z",
+      "checks": [
+        {
+          "stage": "reusedClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 361,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "freshClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 1061,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "publicReadiness",
+          "status": "unavailable",
+          "durationMs": 2083,
+          "result": {
+            "httpStatus": 503,
+            "dependencies": {
+              "configuration": "ready",
+              "database": "ready",
+              "objectStorage": "unavailable",
+              "openaiDiagnostics": "ready",
+              "openaiLedger": "ready",
+              "youcamLedger": "ready"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "at": "2026-10-16T01:22:04.269Z",
+      "checks": [
+        {
+          "stage": "reusedClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 369,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "freshClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 1224,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "publicReadiness",
+          "status": "unavailable",
+          "durationMs": 2767,
+          "result": {
+            "httpStatus": 503,
+            "dependencies": {
+              "configuration": "ready",
+              "database": "ready",
+              "objectStorage": "unavailable",
+              "openaiDiagnostics": "ready",
+              "openaiLedger": "ready",
+              "youcamLedger": "ready"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "at": "2026-10-16T01:22:38.038Z",
+      "checks": [
+        {
+          "stage": "reusedClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 367,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "freshClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 1156,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "publicReadiness",
+          "status": "unavailable",
+          "durationMs": 2241,
+          "result": {
+            "httpStatus": 503,
+            "dependencies": {
+              "configuration": "ready",
+              "database": "ready",
+              "objectStorage": "unavailable",
+              "openaiDiagnostics": "ready",
+              "openaiLedger": "ready",
+              "youcamLedger": "ready"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "at": "2026-10-16T01:23:57.147Z",
+      "checks": [
+        {
+          "stage": "reusedClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 503,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "freshClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 1508,
+          "code": "unclassified",
+          "httpStatus": 403,
+          "attempts": 1,
+          "category": "authorization",
+          "retryable": false
+        },
+        {
+          "stage": "publicReadiness",
+          "status": "unavailable",
+          "durationMs": 47092,
+          "code": "TimeoutError",
+          "category": "timeout",
+          "retryable": true
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "at": "2026-10-16T01:29:26.420Z",
+      "checks": [
+        {
+          "stage": "reusedClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 88736,
+          "code": "AbortError",
+          "attempts": 2,
+          "category": "timeout",
+          "retryable": true
+        },
+        {
+          "stage": "freshClientHeadBucket",
+          "status": "unavailable",
+          "durationMs": 4095,
+          "code": "ENOTFOUND",
+          "attempts": 2,
+          "category": "network",
+          "retryable": false
+        },
+        {
+          "stage": "publicReadiness",
+          "status": "unavailable",
+          "durationMs": 87681,
+          "code": "TimeoutError",
+          "category": "timeout",
+          "retryable": true
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "stage": "deleteOwnProbe",
+    "status": "unavailable",
+    "durationMs": 5819,
+    "code": "ENOTFOUND",
+    "attempts": 2,
+    "category": "network",
+    "retryable": false
+  },
+  "evidenceNote": "Public probe status normalized from recorded HTTP status after capture; no observations changed. Final network timeouts exceeded nominal abort deadlines; local event-loop/host scheduling or connectivity cause not determined."
+}

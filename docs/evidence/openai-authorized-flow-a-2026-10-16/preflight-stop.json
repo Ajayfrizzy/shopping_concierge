@@ -1,0 +1,38 @@
+{
+  "flowASubmitted": false,
+  "providerCalls": 0,
+  "health": {
+    "status": 200
+  },
+  "ready": {
+    "status": 503,
+    "observedAt": "2026-10-16T01:17:08.810Z",
+    "body": {
+      "status": "unavailable",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      },
+      "dependencies": {
+        "configuration": "ready",
+        "database": "ready",
+        "objectStorage": "unavailable",
+        "openaiDiagnostics": "ready",
+        "openaiLedger": "ready",
+        "youcamLedger": "ready"
+      }
+    }
+  },
+  "stoppedBefore": "database prerequisites and session creation",
+  "newReservations": 0,
+  "newTokens": 0,
+  "newSpendUsd": 0,
+  "lastVerifiedRemainingRequests": 196,
+  "lastVerifiedRemainingUsd": "2.78958800",
+  "budgetRefreshedThisRun": false
+}
