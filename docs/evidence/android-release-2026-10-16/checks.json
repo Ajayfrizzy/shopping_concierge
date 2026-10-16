@@ -1,0 +1,23 @@
+{
+  "baseline": "e6703cfadf6b21de195536f7fc596b90696ce999",
+  "tests": 676,
+  "testFiles": 35,
+  "lint": "passed",
+  "typechecks": "passed",
+  "apiBuild": "passed",
+  "androidSecretScan": {
+    "files": 95,
+    "sentinels": 7,
+    "result": "passed"
+  },
+  "offlineExpoCompatibility": "matches bundled SDK map; offline check is limited",
+  "onlineExpoCompatibility": "six newer SDK57 patches recommended; not applied",
+  "productionReadOnly": {
+    "health": 200,
+    "ready": 200,
+    "productE09": 200
+  },
+  "paidProviderCalls": 0,
+  "apk": "built; signature and embedded-bundle verification passed",
+  "device": "ARM64 API37 emulator unstable: package service Broken pipe; after reboot install refused because device is still booting. No app startup or native journey pass claimed."
+}

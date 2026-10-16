@@ -21,9 +21,10 @@ export const guestCredential = createGuestCredential(
   () => getRandomBytesAsync(32),
 );
 export const shoppingAPI = createShoppingAPI(
-  process.env.EXPO_PUBLIC_API_URL ?? 'http://10.0.2.2:4000',
+  process.env.EXPO_PUBLIC_API_URL ??
+    (__DEV__ ? 'http://10.0.2.2:4000' : 'https://shoppingconcierge.rumptycloud.app'),
   fetch,
-  10_000,
+  40_000,
   guestCredential,
 );
 const Context = createContext<ShoppingSessionController | null>(null);

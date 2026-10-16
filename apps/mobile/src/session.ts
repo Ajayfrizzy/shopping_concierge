@@ -227,6 +227,14 @@ export function createShoppingSession(
     publish({ retryPending: true });
     await deliver();
   }
+  async function refreshResults() {
+    const category = view.session?.state.activeCategory;
+    if (category)
+      await submit(
+        { type: 'action', action: { type: 'switch_category', category } },
+        'Refresh results',
+      );
+  }
   return {
     getSnapshot: () => view,
     subscribe(listener: () => void) {
@@ -241,7 +249,7 @@ export function createShoppingSession(
         if (journal.pending) await deliver();
         else if (journal.sessionId) {
           await reconcile();
-          await submit({ type: 'message', message: 'search' }, 'Refresh results');
+          await refreshResults();
         }
       });
     },
@@ -270,7 +278,7 @@ export function createShoppingSession(
         if (journal.pending) await deliver();
         else {
           await reconcile();
-          if (view.session) await submit({ type: 'message', message: 'search' }, 'Refresh results');
+          if (view.session) await refreshResults();
         }
       });
     },
@@ -279,7 +287,7 @@ export function createShoppingSession(
         await restoreJournal();
         if (journal.pending) await deliver();
         await reconcile();
-        if (view.session) await submit({ type: 'message', message: 'search' }, 'Refresh results');
+        if (view.session) await refreshResults();
       });
     },
     async newSession() {

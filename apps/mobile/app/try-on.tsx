@@ -9,7 +9,8 @@ import { guestCredential, shoppingAPI, useShopping } from '../src/context';
 import { createVisualAPI, pickedImageMime } from '../src/visual-client';
 import { Button, Panel, styles } from '../src/ui';
 const api = createVisualAPI(
-  process.env.EXPO_PUBLIC_API_URL ?? 'http://10.0.2.2:4000',
+  process.env.EXPO_PUBLIC_API_URL ??
+    (__DEV__ ? 'http://10.0.2.2:4000' : 'https://shoppingconcierge.rumptycloud.app'),
   guestCredential,
 );
 export default function TryOn() {

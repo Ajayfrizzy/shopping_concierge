@@ -456,3 +456,17 @@ it('sends explicit card context with a rejection and retains it for exact retry'
   const replay = s.requests.filter((r) => r.url.endsWith('/messages')).at(-1)!;
   expect(replay.body).toEqual(sent.body);
 });
+
+it('restores results without sending another message to the paid planner', async () => {
+  const s = setup();
+  const c = s.controller();
+  await c.message('silver earrings under $80');
+  const before = s.requests.length;
+  await s.controller().boot();
+  const turns = s.requests.slice(before).filter((r) => r.url.endsWith('/messages'));
+  expect(turns).toHaveLength(1);
+  expect(JSON.parse(turns[0]!.body!)).toMatchObject({
+    type: 'action',
+    action: { type: 'switch_category', category: 'earrings' },
+  });
+});

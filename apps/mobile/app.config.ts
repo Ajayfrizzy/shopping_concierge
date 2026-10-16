@@ -10,4 +10,10 @@ export default ({ config }: ConfigContext) =>
         scheme: 'shopping-concierge-demo',
         android: { ...config.android, package: 'com.youcam.shoppingconcierge.demo' },
       }
-    : config;
+    : process.env.CONCIERGE_RELEASE === '1'
+      ? {
+          ...config,
+          plugins: [...(config.plugins ?? []), './plugins/with-release.cjs'],
+          android: { ...config.android, versionCode: 3 },
+        }
+      : config;

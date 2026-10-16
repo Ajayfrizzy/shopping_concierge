@@ -1,0 +1,10 @@
+{
+  "bytes": 43919163,
+  "sha256": "c64514150729715ca051b22cd5b80f4a03106ae8354d1bf1c625fa5b22a13b96",
+  "productionURL": true,
+  "emulatorBackendURL": false,
+  "embeddedHermesBundle": true,
+  "actualServerSecretValuesScanned": 5,
+  "secretHits": 0,
+  "abi": "arm64-v8a"
+}

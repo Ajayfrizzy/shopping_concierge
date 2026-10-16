@@ -1,3 +1,9 @@
+## First standalone Android release — 2026-10-16
+
+[Release audit](ANDROID_RELEASE.md): signed ARM64 APK built at `artifacts/android/shopping-concierge-0.1.0-arm64-release.apk` (43,919,163 bytes), app `com.youcam.shoppingconcierge`, 0.1.0/code3. Dedicated release signature verified; embedded Hermes bundle targets production HTTPS without Metro/Expo Go. Fixed release signing/URL defaults, hardened manifest, extended shopping timeout and removed paid planner calls from result refresh. 676 tests passed; lint/typechecks/API build/export/secret scans passed. Online Expo compatibility reports six optional SDK57 patch updates.
+
+Native installation/startup remains UNVERIFIED: the only emulator lost package/activity services and, after reboot, refused installation while still booting. No physical handset connected. Artifact is available for phone acceptance testing; no native pass claimed. No paid provider calls, ledger changes, demo script or video.
+
 ## Controlled live B/C passed — 2026-10-16
 
 Production preflight passed: health/readiness HTTP200, every dependency ready, live OpenAI/YouCam with PostgreSQL ledgers/persistence and S3, diagnostics accessible, no pending diagnostic reconciliation and historical usage unchanged. Attempt limit relies on operator-confirmed deployed OPENAI_MAX_ATTEMPTS=1, not remote environment introspection. [Evidence](evidence/openai-flow-bc-2026-10-16/result.json) and [summary](evidence/openai-flow-bc-2026-10-16/summary.json).
