@@ -29,6 +29,13 @@ const compareText = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
 const tiers: ScoreTier[] = ['explicit', 'feedback', 'saved_preference', 'visual', 'heuristic'];
 const low = ['minimal', 'understated', 'delicate'];
 const high = ['statement', 'oversized', 'ornate'];
+// Ranking compatibility, not new product facts. Exact occasion matches score higher.
+const occasionCompatibility: Record<string, string[]> = {
+  evening: ['formal', 'party', 'wedding', 'date'],
+  formal: ['evening', 'wedding'],
+  daytime: ['everyday', 'work'],
+  professional: ['work', 'business'],
+};
 const shapes = ['round', 'geometric', 'heart', 'oval', 'square'];
 const optionsSchema = z
   .object({
@@ -75,12 +82,23 @@ function rank(
         break;
       }
       case 'occasion': {
-        const attributes = overlap(product.occasionTags, [p.value]);
+        const exact = overlap(product.occasionTags, [p.value]);
+        const compatible = overlap(
+          product.occasionTags,
+          Object.hasOwn(occasionCompatibility, normalize(p.value))
+            ? occasionCompatibility[normalize(p.value)]!
+            : [],
+        );
+        const attributes = exact.length ? exact : compatible;
         add({
           ...base,
           signal: p.field,
           attributes,
-          contribution: attributes.length ? config.occasion : 0,
+          contribution: exact.length
+            ? config.occasion
+            : compatible.length
+              ? config.occasion / 2
+              : 0,
         });
         break;
       }
@@ -89,11 +107,18 @@ function rank(
           product.styleTags,
           p.value === 'low' ? low : p.value === 'high' ? high : ['balanced'],
         );
+        const opposing = overlap(
+          product.styleTags,
+          p.value === 'high' ? low : p.value === 'low' ? high : [],
+        );
         add({
           ...base,
           signal: p.field,
-          attributes,
-          contribution: attributes.length ? config.intensity : 0,
+          attributes: sorted([...attributes, ...opposing]),
+          // Unknown/balanced stays neutral. Mixed metadata balances support and conflict.
+          contribution:
+            (attributes.length ? config.intensity : 0) -
+            (opposing.length ? config.intensity / 2 : 0),
         });
         break;
       }
