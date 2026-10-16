@@ -1,3 +1,13 @@
+## Flow B/C preflight stopped before live calls — 2026-10-16
+
+Production /health and /ready returned HTTP 200, all dependencies ready, live OpenAI/YouCam with PostgreSQL persistence/ledgers and S3. Migration-007 diagnostic access passed, pending diagnostic reconciliation query was empty, and the complete usage ledger matched the successful Flow A evidence. Remaining OpenAI allowance: 195 requests / $2.781936. Attempt limit relies on prior operator confirmation of deployed OPENAI_MAX_ATTEMPTS=1; it is not exposed by readiness.
+
+Read-only inspection found Flow A session `6d605f1f-f13a-47e1-a170-907019b0a077` at version 1 with no selected earrings. Its guest bearer token was ephemeral in the earlier runner and was not retained; database availability alone does not establish authenticated HTTP reuse. A deterministic equivalent session is authorized if needed later, but was not created because offline authorization already blocked continuation.
+
+Exact Flow B text maps to instruction clarification; a representative E01/too_plain reject-and-search plan fails `instruction_plan_mismatch`. Exact Flow C text maps to unsupported cross-product search; even after locally simulating E09 selection, a valid dependency/switch/search proposal fails the same rule. These are local deterministic simulations, not live provider diagnostics or claims about the plan OpenAI would return. No paid retry was made, no session was changed, and no new reservation exists. See [preflight evidence](evidence/openai-authorized-flow-a-2026-10-16/flow-bc-preflight.json).
+
+Before these exact live flows, support explicit product context for “this one” and the selected-earring continuation grammar, with authorization regressions and deployment. Existing global USD80/material constraints would carry to necklaces by design; category-only semantics must not be silently substituted during validation. Do not claim Flow B/C passed. No YouCam, APK or demo script.
+
 ## Deterministic soft-ranking improvement — 2026-10-16
 
 [Ranking audit](CATALOG_SOFT_RANKING.md): evening/formal-compatible metadata now gets a partial occasion bonus, while documented opposing intensity tags lower relevance without excluding products. Flow A local mock replay changes E02/E09/E01 to E09/E02/E01, preserves all constraints and the unverified-weight disclosure. The inventory limit remains: only those three silver USD80 earrings qualify; E05 and E12 exceed budget. No metadata, identities, prices, registrations or production data changed. No live provider calls or deployment. Flow B/C remain separately authorized after deployment and readiness/accounting preflight; this is not a claim of strong statement inventory under USD80.
