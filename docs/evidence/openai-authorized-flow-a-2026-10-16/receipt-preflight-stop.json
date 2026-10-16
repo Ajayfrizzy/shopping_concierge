@@ -1,0 +1,14 @@
+{
+  "flowASubmitted": false,
+  "reason": "Receipt probe DELETE returned HTTP 403 AccessDenied after successful PUT and GET",
+  "newProviderCalls": 0,
+  "newReservations": 0,
+  "newTokens": 0,
+  "newSpendUsd": 0,
+  "localOpenaiMaxAttempts": "unset; remote value not independently verified",
+  "pendingReconciliation": "not checked: stopped at receipt-delete gate",
+  "historicalReservations": "not modified; database comparison not reached",
+  "lastVerifiedRemainingRequests": 196,
+  "lastVerifiedRemainingUsd": "2.78958800",
+  "budgetRefreshedThisRun": false
+}

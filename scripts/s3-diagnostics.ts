@@ -1,4 +1,4 @@
-/** Operator S3 probe; creates/deletes only its unique access-check object. No AI or ledger I/O. */
+/** Operator S3 probe; creates only its unique access-check object; cleanup is manual. No AI or ledger I/O. */
 import { randomUUID } from 'node:crypto';
 import { lookup } from 'node:dns/promises';
 import { connect } from 'node:tls';
@@ -10,7 +10,6 @@ import {
   ListObjectsV2Command,
   GetObjectCommand,
   PutObjectCommand,
-  DeleteObjectCommand,
 } from '@aws-sdk/client-s3';
 import { persistenceConfig } from '../apps/api/src/persistence/config.js';
 const safeCodes = new Set([
@@ -115,7 +114,6 @@ async function main() {
       return { stage, status: 'unavailable', durationMs: Date.now() - start, ...failure(e) };
     }
   }
-  let writeAttempted = false;
   try {
     evidence.checks.push(
       await probe('dns', async () => {
@@ -188,7 +186,6 @@ async function main() {
     );
     evidence.checks.push(
       await probe('writeReadProbe', async () => {
-        writeAttempted = true;
         await shared.send(
           new PutObjectCommand({
             Bucket: c.bucket,
@@ -247,15 +244,7 @@ async function main() {
       console.log(JSON.stringify(round));
     }
   } finally {
-    if (writeAttempted) {
-      evidence.cleanup = await probe('deleteOwnProbe', async () => {
-        const r = await shared.send(new DeleteObjectCommand({ Bucket: c.bucket, Key: key }), {
-          abortSignal: AbortSignal.timeout(12000),
-        });
-        return { httpStatus: r.$metadata.httpStatusCode };
-      });
-      console.log(JSON.stringify({ cleanup: evidence.cleanup }));
-    }
+    evidence.cleanup = { mode: 'manual through RumptyCloud', probeKey: key, deletionAttempted: false };
     save();
     shared.destroy();
   }

@@ -1,0 +1,9 @@
+{
+  "at": "2026-10-16T14:16:44.667Z",
+  "write": true,
+  "read": true,
+  "delete": false,
+  "failed": true,
+  "httpStatus": 403,
+  "code": "AccessDenied"
+}

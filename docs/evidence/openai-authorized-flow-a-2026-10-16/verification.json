@@ -1,0 +1,134 @@
+{
+  "httpStatus": 200,
+  "products": [
+    {
+      "id": "E02",
+      "price": 65,
+      "style": [
+        "elegant",
+        "delicate",
+        "romantic",
+        "small"
+      ],
+      "occasions": [
+        "wedding",
+        "date"
+      ]
+    },
+    {
+      "id": "E09",
+      "price": 50,
+      "style": [
+        "elegant",
+        "oval",
+        "balanced"
+      ],
+      "occasions": [
+        "wedding",
+        "everyday"
+      ]
+    },
+    {
+      "id": "E01",
+      "price": 35,
+      "style": [
+        "minimal",
+        "understated",
+        "round",
+        "small"
+      ],
+      "occasions": [
+        "everyday",
+        "work"
+      ]
+    }
+  ],
+  "constraints": [
+    {
+      "scope": "global",
+      "source": "explicit",
+      "field": "material",
+      "value": "silver"
+    },
+    {
+      "scope": "global",
+      "source": "explicit",
+      "field": "occasion",
+      "value": "evening"
+    },
+    {
+      "scope": "global",
+      "source": "explicit",
+      "field": "budget",
+      "value": {
+        "amount": 80,
+        "currency": "USD"
+      }
+    },
+    {
+      "scope": "global",
+      "source": "explicit",
+      "field": "styleTags",
+      "value": [
+        "elegant",
+        "lightweight"
+      ]
+    },
+    {
+      "scope": "global",
+      "source": "explicit",
+      "field": "visualIntensity",
+      "value": "high"
+    }
+  ],
+  "sessionVersion": 1,
+  "domainRevision": 2,
+  "newReservations": 1,
+  "newDiagnostics": 1,
+  "settlement": {
+    "provider": "openai",
+    "id": "20026c98-35c1-4768-bbf7-1bda5b0f8a3c",
+    "reserved_usd": "0.06817400",
+    "charged_usd": "0.00765200",
+    "usage": {
+      "input_tokens": 2650,
+      "output_tokens": 196,
+      "input_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "committed_at": "2026-10-16T14:28:36.255Z"
+  },
+  "remainingRequests": 195,
+  "remainingUsd": "2.78193600",
+  "groundingPassed": true,
+  "committedRecommendationsPassed": true,
+  "oldReservationsUnchanged": true,
+  "youcamUnchanged": true,
+  "finalReady": {
+    "startedAt": "2026-10-16T14:28:42.869Z",
+    "finishedAt": "2026-10-16T14:28:43.700Z",
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      },
+      "dependencies": {
+        "configuration": "ready",
+        "database": "ready",
+        "objectStorage": "ready",
+        "openaiDiagnostics": "ready",
+        "openaiLedger": "ready",
+        "youcamLedger": "ready"
+      }
+    }
+  }
+}

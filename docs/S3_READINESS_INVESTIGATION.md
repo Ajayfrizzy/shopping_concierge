@@ -1,3 +1,7 @@
+## Hackathon S3 capability policy — 2026-10-16
+
+Backend S3 permissions require private read/write access, not DeleteObject. Receipt preflight must PUT a unique probe and GET identical bytes; it must not attempt backend deletion. Probe cleanup is manual through RumptyCloud. Durable receipts and VTO assets stay private. Backend/API file deletion is neither supported nor advertised. A denied DeleteObject is not a judge/runtime blocker. Keep deployed `OPENAI_MAX_ATTEMPTS=1`; this remains an operator-confirmed setting, not a field inferred from `/ready`.
+
 # S3 readiness investigation — 2026-10-16
 
 Production is blocked by S3 access denial. No Flow A, OpenAI or YouCam request was submitted. No budgets, reservations or VTO registrations were modified.
@@ -22,9 +26,9 @@ Readiness remains read-only HeadBucket. A shared in-flight promise prevents conc
 
 ## Operator action and retry gate
 
-Check the intended bucket/project, key enabled state, bucket ownership/policy and permissions using RumptyCloud storage administration. The backend requires bucket HEAD/list access and object GET/PUT/DELETE on its intended private prefixes, including accounting receipts. Do not make the bucket public. Correct credentials/configuration only if inspection identifies a mismatch; environment changes require a backend restart/redeployment. If configuration and policy are correct, give RumptyCloud support the sanitized request ID and UTC probe window.
+Check the intended bucket/project, key enabled state, bucket ownership/policy and permissions using RumptyCloud storage administration. The backend requires bucket HEAD/list access and object GET/PUT on its intended private prefixes, including accounting receipts. Do not make the bucket public. Correct credentials/configuration only if inspection identifies a mismatch; environment changes require a backend restart/redeployment. If configuration and policy are correct, give RumptyCloud support the sanitized request ID and UTC probe window.
 
-Before any separately authorized Flow A: authenticated HeadBucket/list and dedicated receipt PUT/GET/DELETE must pass; deployed /health and /ready must pass ten consecutive checks over several minutes with every dependency ready; PostgreSQL diagnostics must remain accessible; no pending reconciliation may exist; historical reservations/budgets must remain intact; verify deployed OPENAI_MAX_ATTEMPTS=1. A single later successful HEAD is insufficient. No provider call is authorized by running this diagnostic script.
+Before any separately authorized Flow A: authenticated HeadBucket/list and dedicated receipt PUT/GET with matching bytes must pass; deployed /health and /ready must pass ten consecutive checks over several minutes with every dependency ready; PostgreSQL diagnostics must remain accessible; no pending reconciliation may exist; historical reservations/budgets must remain intact; verify deployed OPENAI_MAX_ATTEMPTS=1. A single later successful HEAD is insufficient. No provider call is authorized by running this diagnostic script.
 
 ## Reproduce locally
 
@@ -33,7 +37,7 @@ S3_EVIDENCE_PATH=docs/evidence/s3-readiness-2026-10-16/probe.json \
 node --env-file=apps/api/.env --import tsx scripts/s3-diagnostics.ts
 ```
 
-The script creates only a unique access-check object in the existing receipt prefix, attempts cleanup even after an ambiguous PUT, and emits allowlisted diagnostics without endpoints, credentials, signed URLs or object listings. Preserve earlier evidence before rerunning.
+The script creates only a unique access-check object in the existing receipt prefix, leaves cleanup to the RumptyCloud platform, and emits allowlisted diagnostics without endpoints, credentials, signed URLs or object listings. Preserve earlier evidence before rerunning.
 
 ## Validation
 

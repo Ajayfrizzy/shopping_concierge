@@ -1,0 +1,1931 @@
+{
+  "receipt": {
+    "at": "2026-10-16T14:27:20.571Z",
+    "write": true,
+    "read": true,
+    "cleanup": "manual through RumptyCloud",
+    "key": "projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/accounting/openai/receipts/access-check-171ba5d3-a8f7-434c-a69a-c04a9223ce01.json",
+    "pendingReceipts": []
+  },
+  "health": {
+    "startedAt": "2026-10-16T14:28:18.628Z",
+    "finishedAt": "2026-10-16T14:28:19.897Z",
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "service": "youcam-api"
+    }
+  },
+  "ready": {
+    "startedAt": "2026-10-16T14:28:19.899Z",
+    "finishedAt": "2026-10-16T14:28:21.668Z",
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      },
+      "dependencies": {
+        "configuration": "ready",
+        "database": "ready",
+        "objectStorage": "ready",
+        "openaiDiagnostics": "ready",
+        "openaiLedger": "ready",
+        "youcamLedger": "ready"
+      }
+    }
+  },
+  "migrations": [
+    {
+      "version": 1
+    },
+    {
+      "version": 2
+    },
+    {
+      "version": 3
+    },
+    {
+      "version": 4
+    },
+    {
+      "version": 5
+    },
+    {
+      "version": 6
+    },
+    {
+      "version": 7
+    }
+  ],
+  "before": [
+    {
+      "provider": "openai",
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "reserved_usd": "0.06750800",
+      "charged_usd": "0.06750800",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "7972d444-b7d5-48f1-927b-d4cae74191a2",
+      "reserved_usd": "0.06638600",
+      "charged_usd": "0.00788600",
+      "usage": {
+        "input_tokens": 2473,
+        "output_tokens": 245,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "committed_at": "2026-10-14T22:35:55.455Z"
+    },
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "reserved_usd": "0.06751400",
+      "charged_usd": "0.06751400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "reserved_usd": "0.06750400",
+      "charged_usd": "0.06750400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "budgets": [
+    {
+      "provider": "openai",
+      "max_requests": 200,
+      "max_units": 0,
+      "max_usd": "3.00000000",
+      "approved": true,
+      "blocked": false
+    },
+    {
+      "provider": "youcam",
+      "max_requests": 50,
+      "max_units": 50,
+      "max_usd": "0.00000000",
+      "approved": true,
+      "blocked": false
+    }
+  ],
+  "confirmedSettingsResolvedMaxAttempts": 1,
+  "remoteAttemptEvidence": "User-confirmed deployed OPENAI_MAX_ATTEMPTS=1; deployed corrected configuration path; no remote environment introspection",
+  "sessionId": "6d605f1f-f13a-47e1-a170-907019b0a077",
+  "clientRequestId": "18b6bc0d-82bf-453f-ab49-6e843e344786",
+  "submittedAt": "2026-10-16T14:28:28.040Z",
+  "flowA": {
+    "startedAt": "2026-10-16T14:28:28.041Z",
+    "finishedAt": "2026-10-16T14:28:38.071Z",
+    "status": 200,
+    "body": {
+      "mode": "live",
+      "status": "ok",
+      "intent": "start_search",
+      "message": "Here are the exact fixture catalog matches, ranked against your current preferences. Your lightweight preference is saved, but catalog weight is not verified.",
+      "session": {
+        "state": {
+          "id": "6d605f1f-f13a-47e1-a170-907019b0a077",
+          "schemaVersion": 1,
+          "revision": 2,
+          "goal": "Controlled durable-diagnostic Flow A",
+          "activeCategory": "earrings",
+          "constraints": [
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "material",
+                "value": "silver"
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "occasion",
+                "value": "evening"
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "budget",
+                "value": {
+                  "amount": 80,
+                  "currency": "USD"
+                }
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "styleTags",
+                "value": [
+                  "elegant",
+                  "lightweight"
+                ]
+              },
+              "revision": 2
+            },
+            {
+              "preference": {
+                "scope": "global",
+                "source": "explicit",
+                "field": "visualIntensity",
+                "value": "high"
+              },
+              "revision": 2
+            }
+          ],
+          "decisions": {
+            "earrings": {
+              "liked": [],
+              "shortlisted": [],
+              "saved": [],
+              "selected": [],
+              "rejected": []
+            }
+          },
+          "feedback": [],
+          "dependencies": [],
+          "recentChanges": [
+            {
+              "field": "constraints.global:budget:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "budget",
+                  "value": {
+                    "amount": 80,
+                    "currency": "USD"
+                  }
+                },
+                "revision": 2
+              }
+            },
+            {
+              "field": "constraints.global:material:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "material",
+                  "value": "silver"
+                },
+                "revision": 2
+              }
+            },
+            {
+              "field": "constraints.global:occasion:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "occasion",
+                  "value": "evening"
+                },
+                "revision": 2
+              }
+            },
+            {
+              "field": "constraints.global:styleTags:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "styleTags",
+                  "value": [
+                    "elegant",
+                    "lightweight"
+                  ]
+                },
+                "revision": 2
+              }
+            },
+            {
+              "field": "constraints.global:visualIntensity:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "visualIntensity",
+                  "value": "high"
+                },
+                "revision": 2
+              }
+            }
+          ]
+        },
+        "version": 1,
+        "pendingRelaxations": []
+      },
+      "events": [
+        {
+          "sessionId": "6d605f1f-f13a-47e1-a170-907019b0a077",
+          "revision": 1,
+          "action": "switch_category",
+          "changes": [
+            {
+              "field": "activeCategory",
+              "previous": null,
+              "current": "earrings"
+            },
+            {
+              "field": "decisions.earrings",
+              "previous": null,
+              "current": {
+                "liked": [],
+                "shortlisted": [],
+                "saved": [],
+                "selected": [],
+                "rejected": []
+              }
+            }
+          ]
+        },
+        {
+          "sessionId": "6d605f1f-f13a-47e1-a170-907019b0a077",
+          "revision": 2,
+          "action": "update_constraints",
+          "changes": [
+            {
+              "field": "constraints.global:budget:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "budget",
+                  "value": {
+                    "amount": 80,
+                    "currency": "USD"
+                  }
+                },
+                "revision": 2
+              }
+            },
+            {
+              "field": "constraints.global:material:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "material",
+                  "value": "silver"
+                },
+                "revision": 2
+              }
+            },
+            {
+              "field": "constraints.global:occasion:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "occasion",
+                  "value": "evening"
+                },
+                "revision": 2
+              }
+            },
+            {
+              "field": "constraints.global:styleTags:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "styleTags",
+                  "value": [
+                    "elegant",
+                    "lightweight"
+                  ]
+                },
+                "revision": 2
+              }
+            },
+            {
+              "field": "constraints.global:visualIntensity:explicit",
+              "previous": null,
+              "current": {
+                "preference": {
+                  "scope": "global",
+                  "source": "explicit",
+                  "field": "visualIntensity",
+                  "value": "high"
+                },
+                "revision": 2
+              }
+            }
+          ]
+        }
+      ],
+      "ui": {
+        "type": "product_list",
+        "payload": {
+          "status": "matches",
+          "exactMatches": [
+            {
+              "product": {
+                "id": "E02",
+                "name": "Fixture Petal Earrings",
+                "category": "earrings",
+                "price": 65,
+                "currency": "USD",
+                "brand": "Concierge Fixtures",
+                "material": "silver",
+                "color": "silver",
+                "styleTags": [
+                  "elegant",
+                  "delicate",
+                  "romantic",
+                  "small"
+                ],
+                "occasionTags": [
+                  "wedding",
+                  "date"
+                ],
+                "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                "imageUrl": "catalog://demo/E02.png",
+                "vtoAssetUrl": null,
+                "inStock": true
+              },
+              "scores": {
+                "explicit": 4,
+                "feedback": 0,
+                "saved_preference": 0,
+                "visual": 0,
+                "heuristic": 0
+              },
+              "evidence": [
+                {
+                  "signal": "styleTags",
+                  "tier": "explicit",
+                  "contribution": 4,
+                  "attributes": [
+                    "elegant"
+                  ],
+                  "source": "explicit"
+                }
+              ]
+            },
+            {
+              "product": {
+                "id": "E09",
+                "name": "Fixture Oval Earrings",
+                "category": "earrings",
+                "price": 50,
+                "currency": "USD",
+                "brand": "Concierge Fixtures",
+                "material": "silver",
+                "color": "silver",
+                "styleTags": [
+                  "elegant",
+                  "oval",
+                  "balanced"
+                ],
+                "occasionTags": [
+                  "wedding",
+                  "everyday"
+                ],
+                "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                "imageUrl": "catalog://demo/E09.png",
+                "vtoAssetUrl": null,
+                "inStock": true
+              },
+              "scores": {
+                "explicit": 4,
+                "feedback": 0,
+                "saved_preference": 0,
+                "visual": 0,
+                "heuristic": 0
+              },
+              "evidence": [
+                {
+                  "signal": "styleTags",
+                  "tier": "explicit",
+                  "contribution": 4,
+                  "attributes": [
+                    "elegant"
+                  ],
+                  "source": "explicit"
+                }
+              ]
+            },
+            {
+              "product": {
+                "id": "E01",
+                "name": "Fixture Quiet Round Earrings",
+                "category": "earrings",
+                "price": 35,
+                "currency": "USD",
+                "brand": "Concierge Fixtures",
+                "material": "silver",
+                "color": "silver",
+                "styleTags": [
+                  "minimal",
+                  "understated",
+                  "round",
+                  "small"
+                ],
+                "occasionTags": [
+                  "everyday",
+                  "work"
+                ],
+                "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                "imageUrl": "catalog://demo/E01.png",
+                "vtoEligible": true,
+                "vtoAssetUrl": null,
+                "inStock": true
+              },
+              "scores": {
+                "explicit": 0,
+                "feedback": 0,
+                "saved_preference": 0,
+                "visual": 0,
+                "heuristic": 0
+              },
+              "evidence": []
+            }
+          ],
+          "totalExactMatches": 3,
+          "relaxations": []
+        }
+      },
+      "tools": [
+        {
+          "name": "switch_category",
+          "outcome": "completed"
+        },
+        {
+          "name": "update_constraints",
+          "outcome": "completed"
+        },
+        {
+          "name": "search_products",
+          "outcome": "completed"
+        }
+      ]
+    }
+  },
+  "diagnostics": [
+    {
+      "id": "bcd79a5c-1945-436e-8dd8-689f3ee05801",
+      "created_at": "2026-10-16T14:28:29.832Z",
+      "finished_at": "2026-10-16T14:28:36.634Z",
+      "session_id": "6d605f1f-f13a-47e1-a170-907019b0a077",
+      "client_request_id": "18b6bc0d-82bf-453f-ab49-6e843e344786",
+      "ledger_reservation_id": "20026c98-35c1-4768-bbf7-1bda5b0f8a3c",
+      "stage": "plan_schema",
+      "http_status": 200,
+      "error_code": null,
+      "error_type": null,
+      "provider_request_id": "req_9334947042b64de59a8d1e2103fb2429",
+      "aborted": false,
+      "outcome": "success"
+    }
+  ],
+  "after": [
+    {
+      "provider": "openai",
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "reserved_usd": "0.06750800",
+      "charged_usd": "0.06750800",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "20026c98-35c1-4768-bbf7-1bda5b0f8a3c",
+      "reserved_usd": "0.06817400",
+      "charged_usd": "0.00765200",
+      "usage": {
+        "input_tokens": 2650,
+        "output_tokens": 196,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "committed_at": "2026-10-16T14:28:36.255Z"
+    },
+    {
+      "provider": "openai",
+      "id": "7972d444-b7d5-48f1-927b-d4cae74191a2",
+      "reserved_usd": "0.06638600",
+      "charged_usd": "0.00788600",
+      "usage": {
+        "input_tokens": 2473,
+        "output_tokens": 245,
+        "input_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "committed_at": "2026-10-14T22:35:55.455Z"
+    },
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "reserved_usd": "0.06751400",
+      "charged_usd": "0.06751400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "reserved_usd": "0.06750400",
+      "charged_usd": "0.06750400",
+      "usage": null,
+      "committed_at": null
+    },
+    {
+      "provider": "youcam",
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:07:25.990Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:05:09.337Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:15:37.384Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T11:11:37.020Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T13:23:50.691Z"
+    },
+    {
+      "provider": "youcam",
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "reserved_usd": "0.00000000",
+      "charged_usd": "0.00000000",
+      "usage": null,
+      "committed_at": "2026-10-10T15:06:16.490Z"
+    }
+  ],
+  "persistedSession": {
+    "startedAt": "2026-10-16T14:28:38.811Z",
+    "finishedAt": "2026-10-16T14:28:41.760Z",
+    "status": 200,
+    "body": {
+      "state": {
+        "id": "6d605f1f-f13a-47e1-a170-907019b0a077",
+        "schemaVersion": 1,
+        "revision": 2,
+        "goal": "Controlled durable-diagnostic Flow A",
+        "activeCategory": "earrings",
+        "constraints": [
+          {
+            "preference": {
+              "scope": "global",
+              "source": "explicit",
+              "field": "material",
+              "value": "silver"
+            },
+            "revision": 2
+          },
+          {
+            "preference": {
+              "scope": "global",
+              "source": "explicit",
+              "field": "occasion",
+              "value": "evening"
+            },
+            "revision": 2
+          },
+          {
+            "preference": {
+              "scope": "global",
+              "source": "explicit",
+              "field": "budget",
+              "value": {
+                "amount": 80,
+                "currency": "USD"
+              }
+            },
+            "revision": 2
+          },
+          {
+            "preference": {
+              "scope": "global",
+              "source": "explicit",
+              "field": "styleTags",
+              "value": [
+                "elegant",
+                "lightweight"
+              ]
+            },
+            "revision": 2
+          },
+          {
+            "preference": {
+              "scope": "global",
+              "source": "explicit",
+              "field": "visualIntensity",
+              "value": "high"
+            },
+            "revision": 2
+          }
+        ],
+        "decisions": {
+          "earrings": {
+            "liked": [],
+            "shortlisted": [],
+            "saved": [],
+            "selected": [],
+            "rejected": []
+          }
+        },
+        "feedback": [],
+        "dependencies": [],
+        "recentChanges": [
+          {
+            "field": "constraints.global:budget:explicit",
+            "previous": null,
+            "current": {
+              "revision": 2,
+              "preference": {
+                "field": "budget",
+                "scope": "global",
+                "value": {
+                  "amount": 80,
+                  "currency": "USD"
+                },
+                "source": "explicit"
+              }
+            }
+          },
+          {
+            "field": "constraints.global:material:explicit",
+            "previous": null,
+            "current": {
+              "revision": 2,
+              "preference": {
+                "field": "material",
+                "scope": "global",
+                "value": "silver",
+                "source": "explicit"
+              }
+            }
+          },
+          {
+            "field": "constraints.global:occasion:explicit",
+            "previous": null,
+            "current": {
+              "revision": 2,
+              "preference": {
+                "field": "occasion",
+                "scope": "global",
+                "value": "evening",
+                "source": "explicit"
+              }
+            }
+          },
+          {
+            "field": "constraints.global:styleTags:explicit",
+            "previous": null,
+            "current": {
+              "revision": 2,
+              "preference": {
+                "field": "styleTags",
+                "scope": "global",
+                "value": [
+                  "elegant",
+                  "lightweight"
+                ],
+                "source": "explicit"
+              }
+            }
+          },
+          {
+            "field": "constraints.global:visualIntensity:explicit",
+            "previous": null,
+            "current": {
+              "revision": 2,
+              "preference": {
+                "field": "visualIntensity",
+                "scope": "global",
+                "value": "high",
+                "source": "explicit"
+              }
+            }
+          }
+        ]
+      },
+      "version": 1,
+      "pendingRelaxations": []
+    }
+  },
+  "persistedRecord": {
+    "version": "1",
+    "record": {
+      "view": {
+        "state": {
+          "id": "6d605f1f-f13a-47e1-a170-907019b0a077",
+          "goal": "Controlled durable-diagnostic Flow A",
+          "feedback": [],
+          "revision": 2,
+          "decisions": {
+            "earrings": {
+              "liked": [],
+              "saved": [],
+              "rejected": [],
+              "selected": [],
+              "shortlisted": []
+            }
+          },
+          "constraints": [
+            {
+              "revision": 2,
+              "preference": {
+                "field": "material",
+                "scope": "global",
+                "value": "silver",
+                "source": "explicit"
+              }
+            },
+            {
+              "revision": 2,
+              "preference": {
+                "field": "occasion",
+                "scope": "global",
+                "value": "evening",
+                "source": "explicit"
+              }
+            },
+            {
+              "revision": 2,
+              "preference": {
+                "field": "budget",
+                "scope": "global",
+                "value": {
+                  "amount": 80,
+                  "currency": "USD"
+                },
+                "source": "explicit"
+              }
+            },
+            {
+              "revision": 2,
+              "preference": {
+                "field": "styleTags",
+                "scope": "global",
+                "value": [
+                  "elegant",
+                  "lightweight"
+                ],
+                "source": "explicit"
+              }
+            },
+            {
+              "revision": 2,
+              "preference": {
+                "field": "visualIntensity",
+                "scope": "global",
+                "value": "high",
+                "source": "explicit"
+              }
+            }
+          ],
+          "dependencies": [],
+          "recentChanges": [
+            {
+              "field": "constraints.global:budget:explicit",
+              "current": {
+                "revision": 2,
+                "preference": {
+                  "field": "budget",
+                  "scope": "global",
+                  "value": {
+                    "amount": 80,
+                    "currency": "USD"
+                  },
+                  "source": "explicit"
+                }
+              },
+              "previous": null
+            },
+            {
+              "field": "constraints.global:material:explicit",
+              "current": {
+                "revision": 2,
+                "preference": {
+                  "field": "material",
+                  "scope": "global",
+                  "value": "silver",
+                  "source": "explicit"
+                }
+              },
+              "previous": null
+            },
+            {
+              "field": "constraints.global:occasion:explicit",
+              "current": {
+                "revision": 2,
+                "preference": {
+                  "field": "occasion",
+                  "scope": "global",
+                  "value": "evening",
+                  "source": "explicit"
+                }
+              },
+              "previous": null
+            },
+            {
+              "field": "constraints.global:styleTags:explicit",
+              "current": {
+                "revision": 2,
+                "preference": {
+                  "field": "styleTags",
+                  "scope": "global",
+                  "value": [
+                    "elegant",
+                    "lightweight"
+                  ],
+                  "source": "explicit"
+                }
+              },
+              "previous": null
+            },
+            {
+              "field": "constraints.global:visualIntensity:explicit",
+              "current": {
+                "revision": 2,
+                "preference": {
+                  "field": "visualIntensity",
+                  "scope": "global",
+                  "value": "high",
+                  "source": "explicit"
+                }
+              },
+              "previous": null
+            }
+          ],
+          "schemaVersion": 1,
+          "activeCategory": "earrings"
+        },
+        "version": 1,
+        "pendingRelaxations": []
+      },
+      "history": [
+        {
+          "role": "user",
+          "text": "I need elegant silver earrings under $80 for an evening event. I prefer something noticeable but not too heavy."
+        },
+        {
+          "role": "assistant",
+          "text": "Here are the exact fixture catalog matches, ranked against your current preferences."
+        }
+      ],
+      "replies": [
+        {
+          "id": "18b6bc0d-82bf-453f-ab49-6e843e344786",
+          "request": "{\"requestId\":\"18b6bc0d-82bf-453f-ab49-6e843e344786\",\"expectedVersion\":0,\"type\":\"message\",\"message\":\"I need elegant silver earrings under $80 for an evening event. I prefer something noticeable but not too heavy.\"}",
+          "response": {
+            "ui": {
+              "type": "product_list",
+              "payload": {
+                "status": "matches",
+                "relaxations": [],
+                "exactMatches": [
+                  {
+                    "scores": {
+                      "visual": 0,
+                      "explicit": 4,
+                      "feedback": 0,
+                      "heuristic": 0,
+                      "saved_preference": 0
+                    },
+                    "product": {
+                      "id": "E02",
+                      "name": "Fixture Petal Earrings",
+                      "brand": "Concierge Fixtures",
+                      "color": "silver",
+                      "price": 65,
+                      "inStock": true,
+                      "category": "earrings",
+                      "currency": "USD",
+                      "imageUrl": "catalog://demo/E02.png",
+                      "material": "silver",
+                      "styleTags": [
+                        "elegant",
+                        "delicate",
+                        "romantic",
+                        "small"
+                      ],
+                      "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                      "vtoAssetUrl": null,
+                      "occasionTags": [
+                        "wedding",
+                        "date"
+                      ]
+                    },
+                    "evidence": [
+                      {
+                        "tier": "explicit",
+                        "signal": "styleTags",
+                        "source": "explicit",
+                        "attributes": [
+                          "elegant"
+                        ],
+                        "contribution": 4
+                      }
+                    ]
+                  },
+                  {
+                    "scores": {
+                      "visual": 0,
+                      "explicit": 4,
+                      "feedback": 0,
+                      "heuristic": 0,
+                      "saved_preference": 0
+                    },
+                    "product": {
+                      "id": "E09",
+                      "name": "Fixture Oval Earrings",
+                      "brand": "Concierge Fixtures",
+                      "color": "silver",
+                      "price": 50,
+                      "inStock": true,
+                      "category": "earrings",
+                      "currency": "USD",
+                      "imageUrl": "catalog://demo/E09.png",
+                      "material": "silver",
+                      "styleTags": [
+                        "elegant",
+                        "oval",
+                        "balanced"
+                      ],
+                      "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                      "vtoAssetUrl": null,
+                      "occasionTags": [
+                        "wedding",
+                        "everyday"
+                      ]
+                    },
+                    "evidence": [
+                      {
+                        "tier": "explicit",
+                        "signal": "styleTags",
+                        "source": "explicit",
+                        "attributes": [
+                          "elegant"
+                        ],
+                        "contribution": 4
+                      }
+                    ]
+                  },
+                  {
+                    "scores": {
+                      "visual": 0,
+                      "explicit": 0,
+                      "feedback": 0,
+                      "heuristic": 0,
+                      "saved_preference": 0
+                    },
+                    "product": {
+                      "id": "E01",
+                      "name": "Fixture Quiet Round Earrings",
+                      "brand": "Concierge Fixtures",
+                      "color": "silver",
+                      "price": 35,
+                      "inStock": true,
+                      "category": "earrings",
+                      "currency": "USD",
+                      "imageUrl": "catalog://demo/E01.png",
+                      "material": "silver",
+                      "styleTags": [
+                        "minimal",
+                        "understated",
+                        "round",
+                        "small"
+                      ],
+                      "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+                      "vtoAssetUrl": null,
+                      "vtoEligible": true,
+                      "occasionTags": [
+                        "everyday",
+                        "work"
+                      ]
+                    },
+                    "evidence": []
+                  }
+                ],
+                "totalExactMatches": 3
+              }
+            },
+            "mode": "live",
+            "tools": [
+              {
+                "name": "switch_category",
+                "outcome": "completed"
+              },
+              {
+                "name": "update_constraints",
+                "outcome": "completed"
+              },
+              {
+                "name": "search_products",
+                "outcome": "completed"
+              }
+            ],
+            "events": [
+              {
+                "action": "switch_category",
+                "changes": [
+                  {
+                    "field": "activeCategory",
+                    "current": "earrings",
+                    "previous": null
+                  },
+                  {
+                    "field": "decisions.earrings",
+                    "current": {
+                      "liked": [],
+                      "saved": [],
+                      "rejected": [],
+                      "selected": [],
+                      "shortlisted": []
+                    },
+                    "previous": null
+                  }
+                ],
+                "revision": 1,
+                "sessionId": "6d605f1f-f13a-47e1-a170-907019b0a077"
+              },
+              {
+                "action": "update_constraints",
+                "changes": [
+                  {
+                    "field": "constraints.global:budget:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "budget",
+                        "scope": "global",
+                        "value": {
+                          "amount": 80,
+                          "currency": "USD"
+                        },
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  },
+                  {
+                    "field": "constraints.global:material:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "material",
+                        "scope": "global",
+                        "value": "silver",
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  },
+                  {
+                    "field": "constraints.global:occasion:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "occasion",
+                        "scope": "global",
+                        "value": "evening",
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  },
+                  {
+                    "field": "constraints.global:styleTags:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "styleTags",
+                        "scope": "global",
+                        "value": [
+                          "elegant",
+                          "lightweight"
+                        ],
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  },
+                  {
+                    "field": "constraints.global:visualIntensity:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "visualIntensity",
+                        "scope": "global",
+                        "value": "high",
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  }
+                ],
+                "revision": 2,
+                "sessionId": "6d605f1f-f13a-47e1-a170-907019b0a077"
+              }
+            ],
+            "intent": "start_search",
+            "status": "ok",
+            "message": "Here are the exact fixture catalog matches, ranked against your current preferences. Your lightweight preference is saved, but catalog weight is not verified.",
+            "session": {
+              "state": {
+                "id": "6d605f1f-f13a-47e1-a170-907019b0a077",
+                "goal": "Controlled durable-diagnostic Flow A",
+                "feedback": [],
+                "revision": 2,
+                "decisions": {
+                  "earrings": {
+                    "liked": [],
+                    "saved": [],
+                    "rejected": [],
+                    "selected": [],
+                    "shortlisted": []
+                  }
+                },
+                "constraints": [
+                  {
+                    "revision": 2,
+                    "preference": {
+                      "field": "material",
+                      "scope": "global",
+                      "value": "silver",
+                      "source": "explicit"
+                    }
+                  },
+                  {
+                    "revision": 2,
+                    "preference": {
+                      "field": "occasion",
+                      "scope": "global",
+                      "value": "evening",
+                      "source": "explicit"
+                    }
+                  },
+                  {
+                    "revision": 2,
+                    "preference": {
+                      "field": "budget",
+                      "scope": "global",
+                      "value": {
+                        "amount": 80,
+                        "currency": "USD"
+                      },
+                      "source": "explicit"
+                    }
+                  },
+                  {
+                    "revision": 2,
+                    "preference": {
+                      "field": "styleTags",
+                      "scope": "global",
+                      "value": [
+                        "elegant",
+                        "lightweight"
+                      ],
+                      "source": "explicit"
+                    }
+                  },
+                  {
+                    "revision": 2,
+                    "preference": {
+                      "field": "visualIntensity",
+                      "scope": "global",
+                      "value": "high",
+                      "source": "explicit"
+                    }
+                  }
+                ],
+                "dependencies": [],
+                "recentChanges": [
+                  {
+                    "field": "constraints.global:budget:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "budget",
+                        "scope": "global",
+                        "value": {
+                          "amount": 80,
+                          "currency": "USD"
+                        },
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  },
+                  {
+                    "field": "constraints.global:material:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "material",
+                        "scope": "global",
+                        "value": "silver",
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  },
+                  {
+                    "field": "constraints.global:occasion:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "occasion",
+                        "scope": "global",
+                        "value": "evening",
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  },
+                  {
+                    "field": "constraints.global:styleTags:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "styleTags",
+                        "scope": "global",
+                        "value": [
+                          "elegant",
+                          "lightweight"
+                        ],
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  },
+                  {
+                    "field": "constraints.global:visualIntensity:explicit",
+                    "current": {
+                      "revision": 2,
+                      "preference": {
+                        "field": "visualIntensity",
+                        "scope": "global",
+                        "value": "high",
+                        "source": "explicit"
+                      }
+                    },
+                    "previous": null
+                  }
+                ],
+                "schemaVersion": 1,
+                "activeCategory": "earrings"
+              },
+              "version": 1,
+              "pendingRelaxations": []
+            }
+          }
+        }
+      ]
+    }
+  },
+  "catalog": [
+    {
+      "id": "E01",
+      "product": {
+        "id": "E01",
+        "name": "Fixture Quiet Round Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 35,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E01.png",
+        "material": "silver",
+        "styleTags": [
+          "minimal",
+          "understated",
+          "round",
+          "small"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "vtoEligible": true,
+        "occasionTags": [
+          "everyday",
+          "work"
+        ]
+      }
+    },
+    {
+      "id": "E02",
+      "product": {
+        "id": "E02",
+        "name": "Fixture Petal Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 65,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E02.png",
+        "material": "silver",
+        "styleTags": [
+          "elegant",
+          "delicate",
+          "romantic",
+          "small"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "wedding",
+          "date"
+        ]
+      }
+    },
+    {
+      "id": "E03",
+      "product": {
+        "id": "E03",
+        "name": "Fixture Arc Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "gold",
+        "price": 85,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E03.png",
+        "material": "gold",
+        "styleTags": [
+          "elegant",
+          "understated",
+          "round"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "vtoEligible": true,
+        "occasionTags": [
+          "wedding",
+          "work"
+        ]
+      }
+    },
+    {
+      "id": "E04",
+      "product": {
+        "id": "E04",
+        "name": "Fixture Geometry Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 45,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E04.png",
+        "material": "steel",
+        "styleTags": [
+          "modern",
+          "geometric",
+          "balanced"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "work",
+          "everyday"
+        ]
+      }
+    },
+    {
+      "id": "E05",
+      "product": {
+        "id": "E05",
+        "name": "Fixture Gala Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 110,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E05.png",
+        "material": "silver",
+        "styleTags": [
+          "statement",
+          "oversized",
+          "ornate",
+          "dangling"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "party",
+          "wedding"
+        ]
+      }
+    },
+    {
+      "id": "E06",
+      "product": {
+        "id": "E06",
+        "name": "Fixture Festival Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "gold",
+        "price": 95,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E06.png",
+        "material": "gold",
+        "styleTags": [
+          "statement",
+          "oversized",
+          "geometric",
+          "dangling"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "party"
+        ]
+      }
+    },
+    {
+      "id": "E07",
+      "product": {
+        "id": "E07",
+        "name": "Fixture Heart Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "pink",
+        "price": 70,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E07.png",
+        "material": "rose gold",
+        "styleTags": [
+          "romantic",
+          "heart",
+          "delicate"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "date",
+          "wedding"
+        ]
+      }
+    },
+    {
+      "id": "E08",
+      "product": {
+        "id": "E08",
+        "name": "Fixture Square Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "black",
+        "price": 140,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E08.png",
+        "material": "titanium",
+        "styleTags": [
+          "modern",
+          "square",
+          "balanced"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "work"
+        ]
+      }
+    },
+    {
+      "id": "E09",
+      "product": {
+        "id": "E09",
+        "name": "Fixture Oval Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 50,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E09.png",
+        "material": "silver",
+        "styleTags": [
+          "elegant",
+          "oval",
+          "balanced"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "wedding",
+          "everyday"
+        ]
+      }
+    },
+    {
+      "id": "E10",
+      "product": {
+        "id": "E10",
+        "name": "Fixture Garden Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "gold",
+        "price": 160,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E10.png",
+        "material": "gold",
+        "styleTags": [
+          "romantic",
+          "ornate",
+          "large",
+          "dangling"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "wedding",
+          "party"
+        ]
+      }
+    },
+    {
+      "id": "E11",
+      "product": {
+        "id": "E11",
+        "name": "Fixture Everyday Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "black",
+        "price": 25,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E11.png",
+        "material": "steel",
+        "styleTags": [
+          "minimal",
+          "small",
+          "round"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "everyday"
+        ]
+      }
+    },
+    {
+      "id": "E12",
+      "product": {
+        "id": "E12",
+        "name": "Fixture Evening Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 180,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E12.png",
+        "material": "silver",
+        "styleTags": [
+          "elegant",
+          "statement",
+          "large",
+          "dangling"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data. Silver-colored statement chandelier earrings with a marquise-shaped top, branching drops and a teardrop focal pendant. The approved single-earring reference represents this replacement design.",
+        "vtoAssetUrl": null,
+        "vtoEligible": true,
+        "occasionTags": [
+          "party",
+          "wedding"
+        ]
+      }
+    },
+    {
+      "id": "E13",
+      "product": {
+        "id": "E13",
+        "name": "Fixture Ribbon Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "gold",
+        "price": 55,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E13.png",
+        "material": "gold",
+        "styleTags": [
+          "elegant",
+          "understated",
+          "delicate"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "wedding",
+          "work"
+        ]
+      }
+    },
+    {
+      "id": "E14",
+      "product": {
+        "id": "E14",
+        "name": "Fixture Classic Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 90,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E14.png",
+        "material": "silver",
+        "styleTags": [
+          "elegant",
+          "balanced",
+          "round"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "work",
+          "wedding"
+        ]
+      }
+    },
+    {
+      "id": "E15",
+      "product": {
+        "id": "E15",
+        "name": "Fixture Bold Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 120,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E15.png",
+        "material": "steel",
+        "styleTags": [
+          "statement",
+          "oversized",
+          "square"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "party"
+        ]
+      }
+    },
+    {
+      "id": "E16",
+      "product": {
+        "id": "E16",
+        "name": "Fixture Archive Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 40,
+        "inStock": false,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E16.png",
+        "material": "silver",
+        "styleTags": [
+          "elegant",
+          "delicate"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "wedding"
+        ]
+      }
+    },
+    {
+      "id": "E17",
+      "product": {
+        "id": "E17",
+        "name": "Fixture Travel Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 60,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "EUR",
+        "imageUrl": "catalog://demo/E17.png",
+        "material": "silver",
+        "styleTags": [
+          "modern",
+          "minimal"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "everyday"
+        ]
+      }
+    },
+    {
+      "id": "E18",
+      "product": {
+        "id": "E18",
+        "name": "Fixture Ceremony Earrings",
+        "brand": "Concierge Fixtures",
+        "color": "silver",
+        "price": 100,
+        "inStock": true,
+        "category": "earrings",
+        "currency": "USD",
+        "imageUrl": "catalog://demo/E18.png",
+        "material": "silver",
+        "styleTags": [
+          "elegant",
+          "understated",
+          "delicate"
+        ],
+        "description": "Synthetic development fixture; not a real merchant listing. Prices and stock are test data.",
+        "vtoAssetUrl": null,
+        "occasionTags": [
+          "wedding"
+        ]
+      }
+    }
+  ],
+  "finalReady": {
+    "startedAt": "2026-10-16T14:28:42.869Z",
+    "finishedAt": "2026-10-16T14:28:43.700Z",
+    "status": 200,
+    "body": {
+      "status": "ready",
+      "service": "youcam-api",
+      "runtime": {
+        "persistence": "postgres",
+        "objectStorage": "s3",
+        "llm": "openai",
+        "youcam": "live",
+        "youcamLedger": "postgres",
+        "openaiLedger": "postgres",
+        "youcamLedgerScope": "judge"
+      },
+      "dependencies": {
+        "configuration": "ready",
+        "database": "ready",
+        "objectStorage": "ready",
+        "openaiDiagnostics": "ready",
+        "openaiLedger": "ready",
+        "youcamLedger": "ready"
+      }
+    }
+  },
+  "remainingRequests": 195,
+  "remainingUsd": "2.78193600",
+  "oldReservationsUnchanged": true,
+  "youcamUnchanged": true
+}
