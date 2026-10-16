@@ -1,0 +1,73 @@
+{
+  "provenance": "Authored local regression using exact production prompt; actual provider plan was not retained and is unknown",
+  "message": "I need elegant silver earrings under $80 for an evening event. I prefer something noticeable but not too heavy.",
+  "oldAuthorization": {
+    "intent": "clarify",
+    "calls": [],
+    "disposition": "clarify",
+    "question": "category"
+  },
+  "representativePlan": {
+    "intent": "start_search",
+    "calls": [
+      {
+        "name": "get_session_state",
+        "args": {}
+      },
+      {
+        "name": "switch_category",
+        "args": {
+          "category": "earrings"
+        }
+      },
+      {
+        "name": "update_constraints",
+        "args": {
+          "updates": [
+            {
+              "scope": "global",
+              "source": "explicit",
+              "field": "material",
+              "value": "silver"
+            },
+            {
+              "scope": "global",
+              "source": "explicit",
+              "field": "occasion",
+              "value": "evening"
+            },
+            {
+              "scope": "global",
+              "source": "explicit",
+              "field": "budget",
+              "value": {
+                "amount": 80,
+                "currency": "USD"
+              }
+            },
+            {
+              "scope": "global",
+              "source": "explicit",
+              "field": "styleTags",
+              "value": [
+                "elegant",
+                "lightweight"
+              ]
+            },
+            {
+              "scope": "global",
+              "source": "explicit",
+              "field": "visualIntensity",
+              "value": "high"
+            }
+          ]
+        }
+      },
+      {
+        "name": "search_products",
+        "args": {}
+      }
+    ],
+    "disposition": "execute"
+  }
+}

@@ -1,3 +1,4 @@
+import { authorizePlan } from './authorization.ts';
 import { randomUUID } from 'node:crypto';
 import {
   agentPlanSchema,
@@ -326,7 +327,7 @@ export function createAgentService(
         if (!proposed.success)
           throw new AgentError('INVALID_PLAN', 'The planner returned an invalid tool plan.', 502);
         plan = proposed.data;
-        if (!equal(plan, authorized))
+        if (!authorizePlan(plan, authorized, state, catalog).allowed)
           throw new AgentError(
             'UNGROUNDED_PLAN',
             'The tool plan is not authorized by the current supported instruction.',
@@ -424,7 +425,18 @@ export function createAgentService(
         mode: provider.mode,
         status,
         intent: plan.intent,
-        message,
+        message:
+          message +
+          (searched &&
+          plan.calls.some(
+            (c) =>
+              c.name === 'update_constraints' &&
+              c.args.updates.some(
+                (u) => u.field === 'styleTags' && u.value.includes('lightweight'),
+              ),
+          )
+            ? ' Your lightweight preference is saved, but catalog weight is not verified.'
+            : ''),
         session: view,
         events,
         ui: comparison

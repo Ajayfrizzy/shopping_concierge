@@ -1,3 +1,4 @@
+import { shoppingInstruction } from './shopping-instruction.ts';
 import {
   agentPlanSchema,
   type AgentPlan,
@@ -265,6 +266,8 @@ export function interpretMockMessage(message: string, state: ShoppingSession): A
       }),
       search,
     ]);
+  const shopping = shoppingInstruction(message, state);
+  if (shopping) return shopping;
   // Initial fixture intent supports only these complete, auditable clauses.
   const initial =
     /^(?:i need |find |show me )?(?:(silver|gold|rose gold|steel|titanium|platinum) )?(earrings|necklaces|rings|watches)(?: for (?:a )?(wedding|work|party|date|everyday))?(?:,? under (\$|€|usd |eur )(\d+(?:\.\d{1,2})?))?(?:,? (elegant|modern|romantic|minimal))?(?:,? (?:but )?(not too loud|understated))?$/.exec(

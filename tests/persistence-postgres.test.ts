@@ -77,6 +77,57 @@ describe.runIf(process.env.M5_INTEGRATION === '1')(
       await admin.query(`DROP SCHEMA IF EXISTS ${schema} CASCADE`);
       await admin.end();
     });
+    it('persists the exact Flow A request atomically through HTTP with an injected compound plan', async () => {
+      const fixture = JSON.parse(
+        await readFile('fixtures/agent/flow-a-authorization.json', 'utf8'),
+      );
+      const a = buildApp({
+        shopping: {
+          repository: repo,
+          objects,
+          planner: { mode: 'live', plan: async () => fixture.representativePlan },
+        },
+      });
+      apps.push(a);
+      const view = await create(a);
+      const response = await turn(a, view, fixture.message);
+      expect(response.statusCode).toBe(200);
+      const saved = response.json().session;
+      expect(saved.version).toBe(1);
+      const restarted = app();
+      expect(
+        (
+          await restarted.inject({ method: 'GET', url: `/v1/sessions/${view.state.id}`, headers })
+        ).json(),
+      ).toEqual(saved);
+      expect(saved.state.activeCategory).toBe('earrings');
+      expect(
+        saved.state.constraints.map((c: { preference: { field: string } }) => c.preference.field),
+      ).toEqual(
+        expect.arrayContaining(['budget', 'material', 'occasion', 'styleTags', 'visualIntensity']),
+      );
+      const malicious = structuredClone(fixture.representativePlan);
+      malicious.calls.splice(-1, 0, { name: 'save_product', args: { productId: 'E03' } });
+      const b = buildApp({
+        shopping: {
+          repository: repo,
+          objects,
+          planner: { mode: 'live', plan: async () => malicious },
+        },
+      });
+      apps.push(b);
+      const untouched = await create(b);
+      expect((await turn(b, untouched, fixture.message)).statusCode).toBe(422);
+      expect(
+        (
+          await restarted.inject({
+            method: 'GET',
+            url: `/v1/sessions/${untouched.state.id}`,
+            headers,
+          })
+        ).json(),
+      ).toEqual(untouched);
+    });
     it('restores M8 dependencies and factual comparisons across API instances', async () => {
       const a = app();
       let view = await create(a);
