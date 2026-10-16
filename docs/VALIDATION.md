@@ -1364,3 +1364,9 @@ See [database hardening](DATABASE_HARDENING.md). Judge pools are bounded to 4 re
 ## Flow A authorization correction
 
 See [Flow A authorization](FLOW_A_AUTHORIZATION.md). The exact shopping sentence previously fell outside the deterministic interpreter grammar, authorizing only category clarification; whole-plan equality rejected any useful search. The bounded grammar and sequential, effect-based search authorization now admit legitimate compound plans without weakening grounding or atomicity. The exact historical provider plan was not retained; the fixture is honestly labelled representative. **650 tests passed**, plus lint, typechecks, API build and secret scan. Deployment/readiness verification is required before one controlled live retry; no provider calls or accounting changes were made.
+
+## Android acceptance fixes — 2026-10-17
+
+686/686 automated tests in 36 files pass with local PostgreSQL/S3. Both exact discovery utterances pass from selected-E09/active-necklaces state. Four category-wide capability tests verify only server-eligible products and rejection exclusion. Atomic authorization, strict tool-schema compatibility, explicit idempotent offline recovery, and shopper-copy regressions pass. Existing mocked visual tests cover gallery byte-format detection, upload identity/MIME, queued/render/poll/failure/recovery and unsupported capability without paid calls.
+
+Lint, API/mobile types, API build, Android export, release build, APK signature and configured-secret scans passed. Version-code-4 signed ARM64 artifact/evidence: [Android acceptance fixes](ANDROID_ACCEPTANCE_FIXES.md). No live providers, production data mutations or personal-photo uploads. Native installation could not complete: API37 emulator remained booting; no physical device was connected. Physical acceptance is still an open major gate. Deploy the matching backend before testing the new filter in production.

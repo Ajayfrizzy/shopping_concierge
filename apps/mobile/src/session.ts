@@ -246,8 +246,14 @@ export function createShoppingSession(
     async boot() {
       await run(async () => {
         await restoreJournal();
-        if (journal.pending) await deliver();
-        else if (journal.sessionId) {
+        if (journal.pending) {
+          await reconcile();
+          publish({
+            retryPending: true,
+            error:
+              'A previous request has an unknown outcome. Tap Retry request to recover it using the same request ID.',
+          });
+        } else if (journal.sessionId) {
           await reconcile();
           await refreshResults();
         }
@@ -285,7 +291,14 @@ export function createShoppingSession(
     async refresh() {
       await run(async () => {
         await restoreJournal();
-        if (journal.pending) await deliver();
+        if (journal.pending) {
+          await reconcile();
+          publish({
+            retryPending: true,
+            error: 'A request is still pending. Tap Retry request to recover it safely.',
+          });
+          return;
+        }
         await reconcile();
         if (view.session) await refreshResults();
       });

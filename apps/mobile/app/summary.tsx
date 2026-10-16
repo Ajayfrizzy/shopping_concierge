@@ -1,3 +1,4 @@
+import { productName } from '../src/presentation';
 import { ProductImage } from '../src/product-image';
 import { useEffect, useState } from 'react';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
@@ -74,7 +75,7 @@ export default function Summary() {
                 : 'Not chosen'}
             </Text>
             <Panel>
-              <Text style={styles.heading}>Constraints by scope</Text>
+              <Text style={styles.heading}>Your preferences</Text>
               {session.state.constraints.length ? (
                 session.state.constraints.map((c, i) => (
                   <Text key={i} style={styles.text}>
@@ -116,11 +117,11 @@ export default function Summary() {
                           <ProductImage
                             compact
                             url={products[id]?.imageUrl}
-                            name={products[id]?.name ?? id}
+                            name={products[id] ? productName(products[id].name) : id}
                           />
                           <Text style={[styles.text, { flex: 1 }]}>
                             {products[id]
-                              ? `${products[id]!.name} · ${products[id]!.currency} ${products[id]!.price.toFixed(2)}`
+                              ? `${productName(products[id]!.name)} · ${products[id]!.currency} ${products[id]!.price.toFixed(2)}`
                               : `Product ${id} · details unavailable`}
                           </Text>
                         </View>
@@ -133,10 +134,10 @@ export default function Summary() {
               </Panel>
             ))}
             <Text style={styles.muted}>
-              Your API session owns these choices. Navigation and app reload restore it with your
-              secure guest identity. PostgreSQL mode survives API restarts; memory mode does not.
-              Clearing app storage can lose guest access. Previous choices may no longer match your
-              latest constraints.
+              Your choices are saved to this shopping session. Clearing app storage can lose access.
+              Previous choices may no longer match your latest preferences. Saved means kept for
+              later; shortlisted means under consideration; selected means your chosen item for
+              coordinated searches.
             </Text>
             <Panel>
               <Text style={styles.heading}>Coordinate selected products</Text>
@@ -144,7 +145,7 @@ export default function Summary() {
                 d.selected.map((id) => (
                   <View key={id} style={{ gap: 8 }}>
                     <Text style={styles.text}>
-                      Anchor {id} · {titleCase(category)}
+                      Chosen {id} · {titleCase(category)}
                     </Text>
                     {categorySchema.options
                       .filter((target) => target !== category)
@@ -164,11 +165,13 @@ export default function Summary() {
                 )),
               )}
               {!Object.values(session.state.decisions).some((d) => d.selected.length) && (
-                <Text style={styles.muted}>Select a product to anchor a coordinated search.</Text>
+                <Text style={styles.muted}>
+                  Select your chosen product to find accessories that work with it.
+                </Text>
               )}
               {session.state.dependencies.map((d) => (
                 <Text key={`${d.anchorProductId}:${d.targetCategory}`} style={styles.text}>
-                  {d.anchorProductId} → {titleCase(d.targetCategory)} · {d.type}
+                  Finding {d.targetCategory} to complement {d.anchorProductId}
                 </Text>
               ))}
             </Panel>

@@ -308,3 +308,7 @@ See [database hardening](DATABASE_HARDENING.md). Judge pools are bounded to 4 re
 ## Flow A authorization correction
 
 See [Flow A authorization](FLOW_A_AUTHORIZATION.md). The exact shopping sentence previously fell outside the deterministic interpreter grammar, authorizing only category clarification; whole-plan equality rejected any useful search. The bounded grammar and sequential, effect-based search authorization now admit legitimate compound plans without weakening grounding or atomicity. The exact historical provider plan was not retained; the fixture is honestly labelled representative. **650 tests passed**, plus lint, typechecks, API build and secret scan. Deployment/readiness verification is required before one controlled live retry; no provider calls or accounting changes were made.
+
+## Android acceptance update — 2026-10-17
+
+See [Android acceptance fixes](ANDROID_ACCEPTANCE_FIXES.md). Additive explicit `vtoOnly` filtering, bounded discovery instructions and shopper copy require deploying this backend alongside the updated version-code-4 APK. No database migration, registration, budget or provider-mode change. The mobile discovery action is deterministic and uses server eligibility. Pending operations now require explicit recovery rather than automatic launch/refresh replay. Production preflight and live providers were not called during this task.

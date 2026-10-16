@@ -17,7 +17,13 @@ import { router } from 'expo-router';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { feedbackReasonSchema, type FeedbackReason, type Product } from '@youcam/shared';
 import { useShopping } from '../src/context';
-import { changeLabel, constraintLabel, titleCase } from '../src/presentation';
+import {
+  changeLabel,
+  constraintLabel,
+  titleCase,
+  productName,
+  productAttributes,
+} from '../src/presentation';
 import { Button, Panel, styles } from '../src/ui';
 
 export default function Home() {
@@ -35,6 +41,13 @@ export default function Home() {
   useEffect(() => {
     setCompareFirst(null);
   }, [session?.state.id, session?.state.activeCategory]);
+  const vtoOnly =
+    session?.state.constraints.some(
+      (c) =>
+        c.preference.field === 'vtoOnly' &&
+        c.preference.value === true &&
+        c.preference.scope === 'global',
+    ) ?? false;
   const disabled = busy || !ready || retryPending || needsRefresh || expired;
   const offer = session?.pendingRelaxations.find((p) => p.proposalId === confirming);
   const result =
@@ -55,7 +68,7 @@ export default function Home() {
   const feedback = (product: Product, action: 'save' | 'shortlist' | 'select') => {
     void controller.action(
       { type: 'feedback', feedback: { action, productId: product.id } },
-      `${titleCase(action)} ${product.name}`,
+      `${titleCase(action)} ${productName(product.name)}`,
     );
   };
   return (
@@ -78,9 +91,9 @@ export default function Home() {
       >
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           <Text style={styles.muted}>
-            {response?.mode === 'live' ? 'Live AI planning' : 'Shopping preview'} · Products, prices
-            and stock are synthetic fixtures. No purchasing. Try-on is mocked unless the server is
-            explicitly configured for YouCam.
+            Illustrative catalog with synthetic products and prices, not verified merchant
+            inventory. No purchasing. Virtual try-on is available on selected products; previews are
+            labeled by source.
           </Text>
           {!shopping.messages.length && (
             <Panel>
@@ -182,10 +195,55 @@ export default function Home() {
                   Coordinating with selected {d.anchorProductId} · {titleCase(d.anchorCategory)}
                 </Text>
                 <Text style={styles.muted}>
-                  Shared catalog attributes are soft signals. Your explicit constraints still apply.
+                  Shared styles help order these options. Your budget and other requirements still
+                  apply.
                 </Text>
               </Panel>
             ))}
+          {session?.state.activeCategory && (
+            <Panel>
+              <Text style={styles.heading}>Discover virtual try-on</Text>
+              <Text style={styles.muted}>
+                Only supported products matching your preferences and budget are shown. Your
+                rejected items stay excluded.
+              </Text>
+              <Button
+                title={vtoOnly ? 'Show all matching products' : 'Show virtual try-on products'}
+                secondary
+                disabled={disabled}
+                onPress={() => {
+                  void controller.action(
+                    {
+                      type: 'update_constraints',
+                      updates: [
+                        { field: 'vtoOnly', value: !vtoOnly, scope: 'global', source: 'explicit' },
+                      ],
+                    },
+                    vtoOnly ? 'Show all matching products' : 'Show virtual try-on products',
+                  );
+                  setLimit(4);
+                }}
+              />
+              {vtoOnly && result?.totalExactMatches === 0 && (
+                <>
+                  <Text style={styles.text}>
+                    No try-on products match your current requirements. Your budget, material and
+                    rejected choices have not changed.
+                  </Text>
+                  <Button
+                    title="Revise my preferences"
+                    secondary
+                    disabled={disabled}
+                    onPress={() => router.push('/summary')}
+                  />
+                  <Text style={styles.muted}>
+                    Review your preferences in the summary, then tell the concierge exactly what you
+                    want to change.
+                  </Text>
+                </>
+              )}
+            </Panel>
+          )}
           {result && (
             <>
               {(!!result.totalExactMatches || !session?.pendingRelaxations.length) && (
@@ -206,16 +264,15 @@ export default function Home() {
                   <Text style={styles.muted}>
                     {titleCase(product.category)} · {product.id}
                   </Text>
-                  <ProductImage url={product.imageUrl} name={product.name} />
-                  <Text style={styles.heading}>{product.name}</Text>
+                  <ProductImage url={product.imageUrl} name={productName(product.name)} />
+                  <Text style={styles.heading}>{productName(product.name)}</Text>
                   <Text style={styles.text}>
                     {product.currency} {product.price.toFixed(2)} ·{' '}
-                    {product.inStock ? 'In stock (fixture)' : 'Out of stock (fixture)'}
+                    {product.inStock
+                      ? 'Available in sample catalog'
+                      : 'Unavailable in sample catalog'}
                   </Text>
-                  <Text style={styles.text}>
-                    {product.material ?? 'Material unspecified'} ·{' '}
-                    {product.color ?? 'Color unspecified'}
-                  </Text>
+                  <Text style={styles.text}>{productAttributes(product)}</Text>
                   {!!evidence.filter((e) => e.contribution > 0).length && (
                     <Text style={styles.muted}>
                       Matches:{' '}
@@ -230,7 +287,8 @@ export default function Home() {
                     .filter((e) => e.contribution < 0)
                     .map((e, i) => (
                       <Text key={i} style={styles.muted}>
-                        Feedback from {e.feedbackProductId}: {e.attributes.join(', ')}
+                        Lower priority because it shares {e.attributes.join(', ')} details with a
+                        product you disliked.
                       </Text>
                     ))}
                   <Button
@@ -385,27 +443,41 @@ export default function Home() {
         animationType="slide"
         onRequestClose={() => setRejecting(null)}
       >
-        <View style={styles.modal}>
+        <KeyboardAvoidingView behavior="padding" style={styles.modal}>
           <Panel style={{ maxHeight: '85%' }}>
             <Text style={styles.heading}>Why isn’t this a fit?</Text>
-            <Text style={styles.text}>{rejecting?.name}</Text>
+            {error && (
+              <Text accessibilityRole="alert" style={styles.error}>
+                {error}
+              </Text>
+            )}
+            <Text style={styles.text}>
+              {rejecting ? `${productName(rejecting.name)} · ${rejecting.id}` : ''}
+            </Text>
             <TextInput
               accessibilityLabel="Explain rejection"
               placeholder="I don't like this one because…"
               value={rejectionText}
               onChangeText={setRejectionText}
               maxLength={1000}
-              style={styles.text}
+              style={styles.input}
+              multiline
+              placeholderTextColor="#657268"
             />
             <Button
               title="Send rejection explanation"
               disabled={disabled || !rejectionText.trim()}
               onPress={() => {
-                if (rejecting) void controller.message(rejectionText, { productId: rejecting.id });
-                setRejectionText('');
-                setRejecting(null);
+                if (!rejecting) return;
+                void controller.message(rejectionText, { productId: rejecting.id }).then(() => {
+                  if (!controller.getSnapshot().error) {
+                    setRejectionText('');
+                    setRejecting(null);
+                  }
+                });
               }}
             />
+            <Text style={styles.muted}>Or choose a reason below:</Text>
             <ScrollView contentContainerStyle={{ gap: 8 }}>
               {feedbackReasonSchema.options.map((value) => (
                 <Button
@@ -438,7 +510,7 @@ export default function Home() {
             <Text style={styles.muted}>Choosing a reason is optional.</Text>
             <Button title="Cancel" secondary onPress={() => setRejecting(null)} />
           </Panel>
-        </View>
+        </KeyboardAvoidingView>
       </Modal>
       <Modal
         visible={!!confirming}

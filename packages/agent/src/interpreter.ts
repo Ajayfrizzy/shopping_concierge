@@ -166,6 +166,8 @@ export function interpretMockMessage(
   }
   const tryOn = /^(?:try on|try-on|vto) ([\w-]+)[.!]?$/i.exec(message.trim());
   if (tryOn) return plan('request_vto', [{ name: 'request_vto', args: { productId: tryOn[1]! } }]);
+  const shopping = shoppingInstruction(message, state);
+  if (shopping) return shopping;
   const unsupported: [RegExp, AgentPlan['intent']][] = [
     [/\b(?:try on|try-on|vto)\b/, 'request_vto'],
     [/\bcompare\b/, 'compare_products'],
@@ -301,8 +303,6 @@ export function interpretMockMessage(
       }),
       search,
     ]);
-  const shopping = shoppingInstruction(message, state);
-  if (shopping) return shopping;
   // Initial fixture intent supports only these complete, auditable clauses.
   const initial =
     /^(?:i need |find |show me )?(?:(silver|gold|rose gold|steel|titanium|platinum) )?(earrings|necklaces|rings|watches)(?: for (?:a )?(wedding|work|party|date|everyday))?(?:,? under (\$|€|usd |eur )(\d+(?:\.\d{1,2})?))?(?:,? (elegant|modern|romantic|minimal))?(?:,? (?:but )?(not too loud|understated))?$/.exec(

@@ -39,9 +39,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "compare_products"
-                    ]
+                    "enum": ["compare_products"]
                   },
                   "args": {
                     "type": "object",
@@ -55,16 +53,11 @@
                         }
                       }
                     },
-                    "required": [
-                      "productIds"
-                    ],
+                    "required": ["productIds"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -72,9 +65,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "create_dependency"
-                    ]
+                    "enum": ["create_dependency"]
                   },
                   "args": {
                     "type": "object",
@@ -84,44 +75,22 @@
                       },
                       "anchorCategory": {
                         "type": "string",
-                        "enum": [
-                          "earrings",
-                          "necklaces",
-                          "rings",
-                          "watches"
-                        ]
+                        "enum": ["earrings", "necklaces", "rings", "watches"]
                       },
                       "targetCategory": {
                         "type": "string",
-                        "enum": [
-                          "earrings",
-                          "necklaces",
-                          "rings",
-                          "watches"
-                        ]
+                        "enum": ["earrings", "necklaces", "rings", "watches"]
                       },
                       "type": {
                         "type": "string",
-                        "enum": [
-                          "complement",
-                          "alternative_to",
-                          "match"
-                        ]
+                        "enum": ["complement", "alternative_to", "match"]
                       }
                     },
-                    "required": [
-                      "anchorProductId",
-                      "anchorCategory",
-                      "targetCategory",
-                      "type"
-                    ],
+                    "required": ["anchorProductId", "anchorCategory", "targetCategory", "type"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -129,9 +98,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "get_session_state"
-                    ]
+                    "enum": ["get_session_state"]
                   },
                   "args": {
                     "type": "object",
@@ -140,10 +107,7 @@
                     "required": []
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -151,9 +115,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "search_products"
-                    ]
+                    "enum": ["search_products"]
                   },
                   "args": {
                     "type": "object",
@@ -162,10 +124,7 @@
                     "required": []
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -173,9 +132,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "get_product"
-                    ]
+                    "enum": ["get_product"]
                   },
                   "args": {
                     "type": "object",
@@ -184,16 +141,11 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "productId"
-                    ],
+                    "required": ["productId"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -201,9 +153,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "request_vto"
-                    ]
+                    "enum": ["request_vto"]
                   },
                   "args": {
                     "type": "object",
@@ -212,16 +162,11 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "productId"
-                    ],
+                    "required": ["productId"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -229,9 +174,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "update_constraints"
-                    ]
+                    "enum": ["update_constraints"]
                   },
                   "args": {
                     "type": "object",
@@ -245,43 +188,67 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "budget"
-                                  ]
+                                  "enum": ["vtoOnly"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit"
+                                  "enum": ["explicit"]
+                                },
+                                "value": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": ["field", "scope", "source", "value"],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "field": {
+                                  "type": "string",
+                                  "enum": ["budget"]
+                                },
+                                "scope": {
+                                  "anyOf": [
+                                    {
+                                      "type": "string",
+                                      "enum": ["global"]
+                                    },
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "category": {
+                                          "type": "string",
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
+                                        }
+                                      },
+                                      "required": ["category"],
+                                      "additionalProperties": false
+                                    }
                                   ]
+                                },
+                                "source": {
+                                  "type": "string",
+                                  "enum": ["explicit"]
                                 },
                                 "value": {
                                   "type": "object",
@@ -295,19 +262,11 @@
                                       "pattern": "^[A-Z]{3}$"
                                     }
                                   },
-                                  "required": [
-                                    "amount",
-                                    "currency"
-                                  ],
+                                  "required": ["amount", "currency"],
                                   "additionalProperties": false
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             },
                             {
@@ -315,57 +274,36 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "material"
-                                  ]
+                                  "enum": ["material"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit",
-                                    "saved_preference",
-                                    "visual",
-                                    "heuristic"
-                                  ]
+                                  "enum": ["explicit", "saved_preference", "visual", "heuristic"]
                                 },
                                 "value": {
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             },
                             {
@@ -373,57 +311,36 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "color"
-                                  ]
+                                  "enum": ["color"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit",
-                                    "saved_preference",
-                                    "visual",
-                                    "heuristic"
-                                  ]
+                                  "enum": ["explicit", "saved_preference", "visual", "heuristic"]
                                 },
                                 "value": {
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             },
                             {
@@ -431,43 +348,30 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "excludedProductIds"
-                                  ]
+                                  "enum": ["excludedProductIds"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit"
-                                  ]
+                                  "enum": ["explicit"]
                                 },
                                 "value": {
                                   "type": "array",
@@ -476,12 +380,7 @@
                                   }
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             },
                             {
@@ -489,43 +388,30 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "excludedTags"
-                                  ]
+                                  "enum": ["excludedTags"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit"
-                                  ]
+                                  "enum": ["explicit"]
                                 },
                                 "value": {
                                   "type": "array",
@@ -535,12 +421,7 @@
                                   "maxItems": 100
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             },
                             {
@@ -548,46 +429,30 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "styleTags"
-                                  ]
+                                  "enum": ["styleTags"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit",
-                                    "saved_preference",
-                                    "visual",
-                                    "heuristic"
-                                  ]
+                                  "enum": ["explicit", "saved_preference", "visual", "heuristic"]
                                 },
                                 "value": {
                                   "type": "array",
@@ -597,12 +462,7 @@
                                   "maxItems": 100
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             },
                             {
@@ -610,57 +470,36 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "occasion"
-                                  ]
+                                  "enum": ["occasion"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit",
-                                    "saved_preference",
-                                    "visual",
-                                    "heuristic"
-                                  ]
+                                  "enum": ["explicit", "saved_preference", "visual", "heuristic"]
                                 },
                                 "value": {
                                   "type": "string"
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             },
                             {
@@ -668,62 +507,37 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "visualIntensity"
-                                  ]
+                                  "enum": ["visualIntensity"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit",
-                                    "saved_preference",
-                                    "visual",
-                                    "heuristic"
-                                  ]
+                                  "enum": ["explicit", "saved_preference", "visual", "heuristic"]
                                 },
                                 "value": {
                                   "type": "string",
-                                  "enum": [
-                                    "low",
-                                    "medium",
-                                    "high"
-                                  ]
+                                  "enum": ["low", "medium", "high"]
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             },
                             {
@@ -731,58 +545,37 @@
                               "properties": {
                                 "field": {
                                   "type": "string",
-                                  "enum": [
-                                    "pricePreference"
-                                  ]
+                                  "enum": ["pricePreference"]
                                 },
                                 "scope": {
                                   "anyOf": [
                                     {
                                       "type": "string",
-                                      "enum": [
-                                        "global"
-                                      ]
+                                      "enum": ["global"]
                                     },
                                     {
                                       "type": "object",
                                       "properties": {
                                         "category": {
                                           "type": "string",
-                                          "enum": [
-                                            "earrings",
-                                            "necklaces",
-                                            "rings",
-                                            "watches"
-                                          ]
+                                          "enum": ["earrings", "necklaces", "rings", "watches"]
                                         }
                                       },
-                                      "required": [
-                                        "category"
-                                      ],
+                                      "required": ["category"],
                                       "additionalProperties": false
                                     }
                                   ]
                                 },
                                 "source": {
                                   "type": "string",
-                                  "enum": [
-                                    "explicit"
-                                  ]
+                                  "enum": ["explicit"]
                                 },
                                 "value": {
                                   "type": "string",
-                                  "enum": [
-                                    "lower",
-                                    "higher"
-                                  ]
+                                  "enum": ["lower", "higher"]
                                 }
                               },
-                              "required": [
-                                "field",
-                                "scope",
-                                "source",
-                                "value"
-                              ],
+                              "required": ["field", "scope", "source", "value"],
                               "additionalProperties": false
                             }
                           ]
@@ -791,16 +584,11 @@
                         "maxItems": 50
                       }
                     },
-                    "required": [
-                      "updates"
-                    ],
+                    "required": ["updates"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -808,33 +596,21 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "switch_category"
-                    ]
+                    "enum": ["switch_category"]
                   },
                   "args": {
                     "type": "object",
                     "properties": {
                       "category": {
                         "type": "string",
-                        "enum": [
-                          "earrings",
-                          "necklaces",
-                          "rings",
-                          "watches"
-                        ]
+                        "enum": ["earrings", "necklaces", "rings", "watches"]
                       }
                     },
-                    "required": [
-                      "category"
-                    ],
+                    "required": ["category"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -842,9 +618,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "reset_constraint"
-                    ]
+                    "enum": ["reset_constraint"]
                   },
                   "args": {
                     "type": "object",
@@ -860,49 +634,35 @@
                           "styleTags",
                           "occasion",
                           "visualIntensity",
-                          "pricePreference"
+                          "pricePreference",
+                          "vtoOnly"
                         ]
                       },
                       "scope": {
                         "anyOf": [
                           {
                             "type": "string",
-                            "enum": [
-                              "global"
-                            ]
+                            "enum": ["global"]
                           },
                           {
                             "type": "object",
                             "properties": {
                               "category": {
                                 "type": "string",
-                                "enum": [
-                                  "earrings",
-                                  "necklaces",
-                                  "rings",
-                                  "watches"
-                                ]
+                                "enum": ["earrings", "necklaces", "rings", "watches"]
                               }
                             },
-                            "required": [
-                              "category"
-                            ],
+                            "required": ["category"],
                             "additionalProperties": false
                           }
                         ]
                       }
                     },
-                    "required": [
-                      "field",
-                      "scope"
-                    ],
+                    "required": ["field", "scope"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -910,9 +670,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "select_product"
-                    ]
+                    "enum": ["select_product"]
                   },
                   "args": {
                     "type": "object",
@@ -921,16 +679,11 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "productId"
-                    ],
+                    "required": ["productId"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -938,9 +691,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "shortlist_product"
-                    ]
+                    "enum": ["shortlist_product"]
                   },
                   "args": {
                     "type": "object",
@@ -949,16 +700,11 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "productId"
-                    ],
+                    "required": ["productId"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -966,9 +712,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "save_product"
-                    ]
+                    "enum": ["save_product"]
                   },
                   "args": {
                     "type": "object",
@@ -977,16 +721,11 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "productId"
-                    ],
+                    "required": ["productId"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -994,9 +733,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "like_product"
-                    ]
+                    "enum": ["like_product"]
                   },
                   "args": {
                     "type": "object",
@@ -1005,16 +742,11 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "productId"
-                    ],
+                    "required": ["productId"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               },
               {
@@ -1022,9 +754,7 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "enum": [
-                      "reject_product"
-                    ]
+                    "enum": ["reject_product"]
                   },
                   "args": {
                     "type": "object",
@@ -1067,18 +797,11 @@
                         ]
                       }
                     },
-                    "required": [
-                      "productId",
-                      "reasonCode",
-                      "reasonText"
-                    ],
+                    "required": ["productId", "reasonCode", "reasonText"],
                     "additionalProperties": false
                   }
                 },
-                "required": [
-                  "name",
-                  "args"
-                ],
+                "required": ["name", "args"],
                 "additionalProperties": false
               }
             ]
@@ -1087,23 +810,13 @@
         },
         "disposition": {
           "type": "string",
-          "enum": [
-            "execute",
-            "clarify",
-            "unsupported"
-          ]
+          "enum": ["execute", "clarify", "unsupported"]
         },
         "question": {
           "anyOf": [
             {
               "type": "string",
-              "enum": [
-                "category",
-                "instruction",
-                "currency",
-                "confirmation",
-                "anchor"
-              ]
+              "enum": ["category", "instruction", "currency", "confirmation", "anchor"]
             },
             {
               "type": "null"
@@ -1111,12 +824,7 @@
           ]
         }
       },
-      "required": [
-        "intent",
-        "calls",
-        "disposition",
-        "question"
-      ],
+      "required": ["intent", "calls", "disposition", "question"],
       "additionalProperties": false
     },
     "strict": true

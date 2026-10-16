@@ -63,9 +63,11 @@ export function createShoppingAPI(
         const error = agentErrorResponseSchema.safeParse(value);
         throw new ClientError(
           error.success ? error.data.error.code : 'REQUEST_FAILED',
-          error.success
-            ? error.data.error.message
-            : 'The concierge could not complete this request.',
+          response.status >= 500
+            ? 'The concierge is temporarily unavailable. Your request is retained for safe recovery.'
+            : error.success
+              ? error.data.error.message
+              : 'The concierge could not complete this request.',
           response.status,
         );
       }
@@ -73,8 +75,10 @@ export function createShoppingAPI(
     } catch (error) {
       if (error instanceof ClientError) throw error;
       throw new ClientError(
-        'NETWORK',
-        'Unable to reach the concierge. Check your connection and retry.',
+        controller.signal.aborted ? 'TIMEOUT' : 'NETWORK',
+        controller.signal.aborted
+          ? 'The request timed out. Its outcome is unknown; retry to recover the same request.'
+          : 'Unable to reach the concierge. Check your connection and retry.',
       );
     } finally {
       clearTimeout(timer);

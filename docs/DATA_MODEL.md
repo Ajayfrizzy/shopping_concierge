@@ -179,3 +179,7 @@ Migration `004_youcam_usage.sql` adds a singleton `youcam_usage_budget` (request
 ## Judge runtime accounting and VTO capability
 
 Migration 005 creates separate runtime_budgets/runtime_usage records for judge OpenAI and YouCam. No historical ledger is repurposed. OpenAI usage stores request reservations, normalized input/output/cached token totals, conservative reserved USD, settled USD and timestamps. Migration 006 creates private product_vto_assets references with SHA-256. Public products expose only vtoEligible, defaulting absent legacy fields to unavailable at the service boundary; they never contain private asset keys or presigned URLs.
+
+### Explicit VTO discovery filter
+
+`vtoOnly` is an optional boolean constraint with explicit provenance and existing global/category scope validation. When true, deterministic hard eligibility requires server-owned `product.vtoEligible === true`; false imposes no VTO filter. It does not alter product capability, invoke a provider, or supersede budget/material/rejection constraints. Existing sessions without this field remain valid; PostgreSQL session JSON needs no migration.

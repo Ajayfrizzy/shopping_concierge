@@ -137,7 +137,7 @@ describe('M4 mobile HTTP boundary', () => {
         }),
       10,
     );
-    const pending = expect(api.create()).rejects.toMatchObject({ code: 'NETWORK' });
+    const pending = expect(api.create()).rejects.toMatchObject({ code: 'TIMEOUT' });
     await vi.advanceTimersByTimeAsync(10);
     await pending;
   });
@@ -232,6 +232,12 @@ describe('M4 shopping controller using the real mock API', () => {
     const reloaded = f.controller();
     await reloaded.boot();
     expect(reloaded.getSnapshot().session).toEqual(committed);
+    expect(reloaded.getSnapshot().retryPending).toBe(true);
+    expect(f.requests.filter((r) => r.body === JSON.stringify(pending))).toHaveLength(1);
+    await reloaded.refresh();
+    expect(f.requests.filter((r) => r.body === JSON.stringify(pending))).toHaveLength(1);
+    await reloaded.retry();
+    expect(reloaded.getSnapshot().error).toBeNull();
     expect(reloaded.getSnapshot().messages.filter((m) => m.id === pending.requestId)).toHaveLength(
       1,
     );

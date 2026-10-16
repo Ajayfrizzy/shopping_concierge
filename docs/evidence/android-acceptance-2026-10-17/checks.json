@@ -1,0 +1,15 @@
+{
+  "tests": {"command": "M5_INTEGRATION=1 npm test -- --maxWorkers=1 --testTimeout=60000", "passed": 686, "files": 36, "failed": 0, "skipped": 0},
+  "lint": "passed",
+  "apiAndMobileTypechecks": "passed",
+  "apiBuild": "passed",
+  "androidProductionExport": "passed",
+  "exportSecretScan": {"files": 95, "sentinels": 7, "matches": 0},
+  "androidReleaseBuild": "passed: 826 tasks, versionCode 4",
+  "signature": "APK v2 verified; existing release certificate preserved",
+  "native": {"physicalDevices": 0, "emulator": "Medium_Phone_API_37.0 ARM64", "install": "failed: device is still booting", "launch": "not performed", "acceptance": "not passed"},
+  "liveOpenAIRequests": 0,
+  "liveYouCamRequests": 0,
+  "productionMutations": 0,
+  "personalPhotoUploads": 0
+}

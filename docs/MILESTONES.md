@@ -246,3 +246,7 @@ Recorded offline diagnosis before a lossless pair-preserving tighter crop; exact
 ## E12 approved chandelier replacement — 2026-10-10
 
 Explicit replacement design approved and registered; matching catalog description/display art updated. One controlled live render passed visual review with clear chandelier detail and appropriate scale. Six judge renders committed, 44 remain. Other 71 products unchanged. 162 relevant tests plus lint/types/build/export-secret scan pass. APK/demo-script work remains unstarted.
+
+## Android acceptance fixes — 2026-10-17
+
+Implemented bounded VTO discovery authorization, authoritative server capability filtering, shopper presentation and explicit pending-request recovery. Signed version-code-4 ARM64 APK built; 686 automated tests pass, with lint/types/build/export/signature/secret scans. Physical acceptance remains OPEN: available emulator refused installation while still booting and no phone was attached. Deploy the matching backend before the new APK's walkthrough. See ANDROID_ACCEPTANCE_FIXES.md. No live provider calls or final demo media/script.

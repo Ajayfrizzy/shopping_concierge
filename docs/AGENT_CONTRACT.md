@@ -157,3 +157,7 @@ The exact mock grammar `Try on <catalog ID>` supports `request_vto({productId})`
 ## M8 cross-product intelligence — 2026-10-04
 
 M8 enables strict `create_dependency` and `compare_products` tools. Plans must match the authoritative bounded intent, including exact anchor/compared IDs; no invented facts, extra state mutations or silent relaxation. Comparison UI contains normalized catalog facts, active criteria and eligibility. See [decision intelligence](DECISION_INTELLIGENCE.md).
+
+### VTO discovery language
+
+Bounded combined shopping searches accept explicit `with virtual try-on available` or `that support virtual try-on` suffixes as the global `vtoOnly=true` constraint, not a render command. Material is optional; omission preserves existing constraints. Explicit combined-search budgets retain global update semantics. Unsupported clauses fail closed. UI discovery uses the existing typed constraint action and requires no model request.

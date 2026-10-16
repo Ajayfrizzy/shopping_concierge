@@ -425,7 +425,7 @@ export function createAgentService(
         plan.disposition === 'unsupported' ? 'unsupported' : clarification ? 'clarification' : 'ok';
       const message =
         status === 'unsupported'
-          ? 'That capability is not implemented in this mock milestone. Your shopping state has not changed.'
+          ? 'That action is not available. Your shopping preferences have not changed.'
           : clarification
             ? questions[plan.question ?? 'category']
             : comparison
@@ -439,13 +439,24 @@ export function createAgentService(
                   : searched
                     ? results.status === 'no_exact_match'
                       ? 'No exact catalog matches satisfy your current constraints. Any displayed relaxation requires your confirmation.'
-                      : 'Here are the exact fixture catalog matches, ranked against your current preferences.'
-                    : 'Here is your current structured shopping state.';
+                      : 'Here are the matching accessories, ordered by your preferences.'
+                    : 'Here are your current shopping preferences and choices.';
+      const feedbackCall = plan.calls.find((c) =>
+        ['reject_product', 'select_product', 'save_product', 'shortlist_product'].includes(c.name),
+      );
+      const feedbackMessage =
+        feedbackCall && 'productId' in feedbackCall.args
+          ? `${feedbackCall.args.productId} ${feedbackCall.name === 'reject_product' ? 'was rejected and removed from recommendations' : feedbackCall.name === 'select_product' ? 'is selected as your choice' : feedbackCall.name === 'save_product' ? 'was saved for later' : 'was added to your shortlist'}. ` +
+            (feedbackCall.name === 'reject_product' && feedbackCall.args.reasonCode
+              ? `Reason: ${feedbackCall.args.reasonCode.replaceAll('_', ' ')}. Similar documented styles may rank lower; your requirements stay unchanged. `
+              : '')
+          : '';
       const response = agentResponseSchema.parse({
         mode: provider.mode,
         status,
         intent: plan.intent,
         message:
+          feedbackMessage +
           message +
           (searched &&
           plan.calls.some(

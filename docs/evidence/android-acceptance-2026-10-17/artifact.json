@@ -1,0 +1,13 @@
+{
+  "path": "artifacts/android/shopping-concierge-0.1.0-v4-arm64-release.apk",
+  "bytes": 43920875,
+  "sha256": "38aea284988dbcc655f028f5e82d855b228327d82db407084c1243015964bac3",
+  "applicationId": "com.youcam.shoppingconcierge",
+  "versionName": "0.1.0",
+  "versionCode": 4,
+  "abi": "arm64-v8a",
+  "configuredSecretValuesChecked": 5,
+  "secretMatches": [],
+  "productionUrlInBundle": true,
+  "emulatorApiUrlInBundle": false
+}

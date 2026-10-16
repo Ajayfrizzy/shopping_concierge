@@ -72,12 +72,14 @@ export const constraintFieldSchema = z.enum([
   'occasion',
   'visualIntensity',
   'pricePreference',
+  'vtoOnly',
 ]);
 export type ConstraintField = z.infer<typeof constraintFieldSchema>;
 const provenance = { scope: constraintScopeSchema, source: preferenceSourceSchema };
 const explicit = { scope: constraintScopeSchema, source: z.literal('explicit') };
 // Field-specific values and provenance prevent malformed/inferred hard limits.
 export const constraintInputSchema = z.discriminatedUnion('field', [
+  z.object({ ...explicit, field: z.literal('vtoOnly'), value: z.boolean() }).strict(),
   z.object({ ...explicit, field: z.literal('budget'), value: moneySchema }).strict(),
   z.object({ ...provenance, field: z.literal('material'), value: tag }).strict(),
   z.object({ ...provenance, field: z.literal('color'), value: tag }).strict(),

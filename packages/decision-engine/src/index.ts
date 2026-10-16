@@ -73,7 +73,9 @@ export function createSession(input: {
 export function constraintClass(preference: ConstraintInput): ConstraintClass {
   if (preference.field === 'occasion') return 'context';
   return preference.source === 'explicit' &&
-    ['budget', 'material', 'color', 'excludedTags', 'excludedProductIds'].includes(preference.field)
+    ['budget', 'material', 'color', 'excludedTags', 'excludedProductIds', 'vtoOnly'].includes(
+      preference.field,
+    )
     ? 'hard'
     : 'soft';
 }
@@ -144,6 +146,9 @@ export function getHardConstraintViolations(rawState: unknown, rawProduct: unkno
     if (item.class !== 'hard') continue;
     const p = item.preference;
     switch (p.field) {
+      case 'vtoOnly':
+        if (p.value && !product.vtoEligible) violations.push('vtoOnly');
+        break;
       case 'budget':
         if (product.currency !== p.value.currency || product.price > p.value.amount)
           violations.push('budget');

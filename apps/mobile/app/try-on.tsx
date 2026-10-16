@@ -1,3 +1,4 @@
+import { productName } from '../src/presentation';
 import { useEffect, useRef, useState } from 'react';
 import { ActivityIndicator, Image, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -98,7 +99,9 @@ export default function TryOn() {
         <Button title="Back to shopping" secondary onPress={() => router.back()} />
       </View>
       <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
-        <Text style={styles.heading}>{product?.name ?? 'Loading product…'}</Text>
+        <Text style={styles.heading}>
+          {product ? productName(product.name) : 'Loading product…'}
+        </Text>
         <Text style={styles.text}>
           Try-on is optional visual evidence. It does not change your preferences or product
           decisions.
@@ -178,19 +181,22 @@ export default function TryOn() {
         )}
         {!job && needed && (
           <Panel>
-            <Text style={styles.heading}>Choose a {needed} image</Text>
+            <Text style={styles.heading}>Choose a {needed} photo from your gallery</Text>
             <Text style={styles.text}>
               {needed === 'portrait'
-                ? 'Show your face, ears and neckline clearly.'
+                ? product?.category === 'earrings'
+                  ? 'Use a side portrait with an exposed ear.'
+                  : 'Show your neck and upper chest with enough space for a necklace.'
                 : needed === 'hand'
                   ? 'Show the hand and fingers clearly.'
-                  : 'Show an unobstructed wrist.'}{' '}
+                  : 'Show your wrist and hand with all five fingers visible.'}{' '}
               Use a clear, well-lit image. The provider may reject an unsuitable pose; the mock does
               not detect anatomy.
             </Text>
             <Text style={styles.muted}>
-              Choosing a photo uploads it to your private session. Rendering may send it to YouCam
-              only when live mode is configured. Mock mode generates no visual image.
+              Choose an existing photo from your gallery; camera capture is not offered. Choosing a
+              photo uploads it to your private session. Rendering may send it to YouCam only when
+              live mode is configured. Mock mode generates no visual image.
             </Text>
             <Button
               title={asset ? 'Choose a different image' : 'Choose and upload image'}
@@ -199,6 +205,11 @@ export default function TryOn() {
                 void run(chooseImage);
               }}
             />
+            {asset && (
+              <Text style={styles.text}>
+                Image uploaded privately. Ready to prepare your try-on.
+              </Text>
+            )}
             {asset && (
               <Button
                 title="Request try-on"

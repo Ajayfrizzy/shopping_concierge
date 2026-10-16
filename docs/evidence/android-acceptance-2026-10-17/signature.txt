@@ -1,0 +1,18 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v3.2 scheme (APK Signature Scheme v3.2): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+V2 Signer: certificate DN: CN=Shopping Concierge, OU=Hackathon, O=Shopping Concierge, C=NG
+V2 Signer: certificate SHA-256 digest: 035ace8decc67b7214f6b2b91d0ed0cd525987f48b48d15df64c708e1c54cb34
+V2 Signer: certificate SHA-1 digest: 17f4391c843cd15b47ef3ead98943f830e969b7e
+V2 Signer: certificate MD5 digest: 583e972aff462ba2b167727ce6b5afa0
+V2 Signer: key algorithm: RSA
+V2 Signer: key size (bits): 3072
+V2 Signer: public key SHA-256 digest: 7c2ba3f51975e14096fbd91bb4b80e04563deeaac027674b3472600274896057
+V2 Signer: public key SHA-1 digest: c9d3e9615c2eb3a1525d2c91e40295dfdaf02492
+V2 Signer: public key MD5 digest: 9ac1d5aed0f2b1f6be040ca3b2e1741e
