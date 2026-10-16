@@ -21,6 +21,7 @@ export function buildLLMContext(context: PlanningContext, maxBytes = 64_000) {
   }));
   const payload = {
     currentMessage: context.message,
+    ...(context.productContext ? { explicitProductContext: { ...context.productContext } } : {}),
     authoritativeState: state,
     // History and all free-text fields are data, never permission to change structured state.
     recentConversation: context.recentMessages

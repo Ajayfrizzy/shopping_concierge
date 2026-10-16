@@ -33,7 +33,7 @@ export class MockAgentPlanner implements Planner {
     if (this.options.fail) throw new Error('Mock planner unavailable');
     return this.options.respond
       ? this.options.respond(context)
-      : interpretMockMessage(context.message, context.state);
+      : interpretMockMessage(context.message, context.state, context.productContext);
   }
 }
 /** Full turns through real backend tools; callback assertions run after every restored response. */

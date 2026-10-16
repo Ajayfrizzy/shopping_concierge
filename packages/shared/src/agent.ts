@@ -93,7 +93,12 @@ export type AgentPlan = z.infer<typeof agentPlanSchema>;
 const base = { requestId: idSchema, expectedVersion: z.number().int().safe().nonnegative() };
 export const agentRequestSchema = z.discriminatedUnion('type', [
   z
-    .object({ ...base, type: z.literal('message'), message: z.string().trim().min(1).max(2000) })
+    .object({
+      ...base,
+      type: z.literal('message'),
+      message: z.string().trim().min(1).max(2000),
+      productContext: z.object({ productId: idSchema }).strict().optional(),
+    })
     .strict(),
   z.object({ ...base, type: z.literal('action'), action: decisionActionSchema }).strict(),
   z.object({ ...base, type: z.literal('confirm_relaxation'), proposalId: idSchema }).strict(),

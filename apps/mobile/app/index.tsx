@@ -26,6 +26,7 @@ export default function Home() {
   const { controller, session, response, busy, ready, error, retryPending, needsRefresh, expired } =
     shopping;
   const [draft, setDraft] = useState('');
+  const [rejectionText, setRejectionText] = useState('');
   const [rejecting, setRejecting] = useState<Product | null>(null);
   const [reason, setReason] = useState<FeedbackReason | undefined>();
   const [confirming, setConfirming] = useState<string | null>(null);
@@ -291,6 +292,7 @@ export default function Home() {
                       secondary
                       disabled={disabled}
                       onPress={() => {
+                        setRejectionText('');
                         setRejecting(product);
                         setReason(undefined);
                       }}
@@ -387,6 +389,23 @@ export default function Home() {
           <Panel style={{ maxHeight: '85%' }}>
             <Text style={styles.heading}>Why isn’t this a fit?</Text>
             <Text style={styles.text}>{rejecting?.name}</Text>
+            <TextInput
+              accessibilityLabel="Explain rejection"
+              placeholder="I don't like this one because…"
+              value={rejectionText}
+              onChangeText={setRejectionText}
+              maxLength={1000}
+              style={styles.text}
+            />
+            <Button
+              title="Send rejection explanation"
+              disabled={disabled || !rejectionText.trim()}
+              onPress={() => {
+                if (rejecting) void controller.message(rejectionText, { productId: rejecting.id });
+                setRejectionText('');
+                setRejecting(null);
+              }}
+            />
             <ScrollView contentContainerStyle={{ gap: 8 }}>
               {feedbackReasonSchema.options.map((value) => (
                 <Button

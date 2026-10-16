@@ -245,8 +245,13 @@ export function createShoppingSession(
         }
       });
     },
-    async message(text: string) {
-      await run(() => submit({ type: 'message', message: text.trim() }, text.trim()));
+    async message(text: string, productContext?: { productId: string }) {
+      await run(() =>
+        submit(
+          { type: 'message', message: text.trim(), ...(productContext ? { productContext } : {}) },
+          text.trim(),
+        ),
+      );
     },
     async action(action: DecisionAction, label: string) {
       await run(() => submit({ type: 'action', action }, label));

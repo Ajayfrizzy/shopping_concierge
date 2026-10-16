@@ -24,6 +24,7 @@ export { interpretMockMessage } from './interpreter.ts';
 
 export interface PlanningContext {
   clientRequestId?: string;
+  productContext?: { productId: string; category: Product['category'] };
   message: string;
   state: ShoppingSession;
   recentMessages: { role: 'user' | 'assistant'; text: string }[];
@@ -299,16 +300,35 @@ export function createAgentService(
       } else {
         // Independently ground allowed effects in the current supported user instruction.
         // History/model inference can never authorize additional explicit edits or confirmation.
-        const authorized = agentPlanSchema.parse(interpretMockMessage(request.message, state));
+        const contextProduct = request.productContext
+          ? catalog.getProduct(request.productContext.productId)
+          : undefined;
+        if (
+          request.productContext &&
+          (!contextProduct || contextProduct.category !== state.activeCategory)
+        )
+          throw new AgentError(
+            'UNGROUNDED_PLAN',
+            'Product context must identify a catalog product in the active category.',
+            422,
+          );
+        const productContext = contextProduct
+          ? { productId: contextProduct.id, category: contextProduct.category }
+          : undefined;
+        const authorized = agentPlanSchema.parse(
+          interpretMockMessage(request.message, state, productContext),
+        );
         const mentioned = request.message.match(/\b[A-Za-z][\w-]*\b/g) ?? [];
         const referencedIds = [
           ...new Set([
+            ...(contextProduct ? [contextProduct.id] : []),
             ...mentioned,
             ...Object.values(state.decisions).flatMap((d) => [...d.selected, ...d.rejected]),
           ]),
         ].slice(0, 100);
         const context: PlanningContext = {
           clientRequestId: request.requestId,
+          ...(productContext ? { productContext } : {}),
           message: request.message,
           state,
           recentMessages: record.history.slice(-12),

@@ -1,3 +1,9 @@
+## Flow B/C context implemented — 2026-10-16
+
+[Explicit context implementation](FLOW_BC_CONTEXT.md) adds optional message productContext, a card-bound mobile explanation input, catalog-derived category validation, exact rejection reason preservation, and selected-state resolution for the requested continuation sentence. Local sequence passes: A v1 → E01 rejection v2 → E09 deliberate selection v3 → necklace dependency/search v4. Existing global USD80/silver constraints remain unchanged. Invalid targets, ambiguous references and unrelated actions fail closed atomically.
+
+Validation: **673 tests / 34 files passed**, including local PostgreSQL/S3 integration; lint, API/mobile typechecks, API build and Android credential-sentinel secret scan passed (95 export files, seven sentinels). Initial integration run failed because Docker/test services were stopped; services were started and the full suite passed. No live OpenAI/YouCam calls or production preflight; no APK or demo script. Ready for backend deployment and separately controlled live B/C validation, not a claim of live B/C success. Mobile card input needs the updated client; explicit API productContext can validate the deployed backend before an APK build.
+
 ## Flow B/C preflight stopped before live calls — 2026-10-16
 
 Production /health and /ready returned HTTP 200, all dependencies ready, live OpenAI/YouCam with PostgreSQL persistence/ledgers and S3. Migration-007 diagnostic access passed, pending diagnostic reconciliation query was empty, and the complete usage ledger matched the successful Flow A evidence. Remaining OpenAI allowance: 195 requests / $2.781936. Attempt limit relies on prior operator confirmation of deployed OPENAI_MAX_ATTEMPTS=1; it is not exposed by readiness.

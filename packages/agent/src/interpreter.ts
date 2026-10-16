@@ -52,8 +52,43 @@ const clarify = (question: AgentPlan['question']): AgentPlan => ({
 });
 
 /** Deliberately bounded mock grammar, not a general natural-language model. Full-string matching fails closed. */
-export function interpretMockMessage(message: string, state: ShoppingSession): AgentPlan {
+export function interpretMockMessage(
+  message: string,
+  state: ShoppingSession,
+  productContext?: { productId: string },
+): AgentPlan {
   const text = message.trim().replace(/[.!]$/, '').toLowerCase();
+  const rejection =
+    /^I (?:don't|do not) like (?:this|that) (?:one|product)(?: because (.+?))?[.!]?$/i.exec(
+      message.trim(),
+    );
+  if (rejection) {
+    if (!productContext || message.trim().length > 1000) return clarify('instruction');
+    const reasonText = message.trim();
+    const reason = rejection[1]?.replace(/[.!]$/, '').toLowerCase();
+    const reasonCode =
+      reason && /^(?:it (?:feels|is) )?too (?:minimal|plain)$/.test(reason) ? 'too_plain' : 'other';
+    return plan('reject_product', [
+      {
+        name: 'reject_product',
+        args: { productId: productContext.productId, reasonCode, reasonText },
+      },
+      search,
+    ]);
+  }
+  const chosen =
+    /^(?:now )?find me (?:a|an) (necklace|earring|ring|watch) that works with the (earrings|necklaces|rings|watches) I (?:chose|selected)[.!]?$/i.exec(
+      message.trim(),
+    );
+  if (chosen) {
+    const anchorCategory = chosen[2]!.toLowerCase() as keyof typeof state.decisions;
+    const selected = state.decisions[anchorCategory]?.selected ?? [];
+    if (selected.length !== 1) return clarify('anchor');
+    const target = chosen[1]!.toLowerCase();
+    if ((target === 'watch' ? 'watches' : target + 's') === anchorCategory)
+      return clarify('anchor');
+    return interpretMockMessage(`find a ${target} that works with ${selected[0]}`, state);
+  }
   const compare = /^compare ([\w-]+) and ([\w-]+)[.!]?$/i.exec(message.trim());
   if (compare)
     return plan('compare_products', [

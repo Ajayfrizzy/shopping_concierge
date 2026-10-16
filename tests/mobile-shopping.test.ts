@@ -439,3 +439,20 @@ describe('M4 shopping controller using the real mock API', () => {
     expect(states.at(-1)).toBe(false);
   });
 });
+
+it('sends explicit card context with a rejection and retains it for exact retry', async () => {
+  const s = setup();
+  const controller = s.controller();
+  await controller.message(
+    'I need elegant silver earrings under $80 for an evening event. I prefer something noticeable but not too heavy.',
+  );
+  s.loseNextResponse();
+  await controller.message("I don't like this one because it feels too minimal.", {
+    productId: 'E01',
+  });
+  const sent = s.requests.filter((r) => r.url.endsWith('/messages')).at(-1)!;
+  expect(JSON.parse(sent.body!).productContext).toEqual({ productId: 'E01' });
+  await controller.retry();
+  const replay = s.requests.filter((r) => r.url.endsWith('/messages')).at(-1)!;
+  expect(replay.body).toEqual(sent.body);
+});
