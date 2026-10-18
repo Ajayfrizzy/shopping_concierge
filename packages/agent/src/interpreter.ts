@@ -51,7 +51,7 @@ const clarify = (question: AgentPlan['question']): AgentPlan => ({
   question,
 });
 
-/** Deliberately bounded mock grammar, not a general natural-language model. Full-string matching fails closed. */
+/** Bounded instruction interpretation shared by mock planning and independent authorization. Unknown clauses fail closed. */
 export function interpretMockMessage(
   message: string,
   state: ShoppingSession,
@@ -344,6 +344,6 @@ export function interpretMockMessage(
       ],
     });
   }
-  if (/\bunder \d/.test(text)) return clarify('currency');
+  if (/\b(?:under|below|less than|up to|at most|max) \d/.test(text)) return clarify('currency');
   return clarify(state.activeCategory ? 'instruction' : 'category');
 }

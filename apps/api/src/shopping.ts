@@ -79,6 +79,8 @@ export function registerShopping(app: FastifyInstance, options: ShoppingOptions 
                 : 'The service could not complete this request. Retry safely with the same request ID.',
               tooLarge ? 413 : 503,
             );
+      if (e.diagnostic)
+        routes.log.warn({ code: e.code, ...e.diagnostic }, 'Shopping plan authorization rejected');
       return reply.code(e.statusCode).send(
         agentErrorResponseSchema.parse({
           error: { code: e.code, message: e.message, recoverable: true },

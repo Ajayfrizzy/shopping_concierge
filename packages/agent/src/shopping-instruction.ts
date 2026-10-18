@@ -1,78 +1,148 @@
 import {
   agentPlanSchema,
   type AgentPlan,
+  type Category,
   type ConstraintInput,
   type ShoppingSession,
 } from '@youcam/shared';
-/** Full-string, auditable search grammar. Unknown clauses fail closed, not keyword-extracted. */
+
+/** Consume a composition of bounded clauses, never extract a permissive subset of unknown text. */
 export function shoppingInstruction(
   message: string,
   state: ShoppingSession,
 ): AgentPlan | undefined {
-  // Only strip an anchored, explicitly supported capability clause; unknown tails fail closed.
-  const vto = /(?: with virtual try-on available| that support virtual try-on)[.!]?$/i.test(
-    message.trim(),
-  );
-  let text = message
-    .trim()
-    .replace(/(?: with virtual try-on available| that support virtual try-on)[.!]?$/i, '');
-  text = text.replace(/\. i want (elegant|modern|romantic|minimal|stylish) designs$/i, ' $1');
-  const trailingStyle = / (elegant|modern|romantic|minimal|stylish)$/i.exec(text)?.[1];
-  if (
-    trailingStyle &&
-    /^(?:i need |find |show me )?(?:elegant|modern|romantic|minimal|stylish) /i.test(text)
-  )
-    return undefined;
-  if (trailingStyle) text = text.slice(0, -(trailingStyle.length + 1));
-  const match =
-    /^(?:i need |find |show me )?(?:(elegant|modern|romantic|minimal|stylish) )?(?:(silver|gold|rose gold|steel|titanium|platinum) )?(earrings|necklaces|rings|watches)(?: under (\$|€|usd |eur )(\d+(?:\.\d{1,2})?))?(?: for (?:an? )?(evening|wedding|work|party|date|everyday)(?: event)?)?(?:\. i prefer something (noticeable|understated)(?: but (not too heavy))?)?[.!]?$/i.exec(
-      text,
-    );
-  if (!match) return undefined;
-  const [, style, material, category, currency, amount, occasion, intensity, weight] = match.map(
-    (v) => v?.toLowerCase(),
-  );
-  if (
-    amount &&
-    (!Number.isFinite(Number(amount)) || Number(amount) > Number.MAX_SAFE_INTEGER / 100)
-  )
-    return undefined;
+  let text = message.trim().toLowerCase().replaceAll('’', "'").replace(/\s+/g, ' ');
+  let category: Category | undefined;
   const updates: ConstraintInput[] = [];
-  if (material)
-    updates.push({ field: 'material', value: material, scope: 'global', source: 'explicit' });
-  if (vto) updates.push({ field: 'vtoOnly', value: true, scope: 'global', source: 'explicit' });
-  if (occasion)
-    updates.push({ field: 'occasion', value: occasion, scope: 'global', source: 'explicit' });
-  if (amount)
-    updates.push({
-      field: 'budget',
-      value: {
-        amount: Number(amount),
-        currency: ['€', 'eur '].includes(currency!) ? 'EUR' : 'USD',
-      },
-      scope: 'global',
-      source: 'explicit',
-    });
-  const styles = [
-    ...((trailingStyle ?? style) ? [String(trailingStyle ?? style).toLowerCase()] : []),
-    ...(weight ? ['lightweight'] : []),
-  ];
+  const styles: string[] = [];
+  let invalid = false;
+  const add = (update: ConstraintInput) => {
+    const previous = updates.find((u) => u.field === update.field);
+    if (previous && JSON.stringify(previous.value) !== JSON.stringify(update.value)) invalid = true;
+    if (!previous) updates.push(update);
+  };
+  const value = (field: 'material' | 'occasion' | 'visualIntensity', v: string) =>
+    add({ field, value: v, scope: 'global', source: 'explicit' } as ConstraintInput);
+  // Each alternative consumes a complete phrase at the cursor. Negations, disjunctions,
+  // unknown modifiers and extra actions survive consumption and fail the whole request.
+  while (text) {
+    text = text.replace(/^[\s,.!?]+/, '');
+    if (!text) break;
+    const consume = (pattern: RegExp) => {
+      const match = pattern.exec(text);
+      if (match) text = text.slice(match[0].length).trimStart();
+      return match;
+    };
+    if (consume(/^(?:actually|please|and|but|instead)\b/)) continue;
+    if (
+      consume(
+        /^(?:i'm looking for|i am looking for|i'm shopping for|i am shopping for|i'd like|i would like|i need|i want|i prefer|can you find(?: me)?|could you find(?: me)?|help me choose|do you have anything|recommend(?: me)?|show me|find(?: me)?)\b/,
+      )
+    )
+      continue;
+    if (consume(/^(?:a pair of|a|an|some|something|designs|options)\b/)) continue;
+    const cat = consume(/^(earrings?|necklaces?|rings?|watches|watch)\b/);
+    if (cat) {
+      const next = (
+        cat[1] === 'watch' ? 'watches' : cat[1]!.endsWith('s') ? cat[1] : cat[1] + 's'
+      ) as Category;
+      if (category && category !== next) invalid = true;
+      category = next;
+      continue;
+    }
+    const budget = consume(
+      /^(?:under|below|less than|up to|at most|max|(?:increase|raise|change|set|lower|reduce) my budget to|with a budget of) (\$|€|usd\s*|eur\s*)(\d+(?:\.\d{1,2})?)(?=\s|[,.!?]|$)/,
+    );
+    if (budget) {
+      const amount = Number(budget[2]);
+      if (!Number.isFinite(amount) || amount > Number.MAX_SAFE_INTEGER / 100) invalid = true;
+      add({
+        field: 'budget',
+        value: { amount, currency: /€|eur/.test(budget[1]!) ? 'EUR' : 'USD' },
+        scope: 'global',
+        source: 'explicit',
+      });
+      continue;
+    }
+    const material = consume(/^(?:in |made of )?(rose gold|silver|gold|steel|titanium|platinum)\b/);
+    if (material) {
+      value('material', material[1]!);
+      continue;
+    }
+    const occasion = consume(
+      /^(?:suitable for |for )(?:an? )?(evening|wedding|work|party|date|everyday)(?: event)?\b/,
+    );
+    if (occasion) {
+      value('occasion', occasion[1]!);
+      continue;
+    }
+    if (
+      consume(
+        /^(?:with virtual try-on(?: available)?|that supports? virtual try-on|that i can try on virtually|supports? virtual try-on|with virtual try on(?: available)?)\b/,
+      )
+    ) {
+      add({ field: 'vtoOnly', value: true, scope: 'global', source: 'explicit' });
+      continue;
+    }
+    const low = consume(
+      /^(?:not too (?:loud|flashy)|nothing too flashy|understated|subtle|less noticeable)(?: than the last recommendations)?\b/,
+    );
+    if (low) {
+      value('visualIntensity', 'low');
+      continue;
+    }
+    if (
+      consume(/^(?:more noticeable(?: than the last recommendations)?|noticeable|statement|bold)\b/)
+    ) {
+      value('visualIntensity', 'high');
+      continue;
+    }
+    if (consume(/^(?:not too heavy|lightweight)\b/)) {
+      styles.push('lightweight');
+      continue;
+    }
+    const style = consume(/^(elegant|modern|romantic|minimal|stylish|sophisticated)\b/);
+    if (style) {
+      styles.push(style[1]!);
+      continue;
+    }
+    return undefined;
+  }
+  if (invalid || (!category && !updates.length && !styles.length)) return undefined;
   if (styles.length)
-    updates.push({ field: 'styleTags', value: styles, scope: 'global', source: 'explicit' });
-  if (intensity)
-    updates.push({
-      field: 'visualIntensity',
-      value: intensity === 'noticeable' ? 'high' : 'low',
-      scope: 'global',
-      source: 'explicit',
-    });
+    add({ field: 'styleTags', value: [...new Set(styles)], scope: 'global', source: 'explicit' });
+  // Standalone budget refinements retain the established category override semantics.
+  if (!category)
+    for (const u of updates)
+      if (u.field === 'budget' && state.activeCategory)
+        u.scope = { category: state.activeCategory };
+  if (!category && !state.activeCategory) return undefined;
   return agentPlanSchema.parse({
     intent: state.activeCategory ? 'refine_search' : 'start_search',
     disposition: 'execute',
     calls: [
-      { name: 'switch_category', args: { category } },
+      ...(category ? [{ name: 'switch_category', args: { category } }] : []),
       ...(updates.length ? [{ name: 'update_constraints', args: { updates } }] : []),
       { name: 'search_products', args: {} },
     ],
   });
+}
+
+/** Clarification copy cannot authorize effects; it only identifies conflicting supplied values. */
+export function shoppingClarification(message: string, fallback: string): string {
+  const text = message.toLowerCase();
+  if ((text.match(/(?:\$|€|\busd\s*|\beur\s*)\d+/g)?.length ?? 0) > 1)
+    return 'What single maximum budget and currency should I use?';
+  if (
+    /\b(?:silver|gold|steel|titanium|platinum)\s+or\s+(?:silver|gold|steel|titanium|platinum)\b/.test(
+      text,
+    )
+  )
+    return 'Which material should I require for this search?';
+  if (
+    /\b(?:subtle|understated|not too flashy)\b/.test(text) &&
+    /\b(?:bold|noticeable|statement)\b/.test(text)
+  )
+    return 'Would you prefer subtle or noticeable designs?';
+  return fallback;
 }

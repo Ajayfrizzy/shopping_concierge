@@ -124,3 +124,7 @@ M8 adds deterministic dependency transitions to the decision engine and compleme
 ## Judge runtime preparation
 
 API-only accounting adapters provide PostgreSQL judge ledgers behind existing provider interfaces. Historical validation remains separate. Production composition supplies an allowlisted runtime description to /ready, with catalog/S3/ledger dependency checks; /health remains basic liveness. Provider credentials are never probed by readiness. Private catalog VTO references are resolved and signed server-side at submission, while product eligibility drives the agent/UI. See PRODUCTION_READINESS.md for limits, activation order and outstanding assets.
+
+## Compositional instruction authorization — 2026-10-18
+
+The agent now consumes bounded shopping clauses in varied order and independently authorizes exact requested effects. Search plans may differ in grouping/order and search intent label, but must pass sequential simulation, complete-update checks and resolved-effect comparison. Unsupported/ambiguous instructions clarify before provider invocation. API logging receives only a fixed authorization rule and call index; shopper errors remain safe plain language. Persistence/accounting/confirmation boundaries are unchanged. See [NLU hardening](NLU_HARDENING.md).

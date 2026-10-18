@@ -161,3 +161,7 @@ M8 enables strict `create_dependency` and `compare_products` tools. Plans must m
 ### VTO discovery language
 
 Bounded combined shopping searches accept explicit `with virtual try-on available` or `that support virtual try-on` suffixes as the global `vtoOnly=true` constraint, not a render command. Material is optional; omission preserves existing constraints. Explicit combined-search budgets retain global update semantics. Unsupported clauses fail closed. UI discovery uses the existing typed constraint action and requires no model request.
+
+### Compositional search authorization — 2026-10-18
+
+Search clauses can now appear in varied order with common intent openings, singular categories and bounded preference synonyms. All text must be consumed, without contradictory values. Unsupported interpretation clarifies before a provider request. Search proposals must contain exactly the authorized explicit updates; equivalent ordering/grouping and search intent labels are accepted only after detached simulation and resolved-effect comparison. Other tool authorization and explicit relaxation confirmation remain unchanged. See [NLU hardening](NLU_HARDENING.md) for semantics, diagnostics, offline evaluation and limitations.

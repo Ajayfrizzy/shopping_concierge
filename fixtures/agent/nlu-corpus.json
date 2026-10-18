@@ -1,0 +1,802 @@
+[
+  {
+    "message": "I'm looking for silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'm looking for necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'm looking for a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'm looking for under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'm looking for earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'm looking for steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I need silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I need necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I need a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I need under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I need earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I need steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'd like silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'd like necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'd like a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'd like under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'd like earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'd like steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I want silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I want necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I want a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I want under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I want earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I want steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Can you find silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Can you find necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Can you find a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Can you find under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Can you find earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Can you find steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Show me silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Show me necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Show me a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Show me under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Show me earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Show me steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Help me choose silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Help me choose necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Help me choose a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Help me choose under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Help me choose earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Help me choose steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Recommend silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Recommend necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Recommend a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Recommend under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Recommend earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Recommend steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'm shopping for silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'm shopping for necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'm shopping for a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'm shopping for under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'm shopping for earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "I'm shopping for steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Do you have anything silver earrings under $100.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 100,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Do you have anything necklaces below \u20ac125 in gold.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Do you have anything a steel ring at most $150.",
+    "category": "rings",
+    "material": "steel",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Do you have anything under \u20ac175, silver watches.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 175,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "Do you have anything earrings made of gold, up to $200.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    }
+  },
+  {
+    "message": "Do you have anything steel necklaces less than \u20ac225.",
+    "category": "necklaces",
+    "material": "steel",
+    "budget": {
+      "amount": 225,
+      "currency": "EUR"
+    }
+  },
+  {
+    "message": "I'm looking for elegant silver earrings under $200 for an evening event. I prefer noticeable, sophisticated designs that support virtual try-on.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    },
+    "occasion": "evening",
+    "styles": ["elegant", "sophisticated"],
+    "intensity": "high",
+    "vto": true
+  },
+  {
+    "message": "Show me silver earrings under $200 for an evening event. I want elegant designs with virtual try-on available.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    },
+    "occasion": "evening",
+    "styles": ["elegant"],
+    "intensity": null,
+    "vto": true
+  },
+  {
+    "message": "Show me stylish watches under $300 that support virtual try-on.",
+    "category": "watches",
+    "material": null,
+    "budget": {
+      "amount": 300,
+      "currency": "USD"
+    },
+    "occasion": null,
+    "styles": ["stylish"],
+    "intensity": null,
+    "vto": true
+  },
+  {
+    "message": "I'm looking for elegant earrings for an wedding event, below $120, in silver. I prefer subtle designs that I can try on virtually.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 120,
+      "currency": "USD"
+    },
+    "occasion": "wedding",
+    "styles": ["elegant"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "I need modern necklaces for an evening event, below $125, in gold. I prefer subtle designs that I can try on virtually.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 125,
+      "currency": "USD"
+    },
+    "occasion": "evening",
+    "styles": ["modern"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "I'd like romantic rings for an work event, below $130, in titanium. I prefer subtle designs that I can try on virtually.",
+    "category": "rings",
+    "material": "titanium",
+    "budget": {
+      "amount": 130,
+      "currency": "USD"
+    },
+    "occasion": "work",
+    "styles": ["romantic"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "I want minimal watches for an party event, below $135, in silver. I prefer subtle designs that I can try on virtually.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 135,
+      "currency": "USD"
+    },
+    "occasion": "party",
+    "styles": ["minimal"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "Can you find sophisticated earrings for an wedding event, below $140, in gold. I prefer subtle designs that I can try on virtually.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 140,
+      "currency": "USD"
+    },
+    "occasion": "wedding",
+    "styles": ["sophisticated"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "Show me elegant necklaces for an evening event, below $145, in titanium. I prefer subtle designs that I can try on virtually.",
+    "category": "necklaces",
+    "material": "titanium",
+    "budget": {
+      "amount": 145,
+      "currency": "USD"
+    },
+    "occasion": "evening",
+    "styles": ["elegant"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "Help me choose modern rings for an work event, below $150, in silver. I prefer subtle designs that I can try on virtually.",
+    "category": "rings",
+    "material": "silver",
+    "budget": {
+      "amount": 150,
+      "currency": "USD"
+    },
+    "occasion": "work",
+    "styles": ["modern"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "Recommend romantic watches for an party event, below $155, in gold. I prefer subtle designs that I can try on virtually.",
+    "category": "watches",
+    "material": "gold",
+    "budget": {
+      "amount": 155,
+      "currency": "USD"
+    },
+    "occasion": "party",
+    "styles": ["romantic"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "I'm shopping for minimal earrings for an wedding event, below $160, in titanium. I prefer subtle designs that I can try on virtually.",
+    "category": "earrings",
+    "material": "titanium",
+    "budget": {
+      "amount": 160,
+      "currency": "USD"
+    },
+    "occasion": "wedding",
+    "styles": ["minimal"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "Do you have anything sophisticated necklaces for an evening event, below $165, in silver. I prefer subtle designs that I can try on virtually.",
+    "category": "necklaces",
+    "material": "silver",
+    "budget": {
+      "amount": 165,
+      "currency": "USD"
+    },
+    "occasion": "evening",
+    "styles": ["sophisticated"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "I'm looking for elegant rings for an work event, below $170, in gold. I prefer subtle designs that I can try on virtually.",
+    "category": "rings",
+    "material": "gold",
+    "budget": {
+      "amount": 170,
+      "currency": "USD"
+    },
+    "occasion": "work",
+    "styles": ["elegant"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "I need modern watches for an party event, below $175, in titanium. I prefer subtle designs that I can try on virtually.",
+    "category": "watches",
+    "material": "titanium",
+    "budget": {
+      "amount": 175,
+      "currency": "USD"
+    },
+    "occasion": "party",
+    "styles": ["modern"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "I'd like romantic earrings for an wedding event, below $180, in silver. I prefer subtle designs that I can try on virtually.",
+    "category": "earrings",
+    "material": "silver",
+    "budget": {
+      "amount": 180,
+      "currency": "USD"
+    },
+    "occasion": "wedding",
+    "styles": ["romantic"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "I want minimal necklaces for an evening event, below $185, in gold. I prefer subtle designs that I can try on virtually.",
+    "category": "necklaces",
+    "material": "gold",
+    "budget": {
+      "amount": 185,
+      "currency": "USD"
+    },
+    "occasion": "evening",
+    "styles": ["minimal"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "Can you find sophisticated rings for an work event, below $190, in titanium. I prefer subtle designs that I can try on virtually.",
+    "category": "rings",
+    "material": "titanium",
+    "budget": {
+      "amount": 190,
+      "currency": "USD"
+    },
+    "occasion": "work",
+    "styles": ["sophisticated"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "Show me elegant watches for an party event, below $195, in silver. I prefer subtle designs that I can try on virtually.",
+    "category": "watches",
+    "material": "silver",
+    "budget": {
+      "amount": 195,
+      "currency": "USD"
+    },
+    "occasion": "party",
+    "styles": ["elegant"],
+    "intensity": "low",
+    "vto": true
+  },
+  {
+    "message": "Help me choose modern earrings for an wedding event, below $200, in gold. I prefer subtle designs that I can try on virtually.",
+    "category": "earrings",
+    "material": "gold",
+    "budget": {
+      "amount": 200,
+      "currency": "USD"
+    },
+    "occasion": "wedding",
+    "styles": ["modern"],
+    "intensity": "low",
+    "vto": true
+  }
+]

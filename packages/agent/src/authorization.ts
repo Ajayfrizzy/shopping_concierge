@@ -1,5 +1,5 @@
 import type { AgentPlan, ShoppingSession, ConstraintInput } from '@youcam/shared';
-import { transition } from '@youcam/decision-engine';
+import { getActiveConstraints, transition } from '@youcam/decision-engine';
 import type { createCatalog } from '@youcam/catalog';
 function stable(value: unknown): string {
   if (Array.isArray(value)) return '[' + value.map(stable).join(',') + ']';
@@ -45,7 +45,7 @@ export function authorizePlan(
       ? { allowed: true }
       : deny('instruction_plan_mismatch');
   if (
-    plan.intent !== expected.intent ||
+    !['start_search', 'refine_search', 'switch_category'].includes(plan.intent) ||
     plan.disposition !== 'execute' ||
     plan.question !== undefined
   )
@@ -97,5 +97,26 @@ export function authorizePlan(
     }
   }
   if (!searched || remaining.size) return deny('missing_required_search_or_constraints');
+  // Different call grouping must not change precedence against inherited constraints.
+  let canonical = structuredClone(state);
+  for (const call of expected.calls) {
+    if (call.name === 'switch_category')
+      canonical = transition(canonical, { type: 'switch_category', ...call.args }, catalog).state;
+    if (call.name === 'update_constraints')
+      canonical = transition(
+        canonical,
+        { type: 'update_constraints', ...call.args },
+        catalog,
+      ).state;
+  }
+  const effects = (s: ShoppingSession) =>
+    Object.fromEntries(
+      Object.entries(getActiveConstraints(s).fields).map(([field, resolved]) => [
+        field,
+        resolved ? key(resolved.preference) : null,
+      ]),
+    );
+  if (stable(effects(simulated)) !== stable(effects(canonical)))
+    return deny('different_effective_constraints');
   return { allowed: true };
 }

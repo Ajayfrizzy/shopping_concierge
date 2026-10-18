@@ -1,3 +1,4 @@
+import { shoppingClarification } from './shopping-instruction.ts';
 import { authorizePlan } from './authorization.ts';
 import { randomUUID } from 'node:crypto';
 import {
@@ -40,6 +41,7 @@ export class AgentError extends Error {
     readonly code: string,
     message: string,
     readonly statusCode = 400,
+    readonly diagnostic?: { rule: string; callIndex?: number },
   ) {
     super(message);
     this.name = 'AgentError';
@@ -343,15 +345,21 @@ export function createAgentService(
             description: entry.description,
           })),
         };
-        const proposed = agentPlanSchema.safeParse(await getPlan(provider, context, timeout));
+        const proposed = agentPlanSchema.safeParse(
+          authorized.disposition === 'execute'
+            ? await getPlan(provider, context, timeout)
+            : authorized,
+        );
         if (!proposed.success)
           throw new AgentError('INVALID_PLAN', 'The planner returned an invalid tool plan.', 502);
         plan = proposed.data;
-        if (!authorizePlan(plan, authorized, state, catalog).allowed)
+        const decision = authorizePlan(plan, authorized, state, catalog);
+        if (!decision.allowed)
           throw new AgentError(
             'UNGROUNDED_PLAN',
-            'The tool plan is not authorized by the current supported instruction.',
+            'I could not safely apply that request. Your shopping choices are unchanged. Please rephrase the change you want.',
             422,
+            { rule: decision.rule, callIndex: decision.callIndex },
           );
       }
       const events: StateChangeEvent[] = [];
@@ -427,7 +435,10 @@ export function createAgentService(
         status === 'unsupported'
           ? 'That action is not available. Your shopping preferences have not changed.'
           : clarification
-            ? questions[plan.question ?? 'category']
+            ? shoppingClarification(
+                request.type === 'message' ? request.message : '',
+                questions[plan.question ?? 'category'],
+              )
             : comparison
               ? 'Compare the stored catalog facts and current criteria below. Ineligible or rejected items are not recommendations.'
               : visualProduct
