@@ -1,0 +1,340 @@
+{
+  "at": "2026-10-18T21:42:16.359Z",
+  "scope": "read-only configured backend resources; no remote environment introspection",
+  "database": {
+    "reachable": true,
+    "readOnly": "on"
+  },
+  "budgets": [
+    {
+      "provider": "openai",
+      "max_requests": 200,
+      "max_units": 0,
+      "max_usd": "3.00000000",
+      "approved": true,
+      "blocked": false,
+      "requests": 24,
+      "used_units": 0,
+      "charged_or_reserved_usd": "0.32761480",
+      "unsettled": 3
+    },
+    {
+      "provider": "youcam",
+      "max_requests": 50,
+      "max_units": 50,
+      "max_usd": "0.00000000",
+      "approved": true,
+      "blocked": false,
+      "requests": 10,
+      "used_units": 10,
+      "charged_or_reserved_usd": "0.00000000",
+      "unsettled": 0
+    }
+  ],
+  "diagnostics": [
+    {
+      "outcome": "failure",
+      "stage": "http",
+      "http_status": 400,
+      "error_code": "invalid_function_parameters",
+      "count": 1
+    },
+    {
+      "outcome": "success",
+      "stage": "plan_schema",
+      "http_status": 200,
+      "error_code": null,
+      "count": 21
+    }
+  ],
+  "validation": [
+    {
+      "category": "earrings",
+      "requests": 1,
+      "committed": 1
+    },
+    {
+      "category": "necklaces",
+      "requests": 2,
+      "committed": 2
+    },
+    {
+      "category": "rings",
+      "requests": 1,
+      "committed": 1
+    },
+    {
+      "category": "watches",
+      "requests": 1,
+      "committed": 1
+    }
+  ],
+  "pending": [
+    {
+      "provider": "openai",
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "charged_usd": "0.06750400",
+      "created_at": "2026-10-10T16:11:59.855Z"
+    },
+    {
+      "provider": "openai",
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "charged_usd": "0.06751400",
+      "created_at": "2026-10-12T11:30:21.049Z"
+    },
+    {
+      "provider": "openai",
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "charged_usd": "0.06750800",
+      "created_at": "2026-10-12T16:11:31.987Z"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "productId": "E12",
+      "category": "earrings",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1791630291425
+    },
+    {
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "productId": "N12",
+      "category": "necklaces",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1791630412894
+    },
+    {
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "productId": "R08",
+      "category": "rings",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1791630677799
+    },
+    {
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "productId": "W08",
+      "category": "watches",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1791630914851
+    },
+    {
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "productId": "E12",
+      "category": "earrings",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1791638613848
+    },
+    {
+      "id": "b675f806-e97f-4296-bfb8-d930d0ff0012",
+      "productId": "E01",
+      "category": "earrings",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1792319371579
+    },
+    {
+      "id": "b68085a6-3c86-4631-b908-6171da5221ed",
+      "productId": "E01",
+      "category": "earrings",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1792204797119
+    },
+    {
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "productId": "E12",
+      "category": "earrings",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1791644759166
+    },
+    {
+      "id": "1d3090dd-2ad0-417a-8bd8-7321b5df2843",
+      "productId": "E12",
+      "category": "earrings",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1792337890342
+    },
+    {
+      "id": "1568fe9e-4076-4569-9fd6-64a230986773",
+      "productId": "E12",
+      "category": "earrings",
+      "mode": "live",
+      "status": "completed",
+      "resultKind": "image",
+      "expired": true,
+      "taskRecorded": true,
+      "createdAt": 1792347697852
+    }
+  ],
+  "youcamMatches": [
+    {
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "category": "earrings",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "category": "necklaces",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "category": "rings",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "category": "watches",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "category": "earrings",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "category": "earrings",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "b68085a6-3c86-4631-b908-6171da5221ed",
+      "category": "earrings",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "b675f806-e97f-4296-bfb8-d930d0ff0012",
+      "category": "earrings",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "1d3090dd-2ad0-417a-8bd8-7321b5df2843",
+      "category": "earrings",
+      "committed": true,
+      "jobRecorded": true
+    },
+    {
+      "id": "1568fe9e-4076-4569-9fd6-64a230986773",
+      "category": "earrings",
+      "committed": true,
+      "jobRecorded": true
+    }
+  ],
+  "s3": {
+    "headBucket": "passed"
+  },
+  "receipts": [
+    {
+      "reservation": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "validReceipt": false,
+      "note": "missing, inaccessible or invalid; reservation preserved"
+    },
+    {
+      "reservation": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "validReceipt": false,
+      "note": "missing, inaccessible or invalid; reservation preserved"
+    },
+    {
+      "reservation": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "validReceipt": false,
+      "note": "missing, inaccessible or invalid; reservation preserved"
+    }
+  ],
+  "providerStatus": [
+    {
+      "jobId": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "status": "unavailable; historical task may have expired"
+    },
+    {
+      "jobId": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "status": "unavailable; historical task may have expired"
+    },
+    {
+      "jobId": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "status": "unavailable; historical task may have expired"
+    },
+    {
+      "jobId": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "status": "unavailable; historical task may have expired"
+    },
+    {
+      "jobId": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "status": "unavailable; historical task may have expired"
+    },
+    {
+      "jobId": "b675f806-e97f-4296-bfb8-d930d0ff0012",
+      "status": "completed"
+    },
+    {
+      "jobId": "b68085a6-3c86-4631-b908-6171da5221ed",
+      "status": "completed"
+    },
+    {
+      "jobId": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "status": "unavailable; historical task may have expired"
+    },
+    {
+      "jobId": "1d3090dd-2ad0-417a-8bd8-7321b5df2843",
+      "status": "completed"
+    },
+    {
+      "jobId": "1568fe9e-4076-4569-9fd6-64a230986773",
+      "status": "completed"
+    }
+  ],
+  "youcamCredit": {
+    "httpStatus": 200,
+    "numericFields": {
+      "status": 200,
+      "results.0.amount": 985,
+      "results.0.amount_dec": 985,
+      "results.0.expiry": 1798675199000,
+      "results.1.amount": 40,
+      "results.1.amount_dec": 40,
+      "results.1.expiry": 1822694399000
+    }
+  }
+}

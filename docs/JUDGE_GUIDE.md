@@ -4,7 +4,11 @@ Shopping Concierge helps a shopper narrow an accessory purchase while rememberin
 
 ## Access
 
-Use [the complete local Android setup](DEMO_SETUP.md) and [three-minute script](DEMO_SCRIPT.md). No shared account or private API key is needed. The app creates a guest identity and offers a visible new-session action. This is a development APK with a host API/Metro requirement; there is no claimed public deployment or standalone judge APK.
+The current signed standalone Android APK is **0.1.0 / code 6**, package `com.youcam.shoppingconcierge`, ARM64, Android 7/API24 or later. It targets https://shoppingconcierge.rumptycloud.app and needs internet, but no Metro, Expo Go, shared account or provider keys. The app creates a guest identity. **A public APK download is not yet available**: the owner must supply the reviewed file identified in the [final acceptance report](FINAL_PRODUCTION_ACCEPTANCE.md). Do not treat the ignored local artifact path as a public download.
+
+Install the supplied signed APK through Android's package installer (allow installation from that trusted source), or use `adb install -r <reviewed-code-6.apk>`. Preserve existing app data; a signing-certificate conflict with a development build requires a reviewed migration, not an automatic uninstall. Confirm SHA-256 against the acceptance report. [Local mock setup](DEMO_SETUP.md) remains available for developers; that path requires a host API and Metro.
+
+Final production acceptance/recording is **NO-GO pending real-result access and recording-plan review**. [The proposed 150-second final script](FINAL_DEMO_PLAN.md) supersedes the historical M9 script for final recording planning. Natural-language sends and some buttons can incur provider usage; do not rerun paid validation as an installation check.
 
 The catalog has 72 synthetic records (18/category), original bundled illustrations and deterministic USD fixture prices/stock. “Grounded” means every displayed fact comes from those records; it does not mean merchant inventory is connected. Live planning was validated in M7, while the reproducible walkthrough intentionally uses the bounded mock grammar.
 
@@ -29,7 +33,7 @@ The required live VTO gate passed on Samsung SM-S908N on 2026-10-07. Captures be
 | Ring     | [Cold-restored output](evidence/youcam-live/ring-cold-restored.png)           |
 | Watch    | [Cold-restored output](evidence/youcam-live/watch-cold-restored.png)          |
 
-Final gate usage: **5/8 renders, 5 observed YouCam units, 0 OpenAI calls during that gate**. M7's separate live LLM validation used 29/30 requests, approximately $0.1106142. No further live calls are needed for M9. Optional live visual analysis is disabled/unvalidated; VTO does not certify analysis, physical fit or purchase suitability. Raw photographs and signed provider links must not be redistributed without the relevant permission.
+Historical gate usage: **5/8 renders, 5 observed YouCam units, 0 OpenAI calls during that gate**. Current judge budgets and account credit are separately documented in the [final audit](FINAL_PRODUCTION_ACCEPTANCE.md#4-current-budgets-and-reconciliation). M7's separate live LLM validation used 29/30 requests, approximately $0.1106142. No further live calls are needed for M9. Optional live visual analysis is disabled/unvalidated; VTO does not certify analysis, physical fit or purchase suitability. Raw photographs and signed provider links must not be redistributed without the relevant permission.
 
 ## Service/API use
 
@@ -42,4 +46,4 @@ Final gate usage: **5/8 renders, 5 observed YouCam units, 0 OpenAI calls during 
 | Mobile → Fastify             | Authenticated session turns, catalog facts, comparison and visual routes | [Implemented contracts](API_CONTRACTS.md); mobile never holds provider secrets                                                      |
 | Deterministic engine/catalog | Scoped constraints, eligibility, ranking, dependencies, comparisons      | Unit and A01–A18 regression coverage                                                                                                |
 
-See [architecture](ARCHITECTURE.md), [current validation](VALIDATION.md) and [submission notes](SUBMISSION_NOTES.md). Checkout, live merchant inventory, retailer integrations and production deployment are outside this MVP.
+See [architecture](ARCHITECTURE.md), [current validation](VALIDATION.md) and [submission notes](SUBMISSION_NOTES.md). Checkout, live merchant inventory and retailer integrations are outside this MVP. Hosted deployment exists; safe production native checks passed; genuine-result comparison acceptance and judge-build distribution remain open.

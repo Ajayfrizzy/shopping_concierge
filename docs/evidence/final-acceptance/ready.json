@@ -1,0 +1,1 @@
+{"status":"ready","service":"youcam-api","runtime":{"persistence":"postgres","objectStorage":"s3","llm":"openai","youcam":"live","youcamLedger":"postgres","openaiLedger":"postgres","youcamLedgerScope":"judge"},"dependencies":{"configuration":"ready","database":"ready","objectStorage":"ready","openaiDiagnostics":"ready","openaiLedger":"ready","youcamLedger":"ready"}}

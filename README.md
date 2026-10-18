@@ -6,7 +6,7 @@ Shopping Concierge helps shoppers choose accessories without losing their prefer
 
 ## Try the demo
 
-Start with the [Android setup guide](docs/DEMO_SETUP.md), [judge guide](docs/JUDGE_GUIDE.md) and [three-minute demo script](docs/DEMO_SCRIPT.md). The repeatable demo uses local PostgreSQL/S3 and mock providers, needs no paid credentials, and installs a separate **Concierge Demo** app without removing the normal app's data.
+Start with the [judge guide](docs/JUDGE_GUIDE.md) and [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). A signed standalone ARM64 Android release (version code 6) targets the hosted HTTPS API; a judge-download link is still pending. The [local Android setup](docs/DEMO_SETUP.md) remains a separate mock-only option using PostgreSQL/S3 and Metro without paid credentials or removal of the normal app's data. The [proposed 150-second final demo](docs/FINAL_DEMO_PLAN.md) has not been recorded.
 
 1. Describe a goal, such as “Silver earrings for a wedding under $120”.
 2. Review catalog cards; save, shortlist, select or reject with a structured reason.
@@ -14,7 +14,7 @@ Start with the [Android setup guide](docs/DEMO_SETUP.md), [judge guide](docs/JUD
 4. Use a selected accessory to anchor a coordinated search in another category, then compare actual catalog items against your criteria.
 5. Optionally open **Try on** and supply the required portrait, hand or wrist image. Return to the session summary to review decisions.
 
-M0–M9 and the subsequent constraint-relaxation UX fix are complete. The latest full automated baseline is **458 tests**; Samsung Android validation and a **106-second mock rehearsal** passed. See [validation evidence](docs/VALIDATION.md) and [submission notes](docs/SUBMISSION_NOTES.md). This is a local development demo requiring Metro and the API, not a hosted or standalone production release. Deployment and external submission have not been performed.
+M0–M9 and later authorization/VTO hardening are implemented. Fresh integration-enabled validation and exact release evidence are in the [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). Historical Samsung tests and a mock rehearsal remain separate from final production acceptance. Final recording is **NO-GO** pending an accessible genuine result and recording-plan review: stored production outputs have expired. No final video or hackathon submission has been published.
 
 ## AI and visual evidence
 
@@ -130,6 +130,6 @@ The normal test suite uses mocks/injected HTTP and consumes no live credits. Liv
 | `packages/catalog`                      | Catalog validation, hard filtering, ranking and relaxation proposals    |
 | `packages/testing`, `fixtures`, `tests` | Mocks and regression coverage                                           |
 
-Shopping state is authoritative on the backend, independent of chat history. PostgreSQL and S3 use portable adapters. RumptyCloud is the intended hackathon infrastructure, not a currently deployed service. See [architecture](docs/ARCHITECTURE.md), [API contracts](docs/API_CONTRACTS.md), [infrastructure decision](docs/INFRASTRUCTURE.md), and [catalog artwork provenance](docs/CATALOG_IMAGES.md).
+Shopping state is authoritative on the backend, independent of chat history. PostgreSQL and S3 use portable adapters. The hackathon backend is hosted on RumptyCloud with managed PostgreSQL and S3-compatible storage; this is not a permanent production-cloud commitment. See [architecture](docs/ARCHITECTURE.md), [API contracts](docs/API_CONTRACTS.md), [infrastructure decision](docs/INFRASTRUCTURE.md), and [catalog artwork provenance](docs/CATALOG_IMAGES.md).
 
 For publication scope, retained evidence and cleanup findings, see [the repository audit](docs/REPOSITORY_AUDIT.md). [LICENSE](LICENSE) covers the repository; photo-publication permissions are tracked separately from code licensing in the submission notes.

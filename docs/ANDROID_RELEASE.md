@@ -1,5 +1,7 @@
 # Android standalone release
 
+**Current release:** version 0.1.0 / code 6, source `19526730cbedfacc90fa508a2903ed8682a8f085`. See [final acceptance](FINAL_PRODUCTION_ACCEPTANCE.md) for artifact identity, source-content equivalence, fresh tests and outstanding device checks. Earlier sections record historical builds.
+
 The first release targets the private production API at https://shoppingconcierge.rumptycloud.app. Build baseline: e6703cfadf6b21de195536f7fc596b90696ce999. No provider credentials belong in the app.
 
 ## Reproducible local build

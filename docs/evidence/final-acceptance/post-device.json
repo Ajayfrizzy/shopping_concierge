@@ -1,0 +1,23 @@
+{
+  "at": "2026-10-18T22:38:37.023Z",
+  "budgets": [
+    {
+      "provider": "openai",
+      "requests": 24,
+      "units": 0,
+      "charged_or_reserved_usd": "0.32761480"
+    },
+    {
+      "provider": "youcam",
+      "requests": 10,
+      "units": 10,
+      "charged_or_reserved_usd": "0.00000000"
+    }
+  ],
+  "jobs": [
+    {
+      "status": "completed",
+      "count": 10
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-18T21:41:11.711Z",
+  "operations": [
+    "S3 HeadBucket",
+    "YouCam GET credit"
+  ],
+  "paidSubmissions": 0,
+  "s3": "HeadBucket passed",
+  "youcamCredit": {
+    "httpStatus": 200,
+    "numericFields": {
+      "status": 200,
+      "results.0.amount": 985,
+      "results.0.amount_dec": 985,
+      "results.0.expiry": 1798675199000,
+      "results.1.amount": 40,
+      "results.1.amount_dec": 40,
+      "results.1.expiry": 1822694399000
+    }
+  }
+}

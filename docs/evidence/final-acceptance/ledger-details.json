@@ -1,0 +1,95 @@
+{
+  "at": "2026-10-18T21:44:41.795Z",
+  "openai": {
+    "requests": 24,
+    "settled": 21,
+    "held_usd": "0.20252600",
+    "settled_estimated_usd": "0.12508880"
+  },
+  "receipts": [
+    {
+      "id": "d5b59f2e-c5fb-449b-bc6a-00ee1172aba8",
+      "status": "unavailable",
+      "httpStatus": 404,
+      "code": "NoSuchKey"
+    },
+    {
+      "id": "b1f95cd8-2fb4-42c8-b473-05901b5a2d8d",
+      "status": "unavailable",
+      "httpStatus": 404,
+      "code": "NoSuchKey"
+    },
+    {
+      "id": "0ec91982-56a2-4456-8608-1a6d0ae20325",
+      "status": "unavailable",
+      "httpStatus": 404,
+      "code": "NoSuchKey"
+    }
+  ],
+  "imageUrls": [
+    {
+      "id": "a8d2f981-30d5-415e-9274-18344056bc62",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1791636930822
+    },
+    {
+      "id": "651d5f9e-87ce-4f70-b9b7-017d8c9daf90",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1791637206952
+    },
+    {
+      "id": "dcb89f00-2041-4e3f-8671-85ae363d3b84",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1791637374907
+    },
+    {
+      "id": "abf6794e-2bdf-4df7-b2a2-d791582ec531",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1791637559368
+    },
+    {
+      "id": "e53ae7e5-face-46af-a9d6-c72cc75f0df5",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1791645251773
+    },
+    {
+      "id": "b675f806-e97f-4296-bfb8-d930d0ff0012",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1792325995785
+    },
+    {
+      "id": "b68085a6-3c86-4631-b908-6171da5221ed",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1792211452080
+    },
+    {
+      "id": "f13ecfe3-42bc-412a-b309-890ca1335695",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1791651397434
+    },
+    {
+      "id": "1d3090dd-2ad0-417a-8bd8-7321b5df2843",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1792344539572
+    },
+    {
+      "id": "1568fe9e-4076-4569-9fd6-64a230986773",
+      "https": true,
+      "signedQuery": true,
+      "applicationExpiry": 1792354314325
+    }
+  ],
+  "catalog": {
+    "products": 72,
+    "eligible": 12
+  }
+}

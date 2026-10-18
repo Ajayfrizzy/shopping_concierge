@@ -1,0 +1,62 @@
+{
+  "checksDate": "2026-10-18",
+  "finalizedDate": "2026-10-19",
+  "timezone": "Africa/Lagos",
+  "applicationSource": "19526730cbedfacc90fa508a2903ed8682a8f085",
+  "artifact": {
+    "path": "artifacts/android/shopping-concierge-0.1.0-v6-arm64-release.apk",
+    "versionCode": 6,
+    "versionName": "0.1.0",
+    "package": "com.youcam.shoppingconcierge",
+    "bytes": 43940799,
+    "sha256": "ac78021b033966c1a4dbceafded6a25e4806e8775787b64c27e361588db7e3f2",
+    "certificateSHA256": "035ace8decc67b7214f6b2b91d0ed0cd525987f48b48d15df64c708e1c54cb34",
+    "installedAPKHashMatches": true,
+    "rebuildUncompressedEntriesIdentical": 1299,
+    "signatureV2Verified": true,
+    "debuggable": false,
+    "standaloneHermes": true,
+    "productionHTTPS": true
+  },
+  "tests": {
+    "passed": 836,
+    "failed": 0,
+    "skipped": 0,
+    "files": 41,
+    "integrationEnabled": true,
+    "lint": "passed",
+    "typescript": "passed",
+    "apiBuild": "passed",
+    "androidExport": "passed"
+  },
+  "secretScan": {
+    "exportFiles": 95,
+    "sentinels": 7,
+    "apkEntries": 1299,
+    "configuredSecretValues": 5,
+    "matches": 0
+  },
+  "production": {
+    "healthHTTP": 200,
+    "readyHTTP": 200,
+    "postgresReadOnly": "passed after transient connection failure",
+    "s3HeadBucket": "passed",
+    "catalogProducts": 72,
+    "vtoEligible": 12,
+    "paidPlanningSubmissions": 0,
+    "paidRenderSubmissions": 0,
+    "ledgerCountsUnchangedAfterDevice": true
+  },
+  "native": {
+    "device": "Samsung SM-S908N",
+    "productionSafeChecks": "passed; detailed scope in report",
+    "productionRealResultViewer": "blocked by expired results",
+    "mockInterruptionTimeoutFailureViewer": "passed",
+    "mockStarts": 2,
+    "mockPolls": 13,
+    "mockActualProviderRequests": 0,
+    "productionAppDataCleared": false
+  },
+  "recording": "not executed",
+  "recommendation": "NO-GO: expired real-result shot, plan review required; judge APK distribution also pending"
+}

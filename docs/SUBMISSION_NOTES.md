@@ -1,5 +1,7 @@
 # Submission notes
 
+**Current status — 2026-10-18:** signed standalone Android code 6 and hosted production API exist. Final acceptance/recording is **NO-GO** pending accessible genuine output, recording-plan review and judge APK distribution. See [current audit](FINAL_PRODUCTION_ACCEPTANCE.md) and [proposed 150-second script](FINAL_DEMO_PLAN.md). Historical milestone statements below do not describe current deployment or budget status.
+
 **Project:** Shopping Concierge — a stateful accessory purchasing-decision agent.
 
 **Pitch:** Describe a goal, refine without losing constraints, learn from structured rejection reasons, coordinate a selected accessory with another category, and consult visual evidence only when useful. The system exposes actual state changes and honest no-match results.
@@ -10,7 +12,7 @@
 
 **Artifacts:** [setup/access](DEMO_SETUP.md), [judge guide and API use](JUDGE_GUIDE.md), [1–3 minute script](DEMO_SCRIPT.md), [validation record](VALIDATION.md), and [milestone tracking](MILESTONES.md).
 
-**Claims and limitations:** synthetic inventory, not a merchant integration; no purchase/checkout; bounded language authorization; optional email API disabled; optional live visual analysis unvalidated; signed VTO outputs expire; mocks generate no rendered image. The local development APK needs a host running Metro/API. RumptyCloud is the intended infrastructure choice, not a deployed endpoint asserted by this submission. Device validation is Android-first, not an iOS certification.
+**Claims and limitations:** synthetic inventory, not a merchant integration; no purchase/checkout; bounded language authorization; optional email API disabled; optional live visual analysis unvalidated; signed VTO outputs expire; mocks generate no rendered image. The local mock development APK needs a host running Metro/API; the separate standalone production APK uses the deployed RumptyCloud HTTPS backend. A judge download link is still pending. Device validation is Android-first, not an iOS certification.
 
 **Credits:** existing M7 usage 29 requests / approximately $0.1106142; deferred live YouCam gate 5 renders / 5 observed units, including one necklace framing retry. Gate usage included zero OpenAI calls. `npm run credits:report` reads historical counters locally; it does not consume credits. M9 must not reset these ledgers or repeat completed renders.
 
