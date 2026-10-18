@@ -58,6 +58,26 @@ export function createVisualAPI(
     return value;
   };
   return {
+    async originalSource(id: string, assetId: string) {
+      const asset = assetSchema.parse(
+        await call(path(id) + '/assets/' + encodeURIComponent(assetId)),
+      );
+      if (asset.sessionId !== id || asset.id !== assetId)
+        throw new ClientError('INVALID_RESPONSE', 'Original image belongs to another request.');
+      const token = await credential();
+      if (!token)
+        throw new ClientError('UNAUTHORIZED', 'Restore your shopping session to view this photo.');
+      return {
+        uri:
+          base.replace(/\/$/, '') +
+          path(id) +
+          '/assets/' +
+          encodeURIComponent(assetId) +
+          '/content',
+        headers: { Authorization: `Bearer ${token}` },
+        cache: 'reload' as const,
+      };
+    },
     async list(id: string) {
       const result = vtoListSchema.parse(await call(path(id) + '/vto'));
       return result.jobs.map((j) => job(j, id));

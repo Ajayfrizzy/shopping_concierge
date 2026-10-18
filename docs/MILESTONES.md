@@ -250,3 +250,7 @@ Explicit replacement design approved and registered; matching catalog descriptio
 ## Android acceptance fixes — 2026-10-17
 
 Implemented bounded VTO discovery authorization, authoritative server capability filtering, shopper presentation and explicit pending-request recovery. Signed version-code-4 ARM64 APK built; 686 automated tests pass, with lint/types/build/export/signature/secret scans. Physical acceptance remains OPEN: available emulator refused installation while still booting and no phone was attached. Deploy the matching backend before the new APK's walkthrough. See ANDROID_ACCEPTANCE_FIXES.md. No live provider calls or final demo media/script.
+
+## Final VTO UX / submission-readiness follow-up — 2026-10-18
+
+Implementation and signed version-code-5 ARM64 APK complete; 835 automated tests pass with lint/types/API build/export/signature/secret scans. Single-action VTO, bounded polling/recovery and private expandable original/result viewing are implemented without backend/catalog/accounting changes. **Physical acceptance remains OPEN** because the connected Samsung repeatedly disappeared from USB during isolated mock-client installation. No milestone-complete or final-demo-readiness claim is made. See [VTO UX readiness audit](VTO_UX_READINESS.md) and its artifact evidence. No deployment or live provider requests.

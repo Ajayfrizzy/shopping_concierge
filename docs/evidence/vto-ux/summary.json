@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-18",
+  "apk": "artifacts/android/shopping-concierge-0.1.0-v5-arm64-release.apk",
+  "bytes": 43940791,
+  "sha256": "af5e5058f3b7b7b2a58c70b9482edd449575ffab16bab1c10c7dec114004d804",
+  "versionName": "0.1.0",
+  "versionCode": 5,
+  "package": "com.youcam.shoppingconcierge",
+  "abis": [
+    "arm64-v8a"
+  ],
+  "signingCertificateSHA256": "035ace8decc67b7214f6b2b91d0ed0cd525987f48b48d15df64c708e1c54cb34",
+  "signingKeyUnchanged": true,
+  "apkV2SignatureVerified": true,
+  "secretValuesScanned": 5,
+  "apkEntriesScanned": 1299,
+  "changedFilesScanned": 11,
+  "secretLeaks": 0,
+  "embeddedHermesBundle": true,
+  "productionHTTPS": true,
+  "loopbackAPIAbsent": true,
+  "tests": {
+    "passed": 835,
+    "files": 40,
+    "skipped": 0
+  },
+  "liveOpenAIRequests": 0,
+  "liveYouCamRequests": 0,
+  "nativeAcceptance": "pending: USB disconnects prevented isolated mock APK installation; no UI pass claimed"
+}

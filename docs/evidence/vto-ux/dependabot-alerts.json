@@ -1,0 +1,54 @@
+[
+  {
+    "number": 4,
+    "package": "braces",
+    "scope": "runtime",
+    "manifest": "package-lock.json",
+    "ghsa": "GHSA-vfj7-8cjw-p6xm",
+    "cve": "CVE-2026-93687",
+    "summary": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+    "severity": "high",
+    "range": "<= 3.0.3",
+    "patched": null
+  },
+  {
+    "number": 3,
+    "package": "node-forge",
+    "scope": "runtime",
+    "manifest": "package-lock.json",
+    "ghsa": "GHSA-86w9-cpqp-85rv",
+    "cve": "CVE-2026-85393",
+    "summary": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+    "severity": "high",
+    "range": "<= 1.4.0",
+    "patched": null
+  },
+  {
+    "number": 2,
+    "package": "decode-uri-component",
+    "scope": "runtime",
+    "manifest": "package-lock.json",
+    "ghsa": "GHSA-vcc3-ghjq-m6fr",
+    "cve": "CVE-2026-45822",
+    "summary": "decode-uri-component: Denial of service via exponential decoding of malformed percent-encoded input",
+    "severity": "medium",
+    "range": "<= 0.4.2",
+    "patched": {
+      "identifier": "0.5.0"
+    }
+  },
+  {
+    "number": 1,
+    "package": "uuid",
+    "scope": "runtime",
+    "manifest": "package-lock.json",
+    "ghsa": "GHSA-w5hq-g745-h8pq",
+    "cve": "CVE-2026-41907",
+    "summary": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+    "severity": "medium",
+    "range": "< 11.1.1",
+    "patched": {
+      "identifier": "11.1.1"
+    }
+  }
+]
