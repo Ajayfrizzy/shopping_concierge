@@ -1,5 +1,7 @@
 # VTO UX and submission-readiness audit — 2026-10-18
 
+**Latest follow-up:** device tests now ran and exposed an Android original-image authentication bug, fixed and verified below. Use the version-code-6 APK; code 5 is superseded. The original build audit below remains historical evidence.
+
 ## Shopper flow
 
 Choose and upload a photo explicitly, then tap **Try on** once. The mobile controller journals the session/product/asset/request IDs before creating the server job or asking it to render. It automatically advances that same job and checks status every three seconds, up to 40 advances per waiting period. Completion displays the result automatically. Mock completion retains its honest no-render message.
@@ -60,3 +62,17 @@ No backend deployment is needed for this mobile-only change. No production ledge
 The Samsung SM-S908N was detected intermittently after the user connected/unlocked it. Both streamed and non-streamed installation attempts for the **separate mock test app** failed when USB disappeared. Restarting ADB did not restore a stable connection; the final device list was empty. No APK launch, gallery, modal, zoom, keyboard, Back-navigation, restart or full native-flow pass is claimed. No screenshots or demo video were captured. The production app was not uninstalled, cleared or modified. A mock test APK and isolated API were prepared, but those preparations are not native acceptance evidence.
 
 Known critical source/build failures: none found. **Major remaining gate:** install and walk through the updated app on a stable physical connection, covering the complete shopping/try-on/result-viewer/recovery flow and any suitable existing real result under the no-credit policy. **Deferred/minor:** the four upstream dependency alerts (with the reachable-input guard and scope qualifications above); manual S3 cleanup/retention remains an operational limitation. No new live output/fidelity claim is made. **Automated final demo recording is not yet cleared** because the updated physical UX has not passed acceptance; recording also remains separately authorized work.
+
+## Connected-device follow-up — 2026-10-18
+
+The separate mock client installed successfully on Samsung SM-S908N. Native checks passed for shopping/constraint display, Android picker, private fixture upload, duplicate taps, automatic progress/completion, expansion, 400% zoom cap, fit reset, original/result switching, Android Back, and completed-job restoration after force-stop/relaunch. Keyboard-open input and Send remained visible. This is a focused VTO walkthrough, not a complete repeat of every historical shopping acceptance scenario.
+
+The device revealed a real bug missed by portable tests: React Native 0.86.3 Android forwards image headers only in its array-source branch. Passing the authenticated original as an object produced HTTP 401. `originalSource` now returns a one-element array; the private original visibly loaded after the fix. The owner-authenticated endpoint and no-store policy are unchanged. The regression test uses the returned source headers against the actual API and preserves rejection of another guest. Temporary image diagnostics were removed.
+
+Fixture counters remained **one submission, three polls, zero actual provider requests**, including repeated taps and restart. Both original and result were the explicitly labeled offline test image; no YouCam output or fidelity is claimed. Production app/data were untouched. Local screenshots/XML are in ignored `artifacts/vto-native-audit`; sanitized results are in [native follow-up evidence](evidence/vto-ux/native-followup.json).
+
+Verification: 17 targeted tests passed; full normal suite 783 passed, 52 integration tests skipped (the earlier 835-test integration run is historical, not rerun for this fix). Lint and both TypeScript checks passed. Android export scanned 95 files against seven server-only sentinels with zero matches. Release build and APK v2 signature verification passed with the unchanged signing certificate. Embedded bundle uses production HTTPS and contains neither tested emulator nor loopback API URL.
+
+Corrected artifact: `artifacts/android/shopping-concierge-0.1.0-v6-arm64-release.apk`, **43,940,799 bytes**, SHA-256 `ac78021b033966c1a4dbceafded6a25e4806e8775787b64c27e361588db7e3f2`. No backend deployment is needed.
+
+The former inability to install the mock app is resolved. Remaining acceptance: install/walk through the production release, plus native in-progress interruption/stop-waiting/failure/expiry checks (automated coverage already exists). No final-demo recording clearance or live-output quality claim is made.

@@ -254,3 +254,7 @@ Implemented bounded VTO discovery authorization, authoritative server capability
 ## Final VTO UX / submission-readiness follow-up — 2026-10-18
 
 Implementation and signed version-code-5 ARM64 APK complete; 835 automated tests pass with lint/types/API build/export/signature/secret scans. Single-action VTO, bounded polling/recovery and private expandable original/result viewing are implemented without backend/catalog/accounting changes. **Physical acceptance remains OPEN** because the connected Samsung repeatedly disappeared from USB during isolated mock-client installation. No milestone-complete or final-demo-readiness claim is made. See [VTO UX readiness audit](VTO_UX_READINESS.md) and its artifact evidence. No deployment or live provider requests.
+
+## VTO connected-device follow-up — 2026-10-18
+
+Samsung mock-client walkthrough now completed for the core VTO/photo/viewer/restart flow. Found and fixed React Native Android dropping original-image Authorization with object sources; array sources verified on device. Signed code-6 APK supersedes code 5. Lint/types and 783 normal tests passed (52 integration tests skipped); 17 targeted tests passed; export sentinel scan/build/signature checks passed. No live calls or production changes. Full production acceptance and remaining native failure/interruption paths stay open. See [follow-up audit](VTO_UX_READINESS.md#connected-device-follow-up--2026-10-18).

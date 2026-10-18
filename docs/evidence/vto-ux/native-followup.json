@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-18",
+  "device": "Samsung SM-S908N",
+  "packageTested": "com.youcam.shoppingconcierge.demo",
+  "mode": "isolated memory API; labeled offline image; outbound fetch forbidden",
+  "passed": [
+    "separate mock client installation and launch",
+    "mock shopping request and retained constraint summary",
+    "Android photo picker and private fixture upload",
+    "duplicate taps: one fixture submission",
+    "automatic processing to completed result",
+    "expand viewer and 400 percent zoom limit",
+    "fit resets to 100 percent",
+    "original/result switching after authentication fix",
+    "Android Back dismisses viewer",
+    "completed job restored after force-stop and relaunch",
+    "keyboard-open composer and Send control visible"
+  ],
+  "finding": "React Native 0.86.3 Android drops headers for object image sources; original image received HTTP 401. Array image source preserves Authorization; confirmed original image loads on device after fix.",
+  "fixtureCounters": {
+    "starts": 1,
+    "polls": 3,
+    "actualProviderRequests": 0
+  },
+  "tests": {
+    "passed": 783,
+    "skipped": 52,
+    "targetedPassed": 17,
+    "lint": true,
+    "typecheck": true
+  },
+  "artifact": {
+    "path": "artifacts/android/shopping-concierge-0.1.0-v6-arm64-release.apk",
+    "versionCode": 6,
+    "bytes": 43940799,
+    "sha256": "ac78021b033966c1a4dbceafded6a25e4806e8775787b64c27e361588db7e3f2",
+    "apkV2SignatureVerified": true,
+    "sameSigningCertificate": true,
+    "productionHTTPS": true,
+    "loopbackAPIAbsent": true,
+    "exportScan": {
+      "files": 95,
+      "serverSecretSentinels": 7,
+      "matches": 0
+    }
+  },
+  "remaining": [
+    "production release installed-device walkthrough",
+    "native processing interruption/stop-waiting/failure/expiry paths; automated coverage exists",
+    "live-output fidelity not assessed; no live calls authorized",
+    "final demo recording remains separate work"
+  ]
+}

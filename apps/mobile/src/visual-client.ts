@@ -67,16 +67,19 @@ export function createVisualAPI(
       const token = await credential();
       if (!token)
         throw new ClientError('UNAUTHORIZED', 'Restore your shopping session to view this photo.');
-      return {
-        uri:
-          base.replace(/\/$/, '') +
-          path(id) +
-          '/assets/' +
-          encodeURIComponent(assetId) +
-          '/content',
-        headers: { Authorization: `Bearer ${token}` },
-        cache: 'reload' as const,
-      };
+      // React Native 0.86 Android forwards image headers only for array sources.
+      return [
+        {
+          uri:
+            base.replace(/\/$/, '') +
+            path(id) +
+            '/assets/' +
+            encodeURIComponent(assetId) +
+            '/content',
+          headers: { Authorization: `Bearer ${token}` },
+          cache: 'reload' as const,
+        },
+      ];
     },
     async list(id: string) {
       const result = vtoListSchema.parse(await call(path(id) + '/vto'));

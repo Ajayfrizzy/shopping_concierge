@@ -281,15 +281,18 @@ it('unavailable products cannot create jobs or invoke a provider', async () => {
   expect(response.type).toBe('unavailable');
   expect(s.provider.starts).toBe(0);
 });
-it('before image uses the owned no-store endpoint and rejects another guest', async () => {
+it('before image preserves Android array-source authentication and rejects another guest', async () => {
   const s = await setup();
-  const source = await s.api.originalSource(s.id, s.asset.id);
+  const sources = await s.api.originalSource(s.id, s.asset.id);
+  expect(Array.isArray(sources)).toBe(true);
+  expect(sources).toHaveLength(1);
+  const source = sources[0]!;
   expect(source.headers.Authorization).toBe(s.headers.authorization);
   expect(source.cache).toBe('reload');
   const good = await s.app.inject({
     method: 'GET',
     url: new URL(source.uri).pathname,
-    headers: s.headers,
+    headers: source.headers,
   });
   expect(good.statusCode).toBe(200);
   expect(good.headers['cache-control']).toBe('private, no-store');
