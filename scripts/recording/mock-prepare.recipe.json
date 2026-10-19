@@ -1,0 +1,27 @@
+[
+  {
+    "action": "type",
+    "target": "Silver earrings under $120",
+    "before": "@shopping-ready",
+    "after": "Silver earrings under $120"
+  },
+  {
+    "action": "tap",
+    "target": "Send to concierge",
+    "before": "Shopping message",
+    "after": "@shopping-ready"
+  },
+  {
+    "action": "tap",
+    "target": "Try on E01",
+    "scroll": "down",
+    "before": "Session summary",
+    "after": "Virtual try-on result"
+  },
+  {
+    "action": "tap",
+    "target": "Back to shopping",
+    "before": "Virtual try-on result",
+    "after": "@shopping-ready"
+  }
+]

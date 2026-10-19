@@ -1,0 +1,658 @@
+{
+  "date": "2026-10-19",
+  "timezone": "Africa/Lagos",
+  "mode": "isolated native mock, no video",
+  "firstRunSeconds": 163.617,
+  "repeatRunSeconds": 163.738,
+  "completed": true,
+  "counterDeltas": {
+    "starts": 0,
+    "polls": 0,
+    "messages": 3,
+    "actions": 4,
+    "actualProviderRequests": 0
+  },
+  "steps": [
+    {
+      "step": {
+        "action": "type",
+        "target": "Silver earrings under $120",
+        "before": "@shopping-ready",
+        "after": "Silver earrings under $120"
+      },
+      "seconds": 3.761
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Send to concierge",
+        "before": "Shopping message",
+        "after": "@shopping-ready"
+      },
+      "seconds": 2.882
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Session summary",
+        "before": "Session summary",
+        "after": "Your preferences"
+      },
+      "seconds": 2.636
+    },
+    {
+      "step": {
+        "action": "wait",
+        "before": "Material: silver \u00b7 all accessories",
+        "after": "Up to USD 120 \u00b7 all accessories"
+      },
+      "seconds": 0.141
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Back to conversation",
+        "before": "Your preferences",
+        "after": "@shopping-ready"
+      },
+      "seconds": 2.871
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Reject E05",
+        "scroll": "down",
+        "before": "Session summary",
+        "after": "Reject product"
+      },
+      "seconds": 19.063
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Too flashy",
+        "before": "Reject product",
+        "after": "\u2713 Too flashy"
+      },
+      "seconds": 2.663
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Reject product",
+        "before": "\u2713 Too flashy",
+        "after": "@shopping-ready"
+      },
+      "seconds": 3.08
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Select E01",
+        "scroll": "up",
+        "before": "Session summary",
+        "after": "@shopping-ready"
+      },
+      "seconds": 11.355
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Select E01",
+        "scroll": "down",
+        "before": "Session summary",
+        "after": "Selected"
+      },
+      "seconds": 0.201
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Show virtual try-on products",
+        "scroll": "up",
+        "before": "Session summary",
+        "after": "Show all matching products"
+      },
+      "seconds": 7.115
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Try on E01",
+        "scroll": "down",
+        "before": "Session summary",
+        "after": "Virtual try-on result"
+      },
+      "seconds": 6.729
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Expand and compare photos",
+        "before": "Virtual try-on result",
+        "after": "Back to try-on"
+      },
+      "seconds": 2.623
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Original",
+        "before": "Back to try-on",
+        "after": "Original uploaded photo"
+      },
+      "seconds": 2.657
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Virtual try-on",
+        "before": "Original photo",
+        "after": "Completed YouCam virtual try-on"
+      },
+      "seconds": 2.59
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Zoom in",
+        "before": "Back to try-on",
+        "after": "150%"
+      },
+      "seconds": 2.589
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Zoom in",
+        "before": "150%",
+        "after": "200%"
+      },
+      "seconds": 2.627
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Fit image",
+        "before": "200%",
+        "after": "100%"
+      },
+      "seconds": 2.675
+    },
+    {
+      "step": {
+        "action": "back",
+        "before": "Back to try-on",
+        "after": "Virtual try-on result"
+      },
+      "seconds": 2.565
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Back to shopping",
+        "before": "Virtual try-on result",
+        "after": "@shopping-ready"
+      },
+      "seconds": 2.771
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Show all matching products",
+        "scroll": "up",
+        "before": "Session summary",
+        "after": "Show virtual try-on products"
+      },
+      "seconds": 6.912
+    },
+    {
+      "step": {
+        "action": "type",
+        "target": "Now find a necklace that works with this under $100",
+        "before": "@shopping-ready",
+        "after": "Now find a necklace that works with this under $100"
+      },
+      "seconds": 2.11
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Send to concierge",
+        "before": "Shopping message",
+        "after": "@shopping-ready"
+      },
+      "seconds": 3.258
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Compare N01",
+        "scroll": "down",
+        "before": "Session summary",
+        "after": "Compare N01"
+      },
+      "seconds": 4.304
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Compare N02",
+        "scroll": "down",
+        "before": "Session summary",
+        "after": "Compare N02"
+      },
+      "seconds": 12.375
+    },
+    {
+      "step": {
+        "action": "type",
+        "target": "Compare N01 and N02",
+        "before": "@shopping-ready",
+        "after": "Compare N01 and N02"
+      },
+      "seconds": 3.615
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Send to concierge",
+        "before": "Shopping message",
+        "after": "@shopping-ready"
+      },
+      "seconds": 2.97
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Compare against your criteria",
+        "scroll": "up",
+        "before": "Session summary",
+        "after": "Compare against your criteria"
+      },
+      "seconds": 16.472
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Quiet Round Necklaces \u00b7 N01",
+        "scroll": "down",
+        "before": "Session summary",
+        "after": "Quiet Round Necklaces \u00b7 N01"
+      },
+      "seconds": 2.884
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Petal Necklaces \u00b7 N02",
+        "scroll": "down",
+        "before": "Session summary",
+        "after": "Petal Necklaces \u00b7 N02"
+      },
+      "seconds": 8.108
+    },
+    {
+      "step": {
+        "action": "tap",
+        "target": "Session summary",
+        "before": "Session summary",
+        "after": "Your preferences"
+      },
+      "seconds": 2.773
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Quiet Round Earrings \u00b7 USD 35.00",
+        "scroll": "down",
+        "before": "Back to conversation",
+        "after": "Quiet Round Earrings \u00b7 USD 35.00"
+      },
+      "seconds": 0.189
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Gala Earrings \u00b7 USD 110.00",
+        "scroll": "down",
+        "before": "Back to conversation",
+        "after": "Gala Earrings \u00b7 USD 110.00"
+      },
+      "seconds": 3.914
+    },
+    {
+      "step": {
+        "action": "reveal",
+        "target": "Chosen E01 \u00b7 Earrings",
+        "scroll": "down",
+        "before": "Back to conversation",
+        "after": "Chosen E01 \u00b7 Earrings"
+      },
+      "seconds": 7.726
+    }
+  ],
+  "selectors": [
+    {
+      "selector": "Shopping message",
+      "bounds": [
+        33,
+        1820,
+        1047,
+        2000
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Send to concierge",
+      "bounds": [
+        34,
+        1075,
+        1046,
+        1198
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Session summary",
+      "bounds": [
+        51,
+        203,
+        413,
+        326
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Back to conversation",
+      "bounds": [
+        51,
+        203,
+        1029,
+        326
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Reject E05",
+      "bounds": [
+        745,
+        1558,
+        937,
+        1682
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Too flashy",
+      "bounds": [
+        101,
+        1000,
+        979,
+        1123
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Reject product",
+      "bounds": [
+        101,
+        1761,
+        979,
+        1885
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Select E01",
+      "bounds": [
+        537,
+        916,
+        722,
+        1040
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Select E01",
+      "bounds": [
+        537,
+        1468,
+        760,
+        1592
+      ],
+      "action": "reveal"
+    },
+    {
+      "selector": "Show virtual try-on products",
+      "bounds": [
+        96,
+        599,
+        984,
+        723
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Try on E01",
+      "bounds": [
+        783,
+        1390,
+        975,
+        1514
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Expand and compare photos",
+      "bounds": [
+        96,
+        1897,
+        984,
+        2021
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Original",
+      "bounds": [
+        51,
+        184,
+        268,
+        308
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Virtual try-on",
+      "bounds": [
+        290,
+        184,
+        594,
+        308
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Zoom in",
+      "bounds": [
+        427,
+        330,
+        641,
+        453
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Zoom in",
+      "bounds": [
+        427,
+        330,
+        641,
+        453
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Fit image",
+      "bounds": [
+        664,
+        330,
+        902,
+        453
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Back to shopping",
+      "bounds": [
+        51,
+        203,
+        1029,
+        326
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Show all matching products",
+      "bounds": [
+        96,
+        522,
+        984,
+        646
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Shopping message",
+      "bounds": [
+        33,
+        1820,
+        1047,
+        2000
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Send to concierge",
+      "bounds": [
+        34,
+        1075,
+        1046,
+        1198
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Compare N01",
+      "bounds": [
+        96,
+        1766,
+        984,
+        1784
+      ],
+      "action": "reveal"
+    },
+    {
+      "selector": "Compare N02",
+      "bounds": [
+        96,
+        1512,
+        984,
+        1636
+      ],
+      "action": "reveal"
+    },
+    {
+      "selector": "Shopping message",
+      "bounds": [
+        33,
+        1820,
+        1047,
+        2000
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Send to concierge",
+      "bounds": [
+        34,
+        1075,
+        1046,
+        1198
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Compare against your criteria",
+      "bounds": [
+        96,
+        787,
+        986,
+        845
+      ],
+      "action": "reveal"
+    },
+    {
+      "selector": "Quiet Round Necklaces \u00b7 N01",
+      "bounds": [
+        96,
+        1479,
+        986,
+        1537
+      ],
+      "action": "reveal"
+    },
+    {
+      "selector": "Petal Necklaces \u00b7 N02",
+      "bounds": [
+        96,
+        1418,
+        986,
+        1476
+      ],
+      "action": "reveal"
+    },
+    {
+      "selector": "Session summary",
+      "bounds": [
+        51,
+        203,
+        413,
+        326
+      ],
+      "action": "tap"
+    },
+    {
+      "selector": "Quiet Round Earrings \u00b7 USD 35.00",
+      "bounds": [
+        444,
+        1301,
+        984,
+        1405
+      ],
+      "action": "reveal"
+    },
+    {
+      "selector": "Gala Earrings \u00b7 USD 110.00",
+      "bounds": [
+        444,
+        1471,
+        984,
+        1523
+      ],
+      "action": "reveal"
+    },
+    {
+      "selector": "Chosen E01 \u00b7 Earrings",
+      "bounds": [
+        96,
+        1462,
+        986,
+        1514
+      ],
+      "action": "reveal"
+    }
+  ],
+  "swipes": 23
+}

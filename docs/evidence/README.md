@@ -4,6 +4,8 @@ Evidence paths are stable because reports, scripts and adjacent media/JSON depen
 
 ## Reading the evidence
 
+- [Native calibration measurements](demo-calibration/native-run.json) — sanitized October 19 mock timings and bounds; [interpretation and limitations](../NATIVE_DEMO_CALIBRATION.md). No live render or final video.
+
 - [Image provenance](IMAGE_PROVENANCE.md) records publication review and approved synthetic portraits; code licensing alone does not establish image permissions.
 - [Historical all-category live YouCam evidence](youcam-live/) contains genuine provider validation; optional live analysis remains unvalidated. Signed render URLs expire.
 - [Production acceptance evidence](final-acceptance/) supports the final audit where available; the audit describes its exact scope.

@@ -1,0 +1,78 @@
+[
+  {
+    "action": "type",
+    "target": "Silver earrings under $120",
+    "before": "@shopping-ready",
+    "after": "Silver earrings under $120"
+  },
+  {
+    "action": "tap",
+    "target": "Send to concierge",
+    "before": "Shopping message",
+    "after": "@shopping-ready"
+  },
+  {
+    "action": "tap",
+    "target": "Session summary",
+    "before": "Session summary",
+    "after": "Your preferences"
+  },
+  {
+    "action": "wait",
+    "before": "Material: silver \u00b7 all accessories",
+    "after": "Up to USD 120 \u00b7 all accessories"
+  },
+  {
+    "action": "tap",
+    "target": "Back to conversation",
+    "before": "Your preferences",
+    "after": "@shopping-ready"
+  },
+  {
+    "action": "tap",
+    "target": "Reject E05",
+    "scroll": "down",
+    "before": "Session summary",
+    "after": "Reject product"
+  },
+  {
+    "action": "tap",
+    "target": "Too flashy",
+    "before": "Reject product",
+    "after": "\u2713 Too flashy"
+  },
+  {
+    "action": "tap",
+    "target": "Reject product",
+    "before": "\u2713 Too flashy",
+    "after": "@shopping-ready"
+  },
+  {
+    "action": "tap",
+    "target": "Select E01",
+    "scroll": "up",
+    "before": "Session summary",
+    "after": "@shopping-ready"
+  },
+  {
+    "action": "reveal",
+    "target": "Select E01",
+    "scroll": "down",
+    "before": "Session summary",
+    "after": "Selected"
+  },
+  {
+    "action": "tap",
+    "target": "Show virtual try-on products",
+    "scroll": "up",
+    "before": "Session summary",
+    "after": "Show all matching products"
+  },
+  {
+    "action": "tap",
+    "target": "Try on E01",
+    "scroll": "down",
+    "before": "Session summary",
+    "after": "Virtual try-on result"
+  }
+]

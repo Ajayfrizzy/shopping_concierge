@@ -1,0 +1,101 @@
+[
+  {
+    "action": "tap",
+    "target": "Back to shopping",
+    "before": "Virtual try-on result",
+    "after": "@shopping-ready"
+  },
+  {
+    "action": "tap",
+    "target": "Show all matching products",
+    "scroll": "up",
+    "before": "Session summary",
+    "after": "Show virtual try-on products"
+  },
+  {
+    "action": "type",
+    "target": "Now find a necklace that works with this under $100",
+    "before": "@shopping-ready",
+    "after": "Now find a necklace that works with this under $100"
+  },
+  {
+    "action": "tap",
+    "target": "Send to concierge",
+    "before": "Shopping message",
+    "after": "@shopping-ready"
+  },
+  {
+    "action": "reveal",
+    "target": "Compare N01",
+    "scroll": "down",
+    "before": "Session summary",
+    "after": "Compare N01"
+  },
+  {
+    "action": "reveal",
+    "target": "Compare N02",
+    "scroll": "down",
+    "before": "Session summary",
+    "after": "Compare N02"
+  },
+  {
+    "action": "type",
+    "target": "Compare N01 and N02",
+    "before": "@shopping-ready",
+    "after": "Compare N01 and N02"
+  },
+  {
+    "action": "tap",
+    "target": "Send to concierge",
+    "before": "Shopping message",
+    "after": "@shopping-ready"
+  },
+  {
+    "action": "reveal",
+    "target": "Compare against your criteria",
+    "scroll": "up",
+    "before": "Session summary",
+    "after": "Compare against your criteria"
+  },
+  {
+    "action": "reveal",
+    "target": "Quiet Round Necklaces \u00b7 N01",
+    "scroll": "down",
+    "before": "Session summary",
+    "after": "Quiet Round Necklaces \u00b7 N01"
+  },
+  {
+    "action": "reveal",
+    "target": "Petal Necklaces \u00b7 N02",
+    "scroll": "down",
+    "before": "Session summary",
+    "after": "Petal Necklaces \u00b7 N02"
+  },
+  {
+    "action": "tap",
+    "target": "Session summary",
+    "before": "Session summary",
+    "after": "Your preferences"
+  },
+  {
+    "action": "reveal",
+    "target": "Quiet Round Earrings \u00b7 USD 35.00",
+    "scroll": "down",
+    "before": "Back to conversation",
+    "after": "Quiet Round Earrings \u00b7 USD 35.00"
+  },
+  {
+    "action": "reveal",
+    "target": "Gala Earrings \u00b7 USD 110.00",
+    "scroll": "down",
+    "before": "Back to conversation",
+    "after": "Gala Earrings \u00b7 USD 110.00"
+  },
+  {
+    "action": "reveal",
+    "target": "Chosen E01 \u00b7 Earrings",
+    "scroll": "down",
+    "before": "Back to conversation",
+    "after": "Chosen E01 \u00b7 Earrings"
+  }
+]
