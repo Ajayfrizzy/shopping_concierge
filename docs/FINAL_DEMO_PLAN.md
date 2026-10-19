@@ -1,5 +1,7 @@
 # Proposed final demo — 150 seconds, not executed
 
+This is the authoritative plan for future final recording; it supersedes the [historical M9 script](archive/demo/DEMO_SCRIPT.md). APK distribution is complete through [GitHub Releases](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android). The code-6 acceptance baseline is **836 tests passed, zero failed/skipped**; no recording is complete.
+
 Status: **DRAFT / NO-GO until the acceptance gates below close.** No final recording, narration, provider submission or publication was performed for this plan. Deadline **November 2, 2026**, 1–3-minute format and judging criteria are supplied by the owner's current hackathon brief; confirm portal requirements before submission.
 
 ## Story and truthful boundaries

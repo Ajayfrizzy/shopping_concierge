@@ -138,7 +138,7 @@ A08 comparison, A09–A11 image/VTO lifecycle and A12 dependency-aware ranking r
 
 `tests/mobile-shopping.test.ts` adds 21 mobile-client/controller integration tests against the real Fastify mock API. It covers the shopping sequence (A01/A02/A06/A13/A14/A16), explicit no-match confirmation vs plain yes (A07), catalog fact lookups/schema and identity validation (A18), saved-reference restoration without chat, lost committed responses with exact request replay, concurrent taps, stale versions/replays, offline reload without session replacement, storage failures before/after commit, corrupt journals, timeout/offline recovery, and explicit backend expiry/new session. All 210 M0–M3 tests remain.
 
-These tests exercise portable mobile logic, not native layout, touch targets, file moves or navigation rendering. The physical Android checklist in `VALIDATION.md` passed on Samsung SM-S908N on 2026-10-02; screenshots and state assertions in `docs/evidence/m4` establish the native journey, navigation, cold reload, explicit confirmation and error/retry behavior. M4 is complete. A08, A09–A11 and A12 still belong to M6/M8; no visual outcomes or comparisons are simulated here.
+These tests exercise portable mobile logic, not native layout, touch targets, file moves or navigation rendering. The physical Android checklist in `archive/milestones/VALIDATION.md` passed on Samsung SM-S908N on 2026-10-02; screenshots and state assertions in `docs/evidence/m4` establish the native journey, navigation, cold reload, explicit confirmation and error/retry behavior. M4 is complete. A08, A09–A11 and A12 still belong to M6/M8; no visual outcomes or comparisons are simulated here.
 
 ## M5 persistence coverage
 
@@ -169,7 +169,7 @@ Passed on Samsung SM-S908N / Android 16; see `evidence/post-m5-keyboard/` and th
 
 The PostgreSQL suite adds durable job/replay/analysis-cache validation across new connections, concurrent claims and ownership checks, retaining every prior persistence test. Final enabled suite: 281 tests/10 files (ten explicit local integration tests). No live API calls occur. The separately guarded one-render smoke script is never included in normal tests.
 
-Physical Samsung M6 checks cover typed/card entry, on-demand system picker with labeled synthetic input, normalized upload rejection/recovery, mock lifecycle, unchanged shopping state, restored job after cold launch, summary/back navigation and repeated multiline keyboard cycles. See `evidence/m6/` and `VALIDATION.md`. No live anatomy analysis, actual VTO output quality or account entitlement is claimed. A08/A12 remain M8; M7 is not started.
+Physical Samsung M6 checks cover typed/card entry, on-demand system picker with labeled synthetic input, normalized upload rejection/recovery, mock lifecycle, unchanged shopping state, restored job after cold launch, summary/back navigation and repeated multiline keyboard cycles. See `evidence/m6/` and `archive/milestones/VALIDATION.md`. No live anatomy analysis, actual VTO output quality or account entitlement is claimed. A08/A12 remain M8; M7 is not started.
 
 ## M7 offline/live coverage boundary
 
@@ -183,7 +183,7 @@ A08 now compares actual catalog products against active criteria with explicit i
 
 ## M9 published demo regression — 2026-10-07
 
-`fixtures/m9-demo.json` and `tests/m9-demo.test.ts` replay the published mock goal, reasoned rejection, cheaper refinement, grounded VTO image handoff, selected anchor, scoped necklace budget, eligible comparison, earrings return and honest no-match through authenticated HTTP routes. They verify state readback and plain-yes non-confirmation. `tests/demo-environment.test.ts` verifies that demo startup excludes inherited live credentials/cloud targets and forces local mocks. Existing A01–A18 coverage remains intact. These tests do not establish native installation, layout, photo picking or three-minute timing; those M9 checks subsequently passed on Samsung, with a 106.01-second recorded rehearsal and evidence in `VALIDATION.md`. A native-launcher regression also checks the actual flags against the installed Expo CLI bundler resolver.
+`fixtures/m9-demo.json` and `tests/m9-demo.test.ts` replay the published mock goal, reasoned rejection, cheaper refinement, grounded VTO image handoff, selected anchor, scoped necklace budget, eligible comparison, earrings return and honest no-match through authenticated HTTP routes. They verify state readback and plain-yes non-confirmation. `tests/demo-environment.test.ts` verifies that demo startup excludes inherited live credentials/cloud targets and forces local mocks. Existing A01–A18 coverage remains intact. These tests do not establish native installation, layout, photo picking or three-minute timing; those M9 checks subsequently passed on Samsung, with a 106.01-second recorded rehearsal and evidence in `archive/milestones/VALIDATION.md`. A native-launcher regression also checks the actual flags against the installed Expo CLI bundler resolver.
 
 ## PostgreSQL YouCam ledger — 2026-10-08
 

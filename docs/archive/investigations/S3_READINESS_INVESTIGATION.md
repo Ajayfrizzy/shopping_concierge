@@ -1,3 +1,5 @@
+> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Original findings are retained; later acceptance does not erase earlier failures.
+
 ## Hackathon S3 capability policy — 2026-10-16
 
 Backend S3 permissions require private read/write access, not DeleteObject. Receipt preflight must PUT a unique probe and GET identical bytes; it must not attempt backend deletion. Probe cleanup is manual through RumptyCloud. Durable receipts and VTO assets stay private. Backend/API file deletion is neither supported nor advertised. A denied DeleteObject is not a judge/runtime blocker. Keep deployed `OPENAI_MAX_ATTEMPTS=1`; this remains an operator-confirmed setting, not a field inferred from `/ready`.
@@ -8,7 +10,7 @@ Production is blocked by S3 access denial. No Flow A, OpenAI or YouCam request w
 
 ## Evidence and limits
 
-Sanitized observations are in [probe.json](evidence/s3-readiness-2026-10-16/probe.json). Direct S3 probes use backend credentials from the local API environment with documented production storage modes. The deployed environment cannot be independently introspected here; its public readiness independently reports only object storage unavailable. Do not mistake local credential inspection for proof of identical remote credential values.
+Sanitized observations are in [probe.json](../../evidence/s3-readiness-2026-10-16/probe.json). Direct S3 probes use backend credentials from the local API environment with documented production storage modes. The deployed environment cannot be independently introspected here; its public readiness independently reports only object storage unavailable. Do not mistake local credential inspection for proof of identical remote credential values.
 
 DNS resolves and certificate-verified TLS 1.3 connects. Authenticated HeadBucket returns HTTP 403; receipt-prefix listing and probe PUT return HTTP 403 `AccessDenied`. No timeout occurred on these failures and they were nonretryable, one SDK attempt each. GET cannot verify bytes because PUT was denied. Cleanup attempts DELETE only for the uniquely generated probe key, never existing receipts/assets.
 

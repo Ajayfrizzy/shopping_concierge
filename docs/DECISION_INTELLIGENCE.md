@@ -1,3 +1,5 @@
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+
 # M8 decision intelligence
 
 M8 runs with mock planning and mock YouCam by default. No live calls are required or authorized for this milestone. M7's OpenAI adapter and budget ledger remain intact; the additional M8 prompt/tool vocabulary is covered by mock contracts, not a new live quality claim. Live YouCam rendering/analysis remains an OPEN final-submission gate.
@@ -22,4 +24,4 @@ Chat `Compare N01 and N02`, the two-card Compare controls and owned POST `/v1/se
 
 ## Validation
 
-`tests/m8.test.ts` covers anchors, ranking precedence/determinism, relevant propagation, comparisons, strict ownership, planner tampering and confirmation. `tests/persistence-postgres.test.ts` includes dependency/comparison restoration and replay across API instances. Full M0–M7 regressions remain enabled. See `VALIDATION.md` for physical-device evidence and the final gate status.
+`tests/m8.test.ts` covers anchors, ranking precedence/determinism, relevant propagation, comparisons, strict ownership, planner tampering and confirmation. `tests/persistence-postgres.test.ts` includes dependency/comparison restoration and replay across API instances. Full M0–M7 regressions remain enabled. See `archive/milestones/VALIDATION.md` for physical-device evidence and the final gate status.

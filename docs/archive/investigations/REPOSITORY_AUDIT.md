@@ -1,10 +1,12 @@
+> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Original findings are retained; later acceptance does not erase earlier failures.
+
 # Public repository cleanup — 2026-10-08
 
 **Ready for public push with the documented residual dependency advisories.** The owner confirmed both visible portraits are synthetic/generated and instructed that existing Git history be preserved. No real recognizable personal photo was identified in the reviewed evidence; no image replacement was required. A compatible dependency patch resolves both critical audit entries. Final validation passes. No push, deployment, history rewrite or live-provider call was performed.
 
 ## Publication decisions and final validation — 2026-10-08
 
-- **Images:** retained the original validation evidence after reviewing 163 screenshots and 104 one-second video samples. The owner confirmed the side-profile earrings and frontal necklace portraits are synthetic. Ring/watch views contain no face or identifying mark observed during review. See [image provenance and exact disposition](evidence/IMAGE_PROVENANCE.md); no personal-photo removal/redaction/replacement was needed.
+- **Images:** retained the original validation evidence after reviewing 163 screenshots and 104 one-second video samples. The owner confirmed the side-profile earrings and frontal necklace portraits are synthetic. Ring/watch views contain no face or identifying mark observed during review. See [image provenance and exact disposition](../../evidence/IMAGE_PROVENANCE.md); no personal-photo removal/redaction/replacement was needed.
 - **History:** preserved as explicitly requested, including historical non-secret machine identifiers. Current public-facing files remain sanitized. No reset, squash, force push or history rewrite occurred.
 - **Dependency fix:** only two lockfile package records changed: `concurrently` **9.2.4 → 9.2.5**, and its shared `shell-quote` **1.9.0 → 1.12.0**. Both fit existing dependency declarations. No new override, application code, native configuration, migration, Expo/React version or agent/provider behavior changed. The existing workspace install was also refreshed from the patched lockfile.
 
@@ -19,7 +21,7 @@
 | Credential scan / formatting / whitespace                       | Pass; current public candidate files and reachable history scanned without exposing private values.                                        |
 | Final `npm audit --json`                                        | **29 entries: 0 critical, 19 high, 10 moderate**; exit 1 is expected for the retained advisories.                                          |
 
-Evidence is in [publication-review](evidence/publication-review/): [clean install](evidence/publication-review/clean-install.txt), [full check](evidence/publication-review/automated-check.txt), [export](evidence/publication-review/android-export.txt), [Expo Doctor](evidence/publication-review/expo-doctor.txt), [patch smoke](evidence/publication-review/patch-smoke.txt), and [credential scan](evidence/publication-review/security-summary.json). Native physical checks were not repeated for this development-tool-only patch; established Samsung evidence remains retained. External portal/video submission requirements remain separate from repository readiness.
+Evidence is in [publication-review](../../evidence/publication-review): [clean install](../../evidence/publication-review/clean-install.txt), [full check](../../evidence/publication-review/automated-check.txt), [export](../../evidence/publication-review/android-export.txt), [Expo Doctor](../../evidence/publication-review/expo-doctor.txt), [patch smoke](../../evidence/publication-review/patch-smoke.txt), and [credential scan](../../evidence/publication-review/security-summary.json). Native physical checks were not repeated for this development-tool-only patch; established Samsung evidence remains retained. External portal/video submission requirements remain separate from repository readiness.
 
 ## Documentation
 
@@ -51,12 +53,12 @@ Reviewed the Git-tracked file set, not just untracked working files. Scanned all
 
 Public local PostgreSQL/S3 test credentials, fake provider tokens, malicious-URL test fixtures and server-credential sentinels are intentional test inputs, not production secrets. Their removal would break reproducible local tests. The mobile export contains none of seven server-credential sentinels across **94 files**.
 
-The current files no longer contain the recorded device serial or user-home paths. Old commits still do; the owner explicitly chose to preserve this genuine development history on 2026-10-08. No existing commit was rewritten. Photo/video publication review is complete under the owner's rule: synthetic portraits may remain, real recognizable personal photos may not. See [image provenance](evidence/IMAGE_PROVENANCE.md).
-These checks reduce exposure; they are not proof that arbitrary secrets or embedded visual personal data can never exist. See the [scan summary](evidence/repository-audit/security-summary.json).
+The current files no longer contain the recorded device serial or user-home paths. Old commits still do; the owner explicitly chose to preserve this genuine development history on 2026-10-08. No existing commit was rewritten. Photo/video publication review is complete under the owner's rule: synthetic portraits may remain, real recognizable personal photos may not. See [image provenance](../../evidence/IMAGE_PROVENANCE.md).
+These checks reduce exposure; they are not proof that arbitrary secrets or embedded visual personal data can never exist. See the [scan summary](../../evidence/repository-audit/security-summary.json).
 
 ### Dependency assessment
 
-The initial scan had **30 entries (2 critical, 18 high, 10 moderate)**. The patched lockfile scan has **29 (0 critical, 19 high, 10 moderate)**. Both critical entries disappeared. npm additionally reports `react-native-is-edge-to-edge` through the already affected React Native dependency chain; that package's version did not change. Counts include inherited/meta-vulnerability entries, not independent exploit counts. [Before](evidence/publication-review/dependency-audit-before.json), [after](evidence/publication-review/dependency-audit-after.json), and [every-entry inventory](evidence/publication-review/dependency-assessment.md) preserve the complete assessment.
+The initial scan had **30 entries (2 critical, 18 high, 10 moderate)**. The patched lockfile scan has **29 (0 critical, 19 high, 10 moderate)**. Both critical entries disappeared. npm additionally reports `react-native-is-edge-to-edge` through the already affected React Native dependency chain; that package's version did not change. Counts include inherited/meta-vulnerability entries, not independent exploit counts. [Before](../../evidence/publication-review/dependency-audit-before.json), [after](../../evidence/publication-review/dependency-audit-after.json), and [every-entry inventory](../../evidence/publication-review/dependency-assessment.md) preserve the complete assessment.
 
 #### Critical entries: resolved
 
@@ -92,4 +94,4 @@ Used a separate directory containing only the sanitized tracked/public candidate
 | `npm run format:check`, `git diff --check`                                          | Pass after excluding generated Expo ambient types.                                                                   |
 | Physical device                                                                     | Not repeated: product code/configuration and dependencies are unchanged; prior Samsung UX/M9 evidence remains valid. |
 
-[Install](evidence/repository-audit/clean-install.txt), [full check](evidence/repository-audit/automated-check.txt), [prebuild](evidence/repository-audit/android-prebuild.txt), and [export](evidence/repository-audit/android-export.txt) output are retained with temporary host paths normalized. No runtime, ranking, catalog, state, tool, agent, image or live-provider semantics changed.
+[Install](../../evidence/repository-audit/clean-install.txt), [full check](../../evidence/repository-audit/automated-check.txt), [prebuild](../../evidence/repository-audit/android-prebuild.txt), and [export](../../evidence/repository-audit/android-export.txt) output are retained with temporary host paths normalized. No runtime, ranking, catalog, state, tool, agent, image or live-provider semantics changed.

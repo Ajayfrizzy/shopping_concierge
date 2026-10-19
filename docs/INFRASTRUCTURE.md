@@ -1,3 +1,5 @@
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+
 # Hackathon deployment infrastructure
 
 Decision date: 2026-10-02. This is the intended hackathon/demo deployment, not a permanent production-cloud commitment. M4 is complete. M5 now implements local memory/PostgreSQL repositories, S3-compatible storage and guest ownership; see [PERSISTENCE.md](PERSISTENCE.md). Runtime AI services remain mocked. No cloud deployment or resources have been created by this decision.

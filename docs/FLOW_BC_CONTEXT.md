@@ -1,3 +1,5 @@
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+
 # Flow B/C explicit references
 
 Message requests now accept an optional, single `productContext: { productId: "E01" }`. Arrays, extra fields and caller-supplied categories are rejected by the strict request schema. Existing messages/actions need no change. The service looks up the product and derives its category; unknown products or a category different from the active category fail before planner invocation. Context supplies identity only, never authority for unrelated actions.

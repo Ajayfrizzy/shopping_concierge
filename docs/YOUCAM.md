@@ -1,6 +1,8 @@
-> E12 now uses the user-approved v3 silver chandelier replacement, which passed the controlled live demo review. Judge allowance 44/50 remaining. The old E12 fidelity exclusions below are historical. See [current validation](VALIDATION.md) and `evidence/e12-chandelier/summary.json`.
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
 
-> Production registration completed 2026-10-10: exactly E01/E03/E12, N01/N03/N12, R01/R03/R08 and W03/W08/W11 are registered and eligible; the other 60 products remain ineligible. All recorded asset identities/hashes are preserved. Registration evidence: [judge registration](evidence/vto-uploads/judge-registration-2026-10-10.json). Controlled live verification is recorded separately in VALIDATION.md. Earlier pending-upload/registration notes below are historical.
+> E12 now uses the user-approved v3 silver chandelier replacement, which passed the controlled live demo review. Historical observation on 2026-10-10: judge allowance 44/50 remaining; this is not a live balance. See [final acceptance](FINAL_PRODUCTION_ACCEPTANCE.md) for the October 18 snapshot. The old E12 fidelity exclusions below are historical. See [historical validation](archive/milestones/VALIDATION.md) and `evidence/e12-chandelier/summary.json`.
+
+> Production registration completed 2026-10-10: exactly E01/E03/E12, N01/N03/N12, R01/R03/R08 and W03/W08/W11 are registered and eligible; the other 60 products remain ineligible. All recorded asset identities/hashes are preserved. Registration evidence: [judge registration](evidence/vto-uploads/judge-registration-2026-10-10.json). Controlled live verification is recorded separately in archive/milestones/VALIDATION.md. Earlier pending-upload/registration notes below are historical.
 
 # M6 YouCam integration boundary
 
@@ -72,13 +74,13 @@ The current 72 synthetic products have null `vtoAssetUrl`; live requests fail be
 - [ ] Obtain approved account entitlement/credits and suitable, approved category-specific product/image assets. Live rendering and optional analysis stay disabled until these prerequisites are satisfied.
 - [ ] Validate actual live rendering paths and normalized success/failure/output handling for supported demo categories; record account/API behavior and evidence. Mock completion is not real rendering evidence.
 - [ ] Validate available optional live analysis, or record an explicitly approved unsupported-analysis scope decision before submission. Do not infer anatomy/visual signals from mock profiles.
-- [ ] Record real evidence, actual call count/spend and remaining limitations in `VALIDATION.md` before final submission.
+- [ ] Record real evidence, actual call count/spend and remaining limitations in `archive/milestones/VALIDATION.md` before final submission.
 
 This gate remains **open** through M7 and is independent of live LLM validation. No YouCam calls are authorized by the M7 OpenAI budget.
 
 ## 2026-10-07 live validation controls and status
 
-The first real four-category run completed upload/task/poll/image display and Samsung cold restoration. Earrings/rings/watches pass visual review. Necklaces remain gated because the pendant falls below the source portrait: a wider approved neck/chest image and one targeted retry are required. See `VALIDATION.md`; this gate is **not complete**. Four render reservations and four observed units are consumed; mocks are restored. Optional analysis remains disabled.
+The first real four-category run completed upload/task/poll/image display and Samsung cold restoration. Earrings/rings/watches pass visual review. Necklaces remain gated because the pendant falls below the source portrait: a wider approved neck/chest image and one targeted retry are required. See `archive/milestones/VALIDATION.md`; this gate is **not complete**. Four render reservations and four observed units are consumed; mocks are restored. Optional analysis remains disabled.
 
 Live configuration additionally requires `YOUCAM_USAGE_LEDGER`, pointing to the existing append-only ledger (`docs/evidence/youcam-live/render-reservations.jsonl` for this gate). Keep the same absolute server path across API and smoke invocations; never reset it or create another ledger to bypass the cap. Missing, corrupt or locked ledgers fail closed. The provider reserves before every paid task POST; max eight reservations, including unknown outcomes. A stale lock needs explicit accounting review. This guards one validation host, not distributed deployment.
 
@@ -88,7 +90,7 @@ Live unit measurement used account balance and feature-cost endpoints, counted s
 
 ## Final required rendering validation — 2026-10-07
 
-All four required VTO categories now pass live Samsung output review and cold restoration. The necklace-only retry used the new wide portrait and resolved pendant clipping. Final totals: five rendering submissions, five observed units, one targeted retry; preserved eight-render ledger, no OpenAI calls. Live server stopped and mock defaults restored. See the newest `VALIDATION.md` entry for evidence, connectivity recovery and temporary-output limitations. Earlier OPEN rendering status above is historical. Optional analysis is unused/disabled and remains unvalidated; the completed rendering gate does not certify that separate capability. M9 has not started.
+All four required VTO categories now pass live Samsung output review and cold restoration. The necklace-only retry used the new wide portrait and resolved pendant clipping. Final totals: five rendering submissions, five observed units, one targeted retry; preserved eight-render ledger, no OpenAI calls. Live server stopped and mock defaults restored. See the newest `archive/milestones/VALIDATION.md` entry for evidence, connectivity recovery and temporary-output limitations. Earlier OPEN rendering status above is historical. Optional analysis is unused/disabled and remains unvalidated; the completed rendering gate does not certify that separate capability. M9 has not started.
 
 ## Curated capability inventory
 

@@ -1,3 +1,5 @@
+> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Original findings are retained; later acceptance does not erase earlier failures.
+
 # OpenAI strict function-schema audit — 2026-10-12
 
 The planner sends exactly one Responses function tool: `submit_shopping_plan`. Its `calls` array carries the internal domain operations as discriminated `anyOf` branches. OpenAI validates the whole function schema before inference, including operations not requested by the shopper.
@@ -16,7 +18,7 @@ Paths below are relative to `tools[0].parameters` in the frozen pre-fix fixture 
 
 All 49 objects already had `additionalProperties: false`. All non-empty objects already required all properties. Optional `question`, rejection `reasonCode` and `reasonText` already traveled as required nullable fields; this remains unchanged. The previous regression test used `required ?? []`, masking the two missing empty arrays, and never rejected tuple-style `items`.
 
-The conservative transport policy additionally removes 34 `minLength`/`maxLength` occurrences and root `$schema` dialect metadata. These are policy exclusions, not a claim that all 35 caused this provider rejection. The current official documentation lists pattern/format as supported string constraints and separately describes additional restrictions for fine-tuned models; it does not establish which length keyword this account/model accepts. The tuple is a concrete incompatible array representation. Every exact policy/structural finding is captured in [issues.json](evidence/openai-schema-audit-2026-10-12/issues.json).
+The conservative transport policy additionally removes 34 `minLength`/`maxLength` occurrences and root `$schema` dialect metadata. These are policy exclusions, not a claim that all 35 caused this provider rejection. The current official documentation lists pattern/format as supported string constraints and separately describes additional restrictions for fine-tuned models; it does not establish which length keyword this account/model accepts. The tuple is a concrete incompatible array representation. Every exact policy/structural finding is captured in [issues.json](../../evidence/openai-schema-audit-2026-10-12/issues.json).
 
 ## Contract comparison and implementation
 

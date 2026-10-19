@@ -152,7 +152,7 @@ Typed client user actions require explicit update provenance. Relaxation accepta
 
 ## M6 try-on handoff
 
-The exact mock grammar `Try on <catalog ID>` supports `request_vto({productId})`. Backend catalog lookup validates the ID and returns `ui.type=request_image` with productId/requiredType. The tool does not accept photos, URLs, replacement state, provider parameters or results. It authorizes opening the same on-demand flow as a card action; image selection and explicit rendering remain separate owned API steps. Ambiguous try-on utterances remain unsupported rather than selecting a product from chat inference. No decision/constraint/rejection state changes and no provider call occur in this agent turn. Unknown IDs roll back. Comparison and dependencies remain later milestones.
+The exact mock grammar `Try on <catalog ID>` supports `request_vto({productId})`. Backend catalog lookup validates the ID and returns `ui.type=request_image` with productId/requiredType. The tool does not accept photos, URLs, replacement state, provider parameters or results. It authorizes opening the same on-demand flow as a card action; image selection and explicit rendering remain separate owned API steps. Ambiguous try-on utterances remain unsupported rather than selecting a product from chat inference. No decision/constraint/rejection state changes and no provider call occur in this agent turn. Unknown IDs roll back. Comparison and dependencies were added in M8 below.
 
 ## M8 cross-product intelligence — 2026-10-04
 
@@ -164,4 +164,4 @@ Bounded combined shopping searches accept explicit `with virtual try-on availabl
 
 ### Compositional search authorization — 2026-10-18
 
-Search clauses can now appear in varied order with common intent openings, singular categories and bounded preference synonyms. All text must be consumed, without contradictory values. Unsupported interpretation clarifies before a provider request. Search proposals must contain exactly the authorized explicit updates; equivalent ordering/grouping and search intent labels are accepted only after detached simulation and resolved-effect comparison. Other tool authorization and explicit relaxation confirmation remain unchanged. See [NLU hardening](NLU_HARDENING.md) for semantics, diagnostics, offline evaluation and limitations.
+Search clauses can now appear in varied order with common intent openings, singular categories and bounded preference synonyms. All text must be consumed, without contradictory values. Unsupported interpretation clarifies before a provider request. Search proposals must contain exactly the authorized explicit updates; equivalent ordering/grouping and search intent labels are accepted only after detached simulation and resolved-effect comparison. Other tool authorization and explicit relaxation confirmation remain unchanged. See [NLU hardening](archive/acceptance/NLU_HARDENING.md) for semantics, diagnostics, offline evaluation and limitations.

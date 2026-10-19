@@ -1,3 +1,5 @@
+> Historical evidence retained at its original path. Status, test counts and budgets apply only to the recorded observation, not live balances. This is not final demo footage. See [current acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the October 18–19, 2026 code-6 baseline; mock tests and historical live provider evidence remain distinct.
+
 # M4 physical Android evidence — 2026-10-02
 
 Samsung SM-S908N / Android 16, serial DEVICE_SERIAL. Dedicated Shopping Concierge development build, package `com.youcam.shoppingconcierge`, versionCode 2 / versionName 0.1.0. Used the existing SDK57 binary and cache-cleared Metro on 8082 with mock API on 4000; USB reverse for both ports. No source/native changes or paid provider calls during this pass.

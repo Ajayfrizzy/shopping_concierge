@@ -1,3 +1,5 @@
+> Historical evidence retained at its original path. Status, test counts and budgets apply only to the recorded observation, not live balances. This is not final demo footage. See [current acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the October 18–19, 2026 code-6 baseline; mock tests and historical live provider evidence remain distinct.
+
 # Single-reservation diagnostic retry preflight — 2026-10-11
 
 Health and readiness both returned HTTP 200. Readiness confirms live OpenAI/YouCam, PostgreSQL persistence, S3 storage and PostgreSQL ledgers. The historical unresolved reservation remains unchanged: one request, USD 0.06750400, usage/settlement null; 199 requests / USD 2.93249600 available.

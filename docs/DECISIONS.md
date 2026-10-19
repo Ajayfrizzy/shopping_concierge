@@ -1,3 +1,5 @@
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+
 # Product/Architecture Decisions
 
 - Mobile-first: React Native/Expo.
@@ -22,7 +24,7 @@
 - Existing starter product types are retained; full runtime domain schemas and state transitions remain M1 work. Scenario fixtures A01–A18 are not claimed covered by foundation tests.
 
 - Use patched Vitest 4.1.11 with its supported Vite 7 backend. Vite 8's native Rolldown binding failed to load on the development host; Vite 7 passes the same suite. The override keeps transitive Vitest dependencies on the tested backend.
-- Expo SDK 54's transitive dependency audit is not clean. Track the remaining advisories in `VALIDATION.md`; do not claim production readiness or blindly apply cross-major dependency overrides that may break native tooling.
+- Expo SDK 54's transitive dependency audit is not clean. Track the remaining advisories in `archive/milestones/VALIDATION.md`; do not claim production readiness or blindly apply cross-major dependency overrides that may break native tooling.
 
 ## Android runtime repair — 2026-10-01
 

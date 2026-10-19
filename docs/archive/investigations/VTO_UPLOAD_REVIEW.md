@@ -1,3 +1,5 @@
+> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Original findings are retained; later acceptance does not erase earlier failures.
+
 # E12 chandelier replacement approved — 2026-10-10
 
 The user explicitly approved a new design for E12, superseding the earlier identity rejection. E12 now uses the silver single chandelier at `vto-products/earrings/e12-evening-vto-v3-single-f19910.png` under the existing project prefix; SHA-256 `fc85563834e740cfa65732d07f1a360a1a6768a395013885299f4b621daa3a8c`, PNG 1254×1254. Production registration and description were updated transactionally; eligibility remains true, all other product fields/registrations unchanged. There are still 72 products and 12 eligible products.
@@ -10,7 +12,7 @@ Separate E12 catalog display PNG/SVG and its approved local source were updated,
 
 Storage cleanup: these old keys under `vto-products/earrings/` are no longer registered: `e12-evening-vto-v1-71a2f4.png` and `e12-evening-vto-v2-tight-pair-cbff6f35187b.png`. Production reference audit found only completed historical jobs. They are not required for current renders or terminal-job reads; the old source bytes/hashes are archived locally in reviewed evidence. The user may delete these two old bucket objects. **Keep `e12-evening-vto-v1-aa1d5a.png`: it belongs to E01. Keep v3-single-f19910.** No object was deleted by this task.
 
-162 tests across four relevant catalog/image/manifest/eligibility files passed; lint, typechecks, API build and Android export secret scan (95 files, 7 sentinels) passed. Evidence: [summary](evidence/e12-chandelier/summary.json), [live result](evidence/e12-chandelier/result.png), [registration](evidence/e12-chandelier/activation.json), [reference audit](evidence/e12-chandelier/reference-audit.json). All earlier E12 exclusion/identity-failure notes below apply to the previous design and are superseded by this explicit replacement approval and live result.
+162 tests across four relevant catalog/image/manifest/eligibility files passed; lint, typechecks, API build and Android export secret scan (95 files, 7 sentinels) passed. Evidence: [summary](../../evidence/e12-chandelier/summary.json), [live result](../../evidence/e12-chandelier/result.png), [registration](../../evidence/e12-chandelier/activation.json), [reference audit](../../evidence/e12-chandelier/reference-audit.json). All earlier E12 exclusion/identity-failure notes below apply to the previous design and are superseded by this explicit replacement approval and live result.
 
 ---
 
@@ -26,7 +28,7 @@ E12 remains registered to v2 with unchanged eligibility. V1/v2 objects and histo
 
 Comparison: E12 v2 remains materially too small with indistinct dangling detail. The historical E03 successful screenshot shows a clear vertical gold earring attached at the lobe with its round pendant visible below. V3 has no live result because its identity gate failed; no claims about its live scale, placement or fidelity are made. **Final recommendation: exclude E12 from the faithful final-demo showcase in its current state.** No further variant generated or tested, OpenAI use, APK or demo-script creation.
 
-Evidence: [candidate review](evidence/e12-v3-review/candidate.json). Additional renders consumed: **0**. Read-only audit confirms 5 committed judge renders total, **45/50 remaining**, E12 still eligible on v2, and HTTP 200 ready with mock OpenAI. Manifest/eligibility regression: **12 tests passed**. See `evidence/e12-v3-review/audit.json`.
+Evidence: [candidate review](../../evidence/e12-v3-review/candidate.json). Additional renders consumed: **0**. Read-only audit confirms 5 committed judge renders total, **45/50 remaining**, E12 still eligible on v2, and HTTP 200 ready with mock OpenAI. Manifest/eligibility regression: **12 tests passed**. See `../../evidence/e12-v3-review/audit.json`.
 
 ---
 
@@ -36,17 +38,17 @@ Evidence: [candidate review](evidence/e12-v3-review/candidate.json). Additional 
 
 Offline source measurements: E03 original pair canvas 360×395, approximate product bounds 223×292 (61.9% width / 73.9% height), gap 24 px (6.7% width). E12 original canvas 1254×1254, bounds 822×932 (65.6% / 74.3%), gap 117 px (9.3%). E12 is a silver hanging teardrop design, not inherently a stud; physical dimensions are unknown. E03's historically successful live reference was a 123×327 single-front-earring crop, so comparing its success with a full-pair E12 reference is confounded. Whitespace alone was not the leading explanation; provider pair interpretation/scaling was suspected before mutation.
 
-A single lossless crop removed E12's faint outside frame and unnecessary margins while preserving all product pixels, proportions, finish and pair spacing. New canvas 862×972; the same bounds occupy 95.4% width / 95.9% height. Both complete earrings remain visible and separated on the original white background. No design generation/substitution or original-object overwrite occurred. New object and SHA-256: [replacement record](evidence/e12-fidelity/replacement.json); this record retains the full previous manifest entry/hash/evidence.
+A single lossless crop removed E12's faint outside frame and unnecessary margins while preserving all product pixels, proportions, finish and pair spacing. New canvas 862×972; the same bounds occupy 95.4% width / 95.9% height. Both complete earrings remain visible and separated on the original white background. No design generation/substitution or original-object overwrite occurred. New object and SHA-256: [replacement record](../../evidence/e12-fidelity/replacement.json); this record retains the full previous manifest entry/hash/evidence.
 
 The same approved side-profile input was reused. Both old and new results put a tiny ornament at the lobe, approximately 8–12 pixels high versus an approximately 65–75-pixel ear. Placement is near the lobe and broadly upright, but full pendant/hoop identity is not discernible; the defect is scale plus fidelity, not output-frame clipping. Only 140 of 337,500 RGB channel values differ between results (mean absolute difference 0.00106/255). This strongly suggests remaining provider/category pair interpretation or scaling, rather than outer canvas whitespace, without proving the provider's internal cause.
 
 **Additional consumption: 1 render; judge total 5/50, 45 remaining.** Exactly one new committed reservation; duplicate queue/terminal replay checks passed without additional usage. OpenAI remained mocked and unused. Final readiness HTTP 200 / ready. Historical validation accounting remains separate. Twelve manifest/eligibility tests pass; lint and typechecks pass. No APK or demo script created.
 
-[Diagnosis recorded before changes](evidence/e12-fidelity/DIAGNOSIS.md), [comparison](evidence/e12-fidelity/output-comparison.json), [summary](evidence/e12-fidelity/summary.json), [new output](evidence/e12-fidelity/result-v2.png). Earlier 46-remaining and initial E12-key references below are historical and superseded only for E12 by this investigation.
+[Diagnosis recorded before changes](../../evidence/e12-fidelity/DIAGNOSIS.md), [comparison](../../evidence/e12-fidelity/output-comparison.json), [summary](../../evidence/e12-fidelity/summary.json), [new output](../../evidence/e12-fidelity/result-v2.png). Earlier 46-remaining and initial E12-key references below are historical and superseded only for E12 by this investigation.
 
 ---
 
-> Production registration completed 2026-10-10: exactly E01/E03/E12, N01/N03/N12, R01/R03/R08 and W03/W08/W11 are registered and eligible; the other 60 products remain ineligible. All recorded asset identities/hashes are preserved. Registration evidence: [judge registration](evidence/vto-uploads/judge-registration-2026-10-10.json). Controlled live verification is recorded separately in VALIDATION.md. Earlier pending-upload/registration notes below are historical.
+> Production registration completed 2026-10-10: exactly E01/E03/E12, N01/N03/N12, R01/R03/R08 and W03/W08/W11 are registered and eligible; the other 60 products remain ineligible. All recorded asset identities/hashes are preserved. Registration evidence: [judge registration](../../evidence/vto-uploads/judge-registration-2026-10-10.json). Controlled live verification is recorded separately in ../milestones/VALIDATION.md. Earlier pending-upload/registration notes below are historical.
 
 # Final N12 framing recheck — 2026-10-10
 
@@ -54,7 +56,7 @@ The new N12 object passes offline appearance review: complete silver-colored sta
 
 Exact selected key: `projects/01a0f9c5-53d5-7eab-b357-9dd0f0db15f3/shopping-concierge/vto-products/necklaces/n12-evening-vto-v1-241860.png`. SHA-256: `62df66d79c57212397d1a6ac551c37bafaa2461b197f32fb6def71537520845d`.
 
-All eight additions now pass offline appearance review. The 12-product asset inventory is present, but the operational 12-product VTO catalog is not yet complete: eight additions remain uploaded/ineligible pending approval and registration; no live output has been tested for these additions. Compatible backend/schema readiness must be checked before production registration. No deployment, database writes, provider calls or budget activation occurred. Prior inspections below are historical and superseded for N12. Evidence: `evidence/vto-uploads/n12-final-2026-10-10.json`.
+All eight additions now pass offline appearance review. The 12-product asset inventory is present, but the operational 12-product VTO catalog is not yet complete: eight additions remain uploaded/ineligible pending approval and registration; no live output has been tested for these additions. Compatible backend/schema readiness must be checked before production registration. No deployment, database writes, provider calls or budget activation occurred. Prior inspections below are historical and superseded for N12. Evidence: `../../evidence/vto-uploads/n12-final-2026-10-10.json`.
 
 ---
 
@@ -71,7 +73,7 @@ Four replacements were discovered by listing the actual private category prefixe
 
 The replacements correct the color mismatches. N12 still needs an uncropped full-chain reference: the new silver necklace exits the top edge of the image. Use wider framing with the complete chain/clasp and white margin; remove the thin presentation border when re-exporting. Other replacements match the intended visible product shape/color; no material-composition or live-output claim is made.
 
-The eight additions remain uploaded/ineligible, with seven now passing product-appearance review and one (N12) pending framing correction. Database registration/deployment remain separate gates; none was performed. Machine-readable evidence: `evidence/vto-uploads/replacements-2026-10-10.json`. Previous inspection below is retained as historical evidence and is superseded where replacement findings differ.
+The eight additions remain uploaded/ineligible, with seven now passing product-appearance review and one (N12) pending framing correction. Database registration/deployment remain separate gates; none was performed. Machine-readable evidence: `../../evidence/vto-uploads/replacements-2026-10-10.json`. Previous inspection below is retained as historical evidence and is superseded where replacement findings differ.
 
 ---
 
@@ -105,6 +107,6 @@ The eight new entries remain **uploaded**, not validated/registered. Eligibility
 
 Mappings are based on the visible object/category, not the embedded filename ID. Both swapped pairs are explicitly recorded; objects were not renamed or overwritten. No other category/product was substituted to bypass metadata. All new assets are isolated on white backgrounds. New reference render outcomes remain untested; visual review cannot establish physical materials or YouCam output quality.
 
-Machine-readable complete listing, MIME/dimensions, hashes and review evidence: `evidence/vto-uploads/inspection-2026-10-10.json`. The manifest now records exact objectKey in addition to actual filename and relative assetPath. Registration rejects a configured prefix different from the inspected full key. Uploaded-only entries remain excluded even when hashes exist.
+Machine-readable complete listing, MIME/dimensions, hashes and review evidence: `../../evidence/vto-uploads/inspection-2026-10-10.json`. The manifest now records exact objectKey in addition to actual filename and relative assetPath. Registration rejects a configured prefix different from the inspected full key. Uploaded-only entries remain excluded even when hashes exist.
 
 The intended twelve-product VTO-ready catalog is **not complete**: four assets need corrections, four have passed offline visual checks but await registration validation/compatible backend, and four previously approved assets are preserved. Do not activate new eligibility or judge budgets based on file upload alone.

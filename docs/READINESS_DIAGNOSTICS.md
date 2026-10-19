@@ -1,3 +1,5 @@
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+
 # Production readiness investigation — 2026-10-12
 
 The latest reproduced failure is **PostgreSQL connection timeout during runtime accounting initialization**, safely classified as `DB_CONNECTION_TIMEOUT`. The historical `/ready` 503 at 18:05:38 UTC cannot be attributed conclusively: the deployed handler discarded dependency identity. Do not equate a later reproduced timeout with proof of that historical cause.

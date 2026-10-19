@@ -1,6 +1,10 @@
 # Android standalone release
 
-**Current release:** version 0.1.0 / code 6, source `19526730cbedfacc90fa508a2903ed8682a8f085`. See [final acceptance](FINAL_PRODUCTION_ACCEPTANCE.md) for artifact identity, source-content equivalence, fresh tests and outstanding device checks. Earlier sections record historical builds.
+**Current release:** version 0.1.0 / code 6, source `19526730cbedfacc90fa508a2903ed8682a8f085`. See [final acceptance](FINAL_PRODUCTION_ACCEPTANCE.md) for artifact identity, source-content equivalence, the 836-test acceptance baseline and passed safe native checks. Genuine-result viewing remains blocked by expired outputs. [Download the exact code-6 APK](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v6-arm64-release.apk) from the [public release](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android).
+
+SHA-256: `ac78021b033966c1a4dbceafded6a25e4806e8775787b64c27e361588db7e3f2`. ARM64 / Android 7+; standalone, internet and live backend required. No rebuild is needed for installation.
+
+The build instructions remain a contributor reference. Dependency findings and code-3/code-4 acceptance failures below are historical, not the current code-6 installation status.
 
 The first release targets the private production API at https://shoppingconcierge.rumptycloud.app. Build baseline: e6703cfadf6b21de195536f7fc596b90696ce999. No provider credentials belong in the app.
 
@@ -28,7 +32,7 @@ Automated tests cover session creation/restoration, grounded cards/images, typed
 
 Installed Expo57.0.27 / React Native0.86.3 / React19.2.3 match the SDK's bundled dependency map. Online Expo metadata recommends six newer patch versions: Expo57.0.30, constants57.0.22, crypto57.0.4, dev-client57.0.20, linking57.0.13, router57.0.28. This maintenance finding is recorded, not hidden as a passing online check. No major-version migration is justified by the audit. Actual build and native smoke results determine whether the current locked set is usable.
 
-## Audit severity
+## Historical first-release audit severity (code 3)
 
 Fixed critical: release signing previously selected the public debug key; production builds could fall back to an emulator URL. Fixed major: restore/refresh incurred unnecessary live planner calls; a10-second client timeout could expire before the20-second server planner limit. Release network/backup/permission hardening is implemented without changing camera/gallery scope.
 
@@ -36,7 +40,7 @@ Known minor: six available Expo patch updates and the default native splash trea
 
 The generated native directory is ignored and rebuilt from app config/plugin. Do not commit signing files, native build directories or APKs. Build logs and artifacts stay local; copy reviewed non-secret metadata into release evidence.
 
-## First artifact and validation result
+## Historical first artifact and validation result (code 3)
 
 Artifact: `artifacts/android/shopping-concierge-0.1.0-arm64-release.apk`, **43,919,163 bytes (41.88 MiB)**. Application ID `com.youcam.shoppingconcierge`, versionName0.1.0, versionCode3, minSDK24, targetSDK36. Gradle assembleRelease succeeded. APK v2 signature verified, RSA3072 dedicated release certificate (not debug); SHA256 certificate `035ace8decc67b7214f6b2b91d0ed0cd525987f48b48d15df64c708e1c54cb34`. Artifact SHA256 `c64514150729715ca051b22cd5b80f4a03106ae8354d1bf1c625fa5b22a13b96`.
 
@@ -48,4 +52,4 @@ Outstanding **major acceptance gate**: install and cold-launch on a usable ARM64
 
 ## Acceptance build — version code 4
 
-The updated build preserves the existing release signing identity and ARM64 target. See [acceptance fixes](ANDROID_ACCEPTANCE_FIXES.md) for parser/filter changes, gallery audit, copy and explicit pending-request recovery. Deploy the matching backend before trying VTO discovery from this APK; the older server does not accept the additive constraint. Pending requests retain their original IDs but now require an explicit Retry request after relaunch/refresh. Native and artifact results are recorded in `evidence/android-acceptance-2026-10-17/`.
+The updated build preserves the existing release signing identity and ARM64 target. See [acceptance fixes](archive/acceptance/ANDROID_ACCEPTANCE_FIXES.md) for parser/filter changes, gallery audit, copy and explicit pending-request recovery. Deploy the matching backend before trying VTO discovery from this APK; the older server does not accept the additive constraint. Pending requests retain their original IDs but now require an explicit Retry request after relaunch/refresh. Native and artifact results are recorded in `evidence/android-acceptance-2026-10-17/`.

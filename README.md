@@ -22,6 +22,8 @@ Verified SHA-256:
 ac78021b033966c1a4dbceafded6a25e4806e8775787b64c27e361588db7e3f2
 ```
 
+[Documentation index](docs/README.md) · [Judge guide](docs/JUDGE_GUIDE.md) · [Architecture](docs/ARCHITECTURE.md)
+
 ## Try the demo
 
 Start with the [judge guide](docs/JUDGE_GUIDE.md) and [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). A signed standalone ARM64 Android release (version code 6) targets the hosted HTTPS API; the verified APK is available from the download section above. The [local Android setup](docs/DEMO_SETUP.md) remains a separate mock-only option using PostgreSQL/S3 and Metro without paid credentials or removal of the normal app's data. The [proposed 150-second final demo](docs/FINAL_DEMO_PLAN.md) has not been recorded.
@@ -32,7 +34,7 @@ Start with the [judge guide](docs/JUDGE_GUIDE.md) and [final acceptance report](
 4. Use a selected accessory to anchor a coordinated search in another category, then compare actual catalog items against your criteria.
 5. Optionally open **Try on** and supply the required portrait, hand or wrist image. Return to the session summary to review decisions.
 
-M0–M9 and later authorization/VTO hardening are implemented. Fresh integration-enabled validation and exact release evidence are in the [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). Historical Samsung tests and a mock rehearsal remain separate from final production acceptance. Final recording is **NO-GO** pending an accessible genuine result and recording-plan review: stored production outputs have expired. No final video or hackathon submission has been published.
+M0–M9 and later authorization/VTO hardening are implemented. Final integration-enabled validation (**836 tests passed, zero failed/skipped**) and exact release evidence are in the [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). Historical Samsung tests and a mock rehearsal remain separate from final production acceptance. Final recording is **NO-GO** pending an accessible genuine result and recording-plan review: stored production outputs have expired. No final video or hackathon submission has been published.
 
 ## AI and visual evidence
 
@@ -134,7 +136,7 @@ This compiles and starts only the Fastify API, with no Expo process or TypeScrip
 | `npm run format:check`           | Prettier check                                                                     |
 | `npm run credits:report`         | Read historical ledgers locally; no provider calls                                 |
 
-The normal test suite uses mocks/injected HTTP and consumes no live credits. Live regression scripts are separate and intentionally not part of these commands. [Regression scenarios](docs/TEST_SCENARIOS.md) and [validation](docs/VALIDATION.md) distinguish automated coverage from physical checks.
+The normal test suite uses mocks/injected HTTP and consumes no live credits. Live regression scripts are separate and intentionally not part of these commands. [Regression scenarios](docs/TEST_SCENARIOS.md) and [validation](docs/archive/milestones/VALIDATION.md) distinguish automated coverage from physical checks.
 
 ## Architecture
 
@@ -150,4 +152,4 @@ The normal test suite uses mocks/injected HTTP and consumes no live credits. Liv
 
 Shopping state is authoritative on the backend, independent of chat history. PostgreSQL and S3 use portable adapters. The hackathon backend is hosted on RumptyCloud with managed PostgreSQL and S3-compatible storage; this is not a permanent production-cloud commitment. See [architecture](docs/ARCHITECTURE.md), [API contracts](docs/API_CONTRACTS.md), [infrastructure decision](docs/INFRASTRUCTURE.md), and [catalog artwork provenance](docs/CATALOG_IMAGES.md).
 
-For publication scope, retained evidence and cleanup findings, see [the repository audit](docs/REPOSITORY_AUDIT.md). [LICENSE](LICENSE) covers the repository; photo-publication permissions are tracked separately from code licensing in the submission notes.
+For publication scope, retained evidence and cleanup findings, see [the repository audit](docs/archive/investigations/REPOSITORY_AUDIT.md). [LICENSE](LICENSE) covers the repository; photo-publication permissions are tracked separately from code licensing in the submission notes.

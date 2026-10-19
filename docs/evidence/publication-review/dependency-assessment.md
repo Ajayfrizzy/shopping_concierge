@@ -1,6 +1,8 @@
+> Historical evidence retained at its original path. Status, test counts and budgets apply only to the recorded observation, not live balances. This is not final demo footage. See [current acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the October 18–19, 2026 code-6 baseline; mock tests and historical live provider evidence remain distinct.
+
 # Dependency advisory inventory — 2026-10-08
 
-All 30 initial audit entries were assessed. The two critical entries are resolved; the final report has 29 entries because npm additionally reports an inherited warning for the unchanged `react-native-is-edge-to-edge`. This inventory maps each remaining entry to its underlying advisory package. See [the repository audit](../../REPOSITORY_AUDIT.md) for reachability and deferral reasoning. No major upgrades or forced audit fixes were used.
+All 30 initial audit entries were assessed. The two critical entries are resolved; the final report has 29 entries because npm additionally reports an inherited warning for the unchanged `react-native-is-edge-to-edge`. This inventory maps each remaining entry to its underlying advisory package. See [the repository audit](../../archive/investigations/REPOSITORY_AUDIT.md) for reachability and deferral reasoning. No major upgrades or forced audit fixes were used.
 
 | Entry | Severity | Direct dependency | Underlying advisory package(s) | Disposition |
 | --- | --- | --- | --- | --- |

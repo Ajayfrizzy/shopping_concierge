@@ -1,6 +1,8 @@
-> E12 now uses the user-approved v3 silver chandelier replacement, which passed the controlled live demo review. Judge allowance 44/50 remaining. The old E12 fidelity exclusions below are historical. See [current validation](VALIDATION.md) and `evidence/e12-chandelier/summary.json`.
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
 
-> Production registration completed 2026-10-10: exactly E01/E03/E12, N01/N03/N12, R01/R03/R08 and W03/W08/W11 are registered and eligible; the other 60 products remain ineligible. All recorded asset identities/hashes are preserved. Registration evidence: [judge registration](evidence/vto-uploads/judge-registration-2026-10-10.json). Controlled live verification is recorded separately in VALIDATION.md. Earlier pending-upload/registration notes below are historical.
+> E12 now uses the user-approved v3 silver chandelier replacement, which passed the controlled live demo review. Historical observation on 2026-10-10: judge allowance 44/50 remaining; this is not a live balance. See [final acceptance](FINAL_PRODUCTION_ACCEPTANCE.md) for the October 18 snapshot. The old E12 fidelity exclusions below are historical. See [historical validation](archive/milestones/VALIDATION.md) and `evidence/e12-chandelier/summary.json`.
+
+> Production registration completed 2026-10-10: exactly E01/E03/E12, N01/N03/N12, R01/R03/R08 and W03/W08/W11 are registered and eligible; the other 60 products remain ineligible. All recorded asset identities/hashes are preserved. Registration evidence: [judge registration](evidence/vto-uploads/judge-registration-2026-10-10.json). Controlled live verification is recorded separately in archive/milestones/VALIDATION.md. Earlier pending-upload/registration notes below are historical.
 
 # Curated judge VTO assets
 

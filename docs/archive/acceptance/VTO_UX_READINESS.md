@@ -1,3 +1,5 @@
+> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Original findings are retained; later acceptance does not erase earlier failures.
+
 # VTO UX and submission-readiness audit — 2026-10-18
 
 **Latest follow-up:** device tests now ran and exposed an Android original-image authentication bug, fixed and verified below. Use the version-code-6 APK; code 5 is superseded. The original build audit below remains historical evidence.
@@ -30,7 +32,7 @@ Original/Virtual try-on buttons switch clearly labeled views. The original is fe
 
 ## Exact GitHub dependency alerts
 
-The authorized read-only Dependabot API returned four open alerts. Evidence: [sanitized alert metadata](evidence/vto-ux/dependabot-alerts.json). GitHub labels all four “runtime” based on the workspace lockfile; actual usage differs.
+The authorized read-only Dependabot API returned four open alerts. Evidence: [sanitized alert metadata](../../evidence/vto-ux/dependabot-alerts.json). GitHub labels all four “runtime” based on the workspace lockfile; actual usage differs.
 
 | Alert / advisory                                   | Installed version and path                              | Reachability and decision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,7 +59,7 @@ No backend deployment is needed for this mobile-only change. No production ledge
 
 ### Final artifact and outstanding gate
 
-[APK evidence](evidence/vto-ux/summary.json): `artifacts/android/shopping-concierge-0.1.0-v5-arm64-release.apk`, **43,940,791 bytes**, SHA-256 `af5e5058f3b7b7b2a58c70b9482edd449575ffab16bab1c10c7dec114004d804`. Final APK scan checked 1,299 entries against five configured server-secret values and credential sentinels: zero matches. The release signing certificate and keystore hash match the prior build. Android production export/seven-sentinel scan passes separately.
+[APK evidence](../../evidence/vto-ux/summary.json): `artifacts/android/shopping-concierge-0.1.0-v5-arm64-release.apk`, **43,940,791 bytes**, SHA-256 `af5e5058f3b7b7b2a58c70b9482edd449575ffab16bab1c10c7dec114004d804`. Final APK scan checked 1,299 entries against five configured server-secret values and credential sentinels: zero matches. The release signing certificate and keystore hash match the prior build. Android production export/seven-sentinel scan passes separately.
 
 The Samsung SM-S908N was detected intermittently after the user connected/unlocked it. Both streamed and non-streamed installation attempts for the **separate mock test app** failed when USB disappeared. Restarting ADB did not restore a stable connection; the final device list was empty. No APK launch, gallery, modal, zoom, keyboard, Back-navigation, restart or full native-flow pass is claimed. No screenshots or demo video were captured. The production app was not uninstalled, cleared or modified. A mock test APK and isolated API were prepared, but those preparations are not native acceptance evidence.
 
@@ -69,7 +71,7 @@ The separate mock client installed successfully on Samsung SM-S908N. Native chec
 
 The device revealed a real bug missed by portable tests: React Native 0.86.3 Android forwards image headers only in its array-source branch. Passing the authenticated original as an object produced HTTP 401. `originalSource` now returns a one-element array; the private original visibly loaded after the fix. The owner-authenticated endpoint and no-store policy are unchanged. The regression test uses the returned source headers against the actual API and preserves rejection of another guest. Temporary image diagnostics were removed.
 
-Fixture counters remained **one submission, three polls, zero actual provider requests**, including repeated taps and restart. Both original and result were the explicitly labeled offline test image; no YouCam output or fidelity is claimed. Production app/data were untouched. Local screenshots/XML are in ignored `artifacts/vto-native-audit`; sanitized results are in [native follow-up evidence](evidence/vto-ux/native-followup.json).
+Fixture counters remained **one submission, three polls, zero actual provider requests**, including repeated taps and restart. Both original and result were the explicitly labeled offline test image; no YouCam output or fidelity is claimed. Production app/data were untouched. Local screenshots/XML are in ignored `artifacts/vto-native-audit`; sanitized results are in [native follow-up evidence](../../evidence/vto-ux/native-followup.json).
 
 Verification: 17 targeted tests passed; full normal suite 783 passed, 52 integration tests skipped (the earlier 835-test integration run is historical, not rerun for this fix). Lint and both TypeScript checks passed. Android export scanned 95 files against seven server-only sentinels with zero matches. Release build and APK v2 signature verification passed with the unchanged signing certificate. Embedded bundle uses production HTTPS and contains neither tested emulator nor loopback API URL.
 

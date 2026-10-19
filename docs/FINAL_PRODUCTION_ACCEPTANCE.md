@@ -1,6 +1,6 @@
 # Final production acceptance — checks October 18; finalized October 19, 2026
 
-**Recommendation: NO-GO for automated final demo recording.** The release's build and automated checks pass. The installed production APK and safe native checks are verified. Every stored real result has expired in the app, preventing the requested current-app real-result comparison shot; no downloadable judge APK has been published. No confirmed critical source defect was found. Do not interpret historical physical tests or the owner's manual-use report as a fresh acceptance pass.
+**Recommendation: NO-GO for automated final demo recording.** The release's build and automated checks pass. The installed production APK and safe native checks are verified. Every stored real result has expired in the app, preventing the requested current-app real-result comparison shot. Distribution was subsequently completed on October 19: [public release](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android) / [exact code-6 APK](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v6-arm64-release.apk). No confirmed critical source defect was found. Do not interpret historical physical tests or the owner's manual-use report as a fresh acceptance pass.
 
 This audit made no deployment, paid planning/render submission, deliberate production decision/accounting edits, final recording, narration or external submission. Read-only YouCam task/credit GETs were performed. Deadline November 2, 2026, the four judging criteria and 1–3-minute format are from the owner's brief, not a fresh portal verification.
 
@@ -52,7 +52,7 @@ Mock completion is structurally `mode: mock`, `result.kind: mock` with an explic
 
 ## 4. Current budgets and reconciliation
 
-Snapshot: 2026-10-18, approximately 22:42 WAT (21:42 UTC). These are enforceable application budgets, **not the same as provider account billing balances**.
+Snapshot: 2026-10-18, approximately 22:42 WAT (21:42 UTC). These are dated observations, not live balances. The limits are enforceable application budgets, **not the same as provider account billing balances**.
 
 | Budget | Used / held | Remaining | State |
 | --- | --- | --- | --- |
@@ -99,7 +99,7 @@ Private original metadata/bytes require the owning guest/session authorization, 
 
 Completed outputs use provider HTTPS URLs with signed query parameters in all ten inspected records. They are not an unrestricted public catalog endpoint, **but anyone holding a still-valid signed URL can use it until expiry**; the provider download itself does not enforce the app's session header. Do not claim that output URLs are inherently non-shareable, log them or include them in recordings. This audit did not anonymously fetch or publish private image bytes.
 
-Result expiry is not deletion. Originals, receipts and historical accounting remain subject to manual RumptyCloud retention/cleanup. Backend DeleteObject is unavailable; no automatic erasure or cancellation feature is promised. Existing four dependency alerts remain open as documented in [the dependency audit](VTO_UX_READINESS.md); no broad upgrades or new vulnerability-free claim.
+Result expiry is not deletion. Originals, receipts and historical accounting remain subject to manual RumptyCloud retention/cleanup. Backend DeleteObject is unavailable; no automatic erasure or cancellation feature is promised. Existing four dependency alerts remain open as documented in [the dependency audit](archive/acceptance/VTO_UX_READINESS.md); no broad upgrades or new vulnerability-free claim.
 
 ## 7. Blockers and judge access
 
@@ -108,7 +108,7 @@ Result expiry is not deletion. Originals, receipts and historical accounting rem
 | Critical | **None confirmed in tested source/build** | Not equivalent to complete native certification |
 | Resolved acceptance gate | Installed production package and safe native checks | Actual code-6 APK hash/signature and cold restoration verified; real-result viewing remains blocked by expiry |
 | Major | All stored real results expired in app | Review historical-evidence fallback or separately authorize one preparatory render; do not refresh by changing production records |
-| Major for judge evaluation | No GitHub release asset/download URL | Repository is public, MIT-licensed and not archived, but ignored local APK path is not a judge download. Owner must supply the reviewed signed APK through an authorized distribution channel |
+| Resolved October 19 | Public APK distribution | [GitHub Release](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android) publishes the exact audited code-6 APK; the README links directly to it |
 | Major validation gap | Exact deployed backend revision and live end-to-end timing not attested | Confirm hosting revision/settings; separately authorize bounded live rehearsal if desired |
 | Minor / operational | Three historical OpenAI holds without receipts | Conservatively retained; current budgets approved/unblocked with adequate remaining cap |
 | Minor / maintenance | Four existing upstream advisories, ARM64-only package, manual object cleanup | Documented limits; no forced dependency upgrade or deletion claim |
@@ -131,4 +131,4 @@ Hosting depends on managed PostgreSQL, S3 read/write permissions and initialized
 
 [Proposed 150-second script and ADB automation plan](FINAL_DEMO_PLAN.md) includes exact utterances/products, selectors, bounded scrolling, state assertions, narration, approved-image checks, spend gates and abort rules. It prioritizes actual device footage. A current-app real comparison/zoom shot cannot be fabricated from expired records; its replacement/preparation requires review.
 
-**NO-GO for automated final recording now.** Build/test health is good; a truthful accessible real-result shot and approval of the proposed sequence remain unresolved. Installed-release verification and safe native checks passed. No final video was recorded. Commit/push of audit documentation and its offline regression test does not publish the APK, video or hackathon submission.
+**NO-GO for automated final recording now.** Build/test health is good; a truthful accessible real-result shot and approval of the proposed sequence remain unresolved. Installed-release verification and safe native checks passed. No final video was recorded. The later APK publication is separate from this audit. No final video or hackathon submission is complete.

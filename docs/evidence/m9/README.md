@@ -1,3 +1,5 @@
+> Historical evidence retained at its original path. Status, test counts and budgets apply only to the recorded observation, not live balances. This is not final demo footage. See [current acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the October 18–19, 2026 code-6 baseline; mock tests and historical live provider evidence remain distinct.
+
 # M9 evidence — 2026-10-07
 
 M9 passed on Samsung SM-S908N / Android 16 with a new `com.youcam.shoppingconcierge.demo` installation. The original app was neither removed nor cleared. Original journal/SecureStore hashes match; no credentials are stored here.

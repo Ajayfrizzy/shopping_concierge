@@ -1,4 +1,6 @@
-# Reproducible Android demo
+# Local mock Android setup
+
+For judges, use the [published standalone APK](ANDROID_RELEASE.md). This page retains the local mock development workflow and historical M9 rehearsal only. [FINAL_DEMO_PLAN.md](FINAL_DEMO_PLAN.md) is authoritative for future final recording; these mock instructions do not establish live VTO quality.
 
 The demo uses 72 synthetic accessory records, local PostgreSQL/S3, and mock planning/try-on. It needs no paid API credentials or shared account. A fresh installation creates a private guest credential automatically. Existing live evidence is reviewed separately; these commands never activate paid providers.
 
@@ -41,13 +43,13 @@ adb shell am start -a android.intent.action.VIEW \
   com.youcam.shoppingconcierge.demo
 ```
 
-Tap **Use this example**, then **Send to concierge**. Follow [the timed demo](DEMO_SCRIPT.md). **Start a new session** offers a visible confirmation and resets only the phone's current session reference; no database edit or seeded private account is required.
+Tap **Use this example**, then **Send to concierge**. For the historical mock rehearsal only, follow [the old timed demo](archive/demo/DEMO_SCRIPT.md). **Start a new session** offers a visible confirmation and resets only the phone's current session reference; no database edit or seeded private account is required.
 
 All four demo commands discard inherited provider/database configuration, do not load private `.env` files, force both providers to mock, and use the checked-in local-only environment. The mobile URL is USB loopback. Do not run another server on 4000/8082 at the same time. `/health` is a connectivity fixture, not a live-provider status probe.
 
 ## Rehearsal evidence
 
-The [recorded Samsung rehearsal](evidence/m9/timed-demo.mp4) is 1m 46s and uses mock providers. For the prior-live segment, open [the labeled historical capture](evidence/m9/prior-live-labeled.png) in a separate viewer. On a phone, copy it to Downloads and open it in Gallery before rehearsing; return to the demo with Back. This is a prior validated output for a different fixture, not a new rendering of the current E18 candidate. No signed URL, paid request or private account is needed. The public repository image review confirms that the portrait is synthetic; see [image provenance](evidence/IMAGE_PROVENANCE.md). Final narration and portal-specific deliverable review remain separate.
+The [recorded Samsung rehearsal](evidence/m9/timed-demo.mp4) has 103.8472 seconds of media (106.01 seconds including surrounding overhead) and uses mock providers. It is not the final demo video. For the prior-live segment, open [the labeled historical capture](evidence/m9/prior-live-labeled.png) in a separate viewer. On a phone, copy it to Downloads and open it in Gallery before rehearsing; return to the demo with Back. This is a prior validated output for a different fixture, not a new rendering of the current E18 candidate. No signed URL, paid request or private account is needed. The public repository image review confirms that the portrait is synthetic; see [image provenance](evidence/IMAGE_PROVENANCE.md). Final narration and portal-specific deliverable review remain separate.
 
 ## Recovery and visual evidence
 
@@ -57,7 +59,7 @@ The [recorded Samsung rehearsal](evidence/m9/timed-demo.mp4) is 1m 46s and uses 
 - Photo picker: choose an owned/approved PNG/JPEG up to 4 MiB and 16 MP. Photos are requested only after **Try on**. A mock completion explicitly says no image was rendered. It is not evidence of live visual quality.
 - Live result URLs expire. Use the already captured [four-category evidence](JUDGE_GUIDE.md), not another paid render to repair an expired link. No credentials or temporary signed URLs belong in submission artifacts.
 
-The demo is a local development APK requiring Metro and a host API, not a hosted public or standalone production release. RumptyCloud remains the intended deployment target; M9 does not deploy resources. Optional email login remains disabled.
+The demo is a local development APK requiring Metro and a host API, not a hosted public or standalone production release. The separate production release now uses the hosted RumptyCloud backend; the historical M9 task did not deploy resources. Optional email login remains disabled.
 
 ## Validation commands
 
@@ -69,4 +71,4 @@ npm run credits:report
 
 `credits:report` only reads historical local ledgers. It reports missing/invalid data as unknown and exits nonzero, never as zero spend; it never contacts a provider or creates/resets a ledger. YouCam reservations are attempted renders, not automatically billable units. Existing sanitized YouCam operation logs record operation/method/status; no keys, photos or signed URLs are logged.
 
-See [M9 validation](VALIDATION.md) for which automated and physical checks have actually passed.
+See [M9 validation](archive/milestones/VALIDATION.md) for which automated and physical checks have actually passed.

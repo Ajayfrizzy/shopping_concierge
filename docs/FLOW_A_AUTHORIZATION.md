@@ -1,3 +1,5 @@
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+
 # Flow A authorization correction
 
 The production request `3c675b76-cfb4-48c5-a87a-8e9f02aaaec3` received OpenAI HTTP 200 and passed `agentPlanSchema`, then returned application HTTP 422 `UNGROUNDED_PLAN`. Accounting settled correctly. This work made no production/provider requests and did not change budgets or reservations.

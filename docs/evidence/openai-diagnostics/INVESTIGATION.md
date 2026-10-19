@@ -1,3 +1,5 @@
+> Historical evidence retained at its original path. Status, test counts and budgets apply only to the recorded observation, not live balances. This is not final demo footage. See [current acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the October 18–19, 2026 code-6 baseline; mock tests and historical live provider evidence remain distinct.
+
 # OpenAI failure investigation — 2026-10-11
 
 **Precise production root cause remains unknown; Flow A is not cleared for retry.** No OpenAI or YouCam request was submitted. This session has database/S3 and public endpoint access, not RumptyCloud runtime-log access. Sanitized deployed logs were requested; none were available during this investigation. The old adapter discards non-2xx response bodies and status before throwing; the agent discards underlying exceptions. Those values cannot be reconstructed from an unresolved ledger row.

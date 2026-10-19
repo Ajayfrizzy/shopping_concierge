@@ -6,4 +6,4 @@ Run `npm run dev:mobile` for port 8082, or `npm run dev:clear -w @youcam/mobile`
 
 Generated Android/iOS projects are local build artifacts. Native changes require prebuild plus a fresh binary. Expo Doctor's app-config sync heuristic is disabled for this Git-less CNG workspace; the build script always prebuilds, while dependency checks remain enabled.
 
-`npm run export:android` verifies bundling. Physical-device boot and interaction remain separate acceptance checks recorded in `docs/VALIDATION.md`.
+`npm run export:android` verifies bundling. Physical-device boot and interaction remain separate acceptance checks recorded in `docs/archive/milestones/VALIDATION.md`.

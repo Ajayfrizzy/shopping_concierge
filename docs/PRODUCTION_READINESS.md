@@ -1,3 +1,5 @@
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+
 ## First standalone Android release — 2026-10-16
 
 [Release audit](ANDROID_RELEASE.md): signed ARM64 APK built at `artifacts/android/shopping-concierge-0.1.0-arm64-release.apk` (43,919,163 bytes), app `com.youcam.shoppingconcierge`, 0.1.0/code3. Dedicated release signature verified; embedded Hermes bundle targets production HTTPS without Metro/Expo Go. Fixed release signing/URL defaults, hardened manifest, extended shopping timeout and removed paid planner calls from result refresh. 676 tests passed; lint/typechecks/API build/export/secret scans passed. Online Expo compatibility reports six optional SDK57 patch updates.
@@ -54,7 +56,7 @@ Backend S3 permissions require private read/write access, not DeleteObject. Rece
 
 # S3 access blocker — 2026-10-16
 
-Flow A remains blocked. Production readiness reports only object storage unavailable; direct backend-credential probes reproduce HTTP 403 `AccessDenied` while DNS/TLS pass. Fresh and reused clients fail alike. The exact credential/policy cause needs RumptyCloud operator inspection; this is not established as a transient timeout. See [S3 investigation](S3_READINESS_INVESTIGATION.md) and its sanitized evidence. Separate timeout/connection hardening is prepared but not deployed and cannot fix authorization denial. **653 tests passed**, plus lint, typechecks, API build and secret scan. No provider calls, accounting changes, VTO changes, APK or demo script.
+Flow A remains blocked. Production readiness reports only object storage unavailable; direct backend-credential probes reproduce HTTP 403 `AccessDenied` while DNS/TLS pass. Fresh and reused clients fail alike. The exact credential/policy cause needs RumptyCloud operator inspection; this is not established as a transient timeout. See [S3 investigation](archive/investigations/S3_READINESS_INVESTIGATION.md) and its sanitized evidence. Separate timeout/connection hardening is prepared but not deployed and cannot fix authorization denial. **653 tests passed**, plus lint, typechecks, API build and secret scan. No provider calls, accounting changes, VTO changes, APK or demo script.
 
 ---
 
@@ -206,7 +208,7 @@ Lint, typechecks, API build and 85 relevant tests across six files pass, includi
 
 ---
 
-> Latest N12 recheck (2026-10-10): the new `n12-evening-vto-v1-241860.png` passes offline appearance review with complete chain/clasp and pendant. All eight additions now pass offline appearance review and remain uploaded/ineligible pending approval and registration. Live rendering remains untested. See [VTO upload review](VTO_UPLOAD_REVIEW.md).
+> Latest N12 recheck (2026-10-10): the new `n12-evening-vto-v1-241860.png` passes offline appearance review with complete chain/clasp and pendant. All eight additions now pass offline appearance review and remain uploaded/ineligible pending approval and registration. Live rendering remains untested. See [VTO upload review](archive/investigations/VTO_UPLOAD_REVIEW.md).
 
 # Judge runtime preparation
 
@@ -295,7 +297,7 @@ Validation: **556 tests passed**, including fresh PostgreSQL integration and mig
 
 ## OpenAI strict-schema correction — 2026-10-12
 
-The `submit_shopping_plan` transport contained tuple-style `compare_products.productIds.items`. It now uses one string items schema with exact length two; empty args now explicitly require `[]`. A recursive checker and exact wire fixtures guard compatibility while authoritative domain validation remains unchanged. See [schema audit](OPENAI_TOOL_SCHEMA_AUDIT.md) for exact paths, official documentation comparison and limitations. **588 tests passed**, plus lint, typechecks, API build and secret scan. No live calls or deployment; one retry is gated on deploying this fix and checking readiness/`OPENAI_MAX_ATTEMPTS=1`.
+The `submit_shopping_plan` transport contained tuple-style `compare_products.productIds.items`. It now uses one string items schema with exact length two; empty args now explicitly require `[]`. A recursive checker and exact wire fixtures guard compatibility while authoritative domain validation remains unchanged. See [schema audit](archive/investigations/OPENAI_TOOL_SCHEMA_AUDIT.md) for exact paths, official documentation comparison and limitations. **588 tests passed**, plus lint, typechecks, API build and secret scan. No live calls or deployment; one retry is gated on deploying this fix and checking readiness/`OPENAI_MAX_ATTEMPTS=1`.
 
 ## Readiness dependency investigation — 2026-10-12
 
@@ -311,4 +313,4 @@ See [Flow A authorization](FLOW_A_AUTHORIZATION.md). The exact shopping sentence
 
 ## Android acceptance update — 2026-10-17
 
-See [Android acceptance fixes](ANDROID_ACCEPTANCE_FIXES.md). Additive explicit `vtoOnly` filtering, bounded discovery instructions and shopper copy require deploying this backend alongside the updated version-code-4 APK. No database migration, registration, budget or provider-mode change. The mobile discovery action is deterministic and uses server eligibility. Pending operations now require explicit recovery rather than automatic launch/refresh replay. Production preflight and live providers were not called during this task.
+See [Android acceptance fixes](archive/acceptance/ANDROID_ACCEPTANCE_FIXES.md). Additive explicit `vtoOnly` filtering, bounded discovery instructions and shopper copy require deploying this backend alongside the updated version-code-4 APK. No database migration, registration, budget or provider-mode change. The mobile discovery action is deterministic and uses server eligibility. Pending operations now require explicit recovery rather than automatic launch/refresh replay. Production preflight and live providers were not called during this task.

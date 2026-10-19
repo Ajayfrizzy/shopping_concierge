@@ -1,3 +1,5 @@
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+
 # PostgreSQL transient-connectivity hardening — 2026-10-14
 
 No production changes or provider calls were made. The earlier `DB_CONNECTION_TIMEOUT` is evidence of a connection failure, not evidence that pool count caused it. Production has not been observed passing ten consecutive ready checks for this change.
