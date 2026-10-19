@@ -7,6 +7,7 @@ Shopping Concierge is a hackathon beta using **72 synthetic products**, sample p
 - [Download and install](../README.md#download-shopping-concierge-for-android) — verified public GitHub Release APK.
 - [Judge guide](JUDGE_GUIDE.md) — product story, API use and honest evidence boundaries.
 - [Final production acceptance](FINAL_PRODUCTION_ACCEPTANCE.md) — APK identity, native checks, dated budgets and limitations.
+- [Demo preparation](DEMO_PREPARATION.md) — verified device/portrait, offline rehearsal and remaining gates.
 - [Final demo plan](FINAL_DEMO_PLAN.md) — authoritative future 150-second recording plan, **not executed**.
 - [Android release](ANDROID_RELEASE.md) — current release details and clearly labeled earlier build history.
 - [Product specification](PRODUCT_SPEC.md) and [architecture](ARCHITECTURE.md).

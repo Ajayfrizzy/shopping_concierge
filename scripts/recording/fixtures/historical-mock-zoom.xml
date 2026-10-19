@@ -1,0 +1,13 @@
+<hierarchy>
+  <node text="Virtual try-on" content-desc="" class="android.widget.TextView" enabled="true" clickable="false" bounds="[50,103][1029,161]" />
+  <node text="" content-desc="Original" class="android.widget.Button" enabled="true" clickable="true" bounds="[51,184][268,308]" />
+  <node text="Original" content-desc="" class="android.widget.TextView" enabled="true" clickable="false" bounds="[98,222][219,268]" />
+  <node text="" content-desc="Virtual try-on" class="android.widget.Button" enabled="false" clickable="true" bounds="[290,184][594,308]" />
+  <node text="Virtual try-on" content-desc="" class="android.widget.TextView" enabled="true" clickable="false" bounds="[337,222][545,268]" />
+  <node text="" content-desc="Zoom in" class="android.widget.Button" enabled="false" clickable="true" bounds="[427,330][641,453]" />
+  <node text="Zoom in" content-desc="" class="android.widget.TextView" enabled="true" clickable="false" bounds="[472,368][596,414]" />
+  <node text="" content-desc="Fit image" class="android.widget.Button" enabled="true" clickable="true" bounds="[664,330][902,453]" />
+  <node text="Fit image" content-desc="" class="android.widget.TextView" enabled="true" clickable="false" bounds="[711,368][854,414]" />
+  <node text="" content-desc="Back to try-on" class="android.widget.Button" enabled="true" clickable="true" bounds="[51,585][1030,709]" />
+  <node text="Back to try-on" content-desc="" class="android.widget.TextView" enabled="true" clickable="false" bounds="[429,623][650,669]" />
+</hierarchy>

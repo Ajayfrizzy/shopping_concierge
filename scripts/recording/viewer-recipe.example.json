@@ -1,0 +1,29 @@
+[
+  {
+    "action": "tap",
+    "target": "Expand and compare photos",
+    "before": "Virtual try-on result",
+    "after": "Back to try-on"
+  },
+  {
+    "action": "tap",
+    "target": "Original",
+    "before": "Back to try-on",
+    "after": "Original uploaded photo"
+  },
+  {
+    "action": "tap",
+    "target": "Virtual try-on",
+    "before": "Original photo",
+    "after": "Completed YouCam virtual try-on"
+  },
+  { "action": "tap", "target": "Zoom in", "before": "Back to try-on", "after": "150%" },
+  { "action": "tap", "target": "Zoom in", "before": "150%", "after": "200%" },
+  { "action": "tap", "target": "Fit image", "before": "200%", "after": "100%" },
+  {
+    "action": "tap",
+    "target": "Back to try-on",
+    "before": "100%",
+    "after": "Virtual try-on result"
+  }
+]

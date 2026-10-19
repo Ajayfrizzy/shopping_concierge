@@ -47,8 +47,22 @@ it('validates the proposed final demo decisions without generating a visual resu
       view = result.session;
       return result;
     };
+    // Future preparation searches once, then recording repeats that search in the SAME session.
+    const preparedSessionId = view.state.id;
+    await send({ type: 'message', message: 'Silver earrings under $120' });
     const initial = await send({ type: 'message', message: 'Silver earrings under $120' });
+    expect(view.state.id).toBe(preparedSessionId);
     if (initial.ui.type !== 'product_list') throw new Error('Missing initial cards');
+    expect(initial.ui.payload.exactMatches.map((x) => x.product.id)).toMatchInlineSnapshot(`
+      [
+        "E01",
+        "E02",
+        "E05",
+        "E09",
+        "E14",
+        "E18",
+      ]
+    `);
     expect(initial.ui.payload.exactMatches.map((x) => x.product.id)).toEqual(
       expect.arrayContaining(['E01', 'E05']),
     );
@@ -73,7 +87,7 @@ it('validates the proposed final demo decisions without generating a visual resu
       });
     const discovery = await filter(true);
     if (discovery.ui.type !== 'product_list') throw new Error('Missing eligible cards');
-    expect(discovery.ui.payload.exactMatches.length).toBeGreaterThan(0);
+    expect(discovery.ui.payload.exactMatches.map((x) => x.product.id)).toContain('E01');
     expect(
       discovery.ui.payload.exactMatches.every(
         (x) =>
@@ -85,7 +99,21 @@ it('validates the proposed final demo decisions without generating a visual resu
     ).toBe(true);
     // The planned real-result shot is a separate acceptance gate, never a fake fixture render.
     await filter(false);
-    await send({ type: 'message', message: 'Now find a necklace that works with this under $100' });
+    const necklaces = await send({
+      type: 'message',
+      message: 'Now find a necklace that works with this under $100',
+    });
+    if (necklaces.ui.type !== 'product_list') throw new Error('Missing necklace cards');
+    expect(necklaces.ui.payload.exactMatches.map((x) => x.product.id)).toMatchInlineSnapshot(`
+      [
+        "N01",
+        "N02",
+        "N09",
+      ]
+    `);
+    expect(necklaces.ui.payload.exactMatches.map((x) => x.product.id)).toEqual(
+      expect.arrayContaining(['N01', 'N02']),
+    );
     expect(view.state.dependencies).toContainEqual({
       anchorProductId: 'E01',
       anchorCategory: 'earrings',
