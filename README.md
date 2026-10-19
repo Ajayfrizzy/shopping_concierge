@@ -4,9 +4,27 @@ Shopping Concierge helps shoppers choose accessories without losing their prefer
 
 **Supported categories:** earrings, necklaces, rings and watches. The demo uses **72 synthetic catalog records and original bundled illustrations**, not merchant inventory. There is no checkout.
 
+## Download Shopping Concierge for Android
+
+**[Download the Android APK — v0.1.0, version code 6](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v6-arm64-release.apk)** · [GitHub Release and checksum](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android)
+
+Requires an **ARM64 Android phone running Android 7.0 or later** and an internet connection to the live Shopping Concierge backend. This is a standalone app: **no Expo Go or Metro required**. It is a hackathon beta with illustrative products, sample prices and availability, not merchant inventory or checkout. Virtual try-on is available for selected products; backend availability and provider limits apply.
+
+1. Download the APK on your Android phone using the link above.
+2. Open the downloaded file. If Android prompts, allow installation from the browser or file manager you used, then tap **Install**.
+3. Open **Shopping Concierge** with an internet connection. No shared account or provider API key is required.
+
+An existing installation signed with the same release key can update in place. If Android reports a signing conflict, do not uninstall or clear app data without first addressing your saved session.
+
+Verified SHA-256:
+
+```text
+ac78021b033966c1a4dbceafded6a25e4806e8775787b64c27e361588db7e3f2
+```
+
 ## Try the demo
 
-Start with the [judge guide](docs/JUDGE_GUIDE.md) and [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). A signed standalone ARM64 Android release (version code 6) targets the hosted HTTPS API; a judge-download link is still pending. The [local Android setup](docs/DEMO_SETUP.md) remains a separate mock-only option using PostgreSQL/S3 and Metro without paid credentials or removal of the normal app's data. The [proposed 150-second final demo](docs/FINAL_DEMO_PLAN.md) has not been recorded.
+Start with the [judge guide](docs/JUDGE_GUIDE.md) and [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). A signed standalone ARM64 Android release (version code 6) targets the hosted HTTPS API; the verified APK is available from the download section above. The [local Android setup](docs/DEMO_SETUP.md) remains a separate mock-only option using PostgreSQL/S3 and Metro without paid credentials or removal of the normal app's data. The [proposed 150-second final demo](docs/FINAL_DEMO_PLAN.md) has not been recorded.
 
 1. Describe a goal, such as “Silver earrings for a wedding under $120”.
 2. Review catalog cards; save, shortlist, select or reject with a structured reason.
