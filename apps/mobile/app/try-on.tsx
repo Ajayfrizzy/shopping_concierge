@@ -1,3 +1,4 @@
+import { ExistingResultRecovery } from '../src/existing-result-recovery';
 import { productName } from '../src/presentation';
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 import {
@@ -342,6 +343,13 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
                 {state.job.error.message}
               </Text>
             )}
+            <ExistingResultRecovery
+              job={state.job}
+              sessionId={id}
+              productId={productId}
+              busy={busy}
+              onPress={() => void controller.checkExistingResult()}
+            />
             <TryOnViewer job={state.job} original={original} />
             {!active && (
               <Button

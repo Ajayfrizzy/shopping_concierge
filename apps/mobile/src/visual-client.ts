@@ -144,6 +144,13 @@ export function createVisualAPI(
         );
       return result;
     },
+    async reconcile(id: string, jobId: string) {
+      return job(
+        await call(path(id) + '/vto/' + encodeURIComponent(jobId) + '/reconcile', {}),
+        id,
+        jobId,
+      );
+    },
     async advance(id: string, jobId: string) {
       return job(
         await call(path(id) + '/vto/' + encodeURIComponent(jobId) + '/advance', {}),

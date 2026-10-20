@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-20",
+  "package": "com.youcam.shoppingconcierge",
+  "versionCode": 8,
+  "apkSha256": "da52edcfdfd960811d4d5e96046d0406c2a63dc34ff2f89ba5aeb3202b937142",
+  "certificateSha256": "035ace8decc67b7214f6b2b91d0ed0cd525987f48b48d15df64c708e1c54cb34",
+  "deviceModel": "SM-S908N",
+  "inPlaceInstall": "passed",
+  "sameShoppingState": true,
+  "originalJobStatus": "failed/PROVIDER_TIMEOUT",
+  "recoveryButtonVisible": true,
+  "recoveryButtonEnabled": true,
+  "recoveryButtonTapped": false,
+  "originalPortraitPreserved": true,
+  "productionReconcileCalls": 0,
+  "newUploads": 0,
+  "newRenders": 0,
+  "newOpenAICalls": 0,
+  "openaiRequestsBeforeAfter": [
+    25,
+    25
+  ],
+  "openaiUsdBeforeAfter": [
+    "0.33519680",
+    "0.33519680"
+  ],
+  "youcamCommittedBeforeAfter": [
+    11,
+    11
+  ],
+  "automatedTests": {
+    "passed": 947,
+    "failed": 0,
+    "skipped": 0,
+    "files": 49
+  }
+}

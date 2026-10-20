@@ -1,3 +1,4 @@
+import { ClientError } from './client';
 import { z } from 'zod';
 import type { VtoJob } from '@youcam/shared';
 import type { createVisualAPI } from './visual-client';
@@ -21,8 +22,19 @@ type View = {
   error: string | null;
   notice: string | null;
 };
+/** Server task IDs remain private; the backend makes the final eligibility decision. */
+export function canCheckExistingResult(job: VtoJob | null, sessionId: string, productId: string) {
+  return (
+    !!job &&
+    job.sessionId === sessionId &&
+    job.productId === productId &&
+    job.mode === 'live' &&
+    job.status === 'failed' &&
+    job.error?.code === 'PROVIDER_TIMEOUT'
+  );
+}
 export function createTryOnSession(
-  api: Pick<ReturnType<typeof createVisualAPI>, 'list' | 'create' | 'advance'>,
+  api: Pick<ReturnType<typeof createVisualAPI>, 'list' | 'create' | 'advance' | 'reconcile'>,
   storage: { read(): Promise<string | null>; write(value: string): Promise<void> },
   sessionId: string,
   productId: string,
@@ -169,6 +181,79 @@ export function createTryOnSession(
         if (active() && visible && !paused) {
           polls++;
           emit({ job: await api.advance(sessionId, view.job!.id), notice: null });
+        }
+      });
+    },
+    async checkExistingResult() {
+      if (
+        !view.ready ||
+        view.busy ||
+        !visible ||
+        !canCheckExistingResult(view.job, sessionId, productId)
+      )
+        return;
+      const original = view.job!;
+      paused = true;
+      stop();
+      const accept = (job: VtoJob) => {
+        if (
+          job.id !== original.id ||
+          job.sessionId !== sessionId ||
+          job.productId !== productId ||
+          job.assetId !== original.assetId ||
+          job.mode !== 'live' ||
+          job.category !== original.category ||
+          job.createdAt !== original.createdAt
+        )
+          throw new Error('Recovery returned a different job. No additional render started.');
+        emit({ job });
+      };
+      const outcome = () => {
+        if (view.job?.status === 'completed')
+          emit({ notice: 'Result recovered successfully. No additional render started.' });
+        else if (
+          view.job?.status === 'processing' ||
+          canCheckExistingResult(view.job, sessionId, productId)
+        )
+          emit({
+            notice: 'The existing provider task is still processing. No additional render started.',
+          });
+        else emit({ error: 'Recovery failed. No additional render started.', notice: null });
+      };
+      await run(async () => {
+        emit({ notice: 'Checking existing provider task…' });
+        try {
+          accept(await api.reconcile(sessionId, original.id));
+          outcome();
+        } catch (e) {
+          if (e instanceof ClientError && e.code === 'NETWORK') {
+            // One GET only. Never replay a POST after an uncertain acknowledgment.
+            try {
+              const same = (await api.list(sessionId)).find((j) => j.id === original.id);
+              if (same) accept(same);
+              if (view.job?.status === 'completed') outcome();
+              else
+                emit({
+                  error:
+                    'Recovery confirmation was not received. The existing job was refreshed; no additional render started.',
+                  notice: null,
+                });
+            } catch {
+              emit({
+                error:
+                  'Recovery confirmation is uncertain. Refresh the existing job when connected. No additional render started.',
+                notice: null,
+              });
+            }
+          } else {
+            emit({
+              error:
+                e instanceof ClientError && e.code === 'PROVIDER_UNAVAILABLE'
+                  ? 'Previous result expired or unavailable. No additional render started.'
+                  : 'Recovery failed. No additional render started.',
+              notice: null,
+            });
+          }
         }
       });
     },
