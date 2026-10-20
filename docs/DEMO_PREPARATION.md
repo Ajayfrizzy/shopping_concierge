@@ -1,6 +1,6 @@
 # Final demo preparation — October 19, 2026
 
-**October 20 live preparation:** [Current outcome](LIVE_DEMO_PREPARATION.md): the authorized dedicated session and one live search succeeded. The portrait persisted server-side but its upload acknowledgment failed on the phone; no render was submitted. Recording remains NO-GO.
+**October 20 live preparation:** [Current outcome](LIVE_DEMO_PREPARATION.md): the authorized dedicated session and one live search succeeded. The portrait persisted server-side but its upload acknowledgment failed on the phone; no render was submitted. The later [code-7 recovery acceptance](ANDROID_UPLOAD_RECOVERY_V7.md) restored the association without reupload; a genuine render and recording remain outstanding.
 
 **Update after native calibration:** [The separate calibration report](NATIVE_DEMO_CALIBRATION.md) supersedes the pending native measurements below: two complete isolated mock journeys passed. Owner-session handoff, a genuine unexpired result and separate live/recording authorization remain open. The following preparation snapshot preserves what was known before calibration.
 

@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-20",
+  "timezone": "Africa/Lagos",
+  "deviceModel": "SM-S908N",
+  "package": "com.youcam.shoppingconcierge",
+  "versionCode": 7,
+  "apkSha256": "552b9147adac9d4f2e708ce0ae31fcdd70c80e03d57a91777264def0e9807da6",
+  "installedHashMatches": true,
+  "sameReleaseCertificate": true,
+  "authenticatedExistingPhotoPreviewVerified": true,
+  "explicitRecoveryConfirmed": true,
+  "navigationRestorationPassed": true,
+  "coldRestartRestorationPassed": true,
+  "finalScreen": "shopping, E01 visible, empty composer",
+  "newUploads": 0,
+  "newPlanningOperations": 0,
+  "newRenderAttempts": 0,
+  "sameSession": true,
+  "sameShoppingState": true,
+  "persistenceVersions": {
+    "before": 4,
+    "after": 6
+  },
+  "before": {
+    "observedAt": "2026-10-20T13:16:08.326Z",
+    "usage": [
+      {
+        "provider": "openai",
+        "requests": 25,
+        "committed": 22,
+        "charged_usd": "0.33519680"
+      },
+      {
+        "provider": "youcam",
+        "requests": 10,
+        "committed": 10,
+        "charged_usd": "0.00000000"
+      }
+    ],
+    "assetCount": 1,
+    "sessionJobs": 0
+  },
+  "after": {
+    "observedAt": "2026-10-20T13:22:32.335Z",
+    "usage": [
+      {
+        "provider": "openai",
+        "requests": 25,
+        "committed": 22,
+        "charged_usd": "0.33519680"
+      },
+      {
+        "provider": "youcam",
+        "requests": 10,
+        "committed": 10,
+        "charged_usd": "0.00000000"
+      }
+    ],
+    "assetCount": 1,
+    "sessionJobs": 0
+  },
+  "limitations": [
+    "App launch updates deterministic refresh history/session persistence version.",
+    "No real VTO result was generated or reviewed.",
+    "Public release remains code 6."
+  ]
+}

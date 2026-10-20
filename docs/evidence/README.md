@@ -4,6 +4,8 @@ Evidence paths are stable because reports, scripts and adjacent media/JSON depen
 
 ## Reading the evidence
 
+- [Android v7 upload recovery](upload-recovery-v7/acceptance.json) — exact installed APK, native recovery/restoration and unchanged paid-operation counts; no render or video.
+
 - [Native calibration measurements](demo-calibration/native-run.json) — sanitized October 19 mock timings and bounds; [interpretation and limitations](../NATIVE_DEMO_CALIBRATION.md). No live render or final video.
 
 - [Image provenance](IMAGE_PROVENANCE.md) records publication review and approved synthetic portraits; code licensing alone does not establish image permissions.

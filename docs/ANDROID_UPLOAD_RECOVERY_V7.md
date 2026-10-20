@@ -35,11 +35,25 @@ The signed ARM64 APK is at ignored local path `artifacts/android/shopping-concie
 - APK v2 signature verifies; certificate SHA-256 `035ace8decc67b7214f6b2b91d0ed0cd525987f48b48d15df64c708e1c54cb34` matches code 6.
 - All **1,299 APK entries** scanned against **five configured server-secret values** in memory: zero matches. The production HTTPS backend and recovery UI are embedded; the sole native ABI is `arm64-v8a`.
 
-**Native acceptance pending:** the Samsung disconnected before installation. Subsequent ADB device lists were empty, including after reconnect. No install/uninstall, production app launch, credential reset, photo recovery or production upload was performed. The APK has not yet been exercised on the Samsung, so its native recovery path and same-session restoration cannot be claimed as passed. Reconnect/unlock the phone to finish the already-authorized in-place update and recovery checks. Code 6 remains the last verified installed release; the public release was not changed.
+**Native acceptance passed on Samsung SM-S908N, October 20.** Earlier ADB disconnections blocked installation; a later streamed install attempt also disconnected before its outcome could be confirmed. The owner then reported installing v7. Once ADB stabilized, read-only inspection verified installed version 0.1.0 / code 7 and the exact APK hash above. No uninstall, data clear or credential reset was performed by this workflow.
 
-The read-only pre-install snapshot at **13:50 WAT, October 20** confirmed the exact same session record/version as preparation, one valid portrait and no job in the dedicated session. OpenAI remained **25 requests / USD 0.33519680**, YouCam **10 committed renders**, with no pending diagnostics. A second snapshot at **13:54 WAT** confirmed identical state, asset and accounting. No production mutations or paid operations occurred during implementation/build checks.
+The preserved session opened normally. On E01, **Recover existing upload → Check existing upload** used the privately recorded existing asset ID. The authenticated metadata/content checks passed; the preview visibly matched the approved synthetic side portrait. **Use recovered photo** reported: “Existing photo recovered. No photo was uploaded and no try-on was started.” The photo association and explicit, untapped Try on control survived both returning to shopping/reopening E01 and a controlled process stop/cold launch. The app was left on shopping, displaying E01 with an empty composer.
 
-**NO-GO for initiating the E01 render until native acceptance passes.** Three filming planning operations and the one preparation render attempt remain unused. No final video or GitHub Release publication occurred.
+No image was uploaded, no provider operation was submitted, and no backend deployment was needed. The original and sole stored JPEG remains byte-identical with its existing asset identity. A preview-only crop remains in ignored local artifacts; no private identifier, credential, original URL or full device screenshot was published. [Sanitized acceptance measurements](evidence/upload-recovery-v7/acceptance.json).
+
+| Observation | Before native recovery (14:16 WAT) | After cold restart (14:22 WAT) |
+| --- | ---: | ---: |
+| OpenAI judge requests | 25 | 25 |
+| OpenAI charged-or-held USD | 0.33519680 | 0.33519680 |
+| YouCam judge committed renders | 10 | 10 |
+| Portrait assets in dedicated session | 1 | 1 |
+| Visual jobs in dedicated session | 0 | 0 |
+| Shopping-state revision | 2 | 2 |
+| Session persistence version | 4 | 6 |
+
+The same dedicated session, category, silver/USD120 constraints, goal, decisions, feedback and dependencies were verified unchanged. E01 remains unselected and E05 unrejected. The persistence version increased through the app's existing deterministic category/result refresh on launch; history/reply metadata therefore is not byte-identical. This is not a new search, changed shopping decision or planner call. Initial preparation had persistence version 1; the owner's intervening app launches had already brought it to 4 before native acceptance. No direct database or journal patch occurred. All ten historical jobs remain completed and there are no pending OpenAI diagnostics.
+
+**GO for the previously approved single E01 render attempt in a separate task.** It was not initiated here. Three filming planning operations remain reserved, no genuine new result or expiration deadline exists yet, and final recording is still not authorized. The public GitHub Release remains code 6; this acceptance did not publish or replace it.
 
 ## Recording implications
 
