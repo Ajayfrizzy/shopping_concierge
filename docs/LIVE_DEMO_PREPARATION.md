@@ -1,5 +1,7 @@
 # Authorized live preparation — October 20, 2026
 
+**Latest outcome:** [The single authorized E01 render attempt](E01_LIVE_RENDER.md) is now consumed: provider completed, but the app timed out and has no viewable result. YouCam is at 11 committed renders; OpenAI is unchanged. No further render is authorized.
+
 **NO-GO for final recording: initial search succeeded, but the portrait upload was not acknowledged on the phone. No YouCam render was submitted.** This report supersedes the earlier preparation status while preserving the [native mock calibration](NATIVE_DEMO_CALIBRATION.md) and [final recording plan](FINAL_DEMO_PLAN.md).
 
 Follow-up: [Upload recovery investigation](UPLOAD_RECOVERY.md) confirms a valid stored portrait but no supported no-reupload recovery in code 6; the subsequently authorized [code-7 correction](ANDROID_UPLOAD_RECOVERY_V7.md) passed Samsung recovery and cold-restart acceptance; the existing portrait association is restored without reupload. No render has been initiated.

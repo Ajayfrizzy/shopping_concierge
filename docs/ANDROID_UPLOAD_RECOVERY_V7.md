@@ -1,5 +1,7 @@
 # Android upload recovery — code 7 acceptance
 
+**Subsequent render outcome:** [The single E01 attempt](E01_LIVE_RENDER.md) was used after this recovery acceptance. Provider completion did not become a viewable app result; final recording is NO-GO and no further render is authorized. The unused-attempt references below describe the earlier acceptance snapshot.
+
 The code-6 [upload recovery investigation](UPLOAD_RECOVERY.md) identified a persisted portrait whose acknowledgment never reached the phone. Code 7 adds owner-authenticated, explicit recovery without uploading image bytes again or starting a render. The existing public GitHub Release remains code 6; code 7 is a review artifact, not published.
 
 ## Implemented behavior
