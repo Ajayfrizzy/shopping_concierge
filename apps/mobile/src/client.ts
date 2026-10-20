@@ -30,7 +30,12 @@ export interface Transport {
       body?: string;
       signal?: AbortSignal;
     },
-  ): Promise<{ ok: boolean; status: number; json(): Promise<unknown> }>;
+  ): Promise<{
+    ok: boolean;
+    status: number;
+    json(): Promise<unknown>;
+    arrayBuffer?(): Promise<ArrayBuffer>;
+  }>;
 }
 export interface ShoppingAPI {
   create(): Promise<SessionView>;

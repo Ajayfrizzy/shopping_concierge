@@ -1,12 +1,21 @@
 import { productName } from '../src/presentation';
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
-import { ActivityIndicator, AppState, ScrollView, Text, View } from 'react-native';
+import {
+  ActivityIndicator,
+  AppState,
+  Image,
+  ScrollView,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router, useLocalSearchParams, useFocusEffect } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system/legacy';
-import { randomUUID } from 'expo-crypto';
-import type { Product, VisualAssetType } from '@youcam/shared';
+import { randomUUID, digest, CryptoDigestAlgorithm } from 'expo-crypto';
+import { createUploadRecovery } from '../src/upload-recovery';
+import type { Product, VisualAsset, VisualAssetType } from '@youcam/shared';
 import { guestCredential, shoppingAPI, useShopping } from '../src/context';
 import { createVisualAPI, pickedImageMime } from '../src/visual-client';
 import { createTryOnSession } from '../src/try-on-session';
@@ -64,12 +73,85 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
   const uploadLock = useRef(false),
     alive = useRef(true),
     focused = useRef(true);
-  const pendingUpload = useRef<{
-    requestId: string;
-    type: VisualAssetType;
-    mimeType: 'image/png' | 'image/jpeg';
-    data: string;
-  } | null>(null);
+  const recovery = useMemo(() => {
+    const path = `${FileSystem.documentDirectory}upload-${encodeURIComponent(id)}-${encodeURIComponent(productId)}.json`;
+    return createUploadRecovery(
+      api,
+      {
+        async read() {
+          return (await FileSystem.getInfoAsync(path)).exists
+            ? FileSystem.readAsStringAsync(path)
+            : null;
+        },
+        async write(value) {
+          await FileSystem.writeAsStringAsync(path + '.tmp', value);
+          await FileSystem.moveAsync({ from: path + '.tmp', to: path });
+        },
+      },
+      id,
+      productId,
+      async (bytes) => {
+        const result = await digest(CryptoDigestAlgorithm.SHA256, new Uint8Array(bytes));
+        return Array.from(new Uint8Array(result), (b) => b.toString(16).padStart(2, '0')).join('');
+      },
+    );
+  }, [id, productId]);
+  const [recoveryReady, setRecoveryReady] = useState(false),
+    [recovering, setRecovering] = useState(false),
+    [recoveryOpen, setRecoveryOpen] = useState(false),
+    [uploadId, setUploadId] = useState(''),
+    [preview, setPreview] = useState<Awaited<ReturnType<typeof api.originalSource>> | null>(null),
+    [previewLoaded, setPreviewLoaded] = useState(false),
+    [recoveryNotice, setRecoveryNotice] = useState<string | null>(null);
+  async function associate(asset: VisualAsset) {
+    if (
+      !alive.current ||
+      !focused.current ||
+      !needed ||
+      asset.type !== needed ||
+      asset.sessionId !== id ||
+      !state.ready ||
+      state.pending ||
+      state.job
+    )
+      throw new Error('This photo cannot be associated with the current try-on.');
+    await controller.photo(asset.id);
+    if (controller.getSnapshot().assetId !== asset.id || controller.getSnapshot().error)
+      throw new Error('The photo could not be saved on this phone. Recover the same upload again.');
+  }
+  async function recover(confirm = false) {
+    if (uploadLock.current || !needed || !recoveryReady || state.pending || state.job) return;
+    uploadLock.current = true;
+    setRecovering(true);
+    setError(null);
+    try {
+      if (confirm) {
+        if (!previewLoaded) throw new Error('Review the stored photo before confirming.');
+        await recovery.confirm(associate);
+        setRecoveryOpen(false);
+        setPreview(null);
+        setUploadId('');
+        setRecoveryNotice(
+          'Existing photo recovered. No photo was uploaded and no try-on was started.',
+        );
+      } else {
+        setPreview(null);
+        setPreviewLoaded(false);
+        await recovery.inspect(uploadId, needed);
+        setUploadId(recovery.getPending()!.id);
+        setPreview(await api.originalSource(id, recovery.getCandidate()!.id));
+      }
+    } catch (e) {
+      setError(
+        e instanceof Error
+          ? e.message
+          : 'Upload recovery failed. Nothing was uploaded or rendered.',
+      );
+    } finally {
+      uploadLock.current = false;
+      setRecovering(false);
+    }
+  }
   const loadProduct = useCallback(async () => {
     const p = await shoppingAPI.product(productId);
     const result = await api.create(id, { requestId: randomUUID(), productId });
@@ -90,16 +172,31 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
       if (alive.current) setError('Unable to load try-on availability. Refresh to try again.');
     });
     void controller.boot();
+    void recovery
+      .boot()
+      .then(() => {
+        if (alive.current) {
+          setRecoveryReady(true);
+          if (recovery.getPending()) {
+            setUploadId(recovery.getPending()!.id);
+            setRecoveryOpen(true);
+          }
+        }
+      })
+      .catch(() => {
+        if (alive.current)
+          setError('Upload recovery journal could not be read. Do not upload again.');
+      });
     const subscription = AppState.addEventListener('change', (value) =>
       controller.visibility(value === 'active' && focused.current),
     );
     return () => {
       alive.current = false;
-      pendingUpload.current = null;
+
       subscription.remove();
       controller.dispose();
     };
-  }, [controller, loadProduct]);
+  }, [controller, loadProduct, recovery]);
   useFocusEffect(
     useCallback(() => {
       focused.current = true;
@@ -114,46 +211,54 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
     () => api.originalSource(id, state.job!.assetId),
     [id, state.job?.assetId],
   );
-  async function chooseImage(retry = false) {
-    if (!needed || uploadLock.current) return;
+  async function chooseImage() {
+    if (!needed || uploadLock.current || !recoveryReady || recovery.getPending()) return;
     uploadLock.current = true;
     setUploading(true);
+    setRecoveryNotice(null);
     setError(null);
     try {
-      if (!retry || !pendingUpload.current) {
-        const picked = await ImagePicker.launchImageLibraryAsync({
-          mediaTypes: ['images'],
-          base64: true,
-          quality: 0.8,
-          allowsEditing: false,
-        });
-        if (picked.canceled) return;
-        const photo = picked.assets[0];
-        if (
-          !photo?.base64 ||
-          photo.base64.length > 5_592_408 ||
-          photo.width * photo.height > 16_000_000
-        )
-          throw new Error('Choose a PNG/JPEG up to 4 MiB and 16 megapixels.');
-        pendingUpload.current = {
+      const picked = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ['images'],
+        base64: true,
+        quality: 0.8,
+        allowsEditing: false,
+      });
+      if (picked.canceled) return;
+      const photo = picked.assets[0];
+      if (
+        !photo?.base64 ||
+        photo.base64.length > 5_592_408 ||
+        photo.width * photo.height > 16_000_000
+      )
+        throw new Error('Choose a PNG/JPEG up to 4 MiB and 16 megapixels.');
+      await recovery.upload(
+        {
           requestId: randomUUID(),
           type: needed,
           mimeType: pickedImageMime(photo.base64),
           data: photo.base64,
-        };
-      }
-      const uploaded = await api.upload(id, pendingUpload.current!);
-      await controller.photo(uploaded.id);
-      pendingUpload.current = null;
+        },
+        associate,
+      );
     } catch (e) {
-      if (alive.current)
-        setError(e instanceof Error ? e.message : 'Photo upload failed. Retry the same upload.');
+      if (alive.current) {
+        setError(
+          e instanceof Error
+            ? e.message
+            : 'Upload confirmation failed. Recover the existing upload; do not upload again.',
+        );
+        if (recovery.getPending()) {
+          setUploadId(recovery.getPending()!.id);
+          setRecoveryOpen(true);
+        }
+      }
     } finally {
       uploadLock.current = false;
       if (alive.current) setUploading(false);
     }
   }
-  const busy = state.busy || uploading;
+  const busy = state.busy || uploading || recovering;
   const active = state.job?.status === 'queued' || state.job?.status === 'processing';
   return (
     <SafeAreaView style={styles.screen}>
@@ -193,18 +298,14 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
                 void (state.ready ? controller.refresh() : controller.boot());
               }}
             />
-            {pendingUpload.current && (
-              <Button
-                title="Retry photo upload"
-                disabled={busy}
-                onPress={() => {
-                  void chooseImage(true);
-                }}
-              />
-            )}
           </Panel>
         )}
-        {state.notice && (
+        {recoveryNotice && (
+          <Text accessibilityLiveRegion="polite" style={styles.text}>
+            {recoveryNotice}
+          </Text>
+        )}
+        {state.notice && !recoveryNotice && (
           <Text accessibilityLiveRegion="polite" style={styles.text}>
             {state.notice}
           </Text>
@@ -230,7 +331,7 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
             {active && !state.waiting && (
               <Button
                 title={state.job.status === 'queued' ? 'Try on' : 'Resume checking result'}
-                disabled={busy || !!unavailable}
+                disabled={busy || !!unavailable || !recoveryReady || !!recovery.getPending()}
                 onPress={() => {
                   void (state.job?.status === 'queued' ? controller.start() : controller.refresh());
                 }}
@@ -254,6 +355,78 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
             )}
           </Panel>
         )}
+        {!state.job && !state.pending && needed && !unavailable && (
+          <Panel>
+            <Button
+              title="Recover existing upload"
+              secondary
+              disabled={busy || !recoveryReady || !state.ready}
+              onPress={() => {
+                setRecoveryOpen(true);
+                if (recovery.getPending()) setUploadId(recovery.getPending()!.id);
+              }}
+            />
+            {recoveryOpen && (
+              <>
+                <Text style={styles.text}>
+                  Recover a photo already uploaded to this session. No photo is uploaded again and
+                  no try-on is started. If the upload ID was not saved on this phone, use its exact
+                  ID from your upload record; photos are never chosen automatically.
+                </Text>
+                <TextInput
+                  accessibilityLabel="Existing upload ID"
+                  value={uploadId}
+                  maxLength={36}
+                  editable={!busy && !recovery.getPending()}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  onChangeText={(value) => {
+                    setUploadId(value);
+                    setPreview(null);
+                    setPreviewLoaded(false);
+                  }}
+                  style={{ borderWidth: 1, borderColor: '#7d887c', padding: 12, color: '#163026' }}
+                />
+                <Button
+                  title="Check existing upload"
+                  disabled={busy || !uploadId.trim()}
+                  onPress={() => {
+                    void recover();
+                  }}
+                />
+                {preview && (
+                  <>
+                    <Text style={styles.text}>
+                      Check that this is the intended {needed} photo for{' '}
+                      {product ? productName(product.name) : 'this product'}. Confirming only
+                      restores the photo association.
+                    </Text>
+                    <Image
+                      source={preview}
+                      accessibilityLabel="Existing uploaded photo preview"
+                      style={{ width: '100%', height: 240 }}
+                      resizeMode="contain"
+                      onLoad={() => setPreviewLoaded(true)}
+                      onError={() => {
+                        setPreviewLoaded(false);
+                        setError(
+                          'Stored photo could not be displayed. No association was changed.',
+                        );
+                      }}
+                    />
+                    <Button
+                      title="Use recovered photo"
+                      disabled={busy || !previewLoaded}
+                      onPress={() => {
+                        void recover(true);
+                      }}
+                    />
+                  </>
+                )}
+              </>
+            )}
+          </Panel>
+        )}
         {!state.job && needed && !unavailable && (
           <Panel>
             <Text style={styles.heading}>Choose a {needed} photo</Text>
@@ -274,18 +447,18 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
             {!state.pending && (
               <Button
                 title={state.assetId ? 'Choose a different photo' : 'Choose and upload photo'}
-                disabled={busy || !state.ready}
+                disabled={busy || !state.ready || !recoveryReady || !!recovery.getPending()}
                 onPress={() => {
                   void chooseImage();
                 }}
               />
             )}
-            {state.assetId && (
+            {state.assetId && !recovery.getPending() && (
               <>
                 <Text style={styles.text}>Photo uploaded privately.</Text>
                 <Button
                   title={state.pending ? 'Resume try-on request' : 'Try on'}
-                  disabled={busy || !state.ready}
+                  disabled={busy || !state.ready || !recoveryReady || !!recovery.getPending()}
                   onPress={() => {
                     void controller.start();
                   }}

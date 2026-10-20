@@ -1,5 +1,7 @@
 # Final demo preparation — October 19, 2026
 
+**October 20 live preparation:** [Current outcome](LIVE_DEMO_PREPARATION.md): the authorized dedicated session and one live search succeeded. The portrait persisted server-side but its upload acknowledgment failed on the phone; no render was submitted. Recording remains NO-GO.
+
 **Update after native calibration:** [The separate calibration report](NATIVE_DEMO_CALIBRATION.md) supersedes the pending native measurements below: two complete isolated mock journeys passed. Owner-session handoff, a genuine unexpired result and separate live/recording authorization remain open. The following preparation snapshot preserves what was known before calibration.
 
 **NO-GO for final recording or paid render execution yet.** Offline preparation is complete; current native story calibration, owner-session handoff and a separately authorized genuine E01 result are outstanding. This task used zero OpenAI calls, zero YouCam submissions, zero production session/decision writes and no recording. No APK build, installation, redeployment, provider-setting or budget change occurred.

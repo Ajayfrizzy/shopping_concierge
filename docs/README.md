@@ -8,6 +8,8 @@ Shopping Concierge is a hackathon beta using **72 synthetic products**, sample p
 - [Judge guide](JUDGE_GUIDE.md) — product story, API use and honest evidence boundaries.
 - [Final production acceptance](FINAL_PRODUCTION_ACCEPTANCE.md) — APK identity, native checks, dated budgets and limitations.
 - [Demo preparation](DEMO_PREPARATION.md) — verified device/portrait, offline rehearsal and remaining gates.
+- [Android upload recovery v7](ANDROID_UPLOAD_RECOVERY_V7.md) — implementation and private release acceptance; public release remains code 6.
+- [Live demo preparation](LIVE_DEMO_PREPARATION.md) — October 20 authorized search, upload blocker and reconciled spending.
 - [Native demo calibration](NATIVE_DEMO_CALIBRATION.md) — two complete Samsung mock rehearsals, timings and live preparation gates.
 - [Final demo plan](FINAL_DEMO_PLAN.md) — authoritative future 150-second recording plan, **not executed**.
 - [Android release](ANDROID_RELEASE.md) — current release details and clearly labeled earlier build history.

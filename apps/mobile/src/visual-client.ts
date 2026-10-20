@@ -58,6 +58,44 @@ export function createVisualAPI(
     return value;
   };
   return {
+    async asset(id: string, assetId: string) {
+      const asset = assetSchema.parse(
+        await call(path(id) + '/assets/' + encodeURIComponent(assetId)),
+      );
+      if (asset.sessionId !== id || asset.id !== assetId)
+        throw new ClientError('INVALID_RESPONSE', 'Upload belongs to another session or request.');
+      return asset;
+    },
+    async assetBytes(id: string, assetId: string) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 20000);
+      try {
+        const token = await credential();
+        if (!token) throw new Error();
+        const response = await transport(
+          base.replace(/\/$/, '') +
+            path(id) +
+            '/assets/' +
+            encodeURIComponent(assetId) +
+            '/content',
+          {
+            headers: { Authorization: `Bearer ${token}` },
+            signal: controller.signal,
+          },
+        );
+        if (!response.ok || !response.arrayBuffer) throw new Error();
+        const bytes = new Uint8Array(await response.arrayBuffer());
+        if (bytes.length > 4194304) throw new Error();
+        return bytes;
+      } catch {
+        throw new ClientError(
+          'UPLOAD_UNAVAILABLE',
+          'Stored photo is unavailable or access was denied. No upload or render was started.',
+        );
+      } finally {
+        clearTimeout(timer);
+      }
+    },
     async originalSource(id: string, assetId: string) {
       const asset = assetSchema.parse(
         await call(path(id) + '/assets/' + encodeURIComponent(assetId)),
