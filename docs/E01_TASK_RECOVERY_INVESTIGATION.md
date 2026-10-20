@@ -1,5 +1,7 @@
 # E01 completed-task recovery investigation — October 20, 2026
 
+**Implementation follow-up:** [The backend fix](YOUCAM_TASK_RECOVERY_FIX.md) now implements and tests same-task recovery. The investigation below is historical evidence; production remains unreconciled and deployment requires separate authorization.
+
 **Conditional GO to implement and review recovery of the original task; NO-GO to recover through current production interfaces or record the final video.** No production fix or recovery mutation was performed. The original task still reports completed and supplies a fresh output reference; image-byte accessibility and visual quality remain unverified.
 
 This follows the [single-attempt outcome](E01_LIVE_RENDER.md). All times below are WAT (UTC+1). Private task/job/asset identifiers, credentials, object keys and signed URLs remain in ignored local evidence.

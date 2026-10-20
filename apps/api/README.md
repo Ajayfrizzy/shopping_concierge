@@ -1,5 +1,7 @@
 # API
 
+**Same-task recovery:** See [the backend recovery fix](../../docs/YOUCAM_TASK_RECOVERY_FIX.md) for the owner-authenticated reconcile endpoint, output validation, no-migration deployment and rollback compatibility requirements. Deployment and production recovery require separate authorization.
+
 Fastify entry points: `src/app.ts` (injectable app factory) and `src/server.ts` (listener). Run `npm run dev:api` from the root. The development and `db:migrate` commands optionally load `apps/api/.env`, then the root `.env`. Root-file values override API-file values; existing shell variables take precedence over both. Providers default to mocks; live modes require explicit validated server-side configuration.
 
 `GET /health` is a credential-free liveness check. `POST /v1/foundation/messages` validates input and returns an explicit preview response; it does not claim to create shopping state. Both routes have integration tests using Fastify injection.

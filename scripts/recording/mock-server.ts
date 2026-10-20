@@ -1,5 +1,5 @@
 /** Local-only native calibration fixture; never import production composition/config. */
-import { randomUUID } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import sharp from 'sharp';
 import { buildApp } from '../../apps/api/src/app.js';
 import { createMemoryRepository } from '../../apps/api/src/persistence/memory.js';
@@ -42,6 +42,16 @@ export async function calibrationApp() {
     async start() {
       starts++;
       return randomUUID();
+    },
+    // Only the generated, visibly labeled local fixture; no network/provider validation.
+    async validateOutput(url: string) {
+      if (url !== 'http://127.0.0.1:4000/calibration/image.png') throw Error('Unknown fixture');
+      return {
+        expiresAt: Date.now() + 3600000,
+        sha256: createHash('sha256').update(png).digest('hex'),
+        mimeType: 'image/png' as const,
+        byteLength: png.length,
+      };
     },
     async poll() {
       polls++;

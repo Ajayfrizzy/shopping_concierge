@@ -1,3 +1,6 @@
+import { safeProviderUrl } from './url.js';
+export { safeProviderUrl } from './url.js';
+import { validateProviderOutput } from './output.js';
 import { randomUUID } from 'node:crypto';
 import type { UsageLedger } from './ledger.js';
 import { z } from 'zod';
@@ -42,27 +45,6 @@ const polled = envelope(
     error: z.string().nullable().optional(),
   }),
 );
-/** Provider URL hosts are configured by the operator, not by clients/model output. Redirects are refused. */
-export function safeProviderUrl(raw: string, hosts: readonly string[]) {
-  let url: URL;
-  try {
-    url = new URL(raw);
-  } catch {
-    throw new VisualError('PROVIDER_INVALID_RESPONSE', 'Provider returned an invalid URL.');
-  }
-  if (
-    url.protocol !== 'https:' ||
-    url.username ||
-    url.password ||
-    url.port ||
-    !hosts.includes(url.hostname)
-  )
-    throw new VisualError(
-      'PROVIDER_INVALID_RESPONSE',
-      'Provider URL is outside the configured HTTPS host allowlist.',
-    );
-  return url.toString();
-}
 export class LiveYouCamProvider implements YouCamProvider {
   readonly mode = 'live' as const;
   constructor(
@@ -195,6 +177,9 @@ export class LiveYouCamProvider implements YouCamProvider {
     });
     await this.options.ledger?.commit(reservationId);
     return task.data.task_id;
+  }
+  async validateOutput(url: string) {
+    return validateProviderOutput(url, this.options.outputHosts, this.options.fetch ?? fetch);
   }
   async poll(category: Category, taskId: string): Promise<ProviderPoll> {
     const result = await this.json(

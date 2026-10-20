@@ -1,5 +1,7 @@
 # Final production acceptance — checks October 18; finalized October 19, 2026
 
+**October 20 source-only update:** [YouCam same-task recovery](YOUCAM_TASK_RECOVERY_FIX.md) is implemented for deployment review. It has not been deployed or accepted against production; the earlier APK/test acceptance below remains a dated snapshot.
+
 **Recommendation: NO-GO for automated final demo recording.** The release's build and automated checks pass. The installed production APK and safe native checks are verified. Every stored real result has expired in the app, preventing the requested current-app real-result comparison shot. Distribution was subsequently completed on October 19: [public release](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android) / [exact code-6 APK](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v6-arm64-release.apk). No confirmed critical source defect was found. Do not interpret historical physical tests or the owner's manual-use report as a fresh acceptance pass.
 
 This audit made no deployment, paid planning/render submission, deliberate production decision/accounting edits, final recording, narration or external submission. Read-only YouCam task/credit GETs were performed. Deadline November 2, 2026, the four judging criteria and 1–3-minute format are from the owner's brief, not a fresh portal verification.

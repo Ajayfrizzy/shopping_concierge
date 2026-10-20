@@ -67,6 +67,14 @@ export interface TryOnInput {
 }
 export interface YouCamProvider {
   readonly mode: 'mock' | 'live';
+  validateOutput?(
+    url: string,
+  ): Promise<{
+    expiresAt: number;
+    sha256: string;
+    mimeType: 'image/png' | 'image/jpeg';
+    byteLength: number;
+  }>;
   start(input: TryOnInput): Promise<string>;
   analyzeFace?(asset: VisualAsset): Promise<{ faceShape: string | null }>;
   poll(category: Category, taskId: string): Promise<ProviderPoll>;

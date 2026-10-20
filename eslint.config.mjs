@@ -7,6 +7,7 @@ export default tseslint.config(
       '**/dist/**',
       '**/.expo/**',
       '**/coverage/**',
+      'artifacts/**', // Ignored local build/evidence utilities are not repository source.
       'apps/mobile/android/**',
       'apps/mobile/ios/**',
     ],

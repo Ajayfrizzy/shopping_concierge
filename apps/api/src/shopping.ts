@@ -141,6 +141,18 @@ export function registerShopping(app: FastifyInstance, options: ShoppingOptions 
         );
       },
     );
+    routes.post<{ Params: { id: string; jobId: string } }>(
+      '/v1/sessions/:id/vto/:jobId/reconcile',
+      async (request) => {
+        if (request.body !== undefined && JSON.stringify(request.body) !== '{}')
+          throw new AgentError('INVALID_REQUEST', 'Reconcile accepts no provider parameters.');
+        return visual.reconcile(
+          ownerFromAuthorization(request.headers.authorization),
+          request.params.id,
+          request.params.jobId,
+        );
+      },
+    );
     routes.get<{ Params: { id: string } }>('/v1/products/:id', async (request) => {
       const id = parse(idSchema, request.params.id);
       const product = createCatalog(await repository.products()).getProduct(id);

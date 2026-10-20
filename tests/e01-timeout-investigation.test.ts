@@ -1,4 +1,4 @@
-// Characterization of the existing bug, not acceptance of a recovery fix.
+// Regression for the historical timeout-before-poll defect.
 // All state is in memory; provider responses are injected, with no external calls.
 import { randomUUID } from 'node:crypto';
 import { afterEach, expect, it, vi } from 'vitest';
@@ -20,7 +20,17 @@ async function fixture() {
     status: 'completed' as const,
     outputUrl: 'https://assets.test/original-output',
   }));
-  const provider: YouCamProvider = { mode: 'live', start, poll };
+  const provider: YouCamProvider = {
+    mode: 'live',
+    start,
+    poll,
+    validateOutput: async () => ({
+      expiresAt: 99999999,
+      sha256: 'a'.repeat(64),
+      mimeType: 'image/png',
+      byteLength: 100,
+    }),
+  };
   const repository = createMemoryRepository(
     fixtureProducts.map((p) => ({
       ...p,
@@ -69,23 +79,23 @@ async function fixture() {
     },
   };
 }
-it('reproduces completed provider output being discarded by the ten-minute cutoff, then terminal lockout', async () => {
+it('polls the known task after ten minutes instead of discarding completed output', async () => {
   const f = await fixture();
   await f.service.advance(f.owner, f.id, f.request.requestId);
   f.tick(600001);
   const job = await f.service.advance(f.owner, f.id, f.request.requestId);
   expect(job).toMatchObject({
-    status: 'failed',
-    result: null,
-    error: { code: 'PROVIDER_TIMEOUT' },
+    status: 'completed',
+    result: { kind: 'image' },
+    error: null,
   });
-  expect(f.poll).not.toHaveBeenCalled();
+  expect(f.poll).toHaveBeenCalledTimes(1);
   const stored = await f.repository.visual(f.owner, f.id, (s) => s);
   expect(stored.jobs[0]?.taskId).toBe('fixture-original-task');
   f.tick(3000);
   await f.service.advance(f.owner, f.id, f.request.requestId);
   expect(await f.service.create(f.owner, f.id, f.request)).toEqual({ type: 'job', job });
-  expect(f.poll).not.toHaveBeenCalled();
+  expect(f.poll).toHaveBeenCalledTimes(1);
   expect(f.start).toHaveBeenCalledTimes(1);
   expect((await f.repository.read(f.owner, f.id)).view).toEqual(f.session);
 });

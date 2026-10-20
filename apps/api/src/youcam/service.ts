@@ -1,3 +1,4 @@
+import { taskReconciler } from './reconcile.js';
 import { createHash } from 'node:crypto';
 import { AgentError } from '@youcam/agent';
 import {
@@ -18,6 +19,15 @@ export function visualService(
   provider: YouCamProvider,
   now = Date.now,
 ) {
+  const reconcile = taskReconciler(
+    repository,
+    {
+      mode: provider.mode,
+      poll: provider.poll.bind(provider),
+      validateOutput: provider.validateOutput?.bind(provider),
+    },
+    now,
+  );
   const failed = (job: VtoJob, error: unknown) => {
     job.status = 'failed';
     job.result = null;
@@ -32,6 +42,7 @@ export function visualService(
     ).normalized();
   };
   return {
+    reconcile,
     async analyze(owner: string, sessionId: string, raw: unknown) {
       const input = visualAnalysisRequestSchema.parse(raw);
       const stored = await repository.asset(owner, sessionId, input.assetId);
@@ -208,7 +219,7 @@ export function visualService(
             );
           return state;
         }
-        if (now() - record.job.createdAt > 10 * 60_000) {
+        if (!record.taskId && now() - record.job.createdAt > 10 * 60_000) {
           failed(
             record.job,
             new VisualError(
@@ -226,6 +237,8 @@ export function visualService(
       });
       if (!claim) return vtoJobSchema.parse(current);
       const work = claim;
+      // All known live tasks use the poll-only validated path, including concurrent claims.
+      if (work.taskId && work.job.mode === 'live') return reconcile(owner, sessionId, id);
       try {
         if (!work.taskId) {
           const stored = await repository.asset(owner, sessionId, work.job.assetId);
@@ -261,7 +274,8 @@ export function visualService(
           });
           await repository.visual(owner, sessionId, (state) => {
             const r = state.jobs.find((j) => j.job.id === id)!;
-            if (r.job.status === 'processing') r.taskId = taskId;
+            // Retain a late acknowledgment even if local waiting already timed out.
+            if (!r.taskId) r.taskId = taskId;
             current = r.job;
             return state;
           });

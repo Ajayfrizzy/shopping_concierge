@@ -95,6 +95,7 @@ Every route below requires the M5 guest credential and session ownership. Shared
 - GET `/v1/sessions/:id/vto`: `{ jobs: VtoJob[] }`, owned normalized history, max 100, for reload recovery.
 - GET `/v1/sessions/:id/vto/:jobId`: normalized job only; never starts/polls a provider task.
 - POST `/v1/sessions/:id/vto/:jobId/advance`: empty body or `{}` only. Explicitly submits an already queued job or polls its existing task; submission claims are persisted before provider I/O. No caller-supplied provider arguments/results. One active job/session and minimum two seconds between polls; terminal results replay.
+- POST `/v1/sessions/:id/vto/:jobId/reconcile`: owner-authenticated empty body or `{}` only. Polls a stored live task for processing or timeout-failed jobs, validates signed output bytes/expiry and atomically persists the same job. No caller provider fields, uploads, submission or accounting operations. Completed replay does not extend expiry. See [recovery contract and limits](YOUCAM_TASK_RECOVERY_FIX.md).
 - POST `/v1/sessions/:id/visual-profile/analyze`: `{ assetId: UUID, kind: "face"|"color" }` → `{ profile, cached }`. Mock face analysis supplies no inferred shape; repeat matching hash/kind/mode/version uses the session cache. Unsupported live/color analysis returns normalized `ANALYSIS_UNAVAILABLE`.
 - GET `/v1/sessions/:id/visual-profile`: `{ profiles }` from the owned validated cache; never triggers analysis.
 
