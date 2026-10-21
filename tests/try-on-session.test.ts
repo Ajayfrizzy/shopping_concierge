@@ -154,6 +154,7 @@ it('saves consent before creation and recovers a lost create response using the 
   });
   await s.c.start();
   expect(s.c.getSnapshot().error).toBe('Response lost');
+  await tick(660000);
   expect(s.provider.starts).toBe(0);
   const requestId = JSON.parse((await s.storage.read())!).requestId;
   s.c.dispose();
@@ -161,6 +162,8 @@ it('saves consent before creation and recovers a lost create response using the 
   await restored.boot();
   await tick(3000);
   expect(restored.getSnapshot().job?.id).toBe(requestId);
+  expect(s.provider.starts).toBe(0);
+  await Promise.all([restored.start(), restored.start()]);
   expect(s.provider.starts).toBe(1);
 });
 it('does not create on boot after an uncertain request with no server job; explicit resume retains ID', async () => {
@@ -304,8 +307,8 @@ it('before image preserves Android array-source authentication and rejects anoth
   expect(denied.statusCode).toBe(404);
 });
 
-it.each(['refresh', 'navigation'] as const)(
-  'documents v8 limitation: journal-matched queued job auto-advances after %s',
+it.each(['refresh', 'navigation', 'background'] as const)(
+  'requires fresh consent for an aged journal-matched queued job after %s',
   async (trigger) => {
     const s = await ready();
     const create = s.api.create;
@@ -316,6 +319,7 @@ it.each(['refresh', 'navigation'] as const)(
     await s.c.start();
     expect(s.provider.starts).toBe(0);
     const requestId = JSON.parse((await s.storage.read())!).requestId;
+    await tick(660000);
     s.c.visibility(false);
     await s.c.refresh(); // GET loads the queue; no submission while hidden.
     await tick(6000);
@@ -324,6 +328,8 @@ it.each(['refresh', 'navigation'] as const)(
     if (trigger === 'refresh') await s.c.refresh();
     await tick(3000);
     expect(s.c.getSnapshot().job?.id).toBe(requestId);
+    expect(s.provider.starts).toBe(0);
+    await Promise.all([s.c.start(), s.c.start()]);
     expect(s.provider.starts).toBe(1);
   },
 );

@@ -91,9 +91,9 @@ export function createTryOnSession(
   }
   function schedule() {
     clearTimeout(timer);
-    if (!visible || paused || !active() || view.busy) return;
-    // A legacy queued job is not evidence of consent to a paid submission.
-    if (view.job?.status === 'queued' && journal.requestId !== view.job.id) return;
+    // A durable request ID supports idempotency, not renewed spending consent.
+    // Only an explicit start() may advance a queued job, even after restoration.
+    if (!visible || paused || view.job?.status !== 'processing' || view.busy) return;
     if (polls >= (options.maxPolls ?? 40)) {
       stop();
       paused = true;
@@ -105,7 +105,7 @@ export function createTryOnSession(
     emit({ waiting: true });
     timer = setTimeout(() => {
       void run(async () => {
-        if (!visible || paused || !view.job) return;
+        if (!visible || paused || view.job?.status !== 'processing') return;
         polls++;
         emit({ job: await api.advance(sessionId, view.job.id) });
         if (!active()) stop();

@@ -12,6 +12,10 @@ Before submission, the service rechecks owned portrait identity, session, image 
 
 ## Android v8 limitation and deployment gate
 
+The client correction is now implemented in [Android v9](ANDROID_QUEUED_CONSENT_V9.md).
+The v8 findings below remain historical evidence. Deployment remains gated on
+verified v9 installation and native acceptance for the dedicated session.
+
 **NO-GO for deployment to the current demo environment or advancement through the installed v8 app under a fresh-action-only policy.**
 
 The API contract is compatible with v8: explicit Resume can use the existing request journal and advance the same job. However, v8's controller also schedules advancement of a journal-matched queued job after boot, refresh or becoming visible. The existing lost-creation-response test and new refresh/navigation characterization tests reproduce this with isolated providers. Consequently, deploying the relaxed queue-age rule while v8 can restore this queued job could permit its first paid submission without a new explicit tap.

@@ -316,7 +316,7 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
             <Text accessibilityLiveRegion="polite" style={styles.heading}>
               {state.job.mode === 'mock' ? 'Mock try-on' : 'YouCam try-on'} ·{' '}
               {state.job.status === 'queued'
-                ? 'Preparing your try-on'
+                ? 'Ready for your approval'
                 : state.job.status === 'processing'
                   ? 'Creating your preview…'
                   : state.job.status === 'completed'
@@ -329,9 +329,16 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
                 <Button title="Stop waiting" secondary onPress={controller.pause} />
               </>
             )}
+            {state.job.status === 'queued' && (
+              <Text style={styles.text}>
+                Start this existing request only when ready. This may consume one YouCam render.
+              </Text>
+            )}
             {active && !state.waiting && (
               <Button
-                title={state.job.status === 'queued' ? 'Try on' : 'Resume checking result'}
+                title={
+                  state.job.status === 'queued' ? 'Start existing try-on' : 'Resume checking result'
+                }
                 disabled={busy || !!unavailable || !recoveryReady || !!recovery.getPending()}
                 onPress={() => {
                   void (state.job?.status === 'queued' ? controller.start() : controller.refresh());
@@ -464,8 +471,9 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
             {state.assetId && !recovery.getPending() && (
               <>
                 <Text style={styles.text}>Photo uploaded privately.</Text>
+                <Text style={styles.text}>Starting try-on may consume one YouCam render.</Text>
                 <Button
-                  title={state.pending ? 'Resume try-on request' : 'Try on'}
+                  title={state.pending ? 'Start existing try-on' : 'Try on'}
                   disabled={busy || !state.ready || !recoveryReady || !!recovery.getPending()}
                   onPress={() => {
                     void controller.start();

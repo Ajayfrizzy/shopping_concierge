@@ -12,6 +12,7 @@ Shopping Concierge is a hackathon beta using **72 synthetic products**, sample p
 - [Android v8 same-task recovery control](ANDROID_TASK_RECOVERY_V8.md) — explicit authenticated check; production recovery not executed.
 - [Implemented YouCam same-task recovery](YOUCAM_TASK_RECOVERY_FIX.md) — backend fix and acceptance; not deployed or used in production.
 - [Aged never-submitted queued jobs](NEVER_SUBMITTED_QUEUED_JOBS.md) — backend correction, integration results and Android v8 consent blocker; not deployed.
+- [Android v9 explicit queued-job consent](ANDROID_QUEUED_CONSENT_V9.md) — stops automatic first submission during restoration; build and native acceptance status.
 - [E01 completed-task recovery investigation](E01_TASK_RECOVERY_INVESTIGATION.md) — confirmed timeout gate; proposed poll-only recovery, not deployed.
 - [Single E01 live-render outcome](E01_LIVE_RENDER.md) — one committed attempt, provider completion but application timeout; final recording blocked.
 - [Live demo preparation](LIVE_DEMO_PREPARATION.md) — October 20 authorized search, upload blocker and reconciled spending.

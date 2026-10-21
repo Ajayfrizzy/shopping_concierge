@@ -14,6 +14,6 @@ export default ({ config }: ConfigContext) =>
       ? {
           ...config,
           plugins: [...(config.plugins ?? []), './plugins/with-release.cjs'],
-          android: { ...config.android, versionCode: 8 },
+          android: { ...config.android, versionCode: 9 },
         }
       : config;
