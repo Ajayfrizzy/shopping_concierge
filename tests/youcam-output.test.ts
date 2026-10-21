@@ -157,3 +157,54 @@ it.each(['headers', 'stream'] as const)(
 it('caps longer signatures at the documented two-hour output lifetime minus a margin', () => {
   expect(signedOutputExpiry(signed({ 'X-Amz-Expires': '86400' }), clock)).toBe(clock + 7140000);
 });
+
+it.each(['binary/octet-stream', 'application/octet-stream', 'image/png', 'image/jpeg'])(
+  'fully validates supported bytes served as %s',
+  async (mime) => {
+    for (const format of ['png', 'jpeg'] as const) {
+      if (mime.startsWith('image/') && mime !== `image/${format}`) continue;
+      const bytes = await sharp({
+        create: { width: 32, height: 32, channels: 3, background: '#eee' },
+      })
+        .toFormat(format)
+        .toBuffer();
+      const result = await validateProviderOutput(
+        signed(),
+        ['assets.test'],
+        async () => response(bytes, { 'content-type': mime }),
+        () => clock,
+      );
+      expect(result).toMatchObject({
+        mimeType: `image/${format}`,
+        byteLength: bytes.length,
+        expiresAt: clock + 7140000,
+      });
+    }
+  },
+);
+it.each(['invalid', 'truncated', 'unsupported', 'pixels', 'size', 'html-mime'])(
+  'rejects generic binary %s without weakening image validation',
+  async (kind) => {
+    let bytes = await png();
+    let mime = 'binary/octet-stream';
+    if (kind === 'invalid') bytes = Buffer.from('not an image');
+    if (kind === 'truncated') bytes = bytes.subarray(0, bytes.length - 25);
+    if (kind === 'unsupported') bytes = await sharp(bytes).webp().toBuffer();
+    if (kind === 'pixels')
+      bytes = await sharp({
+        create: { width: 4100, height: 4100, channels: 3, background: '#eee' },
+      })
+        .png()
+        .toBuffer();
+    if (kind === 'size') bytes = Buffer.alloc(outputMaxBytes + 1);
+    if (kind === 'html-mime') mime = 'text/html';
+    await expect(
+      validateProviderOutput(
+        signed(),
+        ['assets.test'],
+        async () => response(bytes, { 'content-type': mime }),
+        () => clock,
+      ),
+    ).rejects.toMatchObject({ code: 'PROVIDER_UNAVAILABLE' });
+  },
+);

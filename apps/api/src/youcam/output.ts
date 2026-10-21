@@ -59,7 +59,9 @@ async function validateOutput(
     const mime = response.headers.get('content-type')?.split(';')[0]?.trim().toLowerCase();
     const length = response.headers.get('content-length');
     if (
-      !['image/png', 'image/jpeg'].includes(mime ?? '') ||
+      !['image/png', 'image/jpeg', 'binary/octet-stream', 'application/octet-stream'].includes(
+        mime ?? '',
+      ) ||
       (length !== null && (!/^\d+$/.test(length) || Number(length) > outputMaxBytes))
     ) {
       await response.body.cancel();
@@ -81,14 +83,21 @@ async function validateOutput(
     }
     if (!size || (length !== null && Number(length) !== size)) throw unavailable();
     const bytes = Buffer.concat(chunks);
+    const detectedMime = bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]))
+      ? 'image/png'
+      : bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255
+        ? 'image/jpeg'
+        : null;
+    if (!detectedMime || ((mime === 'image/png' || mime === 'image/jpeg') && mime !== detectedMime))
+      throw unavailable();
     const image = sharp(bytes, { limitInputPixels: 16000000, failOn: 'warning' }).timeout({
       seconds: 5,
     });
     const metadata = await image.metadata();
     if (metadata.pages && metadata.pages !== 1) throw unavailable();
     if (
-      (mime === 'image/png' && metadata.format !== 'png') ||
-      (mime === 'image/jpeg' && metadata.format !== 'jpeg')
+      (detectedMime === 'image/png' && metadata.format !== 'png') ||
+      (detectedMime === 'image/jpeg' && metadata.format !== 'jpeg')
     )
       throw unavailable();
     await image.raw().toBuffer(); // Decode all pixels, not merely the file header.
@@ -96,7 +105,7 @@ async function validateOutput(
     return {
       expiresAt,
       sha256: createHash('sha256').update(bytes).digest('hex'),
-      mimeType: mime as 'image/png' | 'image/jpeg',
+      mimeType: detectedMime as 'image/png' | 'image/jpeg',
       byteLength: size,
     };
   } catch {
