@@ -13,8 +13,8 @@ Before submission, the service rechecks owned portrait identity, session, image 
 ## Android v8 limitation and deployment gate
 
 The client correction is now implemented in [Android v9](ANDROID_QUEUED_CONSENT_V9.md).
-The v8 findings below remain historical evidence. Deployment remains gated on
-verified v9 installation and native acceptance for the dedicated session.
+The v8 findings below remain historical evidence. V9 installation and native acceptance have now passed for the dedicated session;
+see that report for the separately authorized deployment gate.
 
 **NO-GO for deployment to the current demo environment or advancement through the installed v8 app under a fresh-action-only policy.**
 
