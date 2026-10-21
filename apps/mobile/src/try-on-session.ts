@@ -29,8 +29,8 @@ export function canCheckExistingResult(job: VtoJob | null, sessionId: string, pr
     job.sessionId === sessionId &&
     job.productId === productId &&
     job.mode === 'live' &&
-    job.status === 'failed' &&
-    job.error?.code === 'PROVIDER_TIMEOUT'
+    (job.status === 'processing' ||
+      (job.status === 'failed' && job.error?.code === 'PROVIDER_TIMEOUT'))
   );
 }
 export function createTryOnSession(
@@ -94,6 +94,9 @@ export function createTryOnSession(
     // A durable request ID supports idempotency, not renewed spending consent.
     // Only an explicit start() may advance a queued job, even after restoration.
     if (!visible || paused || view.job?.status !== 'processing' || view.busy) return;
+    // Live status checks use the explicit one-shot recovery action. In particular,
+    // mounting a processing job must not race that action through /advance.
+    if (view.job.mode === 'live') return;
     if (polls >= (options.maxPolls ?? 40)) {
       stop();
       paused = true;

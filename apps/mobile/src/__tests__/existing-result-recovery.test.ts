@@ -47,3 +47,9 @@ it.each([
 ])('hides recovery for ineligible jobs', (j) => {
   expect(render(j as VtoJob | null)).toBe('');
 });
+
+it('shows processing recovery with duplicate-tap busy protection', () => {
+  const processing = { ...job, status: 'processing' as const, error: null };
+  expect(render(processing)).toContain('Check existing YouCam result');
+  expect(render(processing, true)).toContain('disabled');
+});

@@ -334,17 +334,23 @@ function TryOnSession({ id, productId }: { id: string; productId: string }) {
                 Start this existing request only when ready. This may consume one YouCam render.
               </Text>
             )}
-            {active && !state.waiting && (
-              <Button
-                title={
-                  state.job.status === 'queued' ? 'Start existing try-on' : 'Resume checking result'
-                }
-                disabled={busy || !!unavailable || !recoveryReady || !!recovery.getPending()}
-                onPress={() => {
-                  void (state.job?.status === 'queued' ? controller.start() : controller.refresh());
-                }}
-              />
-            )}
+            {active &&
+              !state.waiting &&
+              !(state.job.mode === 'live' && state.job.status === 'processing') && (
+                <Button
+                  title={
+                    state.job.status === 'queued'
+                      ? 'Start existing try-on'
+                      : 'Resume checking result'
+                  }
+                  disabled={busy || !!unavailable || !recoveryReady || !!recovery.getPending()}
+                  onPress={() => {
+                    void (state.job?.status === 'queued'
+                      ? controller.start()
+                      : controller.refresh());
+                  }}
+                />
+              )}
             {state.job.error && (
               <Text accessibilityRole="alert" style={styles.error}>
                 {state.job.error.message}

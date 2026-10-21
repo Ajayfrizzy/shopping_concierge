@@ -9,7 +9,7 @@ afterEach(() => {
   disposals.splice(0).forEach((f) => f());
   vi.useRealTimers();
 });
-async function setup() {
+async function setup(processing = false) {
   const job: VtoJob = {
     id: randomUUID(),
     sessionId: randomUUID(),
@@ -17,8 +17,10 @@ async function setup() {
     assetId: randomUUID(),
     category: 'earrings',
     mode: 'live',
-    status: 'failed',
-    error: { code: 'PROVIDER_TIMEOUT', message: 'Local timeout', recoverable: true },
+    status: processing ? 'processing' : 'failed',
+    error: processing
+      ? null
+      : { code: 'PROVIDER_TIMEOUT', message: 'Local timeout', recoverable: true },
     result: null,
     createdAt: 1,
     updatedAt: 2,
@@ -198,4 +200,50 @@ it('transport refuses a response for another session or job', async () => {
       f.job.id,
     ),
   ).rejects.toThrow('another request');
+});
+
+it('processing restoration/refresh never advances; explicit recovery is single-shot and stays paused', async () => {
+  vi.useFakeTimers();
+  const f = await setup(true);
+  await f.c.refresh();
+  f.c.visibility(false);
+  f.c.visibility(true);
+  await vi.advanceTimersByTimeAsync(60000);
+  f.c.dispose();
+  const c = f.make();
+  await c.boot();
+  await vi.advanceTimersByTimeAsync(60000);
+  expect(f.api.advance).not.toHaveBeenCalled();
+  expect(f.api.reconcile).not.toHaveBeenCalled();
+  let release!: (j: VtoJob) => void;
+  f.api.reconcile.mockImplementationOnce(
+    () =>
+      new Promise((r) => {
+        release = r;
+      }),
+  );
+  const pending = c.checkExistingResult();
+  await c.checkExistingResult();
+  await vi.advanceTimersByTimeAsync(60000);
+  expect(f.api.reconcile).toHaveBeenCalledTimes(1);
+  expect(f.api.advance).not.toHaveBeenCalled();
+  release(f.job);
+  await pending;
+  expect(c.getSnapshot().notice).toContain('still processing');
+  await vi.advanceTimersByTimeAsync(60000);
+  expect(f.api.advance).not.toHaveBeenCalled();
+  expect(f.api.create).not.toHaveBeenCalled();
+  expect(f.storage.write).not.toHaveBeenCalled();
+});
+it('processing recovery uncertainty performs one GET and never repeats POST or advancement', async () => {
+  vi.useFakeTimers();
+  const f = await setup(true);
+  f.api.reconcile.mockRejectedValue(new ClientError('NETWORK', 'Timeout'));
+  await f.c.checkExistingResult();
+  await vi.advanceTimersByTimeAsync(60000);
+  expect(f.api.reconcile).toHaveBeenCalledTimes(1);
+  expect(f.api.list).toHaveBeenCalledTimes(2);
+  expect(f.c.getSnapshot().job).toEqual(f.job);
+  expect(f.c.getSnapshot().error).toContain('confirmation');
+  expect(f.api.advance).not.toHaveBeenCalled();
 });
