@@ -7,6 +7,7 @@ import {
   createPostgresRepository,
 } from '../apps/api/src/persistence/postgres.js';
 import { taskReconciler } from '../apps/api/src/youcam/reconcile.js';
+import { visualService } from '../apps/api/src/youcam/service.js';
 import { recoveryFixture } from './helpers/recovery.js';
 // Fixed loopback target, separate disposable schema; never load deployment env.
 describe.runIf(process.env.M5_INTEGRATION === '1')('durable same-task recovery', () => {
@@ -17,8 +18,8 @@ describe.runIf(process.env.M5_INTEGRATION === '1')('durable same-task recovery',
   const pool = new Pool({ connectionString, options: `-c search_path=${schema}`, max: 5 });
   const repository = createPostgresRepository(pool);
   const fixtures: Awaited<ReturnType<typeof recoveryFixture>>[] = [];
-  async function fixture() {
-    const f = await recoveryFixture(repository);
+  async function fixture(queuedOnly = false) {
+    const f = await recoveryFixture(repository, queuedOnly);
     fixtures.push(f);
     return f;
   }
@@ -35,6 +36,37 @@ describe.runIf(process.env.M5_INTEGRATION === '1')('durable same-task recovery',
     await pool.end();
     await admin.query(`DROP SCHEMA IF EXISTS ${schema} CASCADE`);
     await admin.end();
+  });
+  it('restores an aged pristine queue on a new connection and serializes its first submission', async () => {
+    const f = await fixture(true);
+    const before = await repository.visual(f.owner, f.id, (s) => s);
+    const secondPool = new Pool({ connectionString, options: `-c search_path=${schema}` });
+    try {
+      const restored = createPostgresRepository(secondPool);
+      const service = visualService(restored, f.objects, f.provider, f.clock);
+      f.start.mockImplementation(async () => {
+        const state = await restored.visual(f.owner, f.id, (s) => s);
+        expect(state.jobs[0]).toMatchObject({
+          lastPollAt: f.clock(),
+          job: { status: 'processing' },
+        });
+        return 'once-after-restart';
+      });
+      await service.read(f.owner, f.id, f.request.requestId);
+      expect(f.start).not.toHaveBeenCalled();
+      await Promise.all([
+        service.advance(f.owner, f.id, f.request.requestId),
+        f.service.advance(f.owner, f.id, f.request.requestId),
+      ]);
+      expect(f.start).toHaveBeenCalledTimes(1);
+      const after = await restored.visual(f.owner, f.id, (s) => s);
+      expect(after.jobs).toHaveLength(1);
+      expect(after.jobs[0]!.job.createdAt).toBe(before.jobs[0]!.job.createdAt);
+      expect(after.jobs[0]!.job.id).toBe(f.request.requestId);
+      expect((await restored.read(f.owner, f.id)).view).toEqual(f.session);
+    } finally {
+      await secondPool.end();
+    }
   });
   it('concurrent callers persist one completion/audit, preserve ledgers, and restore after connection restart', async () => {
     const f = await fixture();

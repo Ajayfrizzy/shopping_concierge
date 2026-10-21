@@ -303,3 +303,27 @@ it('before image preserves Android array-source authentication and rejects anoth
   });
   expect(denied.statusCode).toBe(404);
 });
+
+it.each(['refresh', 'navigation'] as const)(
+  'documents v8 limitation: journal-matched queued job auto-advances after %s',
+  async (trigger) => {
+    const s = await ready();
+    const create = s.api.create;
+    vi.spyOn(s.api, 'create').mockImplementationOnce(async (...args) => {
+      await create(...args);
+      throw new Error('Lost creation acknowledgment');
+    });
+    await s.c.start();
+    expect(s.provider.starts).toBe(0);
+    const requestId = JSON.parse((await s.storage.read())!).requestId;
+    s.c.visibility(false);
+    await s.c.refresh(); // GET loads the queue; no submission while hidden.
+    await tick(6000);
+    expect(s.provider.starts).toBe(0);
+    s.c.visibility(true);
+    if (trigger === 'refresh') await s.c.refresh();
+    await tick(3000);
+    expect(s.c.getSnapshot().job?.id).toBe(requestId);
+    expect(s.provider.starts).toBe(1);
+  },
+);

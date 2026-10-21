@@ -219,12 +219,15 @@ export function visualService(
             );
           return state;
         }
-        if (!record.taskId && now() - record.job.createdAt > 10 * 60_000) {
+        // Age is not evidence of submission. Only the pristine queued state can
+        // claim its first submission; an inconsistent/previously claimed queue
+        // must never be replayed merely because its task acknowledgment is absent.
+        if (record.job.status === 'queued' && (record.taskId || record.lastPollAt !== 0)) {
           failed(
             record.job,
             new VisualError(
               'PROVIDER_TIMEOUT',
-              'Rendering exceeded its time limit. No automatic resubmission was made.',
+              'Submission history is uncertain. No automatic resubmission was made.',
             ),
           );
           return state;
@@ -242,6 +245,9 @@ export function visualService(
       try {
         if (!work.taskId) {
           const stored = await repository.asset(owner, sessionId, work.job.assetId);
+          if (stored.asset.id !== work.job.assetId || stored.asset.sessionId !== sessionId)
+            throw new VisualError('INVALID_IMAGE', 'Stored image belongs to another request.');
+          validateImageType(work.job.category, stored.asset);
           const bytes = await objects.get(stored.key);
           if (
             bytes.length !== stored.asset.byteLength ||
@@ -257,7 +263,7 @@ export function visualService(
               'PRODUCT_ASSET_MISSING',
               'The catalog product is no longer available.',
             );
-          if (!product.vtoEligible)
+          if (!product.vtoEligible || product.category !== work.job.category)
             throw new VisualError(
               'PRODUCT_ASSET_MISSING',
               'Try-on is no longer available for this product.',

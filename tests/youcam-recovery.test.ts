@@ -219,6 +219,7 @@ it('retains a late submission acknowledgment after a concurrent local timeout wi
     r.job.error = null;
     r.taskId = null;
     r.job.createdAt = f.clock();
+    r.lastPollAt = 0;
   });
   f.start.mockImplementationOnce(async () => {
     await f.change((r) => {

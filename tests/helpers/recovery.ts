@@ -18,6 +18,7 @@ export async function recoveryFixture(
       vtoAssetUrl: 'https://assets.test/product',
     })),
   ),
+  queuedOnly = false,
 ) {
   const start = vi.fn(async () => 'original-fixture-task');
   const poll = vi.fn(
@@ -60,22 +61,23 @@ export async function recoveryFixture(
   const service = visualService(repository, objects, provider, () => clock);
   const request = { requestId: randomUUID(), productId: 'E01', assetId: asset.id };
   await service.create(owner, id, request);
-  await service.advance(owner, id, request.requestId);
+  if (!queuedOnly) await service.advance(owner, id, request.requestId);
   const change = async (fn: (r: VisualState['jobs'][number]) => void) =>
     repository.visual(owner, id, (s) => {
       fn(s.jobs[0]!);
       return s;
     });
   clock += 660000;
-  await change((r) => {
-    r.job.status = 'failed';
-    r.job.error = {
-      code: 'PROVIDER_TIMEOUT',
-      message: 'Historical local timeout',
-      recoverable: true,
-    };
-    r.job.updatedAt = clock;
-  });
+  if (!queuedOnly)
+    await change((r) => {
+      r.job.status = 'failed';
+      r.job.error = {
+        code: 'PROVIDER_TIMEOUT',
+        message: 'Historical local timeout',
+        recoverable: true,
+      };
+      r.job.updatedAt = clock;
+    });
   return {
     app,
     repository,
