@@ -350,8 +350,8 @@ def main():
             print('Calibration trace:', output, 'seconds:', result['seconds'])
         return
     package = c.shell('dumpsys', 'package', PACKAGE)
-    if not re.search(r'\bversionCode=6\b', package):
-        raise Stopped('Expected installed code 6; verify certificate/hash separately before recording')
+    if not re.search(r'\bversionCode=11\b', package):
+        raise Stopped('Expected installed code 11; verify certificate/hash separately before recording')
     # Unique path, exact PID, fixed command: never stop other recordings or overwrite a take.
     name = 'concierge-' + uuid.uuid4().hex + '.mp4'
     remote = '/sdcard/Download/' + name
