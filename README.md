@@ -4,9 +4,11 @@ Shopping Concierge helps shoppers choose accessories without losing their prefer
 
 **Supported categories:** earrings, necklaces, rings and watches. The demo uses **72 synthetic catalog records and original bundled illustrations**, not merchant inventory. There is no checkout.
 
+**[Watch the official 150-second demo](https://youtube.com/shorts/8SNE4YJEOBI?feature=share)** · [Devpost submission material](docs/FINAL_DEVPOST_SUBMISSION.md)
+
 ## Download Shopping Concierge for Android
 
-**[Download the Android APK — v0.1.0, version code 6](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v6-arm64-release.apk)** · [GitHub Release and checksum](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android)
+**[Download the Android APK — v0.1.0, version code 11](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v11-arm64-release.apk)** · [GitHub Release and checksum](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android)
 
 Requires an **ARM64 Android phone running Android 7.0 or later** and an internet connection to the live Shopping Concierge backend. This is a standalone app: **no Expo Go or Metro required**. It is a hackathon beta with illustrative products, sample prices and availability, not merchant inventory or checkout. Virtual try-on is available for selected products; backend availability and provider limits apply.
 
@@ -19,14 +21,14 @@ An existing installation signed with the same release key can update in place. I
 Verified SHA-256:
 
 ```text
-ac78021b033966c1a4dbceafded6a25e4806e8775787b64c27e361588db7e3f2
+82f7efad6957d71a3778d127140d23009b6d9081b2675ec9c8ab8d63ec7f9ed0
 ```
 
 [Documentation index](docs/README.md) · [Judge guide](docs/JUDGE_GUIDE.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ## Try the demo
 
-Start with the [judge guide](docs/JUDGE_GUIDE.md) and [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). A signed standalone ARM64 Android release (version code 6) targets the hosted HTTPS API; the verified APK is available from the download section above. The [local Android setup](docs/DEMO_SETUP.md) remains a separate mock-only option using PostgreSQL/S3 and Metro without paid credentials or removal of the normal app's data. The [proposed 150-second final demo](docs/FINAL_DEMO_PLAN.md) has not been recorded.
+Start with the [judge guide](docs/JUDGE_GUIDE.md) and the [published demonstration](https://youtube.com/shorts/8SNE4YJEOBI?feature=share). The signed standalone Android v11 app targets the hosted HTTPS API. The demo shows illustrative catalog products and a genuine previously completed YouCam result, with disclosed cuts and later close-ups from the same session. [Local Android setup](docs/DEMO_SETUP.md) is a separate mock-only developer workflow.
 
 1. Describe a goal, such as “Silver earrings for a wedding under $120”.
 2. Review catalog cards; save, shortlist, select or reject with a structured reason.
@@ -34,7 +36,7 @@ Start with the [judge guide](docs/JUDGE_GUIDE.md) and [final acceptance report](
 4. Use a selected accessory to anchor a coordinated search in another category, then compare actual catalog items against your criteria.
 5. Optionally open **Try on** and supply the required portrait, hand or wrist image. Return to the session summary to review decisions.
 
-M0–M9 and later authorization/VTO hardening are implemented. Final integration-enabled validation (**836 tests passed, zero failed/skipped**) and exact release evidence are in the [final acceptance report](docs/FINAL_PRODUCTION_ACCEPTANCE.md). Historical Samsung tests and a mock rehearsal remain separate from final production acceptance. Final recording is **NO-GO** pending an accessible genuine result and recording-plan review: stored production outputs have expired. No final video or hackathon submission has been published.
+M0–M9 and later authorization/VTO hardening are implemented. [Android v11 acceptance](docs/ANDROID_PRIVATE_IMAGE_RELOAD_V11.md) records 983 integration-enabled tests passed and Samsung viewer acceptance. These are dated checks, not continuous certification. The owner has reviewed and published the final narrated demo; Devpost submission remains an owner action. Signed VTO access expires: the recorded result is genuine, but a fresh installation does not inherit the private demo session or its output.
 
 ## AI and visual evidence
 

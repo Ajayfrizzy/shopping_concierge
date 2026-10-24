@@ -1,5 +1,7 @@
 # Submission notes
 
+**Update — October 24, 2026:** the owner has published the final narrated video, and Android v11 is the current release. Use [FINAL_DEVPOST_SUBMISSION.md](FINAL_DEVPOST_SUBMISSION.md) for copy-ready material and current links. The dated notes below are preserved as history; their recording blockers and code-6 links are superseded.
+
 **Current status — 2026-10-19:** signed standalone Android code 6 and hosted production API exist. Final recording is **NO-GO** pending accessible genuine output and recording-plan review. The [public code-6 APK](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v6-arm64-release.apk) is distributed through [GitHub Releases](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android); final integration acceptance recorded **836 passed tests, zero failed/skipped**. See [current audit](FINAL_PRODUCTION_ACCEPTANCE.md) and [proposed 150-second script](FINAL_DEMO_PLAN.md). Historical milestone statements below do not describe current deployment or budget status.
 
 **Project:** Shopping Concierge — a stateful accessory purchasing-decision agent.

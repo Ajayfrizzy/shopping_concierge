@@ -1,10 +1,16 @@
 # Android standalone release
 
-**Current release:** version 0.1.0 / code 6, source `19526730cbedfacc90fa508a2903ed8682a8f085`. See [final acceptance](FINAL_PRODUCTION_ACCEPTANCE.md) for artifact identity, source-content equivalence, the 836-test acceptance baseline and passed safe native checks. Genuine-result viewing remains blocked by expired outputs. [Download the exact code-6 APK](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v6-arm64-release.apk) from the [public release](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android).
+**Current beta release:** version 0.1.0 / code 11, accepted source `6e88b5318c035572fe39a99f4c148477583ec01c`, already included in main. [Download the verified v11 APK](https://github.com/Ajayfrizzy/shopping_concierge/releases/download/v0.1.0-android/shopping-concierge-0.1.0-v11-arm64-release.apk) from the [existing release](https://github.com/Ajayfrizzy/shopping_concierge/releases/tag/v0.1.0-android). The release tag remains at its historical commit; its attached APK is the separately identified v11 artifact. No tag history is rewritten.
 
-SHA-256: `ac78021b033966c1a4dbceafded6a25e4806e8775787b64c27e361588db7e3f2`. ARM64 / Android 7+; standalone, internet and live backend required. No rebuild is needed for installation.
+SHA-256: `82f7efad6957d71a3778d127140d23009b6d9081b2675ec9c8ab8d63ec7f9ed0`. Package `com.youcam.shoppingconcierge`; ARM64 only; Android 7/API 24+; standalone; internet and live backend required. Certificate SHA-256: `035ace8decc67b7214f6b2b91d0ed0cd525987f48b48d15df64c708e1c54cb34`.
 
-The build instructions remain a contributor reference. Dependency findings and code-3/code-4 acceptance failures below are historical, not the current code-6 installation status.
+The public unauthenticated v11 download returned HTTP 200 and matched the expected SHA-256 on October 24, 2026 (43,964,439 bytes). The superseded v6 release asset was removed; the original tag commit is unchanged.
+
+The accepted artifact was reverified on October 24, 2026 without rebuilding: signature valid, version code 11, production HTTPS URL embedded, 1,299 APK entries scanned against five configured sensitive values with zero matches. See [v11 implementation/native acceptance](ANDROID_PRIVATE_IMAGE_RELOAD_V11.md). The old v6 asset is superseded; dated acceptance reports remain historical evidence.
+
+**[Official demonstration](https://youtube.com/shorts/8SNE4YJEOBI?feature=share)**. The owner reviewed and published the narrated video. Live VTO outputs expire; recorded footage does not promise continued access to the private demo result. Sample products are illustrative, with no merchant inventory or checkout. Try-on previews are a visual aid, not guaranteed physical fit.
+
+The build instructions below are contributor reference; no rebuild is required to install the verified artifact. Earlier build failures and acceptance records below are historical.
 
 The first release targets the private production API at https://shoppingconcierge.rumptycloud.app. Build baseline: e6703cfadf6b21de195536f7fc596b90696ce999. No provider credentials belong in the app.
 
