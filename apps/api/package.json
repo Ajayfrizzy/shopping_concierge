@@ -16,8 +16,8 @@
     "@youcam/catalog": "*",
     "@youcam/shared": "*",
     "@youcam/testing": "*",
-    "fastify": "^5.6.1",
-    "nodemailer": "^10.0.13",
+    "fastify": "^5.12.6",
+    "nodemailer": "^10.1.4",
     "pg": "^8.23.1",
     "sharp": "^0.35.5",
     "zod-to-json-schema": "^3.25.2"

@@ -10,6 +10,6 @@
   "dependencies": {
     "@youcam/shared": "*",
     "@youcam/decision-engine": "*",
-    "zod": "^3.25.76"
+    "zod": "^4.6.6"
   }
 }
