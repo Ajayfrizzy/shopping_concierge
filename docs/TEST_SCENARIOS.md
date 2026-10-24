@@ -1,6 +1,6 @@
 # Regression Scenarios
 
-These must become automated fixtures where practical.
+The scenario catalog below includes original milestone acceptance notes. Historical pending M7/M8/live gates are not current blockers: use [implementation coverage](IMPLEMENTATION_COVERAGE.md) for delivered behavior and dated evidence. This reference is not a new authorization to execute live scenarios.
 
 ## A01 initial constraints
 

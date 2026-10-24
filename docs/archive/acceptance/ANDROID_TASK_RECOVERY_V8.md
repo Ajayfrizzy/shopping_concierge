@@ -1,8 +1,10 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Android v8 — explicit same-task YouCam recovery
 
 Version 0.1.0 / Android code 8 adds **Check existing YouCam result** for the current owned live job when it has failed with `PROVIDER_TIMEOUT`. This closes v7's invocation gap: v7 could display server-recovered results but had no control to initiate the supported authenticated reconciliation operation.
 
-The existing credential provider supplies Authorization directly to the existing visual API client. The action posts `{}` to `/v1/sessions/:id/vto/:jobId/reconcile`, using only the current session/job identifiers. No task ID or output URL is accepted from the caller. The backend retains final task eligibility, ownership, output validation and expiry decisions; see [the backend fix](YOUCAM_TASK_RECOVERY_FIX.md).
+The existing credential provider supplies Authorization directly to the existing visual API client. The action posts `{}` to `/v1/sessions/:id/vto/:jobId/reconcile`, using only the current session/job identifiers. No task ID or output URL is accepted from the caller. The backend retains final task eligibility, ownership, output validation and expiry decisions; see [the backend fix](../recovery/YOUCAM_TASK_RECOVERY_FIX.md).
 
 Duplicate taps are locked. Progress says the existing provider task is being checked. Completion is accepted only for matching job/session/product/asset/category/mode/creation identity. Running or still-timeout responses are not labeled success. Unavailable/expired responses and other failures explicitly state that no additional render started. A network error triggers one authenticated job-list GET, never another reconciliation POST. A failed GET leaves the uncertainty visible. The existing recovery button stays available for eligible failures.
 
@@ -37,4 +39,4 @@ Read-only accounting before installation (21:58 WAT) and after native navigation
 
 **GO for separately authorizing the explicit recovery action on v8**, subject to fresh health/accounting preflight and output availability. This acceptance does not authorize tapping it now or guarantee the old provider output remains accessible. The public release remains unchanged.
 
-[Sanitized native acceptance evidence](evidence/task-recovery-v8/acceptance.json).
+[Sanitized native acceptance evidence](../../evidence/task-recovery-v8/acceptance.json).

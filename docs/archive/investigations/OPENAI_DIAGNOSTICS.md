@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Durable OpenAI diagnostics
 
 Migration `007_openai_diagnostics.sql` adds `openai_provider_diagnostics`. Apply migrations before starting the updated API; PostgreSQL OpenAI accounting now checks diagnostic table access during initialization and readiness. There is no new diagnostic mode or public endpoint. File-backed historical validation is unaffected.

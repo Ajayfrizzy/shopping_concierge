@@ -1,4 +1,4 @@
-> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Original findings are retained; later acceptance does not erase earlier failures.
+> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../acceptance/FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Original findings are retained; later acceptance does not erase earlier failures.
 
 # OpenAI strict function-schema audit — 2026-10-12
 
@@ -10,11 +10,11 @@ The production evidence showed HTTP 400 / `invalid_function_parameters` / `inval
 
 Paths below are relative to `tools[0].parameters` in the frozen pre-fix fixture `fixtures/llm/openai-tools-rejected.json`.
 
-| JSON pointer | Before | After |
-| --- | --- | --- |
+| JSON pointer                                                                  | Before                                                    | After                                                                    |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------ |
 | `/properties/calls/items/anyOf/0/properties/args/properties/productIds/items` | Tuple-style array of two schemas, from `compare_products` | One `{ "type": "string" }` schema; `minItems: 2`, `maxItems: 2` retained |
-| `/properties/calls/items/anyOf/2/properties/args/required` | Missing on empty `get_session_state` args | Explicit `[]` |
-| `/properties/calls/items/anyOf/3/properties/args/required` | Missing on empty `search_products` args | Explicit `[]` |
+| `/properties/calls/items/anyOf/2/properties/args/required`                    | Missing on empty `get_session_state` args                 | Explicit `[]`                                                            |
+| `/properties/calls/items/anyOf/3/properties/args/required`                    | Missing on empty `search_products` args                   | Explicit `[]`                                                            |
 
 All 49 objects already had `additionalProperties: false`. All non-empty objects already required all properties. Optional `question`, rejection `reasonCode` and `reasonText` already traveled as required nullable fields; this remains unchanged. The previous regression test used `required ?? []`, masking the two missing empty arrays, and never rejected tuple-style `items`.
 

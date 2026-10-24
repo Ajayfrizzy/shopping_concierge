@@ -1,4 +1,6 @@
-> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
+> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](../acceptance/FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](../demo/FINAL_DEMO_PLAN.md), still not executed.
 
 # Production readiness investigation — 2026-10-12
 
@@ -12,15 +14,15 @@ Diagnostic initialization reads the table and checks INSERT/UPDATE privileges. L
 
 ## Observations
 
-| Component | Five initial production-credential rounds |
-| --- | --- |
-| Configuration (documented judge profile) | 5/5 pass |
-| PostgreSQL catalog access | 5/5 pass |
-| Migrations 001–007 | 5/5 pass |
-| S3 HeadBucket | 5/5 pass |
-| OpenAI diagnostics and privileges | 5/5 pass |
-| OpenAI judge budget/ledger | 5/5 pass |
-| YouCam judge budget/ledger | 5/5 pass |
+| Component                                | Five initial production-credential rounds |
+| ---------------------------------------- | ----------------------------------------- |
+| Configuration (documented judge profile) | 5/5 pass                                  |
+| PostgreSQL catalog access                | 5/5 pass                                  |
+| Migrations 001–007                       | 5/5 pass                                  |
+| S3 HeadBucket                            | 5/5 pass                                  |
+| OpenAI diagnostics and privileges        | 5/5 pass                                  |
+| OpenAI judge budget/ledger               | 5/5 pass                                  |
+| YouCam judge budget/ledger               | 5/5 pass                                  |
 
 Those checks reused the same pool/client, and before/after ledger snapshots were identical. Subsequent public checks reproduced 503, followed by transport/non-JSON failures, eventually also affecting `/health`. These client-side observations cannot distinguish deployment infrastructure from local network/scheduling problems.
 

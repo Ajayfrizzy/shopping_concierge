@@ -1,5 +1,7 @@
 # Shopping Concierge
 
+For the current source-to-evidence audit, see [implementation coverage](docs/IMPLEMENTATION_COVERAGE.md) and the [complete documentation inventory](docs/DOCUMENTATION_AUDIT.md). Historical reports are indexed separately from current release instructions.
+
 Shopping Concierge helps shoppers choose accessories without losing their preferences between messages. Describe an occasion, budget and style; refine the results, explain rejections, and coordinate a selected item with another category. Explicit decision state keeps those choices consistent across turns and app restarts when durable persistence is enabled.
 
 **Supported categories:** earrings, necklaces, rings and watches. The demo uses **72 synthetic catalog records and original bundled illustrations**, not merchant inventory. There is no checkout.
@@ -36,7 +38,7 @@ Start with the [judge guide](docs/JUDGE_GUIDE.md) and the [published demonstrati
 4. Use a selected accessory to anchor a coordinated search in another category, then compare actual catalog items against your criteria.
 5. Optionally open **Try on** and supply the required portrait, hand or wrist image. Return to the session summary to review decisions.
 
-M0–M9 and later authorization/VTO hardening are implemented. [Android v11 acceptance](docs/ANDROID_PRIVATE_IMAGE_RELOAD_V11.md) records 983 integration-enabled tests passed and Samsung viewer acceptance. These are dated checks, not continuous certification. The owner has reviewed and published the final narrated demo; Devpost submission remains an owner action. Signed VTO access expires: the recorded result is genuine, but a fresh installation does not inherit the private demo session or its output.
+M0–M9 and later authorization/VTO hardening are implemented. [Android v11 acceptance](docs/archive/acceptance/ANDROID_PRIVATE_IMAGE_RELOAD_V11.md) records 983 integration-enabled tests passed and Samsung viewer acceptance on October 21, 2026. These are dated checks, not continuous certification. The owner has reviewed and published the final narrated demo; Devpost submission remains an owner action. Signed VTO access expires: the recorded result is genuine, but a fresh installation does not inherit the private demo session or its output.
 
 ## AI and visual evidence
 

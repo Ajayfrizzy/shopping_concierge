@@ -10,7 +10,7 @@ Product shown -> user says "too flashy" -> reject reason stored -> rerank/search
 
 ## Flow C: VTO
 
-User taps/types try-on -> check required image -> request portrait/hand/wrist only if missing -> create VTO job -> processing UI -> result or honest failure.
+User taps/types try-on -> check required image -> request portrait/hand/wrist only if missing -> create queued VTO job -> explicit paid-submission consent -> processing UI -> result or honest failure.
 
 ## Flow D: cross-product search
 
@@ -19,3 +19,5 @@ User selects product -> asks for related category -> create dependency -> preser
 ## Flow E: no exact match
 
 Catalog returns zero exact hard-constraint matches -> show concise explanation + relaxation options -> user chooses change -> update only chosen constraint -> rerun search.
+
+Android v11 restores queued jobs without first submission. Known live tasks use an explicit **Check existing YouCam result** action; completed viewing never starts a render. See [YouCam lifecycle](YOUCAM.md).

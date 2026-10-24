@@ -1,4 +1,4 @@
-> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+> Current scope — 2026-10-24: Android v11 is public and the final demo is published. Milestone counts, balances and pending gates below describe their original dates. See [implementation coverage](IMPLEMENTATION_COVERAGE.md) for current capabilities and limitations.
 
 # Hackathon deployment infrastructure
 

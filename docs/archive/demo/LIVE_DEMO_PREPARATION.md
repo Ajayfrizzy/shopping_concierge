@@ -1,10 +1,12 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Authorized live preparation — October 20, 2026
 
-**Latest outcome:** [The single authorized E01 render attempt](E01_LIVE_RENDER.md) is now consumed: provider completed, but the app timed out and has no viewable result. YouCam is at 11 committed renders; OpenAI is unchanged. No further render is authorized.
+**Latest outcome:** [The single authorized E01 render attempt](../recovery/E01_LIVE_RENDER.md) is now consumed: provider completed, but the app timed out and has no viewable result. YouCam is at 11 committed renders; OpenAI is unchanged. No further render is authorized.
 
 **NO-GO for final recording: initial search succeeded, but the portrait upload was not acknowledged on the phone. No YouCam render was submitted.** This report supersedes the earlier preparation status while preserving the [native mock calibration](NATIVE_DEMO_CALIBRATION.md) and [final recording plan](FINAL_DEMO_PLAN.md).
 
-Follow-up: [Upload recovery investigation](UPLOAD_RECOVERY.md) confirms a valid stored portrait but no supported no-reupload recovery in code 6; the subsequently authorized [code-7 correction](ANDROID_UPLOAD_RECOVERY_V7.md) passed Samsung recovery and cold-restart acceptance; the existing portrait association is restored without reupload. No render has been initiated.
+Follow-up: [Upload recovery investigation](../recovery/UPLOAD_RECOVERY.md) confirms a valid stored portrait but no supported no-reupload recovery in code 6; the subsequently authorized [code-7 correction](../acceptance/ANDROID_UPLOAD_RECOVERY_V7.md) passed Samsung recovery and cold-restart acceptance; the existing portrait association is restored without reupload. No render has been initiated.
 
 ## Authorization and preflight
 
@@ -30,7 +32,7 @@ Final native inspection shows the shopping screen, E01's enabled Select/Try on c
 
 ## Approved portrait and upload blocker
 
-The approved synthetic side portrait was verified against the [provenance record](evidence/IMAGE_PROVENANCE.md) and [preparation metadata](DEMO_PREPARATION.md#portrait-and-provenance). The 300×375, 279,487-byte metadata-free PNG has SHA-256 `f5cb4fda87fb79fcfda6f4f85739c823207adaf0f90e41af7cbfd08b3743b8d9`. The identical file was transferred to `Pictures/ConciergeDemo/approved-synthetic-portrait.png` and its on-device hash verified.
+The approved synthetic side portrait was verified against the [provenance record](../../evidence/IMAGE_PROVENANCE.md) and [preparation metadata](DEMO_PREPARATION.md#portrait-and-provenance). The 300×375, 279,487-byte metadata-free PNG has SHA-256 `f5cb4fda87fb79fcfda6f4f85739c823207adaf0f90e41af7cbfd08b3743b8d9`. The identical file was transferred to `Pictures/ConciergeDemo/approved-synthetic-portrait.png` and its on-device hash verified.
 
 Through Android's normal picker, Collections → From this device → ConciergeDemo located the dedicated folder. Only its sole verified portrait was selected and confirmed with Done. Personal gallery images were not captured or displayed in evidence.
 
@@ -44,13 +46,13 @@ No upload retry, replacement upload, inner Try on tap, journal patch or job/acco
 
 Snapshots: before **03:52 WAT**, after **04:14 WAT**, October 20, 2026. These are application judge limits, not provider account balances.
 
-| Measure | Before | After | Preparation delta |
-| --- | ---: | ---: | ---: |
-| OpenAI requests | 24 / 200 | 25 / 200 | 1 |
-| OpenAI settled reservations | 21 | 22 | 1 |
-| OpenAI charged-or-held USD | 0.32761480 | 0.33519680 | 0.00758200 |
-| YouCam requests / committed units | 10 / 50 | 10 / 50 | 0 |
-| New E01 visual jobs | 0 | 0 | 0 |
+| Measure                           |     Before |      After | Preparation delta |
+| --------------------------------- | ---------: | ---------: | ----------------: |
+| OpenAI requests                   |   24 / 200 |   25 / 200 |                 1 |
+| OpenAI settled reservations       |         21 |         22 |                 1 |
+| OpenAI charged-or-held USD        | 0.32761480 | 0.33519680 |        0.00758200 |
+| YouCam requests / committed units |    10 / 50 |    10 / 50 |                 0 |
+| New E01 visual jobs               |          0 |          0 |                 0 |
 
 Remaining application allowance: **175 OpenAI requests / USD 2.66480320**, **40 YouCam units**. The owner's narrower envelope remains binding: **zero further preparation planning operations**, **three planning operations reserved for separately authorized filming**, and **one unused preparation render attempt**. No new YouCam reservation exists to reconcile; there is no queued, processing or uncertain paid job from this preparation.
 

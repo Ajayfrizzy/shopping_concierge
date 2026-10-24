@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Single E01 live-render attempt — October 20, 2026
 
 **NO-GO for final recording. The one authorized render attempt is consumed.** YouCam reports that the provider task completed, but the application job is terminal **failed / PROVIDER_TIMEOUT**, with no stored result. The phone lost the submission response; by the time read-only reconciliation confirmed provider completion, the application's ten-minute job deadline had elapsed. The subsequent supported refresh marked the existing job failed instead of fetching its output.
@@ -16,16 +18,16 @@ A freshness guard initially rejected an aged accounting snapshot **before any ta
 
 All times below are **WAT (Africa/Lagos, UTC+1), October 20**.
 
-| Time | Observation |
-| --- | --- |
-| 15:02:20 | Immediate pre-tap ledger/job snapshot: 10 committed renders, no session job |
-| 15:02:21 | Exactly one intentional inner Try on tap |
-| 15:02:32 | Server job creation timestamp |
-| 15:03:51 | Read-only database inspection: one live E01 processing job, matching recovered asset, provider task ID, one matching new committed reservation |
-| 15:03–15:04 | Native UI showed a network error and stale queued state; no repeat Try on tap was made |
-| 15:12:55 | One read-only provider GET confirmed the original task **completed**; this is the observation time, not evidence of when provider rendering actually finished |
-| 15:13:35 | Supported Refresh existing try-on reconciled the same job, but the server marked it **failed / PROVIDER_TIMEOUT** because its ten-minute deadline had elapsed |
-| 15:15:08 | Final read-only reconciliation: one committed new render, no duplicate, preserved shopping state; app returned to shopping |
+| Time        | Observation                                                                                                                                                   |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 15:02:20    | Immediate pre-tap ledger/job snapshot: 10 committed renders, no session job                                                                                   |
+| 15:02:21    | Exactly one intentional inner Try on tap                                                                                                                      |
+| 15:02:32    | Server job creation timestamp                                                                                                                                 |
+| 15:03:51    | Read-only database inspection: one live E01 processing job, matching recovered asset, provider task ID, one matching new committed reservation                |
+| 15:03–15:04 | Native UI showed a network error and stale queued state; no repeat Try on tap was made                                                                        |
+| 15:12:55    | One read-only provider GET confirmed the original task **completed**; this is the observation time, not evidence of when provider rendering actually finished |
+| 15:13:35    | Supported Refresh existing try-on reconciled the same job, but the server marked it **failed / PROVIDER_TIMEOUT** because its ten-minute deadline had elapsed |
+| 15:15:08    | Final read-only reconciliation: one committed new render, no duplicate, preserved shopping state; app returned to shopping                                    |
 
 The provider task and application job have different terminal observations: **provider completed; application failed with no result**. Do not describe this as a successful end-to-end render or as a provider rendering failure. The provider GET happened more than ten minutes after job creation; it did not change the application's persisted status. The service checks its ten-minute cutoff before polling a processing task and returns terminal failed jobs without further advancement. No timestamp, job status or expiry was patched to work around that behavior.
 
@@ -39,12 +41,12 @@ There is **no application result expiration deadline or usable safe recording wi
 
 ## Accounting and preserved filming state
 
-| Judge accounting | Before | After | Delta |
-| --- | ---: | ---: | ---: |
-| OpenAI requests | 25 | 25 | 0 |
-| OpenAI charged-or-held USD | 0.33519680 | 0.33519680 | 0 |
-| YouCam requests / committed renders | 10 | 11 | 1 |
-| Dedicated-session VTO jobs | 0 | 1 failed | 1 |
+| Judge accounting                    |     Before |      After | Delta |
+| ----------------------------------- | ---------: | ---------: | ----: |
+| OpenAI requests                     |         25 |         25 |     0 |
+| OpenAI charged-or-held USD          | 0.33519680 | 0.33519680 |     0 |
+| YouCam requests / committed renders |         10 |         11 |     1 |
+| Dedicated-session VTO jobs          |          0 |   1 failed |     1 |
 
 Private correlation verifies exactly one new reservation whose ID matches the sole new job, the same provider task ID throughout, and the same recovered asset ID. The reservation is committed and is preserved. There is no active or uncertain provider submission requiring replay; the confirmed discrepancy is completed provider work versus failed application state.
 

@@ -1,4 +1,4 @@
-> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+> Current scope — 2026-10-24: Android v11 is public and the final demo is published. Milestone counts, balances and pending gates below describe their original dates. See [implementation coverage](IMPLEMENTATION_COVERAGE.md) for current capabilities and limitations.
 
 # PostgreSQL transient-connectivity hardening — 2026-10-14
 
@@ -10,21 +10,21 @@ The existing judge runtime has TWO pools, not four: catalog/session persistence 
 
 A single shared pool would be unsafe without changing transaction orchestration: shopping requests hold a repository transaction/row lock while the planner performs independent durable accounting. If all shared clients were held by shopping requests waiting for accounting, no accounting operation could acquire a client. Separate reserved accounting capacity also allows diagnostics to survive shopping rollback. Therefore this change retains two bounded pools.
 
-| Setting | Before | Hardened |
-| --- | --- | --- |
-| Repository pool maximum | 8 | 4 |
-| Shared judge accounting pool maximum | 8 | 2 |
-| Combined judge maximum per process | 16 | 6 |
-| Optional historical-validation pool | 8 | 2 (not created in judge scope) |
-| Minimum | pg default 0 | explicit 0 |
-| Connection/acquisition timeout | 5 seconds | 5 seconds |
-| Idle timeout | pg default 10 seconds | explicit 30 seconds |
-| Connection maximum lifetime | unlimited default | 300 seconds |
-| TCP keepalive | implicit/default | enabled, initial delay 10 seconds |
-| Server statement timeout | 10 seconds | 10 seconds |
-| Server lock timeout | unset | 5 seconds |
-| Client query timeout | unset | 12 seconds |
-| Idle-in-transaction timeout | 30 seconds | 30 seconds |
+| Setting                              | Before                | Hardened                          |
+| ------------------------------------ | --------------------- | --------------------------------- |
+| Repository pool maximum              | 8                     | 4                                 |
+| Shared judge accounting pool maximum | 8                     | 2                                 |
+| Combined judge maximum per process   | 16                    | 6                                 |
+| Optional historical-validation pool  | 8                     | 2 (not created in judge scope)    |
+| Minimum                              | pg default 0          | explicit 0                        |
+| Connection/acquisition timeout       | 5 seconds             | 5 seconds                         |
+| Idle timeout                         | pg default 10 seconds | explicit 30 seconds               |
+| Connection maximum lifetime          | unlimited default     | 300 seconds                       |
+| TCP keepalive                        | implicit/default      | enabled, initial delay 10 seconds |
+| Server statement timeout             | 10 seconds            | 10 seconds                        |
+| Server lock timeout                  | unset                 | 5 seconds                         |
+| Client query timeout                 | unset                 | 12 seconds                        |
+| Idle-in-transaction timeout          | 30 seconds            | 30 seconds                        |
 
 `pg` uses `connectionTimeoutMillis` for both connection establishment and waiting for a pool slot; there is no separate acquire-timeout setting here. The server and client deadlines bound different failure paths. A client timeout can leave an ambiguous result; application code never treats it as proof that COMMIT failed. Transaction failures discard the client rather than reusing an uncertain connection. Idle client errors are handled; pg removes broken idle connections. Ordinary checkout paths release clients in finally blocks. No blanket transaction retry or provider retry was added. Limits multiply by deployed replica count; managed database capacity must cover all replicas, deployment overlap and operator connections.
 

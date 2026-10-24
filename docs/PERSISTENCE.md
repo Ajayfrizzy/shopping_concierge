@@ -73,4 +73,4 @@ The override accepts only `true`/`false`, requires `sslmode=require`, and cannot
 
 ## Persistent YouCam usage
 
-Migration 004 adds `youcam_usage_budget` and `youcam_usage_reservations`. Live deployment selects `YOUCAM_LEDGER_MODE=postgres`, reusing the existing PostgreSQL URL/TLS adapter. Startup checks access and persisted ceilings; migrations remain explicit. Five historical renders are imported once. Reserved and acknowledged submissions both count against limits, including unknown outcomes. See [API deployment settings](../apps/api/README.md#live-youcam-on-rumptycloud) for exact environment values and compatibility notes.
+Migration 004 adds `youcam_usage_budget` and `youcam_usage_reservations`. Live deployment selects `YOUCAM_LEDGER_MODE=postgres`, reusing the existing PostgreSQL URL/TLS adapter. Startup checks access and persisted ceilings; migrations remain explicit. Five historical renders are imported once. Reserved and acknowledged submissions both count against limits, including unknown outcomes. See [API deployment settings](../apps/api/README.md#live-operation) for exact environment values and compatibility notes.

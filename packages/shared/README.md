@@ -1,5 +1,7 @@
 # Shared
 
+Current exports also include authentication, visual asset/job/result, comparison and persistence-facing envelopes. They are shared validation contracts, not migrations or direct provider response types. See [current API contracts](../../docs/API_CONTRACTS.md).
+
 `@youcam/shared` exports Zod schemas and inferred TypeScript types. `src/domain.ts` owns categories, products, constraint values/provenance/scope, feedback/reasons, per-category decisions, dependencies, session snapshots, actions, and state-change events. `domain.ts` is a compatibility re-export, not a second set of manually maintained types.
 
 `src/index.ts` also exports M0 health/foundation response contracts. Shared runtime imports use real `.ts` source paths so both Metro and the TypeScript/tsx server toolchain resolve them. Both no-emit TypeScript configurations allow TypeScript import extensions. Do not add a Node-only `.js` re-export for a source file that exists only as `.ts`; the mobile regression test and Android export protect this boundary.

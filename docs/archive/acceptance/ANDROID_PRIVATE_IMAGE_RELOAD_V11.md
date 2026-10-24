@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Android v11 — private image reload
 
 ## Cause and scope

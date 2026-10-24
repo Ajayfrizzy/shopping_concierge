@@ -1,8 +1,10 @@
 # Product Specification
 
+Current implementation: [coverage and limitations](IMPLEMENTATION_COVERAGE.md). Selection does not infer a permanent taste profile. Rejection reasons influence deterministic ranking within the session; VTO is a visual aid, not a fit guarantee. No merchant inventory or checkout is connected.
+
 ## Product definition
 
-A stateful purchasing-decision agent that helps shoppers complete accessory-shopping goals. It learns from every acceptance/rejection, preserves explicit constraints, coordinates related products, and invokes visual try-on when visual evidence can reduce uncertainty.
+A stateful purchasing-decision agent that helps shoppers complete accessory-shopping goals. It records selections and structured rejections, preserves explicit constraints, coordinates related products, and invokes visual try-on when visual evidence can reduce uncertainty.
 
 ## Core job-to-be-done
 
@@ -18,7 +20,7 @@ Online shopping makes discovery easy but decision-making fragmented. Shoppers re
 
 ## Product promise
 
-Tell the concierge what you are shopping for. It finds suitable real catalog items, remembers constraints, learns from feedback, lets you visually verify relevant candidates, and helps narrow the decision conversationally.
+Tell the concierge what you are shopping for. It finds suitable items from the synthetic fixture catalog, remembers constraints, learns from feedback, lets you visually verify relevant candidates, and helps narrow the decision conversationally.
 
 ## Differentiation
 
@@ -44,17 +46,17 @@ Do not position as a generic AI stylist or basic VTO app. The differentiators ar
 1. Conversational shopping intent capture
 2. Structured constraints
 3. Persistent decision state
-4. Real catalog search
+4. Search over validated synthetic catalog records
 5. Explainable recommendations grounded in data
 6. Accept/shortlist/reject/save
 7. Rejection reason learning
 8. Category switching with scoped constraint preservation
 9. Cross-product complement searches
-10. YouCam visual analysis where relevant
+10. Visual-profile schema/cache and mock analysis boundary; live face/color analysis is not supported
 11. YouCam VTO
 12. Product comparison against user criteria
 13. "What changed" state-change UI
-14. Lightweight saved preferences/history
+14. Session-scoped saved items, preferences and decision history; no learned global user profile
 
 ## Explicitly out of hackathon MVP
 

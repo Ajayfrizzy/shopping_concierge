@@ -1,6 +1,6 @@
 # Native demo controller
 
-The [native calibration report](../../docs/NATIVE_DEMO_CALIBRATION.md) records real Samsung mock runs. The [final demo plan](../../docs/FINAL_DEMO_PLAN.md) remains the authoritative future recording story. No final video or live provider operation is performed by calibration.
+The [native calibration report](../../docs/archive/demo/NATIVE_DEMO_CALIBRATION.md) records real Samsung mock runs. The [final demo plan](../../docs/archive/demo/FINAL_DEMO_PLAN.md) preserves the historical recording story; the [published demo](https://youtube.com/shorts/8SNE4YJEOBI?feature=share) is complete. No final video or live provider operation is performed by calibration.
 
 ## Offline tests
 
@@ -60,7 +60,7 @@ Recipes have 1–60 steps with exact `before`/`after` markers, an action (`tap`,
 
 Only the three reviewed messages may be typed, into an empty composer, with the entire draft checked before Send. At most three Send taps occur in a story. Native placeholders are recognized as empty fields; arbitrary existing drafts are preserved. Comparison buttons are reveal-only: the recipe uses one typed comparison, preventing accidental extra planning calls. Wrong foreground, missing/ambiguous controls, expiry/recovery errors, unknown keyboard state and missing postconditions stop execution.
 
-**Inner `Try on`, Resume, Retry, photo upload and Start new controls are forbidden in recipes.** `Try on E01` is exact card navigation, never a generic Try on text match. In later production use, the operator must first verify a completed, owned, unexpired E01 job and no queued/processing/uncertain work; normal lifecycle can otherwise resume a pending job. UI labels alone do not attest real-provider identity or successful image loading.
+**Inner `Try on`, Resume, Retry, photo upload and Start new controls are forbidden in recipes.** `Try on E01` is exact card navigation, never a generic Try on text match. In later production use, the operator must first verify a completed, owned, unexpired E01 job and no queued/processing/uncertain work; Android v11 requires explicit consent for queued submission and explicit recovery for live processing. UI labels alone do not attest real-provider identity or successful image loading.
 
 ## Later recording — requires separate authorization
 

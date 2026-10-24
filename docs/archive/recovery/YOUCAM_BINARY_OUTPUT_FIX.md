@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # YouCam generic binary output validation
 
 October 21, 2026. The completed existing E01 provider task returned HTTP 200 with `binary/octet-stream` and a fully decodable 300×375 PNG (188,817 bytes). Host and signed expiry passed; the declared MIME gate rejected the output. An isolated replay changing only the MIME header passed the old validator.

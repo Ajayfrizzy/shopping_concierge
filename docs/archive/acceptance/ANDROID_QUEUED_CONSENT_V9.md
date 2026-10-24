@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Android v9 — explicit consent for queued try-on
 
 October 21, 2026. Builds on backend correction `756bd98991cad809db92085b9b9fea9f282eb466` on `fix/never-submitted-queued-jobs`. No backend deployment or paid production operation is included.

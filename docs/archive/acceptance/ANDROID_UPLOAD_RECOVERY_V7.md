@@ -1,8 +1,10 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Android upload recovery — code 7 acceptance
 
-**Subsequent render outcome:** [The single E01 attempt](E01_LIVE_RENDER.md) was used after this recovery acceptance. Provider completion did not become a viewable app result; final recording is NO-GO and no further render is authorized. The unused-attempt references below describe the earlier acceptance snapshot.
+**Subsequent render outcome:** [The single E01 attempt](../recovery/E01_LIVE_RENDER.md) was used after this recovery acceptance. Provider completion did not become a viewable app result; final recording is NO-GO and no further render is authorized. The unused-attempt references below describe the earlier acceptance snapshot.
 
-The code-6 [upload recovery investigation](UPLOAD_RECOVERY.md) identified a persisted portrait whose acknowledgment never reached the phone. Code 7 adds owner-authenticated, explicit recovery without uploading image bytes again or starting a render. The existing public GitHub Release remains code 6; code 7 is a review artifact, not published.
+The code-6 [upload recovery investigation](../recovery/UPLOAD_RECOVERY.md) identified a persisted portrait whose acknowledgment never reached the phone. Code 7 adds owner-authenticated, explicit recovery without uploading image bytes again or starting a render. The existing public GitHub Release remains code 6; code 7 is a review artifact, not published.
 
 ## Implemented behavior
 
@@ -41,17 +43,17 @@ The signed ARM64 APK is at ignored local path `artifacts/android/shopping-concie
 
 The preserved session opened normally. On E01, **Recover existing upload → Check existing upload** used the privately recorded existing asset ID. The authenticated metadata/content checks passed; the preview visibly matched the approved synthetic side portrait. **Use recovered photo** reported: “Existing photo recovered. No photo was uploaded and no try-on was started.” The photo association and explicit, untapped Try on control survived both returning to shopping/reopening E01 and a controlled process stop/cold launch. The app was left on shopping, displaying E01 with an empty composer.
 
-No image was uploaded, no provider operation was submitted, and no backend deployment was needed. The original and sole stored JPEG remains byte-identical with its existing asset identity. A preview-only crop remains in ignored local artifacts; no private identifier, credential, original URL or full device screenshot was published. [Sanitized acceptance measurements](evidence/upload-recovery-v7/acceptance.json).
+No image was uploaded, no provider operation was submitted, and no backend deployment was needed. The original and sole stored JPEG remains byte-identical with its existing asset identity. A preview-only crop remains in ignored local artifacts; no private identifier, credential, original URL or full device screenshot was published. [Sanitized acceptance measurements](../../evidence/upload-recovery-v7/acceptance.json).
 
-| Observation | Before native recovery (14:16 WAT) | After cold restart (14:22 WAT) |
-| --- | ---: | ---: |
-| OpenAI judge requests | 25 | 25 |
-| OpenAI charged-or-held USD | 0.33519680 | 0.33519680 |
-| YouCam judge committed renders | 10 | 10 |
-| Portrait assets in dedicated session | 1 | 1 |
-| Visual jobs in dedicated session | 0 | 0 |
-| Shopping-state revision | 2 | 2 |
-| Session persistence version | 4 | 6 |
+| Observation                          | Before native recovery (14:16 WAT) | After cold restart (14:22 WAT) |
+| ------------------------------------ | ---------------------------------: | -----------------------------: |
+| OpenAI judge requests                |                                 25 |                             25 |
+| OpenAI charged-or-held USD           |                         0.33519680 |                     0.33519680 |
+| YouCam judge committed renders       |                                 10 |                             10 |
+| Portrait assets in dedicated session |                                  1 |                              1 |
+| Visual jobs in dedicated session     |                                  0 |                              0 |
+| Shopping-state revision              |                                  2 |                              2 |
+| Session persistence version          |                                  4 |                              6 |
 
 The same dedicated session, category, silver/USD120 constraints, goal, decisions, feedback and dependencies were verified unchanged. E01 remains unselected and E05 unrejected. The persistence version increased through the app's existing deterministic category/result refresh on launch; history/reply metadata therefore is not byte-identical. This is not a new search, changed shopping decision or planner call. Initial preparation had persistence version 1; the owner's intervening app launches had already brought it to 4 before native acceptance. No direct database or journal patch occurred. All ten historical jobs remain completed and there are no pending OpenAI diagnostics.
 
@@ -59,4 +61,4 @@ The same dedicated session, category, silver/USD120 constraints, goal, decisions
 
 ## Recording implications
 
-The 150-second story remains governed by [FINAL_DEMO_PLAN.md](FINAL_DEMO_PLAN.md). The existing recording controller still pins code 6; it must be reviewed for the accepted installed version before future recording. Recovery acceptance does not authorize filming or imply a genuine E01 result already exists. The one prior E01 render attempt remains unused until explicitly initiated in a separate task.
+The 150-second story remains governed by [FINAL_DEMO_PLAN.md](../demo/FINAL_DEMO_PLAN.md). The existing recording controller still pins code 6; it must be reviewed for the accepted installed version before future recording. Recovery acceptance does not authorize filming or imply a genuine E01 result already exists. The one prior E01 render attempt remains unused until explicitly initiated in a separate task.

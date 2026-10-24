@@ -1,6 +1,6 @@
 # Local mock Android setup
 
-For judges, use the [published standalone APK](ANDROID_RELEASE.md). This page retains the local mock development workflow and historical M9 rehearsal only. [FINAL_DEMO_PLAN.md](FINAL_DEMO_PLAN.md) is authoritative for future final recording; these mock instructions do not establish live VTO quality.
+For judges, use the [published standalone APK](ANDROID_RELEASE.md). This page retains the local mock development workflow and historical M9 rehearsal only. [FINAL_DEMO_PLAN.md](archive/demo/FINAL_DEMO_PLAN.md) is authoritative for future final recording; these mock instructions do not establish live VTO quality.
 
 The demo uses 72 synthetic accessory records, local PostgreSQL/S3, and mock planning/try-on. It needs no paid API credentials or shared account. A fresh installation creates a private guest credential automatically. Existing live evidence is reviewed separately; these commands never activate paid providers.
 

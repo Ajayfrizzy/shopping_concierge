@@ -1,6 +1,6 @@
-# Mock shopping agent (M3)
+# Shopping agent
 
-`createAgentService(catalog, planner)` orchestrates backend-owned sessions, validated tool plans, M1 transitions and unchanged M2 catalog search. `MockAgentPlanner` and `runAgentScenario` live in `@youcam/testing`. All supported journeys use synthetic catalog fixtures and zero live LLM/YouCam calls.
+`createAgentService(catalog, planner)` orchestrates backend-owned sessions, validated tool plans, M1 transitions and unchanged M2 catalog search. `MockAgentPlanner` and `runAgentScenario` live in `@youcam/testing`. Package tests use synthetic catalog fixtures and mocked providers. Runtime composition also supports the live OpenAI planner; validated plans remain subject to deterministic authorization and transitions.
 
 ## Boundary and tools
 

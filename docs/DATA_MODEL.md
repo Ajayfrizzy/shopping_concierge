@@ -1,8 +1,10 @@
 # Data Model
 
-The planned persistence target is RumptyCloud Managed PostgreSQL for the hackathon, with standard PostgreSQL-compatible schemas/migrations and repository adapters. Object bytes belong in S3-compatible storage; relational records retain object identifiers/metadata rather than requiring provider-specific hostnames. This deployment choice does not change the domain contracts below. See [INFRASTRUCTURE.md](INFRASTRUCTURE.md).
+The early conceptual fields below are not migration instructions. The authoritative SQL is [migrations](../apps/api/migrations/): 001 persists `principals`, products, session snapshots, feedback, saved products, events, visual assets and email challenges; 002 adds `visual_sessions`; 003 catalog image changes; 004 validation YouCam accounting; 005 judge runtime budgets/usage; 006 product VTO registrations; 007 OpenAI diagnostics. There are no standalone `users`, `chat_messages` or `user_preferences` tables matching the conceptual sketch. Session JSONB owns structured state; [persistence](PERSISTENCE.md) describes actual transactions and ownership. Provider recovery metadata is parsed by `apps/api/src/youcam/state.ts`; incompatible strict-parser rollback is unsafe.
 
-## Tables
+The implemented hackathon persistence target is RumptyCloud Managed PostgreSQL for the hackathon, with standard PostgreSQL-compatible schemas/migrations and repository adapters. Object bytes belong in S3-compatible storage; relational records retain object identifiers/metadata rather than requiring provider-specific hostnames. This deployment choice does not change the domain contracts below. See [INFRASTRUCTURE.md](INFRASTRUCTURE.md).
+
+## Conceptual domain sketch (not the deployed SQL schema)
 
 ### users
 

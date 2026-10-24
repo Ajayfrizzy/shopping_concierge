@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Native demo calibration — October 19, 2026
 
 **Conditional GO for separately authorized controlled live preparation. NO-GO for final recording today.** The complete isolated mock journey passed twice on Samsung SM-S908N: **163.617 seconds** and **163.738 seconds**. This verifies controller navigation and state continuity, not live provider latency or image quality. No video was recorded, no personal photo uploaded and no production session or shopping decision changed.
@@ -12,33 +14,33 @@ A separate preparation recipe established the search and one completed owned E01
 
 ## Complete story and measurements
 
-The [34-step recipe](../scripts/recording/full-story.recipe.json) repeats the initial search, displays preserved preferences, rejects E05 as too flashy, selects E01, filters for VTO, opens the prepared viewer, switches original/result, zooms to 150% and 200%, fits to 100%, uses Android Back, finds complementary necklaces, compares N01/N02 and displays the session summary. Both runs completed continuously with 23 swipes. The [sanitized native evidence](evidence/demo-calibration/native-run.json) includes all step timings and selector bounds.
+The [34-step recipe](../../../scripts/recording/full-story.recipe.json) repeats the initial search, displays preserved preferences, rejects E05 as too flashy, selects E01, filters for VTO, opens the prepared viewer, switches original/result, zooms to 150% and 200%, fits to 100%, uses Android Back, finds complementary necklaces, compares N01/N02 and displays the session summary. Both runs completed continuously with 23 swipes. The [sanitized native evidence](../../evidence/demo-calibration/native-run.json) includes all step timings and selector bounds.
 
 Samsung portrait display: **1080×2316**. Measured full viewport: `(0,80,1080,2181)`; card viewport: `(0,357,1080,1784)`. Bounds are observations, not reusable absolute tap coordinates.
 
-| Selector | Observed bounds (left, top, right, bottom) |
-| --- | --- |
-| Shopping message, keyboard closed | 33,1820,1047,2000 |
-| Send to concierge, keyboard open | 34,1075,1046,1198 |
-| Reject E05 after scrolling | 745,1558,937,1682 |
-| Select E01 before selection | 537,916,722,1040 |
-| Try on E01 card navigation | 783,1390,975,1514 |
-| Expand and compare photos | 96,1897,984,2021 |
-| Zoom in | 427,330,641,453 |
+| Selector                          | Observed bounds (left, top, right, bottom) |
+| --------------------------------- | ------------------------------------------ |
+| Shopping message, keyboard closed | 33,1820,1047,2000                          |
+| Send to concierge, keyboard open  | 34,1075,1046,1198                          |
+| Reject E05 after scrolling        | 745,1558,937,1682                          |
+| Select E01 before selection       | 537,916,722,1040                           |
+| Try on E01 card navigation        | 783,1390,975,1514                          |
+| Expand and compare photos         | 96,1897,984,2021                           |
+| Zoom in                           | 427,330,641,453                            |
 
 The initial Compare N01 reveal found a clipped 18px-high native node; it was **never tapped**. The later N01/N02 comparison headings were revealed independently. Presence checks do not certify that an entire product card fits on screen.
 
-| Repeat-run milestone | Elapsed seconds |
-| --- | ---: |
-| Preserved preferences and return | 14.83 |
-| E05 rejection complete | 39.63 |
-| E01 selected | 50.99 |
-| Prepared VTO page | 65.03 |
-| Viewer complete and Android Back | 83.36 |
-| Necklace request complete | 98.41 |
-| Comparison submitted | 121.67 |
-| N02 comparison heading | 149.14 |
-| Summary including selected/rejected/anchor | 163.738 |
+| Repeat-run milestone                       | Elapsed seconds |
+| ------------------------------------------ | --------------: |
+| Preserved preferences and return           |           14.83 |
+| E05 rejection complete                     |           39.63 |
+| E01 selected                               |           50.99 |
+| Prepared VTO page                          |           65.03 |
+| Viewer complete and Android Back           |           83.36 |
+| Necklace request complete                  |           98.41 |
+| Comparison submitted                       |          121.67 |
+| N02 comparison heading                     |          149.14 |
+| Summary including selected/rejected/anchor |         163.738 |
 
 ## Findings and safeguards
 
@@ -63,7 +65,7 @@ The [final demo plan](FINAL_DEMO_PLAN.md) remains authoritative. Before controll
 - Targeted ESLint and TypeScript `--noEmit` passed; no application code was changed or APK rebuilt.
 - Fixture tests cover ownership, one completed image, repeated-list reuse, foreign-owner denial and no outbound fetch. Controller tests cover recipe restrictions, foreground isolation, keyboard/bounds behavior and locking.
 
-Reproduction commands, cleanup and future recording safeguards are in the [controller README](../scripts/recording/README.md). Raw local traces and pulled APK remain ignored; public evidence contains only reviewed labels, bounds, timings and aggregate counters.
+Reproduction commands, cleanup and future recording safeguards are in the [controller README](../../../scripts/recording/README.md). Raw local traces and pulled APK remain ignored; public evidence contains only reviewed labels, bounds, timings and aggregate counters.
 
 Documentation validation checked **83 Markdown files and 583 local links with zero errors**. Changed-content privacy/credential review found no real credentials, personal photographs or private session identifiers.
 

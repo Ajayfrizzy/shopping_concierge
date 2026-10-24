@@ -1,25 +1,52 @@
 # Historical documentation archive
 
-These reports preserve engineering history, including failures and superseded counts. Use the [documentation index](../README.md) for current guidance and the [final demo plan](../FINAL_DEMO_PLAN.md) for any future recording. No archived instruction authorizes deployments, paid calls or recording. Evidence stays at its original paths.
+Dated milestone results, superseded release instructions and investigations are preserved here. Use [current documentation](../README.md), [Android v11](../ANDROID_RELEASE.md) and the [published demo](https://youtube.com/shorts/8SNE4YJEOBI?feature=share) first. No archive instruction authorizes operations. Evidence media/JSON stays at its original paths.
 
 ## Acceptance
 
-- [ANDROID_ACCEPTANCE_FIXES](acceptance/ANDROID_ACCEPTANCE_FIXES.md) — previously `docs/ANDROID_ACCEPTANCE_FIXES.md`.
-- [NLU_HARDENING](acceptance/NLU_HARDENING.md) — previously `docs/NLU_HARDENING.md`.
-- [VTO_UX_READINESS](acceptance/VTO_UX_READINESS.md) — previously `docs/VTO_UX_READINESS.md`.
+- [ANDROID_ACCEPTANCE_FIXES](acceptance/ANDROID_ACCEPTANCE_FIXES.md)
+- [ANDROID_PRIVATE_IMAGE_RELOAD_V11](acceptance/ANDROID_PRIVATE_IMAGE_RELOAD_V11.md)
+- [ANDROID_PROCESSING_RECOVERY_V10](acceptance/ANDROID_PROCESSING_RECOVERY_V10.md)
+- [ANDROID_QUEUED_CONSENT_V9](acceptance/ANDROID_QUEUED_CONSENT_V9.md)
+- [ANDROID_TASK_RECOVERY_V8](acceptance/ANDROID_TASK_RECOVERY_V8.md)
+- [ANDROID_UPLOAD_RECOVERY_V7](acceptance/ANDROID_UPLOAD_RECOVERY_V7.md)
+- [FINAL_PRODUCTION_ACCEPTANCE](acceptance/FINAL_PRODUCTION_ACCEPTANCE.md)
+- [NLU_HARDENING](acceptance/NLU_HARDENING.md)
+- [PRODUCTION_READINESS_HISTORY](acceptance/PRODUCTION_READINESS_HISTORY.md)
+- [VTO_UX_READINESS](acceptance/VTO_UX_READINESS.md)
+
+## Recovery
+
+- [E01_LIVE_RENDER](recovery/E01_LIVE_RENDER.md)
+- [E01_TASK_RECOVERY_INVESTIGATION](recovery/E01_TASK_RECOVERY_INVESTIGATION.md)
+- [NEVER_SUBMITTED_QUEUED_JOBS](recovery/NEVER_SUBMITTED_QUEUED_JOBS.md)
+- [UPLOAD_RECOVERY](recovery/UPLOAD_RECOVERY.md)
+- [YOUCAM_BINARY_OUTPUT_FIX](recovery/YOUCAM_BINARY_OUTPUT_FIX.md)
+- [YOUCAM_TASK_RECOVERY_FIX](recovery/YOUCAM_TASK_RECOVERY_FIX.md)
 
 ## Investigations
 
-- [OPENAI_TOOL_SCHEMA_AUDIT](investigations/OPENAI_TOOL_SCHEMA_AUDIT.md) — previously `docs/OPENAI_TOOL_SCHEMA_AUDIT.md`.
-- [S3_READINESS_INVESTIGATION](investigations/S3_READINESS_INVESTIGATION.md) — previously `docs/S3_READINESS_INVESTIGATION.md`.
-- [REPOSITORY_AUDIT](investigations/REPOSITORY_AUDIT.md) — previously `docs/REPOSITORY_AUDIT.md`.
-- [VTO_UPLOAD_REVIEW](investigations/VTO_UPLOAD_REVIEW.md) — previously `docs/VTO_UPLOAD_REVIEW.md`.
+- [DOCUMENTATION_AUDIT_2026-10-19](investigations/DOCUMENTATION_AUDIT_2026-10-19.md)
+- [FLOW_A_AUTHORIZATION](investigations/FLOW_A_AUTHORIZATION.md)
+- [FLOW_BC_CONTEXT](investigations/FLOW_BC_CONTEXT.md)
+- [OPENAI_DIAGNOSTICS](investigations/OPENAI_DIAGNOSTICS.md)
+- [OPENAI_TOOL_SCHEMA_AUDIT](investigations/OPENAI_TOOL_SCHEMA_AUDIT.md)
+- [READINESS_DIAGNOSTICS](investigations/READINESS_DIAGNOSTICS.md)
+- [REPOSITORY_AUDIT](investigations/REPOSITORY_AUDIT.md)
+- [S3_READINESS_INVESTIGATION](investigations/S3_READINESS_INVESTIGATION.md)
+- [VTO_UPLOAD_REVIEW](investigations/VTO_UPLOAD_REVIEW.md)
 
 ## Milestones
 
-- [IMPLEMENTATION_CHECKLIST](milestones/IMPLEMENTATION_CHECKLIST.md) — previously `docs/IMPLEMENTATION_CHECKLIST.md`.
-- [VALIDATION](milestones/VALIDATION.md) — previously `docs/VALIDATION.md`.
+- [IMPLEMENTATION_CHECKLIST](milestones/IMPLEMENTATION_CHECKLIST.md)
+- [VALIDATION](milestones/VALIDATION.md)
+- [YOUCAM_IMPLEMENTATION_HISTORY](milestones/YOUCAM_IMPLEMENTATION_HISTORY.md)
 
 ## Demo
 
-- [DEMO_SCRIPT](demo/DEMO_SCRIPT.md) — previously `docs/DEMO_SCRIPT.md`.
+- [DEMO_PREPARATION](demo/DEMO_PREPARATION.md)
+- [DEMO_SCRIPT](demo/DEMO_SCRIPT.md)
+- [FINAL_DEMO_PLAN](demo/FINAL_DEMO_PLAN.md)
+- [LIVE_DEMO_PREPARATION](demo/LIVE_DEMO_PREPARATION.md)
+- [NATIVE_DEMO_CALIBRATION](demo/NATIVE_DEMO_CALIBRATION.md)
+- [SUBMISSION_NOTES](demo/SUBMISSION_NOTES.md)

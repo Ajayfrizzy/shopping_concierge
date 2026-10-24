@@ -1,6 +1,6 @@
 # API
 
-**Same-task recovery:** See [the backend recovery fix](../../docs/YOUCAM_TASK_RECOVERY_FIX.md) for the owner-authenticated reconcile endpoint, output validation, no-migration deployment and rollback compatibility requirements. Deployment and production recovery require separate authorization.
+**Same-task recovery:** See [the backend recovery fix](../../docs/archive/recovery/YOUCAM_TASK_RECOVERY_FIX.md) for the owner-authenticated reconcile endpoint, output validation, no-migration deployment and rollback compatibility requirements. Deployment and production recovery require separate authorization.
 
 Fastify entry points: `src/app.ts` (injectable app factory) and `src/server.ts` (listener). Run `npm run dev:api` from the root. The development and `db:migrate` commands optionally load `apps/api/.env`, then the root `.env`. Root-file values override API-file values; existing shell variables take precedence over both. Providers default to mocks; live modes require explicit validated server-side configuration.
 
@@ -41,42 +41,8 @@ No deployment credentials are needed for this default memory/mock run. Inject du
 
 For a non-Docker builder, root `npm run build` now aliases `npm run build:api`; the previous explicit Build/Start Commands still apply, provided the builder retains `apps/api/dist/` in the runtime image.
 
-## Live YouCam on RumptyCloud
+## Live operation
 
-Set these exact non-secret values in the hosting environment:
+Use [current production safeguards](../../docs/PRODUCTION_READINESS.md), [API contracts](../../docs/API_CONTRACTS.md) and [YouCam lifecycle](../../docs/YOUCAM.md). Production live OpenAI requires PostgreSQL accounting and persisted approval; production live YouCam requires PostgreSQL judge scope. Historical eight-render validation limits are not a deployment recipe or a current balance. Preserve all reservations and unknown outcomes.
 
-```dotenv
-NODE_ENV=production
-API_HOST=0.0.0.0
-PERSISTENCE_MODE=postgres
-OBJECT_STORAGE_MODE=s3
-USE_MOCK_YOUCAM=false
-YOUCAM_LEDGER_MODE=postgres
-YOUCAM_MAX_REQUESTS=8
-YOUCAM_MAX_UNITS=8
-USE_MOCK_LLM=true
-```
-
-Keep your existing private `DATABASE_URL`, database TLS settings, S3 configuration, `YOUCAM_API_KEY`, `YOUCAM_UPLOAD_HOSTS` and `YOUCAM_ASSET_HOSTS`. Their account-specific values cannot be replaced with generic examples. Let RumptyCloud inject `PORT`. `YOUCAM_USAGE_LEDGER` is unnecessary in postgres mode; no container-local ledger path is used. For the previously configured database-only self-signed TLS exception, retain `DATABASE_SSL_REJECT_UNAUTHORIZED=false` with `sslmode=require`; trusted certificates should use verification as documented in PERSISTENCE.md.
-
-Before restarting the live API, explicitly apply migrations from a checkout with dependencies and the target database environment injected:
-
-```sh
-npm run db:migrate
-```
-
-This command uses the existing migration runner and does not render, provision resources or deploy. For a new database, the existing explicit `--seed-fixtures` option seeds the synthetic catalog; approved VTO product image configuration remains a separate prerequisite. The production image contains SQL migrations but no TypeScript migration runner; run this command from the checkout/build environment, not the final image.
-
-Migration `004_youcam_usage.sql` creates the account-wide budget and reservation tables and imports the five recorded validation renders exactly once via checksum-tracked migrations. Default ceilings remain eight requests/eight units, leaving three attempts. This change does not authorize additional credits. If file validation has continued beyond the five checked-in records, reconcile/import those additional reservations before enabling this deployment. Never erase records or initialize a second database to bypass the cap.
-
-Every attempted paid task reserves one request and one unit atomically before POST. Reservations remain charged after failure, timeout or uncertain commit. An acknowledged task marks the reservation committed; this is submission acknowledgement, not proof of successful rendering. Historical five renders were observed consumed. No dollar price is invented: the existing YouCam ledger enforced render counts, and this implementation uses request/unit ceilings. LLM accounting is separate.
-
-Duplicate job IDs do not re-submit a paid task; conflicting categories fail closed. PostgreSQL serializes reservations across instances, and restart/redeployment retains committed and uncertain usage. An uncertain provider response is never automatically retried or refunded. The ledger stores only IDs, category, timestamps, units and historical provenance, with no secrets or provider response bodies.
-
-Startup validates schema/access and matching persisted ceilings before listening. Missing migration, unavailable database or mismatched limits produces a clear ledger initialization error. Runtime database failures block new task submissions. To change a reviewed operating ceiling, explicitly update both `youcam_usage_budget` columns in a database transaction and the matching environment values, preserving all reservations; coordinate workers during this change. Environment changes alone cannot silently raise a persisted limit.
-
-Local validation may retain `YOUCAM_LEDGER_MODE=file` with an existing `YOUCAM_USAGE_LEDGER` and fixed eight-render cap. Never use file mode for the judge deployment. No automatic deployment is performed by these changes.
-
-## Judge hardening (supersedes live settings above)
-
-See [production readiness](../../docs/PRODUCTION_READINESS.md) for migration 005/006, separate judge accounting, exact mock-preserving runtime settings, the reviewed asset inventory and deployment order. Production live OpenAI now requires PostgreSQL accounting and persisted budget approval; production live YouCam requires PostgreSQL judge scope. `/health` reports liveness only; `/ready` reports actual configured modes and dependency readiness without secrets. Do not set the hosting probe to `/ready` until this backend version is deployed.
+Migration execution, provider activation, budget changes and live validation require their own authorization. Startup does not perform these actions. Never seed/reset an existing production database to repair a budget or deployment error. The [historical readiness record](../../docs/archive/acceptance/PRODUCTION_READINESS_HISTORY.md) retains earlier migration and validation observations.

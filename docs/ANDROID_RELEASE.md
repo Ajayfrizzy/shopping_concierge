@@ -6,7 +6,7 @@ SHA-256: `82f7efad6957d71a3778d127140d23009b6d9081b2675ec9c8ab8d63ec7f9ed0`. Pac
 
 The public unauthenticated v11 download returned HTTP 200 and matched the expected SHA-256 on October 24, 2026 (43,964,439 bytes). The superseded v6 release asset was removed; the original tag commit is unchanged.
 
-The accepted artifact was reverified on October 24, 2026 without rebuilding: signature valid, version code 11, production HTTPS URL embedded, 1,299 APK entries scanned against five configured sensitive values with zero matches. See [v11 implementation/native acceptance](ANDROID_PRIVATE_IMAGE_RELOAD_V11.md). The old v6 asset is superseded; dated acceptance reports remain historical evidence.
+The accepted artifact was reverified on October 24, 2026 without rebuilding: signature valid, version code 11, production HTTPS URL embedded, 1,299 APK entries scanned against five configured sensitive values with zero matches. See [v11 implementation/native acceptance](archive/acceptance/ANDROID_PRIVATE_IMAGE_RELOAD_V11.md). The old v6 asset is superseded; dated acceptance reports remain historical evidence.
 
 **[Official demonstration](https://youtube.com/shorts/8SNE4YJEOBI?feature=share)**. The owner reviewed and published the narrated video. Live VTO outputs expire; recorded footage does not promise continued access to the private demo result. Sample products are illustrative, with no merchant inventory or checkout. Try-on previews are a visual aid, not guaranteed physical fit.
 
@@ -28,7 +28,7 @@ The release-only Expo plugin disables cleartext traffic and Android backup and r
 
 ## Paid-operation safety
 
-Result refresh/boot previously sent a natural-language `search` through the live planner. It now uses the existing deterministic category action, preserving constraints and ranking without a new OpenAI call. Pending explicit shopper requests still replay their original durable IDs. SecureStore holds the guest credential; a durable private journal holds pending request/context and session references. Provider accounting and VTO idempotency remain server-owned. No paid request is necessary to launch or inspect navigation.
+Result refresh/boot previously sent a natural-language `search` through the live planner. It now uses the existing deterministic category action, preserving constraints and ranking without a new OpenAI call. Explicit pending-request retries reuse their original durable IDs; startup does not automatically resend them. SecureStore holds the guest credential; a durable private journal holds pending request/context and session references. Provider accounting and VTO idempotency remain server-owned. No paid request is necessary to launch or inspect navigation.
 
 ## Journey coverage
 

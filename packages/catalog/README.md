@@ -1,6 +1,6 @@
 # Catalog
 
-M2 provides a validated, deterministic catalog snapshot, hard filtering, weighted soft ranking, and explicit no-match proposals. No provider calls, model interpretation, database writes, or mobile/API orchestration occur here. Dependency-aware complement scoring remains M8.
+M2 provides a validated, deterministic catalog snapshot, hard filtering, weighted soft ranking, and explicit no-match proposals. No provider calls, model interpretation, database writes, or mobile/API orchestration occur here. Dependency-aware complement scoring is implemented; see the M8 section below.
 
 ```ts
 import { createFixtureCatalog } from '@youcam/catalog/fixtures';

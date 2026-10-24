@@ -1,4 +1,4 @@
-> Scope note — 2026-10-19: retain this reference for its technical decisions and dated implementation history. Earlier pending gates, deployment failures, test counts and budget figures are historical observations, not live status or balances. Current release/acceptance: [code 6, 836 tests](FINAL_PRODUCTION_ACCEPTANCE.md). Future recording: [final demo plan](FINAL_DEMO_PLAN.md), still not executed.
+> Current scope — 2026-10-24: Android v11 is public and the final demo is published. Milestone counts, balances and pending gates below describe their original dates. See [implementation coverage](IMPLEMENTATION_COVERAGE.md) for current capabilities and limitations.
 
 # Product/Architecture Decisions
 
@@ -32,7 +32,7 @@
 - Explicitly use SDK 54's New Architecture/Hermes combination. Native config or dependency changes require a prebuild and reinstall; Metro cache clearing alone cannot repair native incompatibility.
 - npm workspace peers selected root React 19.3.0 even though mobile declared 19.1.0. Anchor React/React DOM at the root and enforce singleton overrides, with lockfile and module-resolution regressions. React Native remains SDK-compatible 0.81.5; no internals are patched.
 - Metro uses port 8082 to avoid another project's server on 8081. Physical-device API access uses USB reverse with localhost or a configured LAN address; the emulator-only 10.0.2.2 default is not suitable for a phone.
-- Generated Android/iOS projects are ignored. The Android build command always runs prebuild to synchronize app configuration. Expo Doctor's Git-dependent app-config-sync heuristic is explicitly disabled for this Git-less workspace; all version, duplicate, and native-compatibility checks remain enabled.
+- Generated Android/iOS projects are ignored. The Android build command always runs prebuild to synchronize app configuration. Expo Doctor's Git-dependent app-config-sync heuristic is explicitly disabled for this CNG workspace with ignored generated native projects; all version, duplicate, and native-compatibility checks remain enabled.
 
 ## M1 domain decisions — 2026-10-02
 

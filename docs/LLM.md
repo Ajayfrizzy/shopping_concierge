@@ -1,4 +1,6 @@
-# M7 OpenAI planning boundary
+# OpenAI planning boundary
+
+Current scope — October 24, 2026: the M7 validation allowance and pending gates below are historical, superseded by subsequent live validation and the published demo. Production uses the [durable judge accounting safeguards](PRODUCTION_READINESS.md), not the local validation-file recipe. Model names are the reviewed project configuration, not a claim about general model availability. See [implementation coverage](IMPLEMENTATION_COVERAGE.md) for evidence and limits.
 
 Mock planning remains the default. The server-only OpenAI Responses adapter uses a configurable `LLM_MODEL` (approved model: `gpt-5.6-terra`) and `LLM_REASONING_EFFORT=low`. Enable only with `USE_MOCK_LLM=false`, `LLM_PROVIDER=openai`, and server-side `OPENAI_API_KEY`. Keep `USE_MOCK_YOUCAM=true`. Never put credentials in mobile, fixtures, logs, documentation or chat. No cloud resources are required.
 

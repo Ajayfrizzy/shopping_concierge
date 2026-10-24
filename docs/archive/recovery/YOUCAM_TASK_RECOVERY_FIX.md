@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # YouCam timeout and same-task recovery fix
 
 Implementation acceptance: October 20, 2026. **Backend source is ready for separately authorized deployment. It has not been deployed or used to reconcile production.** No new APK is required for the existing v7 refresh/list path. Final recording remains blocked until a separately authorized recovery returns an accessible genuine result and native viewing is accepted.
@@ -16,7 +18,7 @@ Requires the normal owning guest/session Bearer credential. Body must be absent 
 
 Only live processing jobs or `PROVIDER_TIMEOUT` failures with a stored task reference can be reconciled. Existing live completed jobs replay unchanged, even if their result has since expired; replay does not refresh URLs or extend expiry. Running tasks do not become completed or provider-failed. A historical local timeout stays recorded until verified completion or an actual provider failure. No guessed task discovery is attempted.
 
-[reconcile.ts](../apps/api/src/youcam/reconcile.ts) receives only status/validation provider methods and the repository. The production composition passes no `start` method. It has no object store, planner or accounting dependency. It cannot submit a task, upload an image, create a replacement job, or reserve/refund/settle credits. Concurrent callers may issue harmless status/image GETs, but only one completion/audit is persisted.
+[reconcile.ts](../../../apps/api/src/youcam/reconcile.ts) receives only status/validation provider methods and the repository. The production composition passes no `start` method. It has no object store, planner or accounting dependency. It cannot submit a task, upload an image, create a replacement job, or reserve/refund/settle credits. Concurrent callers may issue harmless status/image GETs, but only one completion/audit is persisted.
 
 ## Validation and persistence
 

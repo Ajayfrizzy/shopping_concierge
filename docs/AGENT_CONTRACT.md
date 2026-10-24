@@ -142,7 +142,7 @@ Shared `decisionActionSchema` supports constraint update/reset, category switch,
 
 ## M2 catalog handoff
 
-The backend catalog lookup/search now supplies validated existing products, deterministic ranking evidence, and no-match proposals. Consume only its `exactMatches` as current recommendations. `relaxations` require user confirmation before the backend applies their explicit scoped updates; do not silently execute them or label their candidates exact matches. A `category_required` result does not authorize inventing a category. Orchestration/tool routing remains M3. Fixture records are synthetic test data, not verified merchant inventory or live VTO evidence.
+The backend catalog lookup/search now supplies validated existing products, deterministic ranking evidence, and no-match proposals. Consume only its `exactMatches` as current recommendations. `relaxations` require user confirmation before the backend applies their explicit scoped updates; do not silently execute them or label their candidates exact matches. A `category_required` result does not authorize inventing a category. Orchestration/tool routing is implemented in the agent package. Fixture records are synthetic test data, not verified merchant inventory or live VTO evidence.
 
 ## M3 implemented trust boundary
 

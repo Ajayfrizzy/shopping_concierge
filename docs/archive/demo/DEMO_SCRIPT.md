@@ -1,4 +1,4 @@
-> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../../FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Superseded for all future recording by [FINAL_DEMO_PLAN.md](../../FINAL_DEMO_PLAN.md); this M9 mock rehearsal is not the final video.
+> Historical record, archived 2026-10-19. Test counts, deployment failures, pending gates and budgets below describe their original observation dates, not current status. See [final acceptance](../acceptance/FINAL_PRODUCTION_ACCEPTANCE.md) for the code-6 / 836-test baseline and dated budget snapshot. Superseded for all future recording by [FINAL_DEMO_PLAN.md](FINAL_DEMO_PLAN.md); this M9 mock rehearsal is not the final video.
 
 # Three-minute demonstration
 

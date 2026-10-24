@@ -8,7 +8,7 @@ Demonstrate a stateful purchasing-decision agent rather than a generic stylist/V
 
 - natural-language goal
 - persistent constraints
-- real catalog results
+- grounded synthetic catalog results
 - rejection reason influencing next result
 - VTO on a real supported category
 - cross-category dependency

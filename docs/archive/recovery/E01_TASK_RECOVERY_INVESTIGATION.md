@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # E01 completed-task recovery investigation — October 20, 2026
 
 **Implementation follow-up:** [The backend fix](YOUCAM_TASK_RECOVERY_FIX.md) now implements and tests same-task recovery. The investigation below is historical evidence; production remains unreconciled and deployment requires separate authorization.
@@ -10,20 +12,20 @@ This follows the [single-attempt outcome](E01_LIVE_RENDER.md). All times below a
 
 Read-only PostgreSQL transactions at **15:26:52** and **15:29:37** correlated the sole session job, original request/job ID, stored provider task, recovered portrait and matching committed reservation. All identities are unchanged. Application status remains `failed / PROVIDER_TIMEOUT`, result null. The original request ID is the job ID and ledger reservation ID; it is not a provider-side idempotency key.
 
-| Evidence | Finding |
-| --- | --- |
-| Job creation | 15:02:32.278 |
-| Persisted submission claim / lastPollAt | 15:02:33.916 |
-| Earlier private snapshot at 15:03:51 | Processing job already had provider task reference and committed reservation |
-| First read-only provider completion observation | 15:12:55; actual completion time is unknown |
-| Application terminal update | 15:13:35.146 |
-| New authenticated provider status GET | 15:27:25.535: same task completed, output reference present |
+| Evidence                                        | Finding                                                                      |
+| ----------------------------------------------- | ---------------------------------------------------------------------------- |
+| Job creation                                    | 15:02:32.278                                                                 |
+| Persisted submission claim / lastPollAt         | 15:02:33.916                                                                 |
+| Earlier private snapshot at 15:03:51            | Processing job already had provider task reference and committed reservation |
+| First read-only provider completion observation | 15:12:55; actual completion time is unknown                                  |
+| Application terminal update                     | 15:13:35.146                                                                 |
+| New authenticated provider status GET           | 15:27:25.535: same task completed, output reference present                  |
 
-**Confirmed application failure:** [service.ts](../apps/api/src/youcam/service.ts) checks ten minutes since job creation before calling `provider.poll`. It changes an overdue processing job to failed even when its task has completed externally. Its initial terminal-state guard subsequently prevents recovery. The unchanged `lastPollAt` supports that no later application poll was claimed after initial submission and before timeout. The external diagnostic provider GET does not advance application state.
+**Confirmed application failure:** [service.ts](../../../apps/api/src/youcam/service.ts) checks ten minutes since job creation before calling `provider.poll`. It changes an overdue processing job to failed even when its task has completed externally. Its initial terminal-state guard subsequently prevents recovery. The unchanged `lastPollAt` supports that no later application poll was claimed after initial submission and before timeout. The external diagnostic provider GET does not advance application state.
 
-**Acknowledgment distinction:** provider-to-backend acknowledgment and task-reference persistence succeeded in this case. The live adapter received a task ID, committed its reservation, and the service stored that ID. The phone did not receive a usable advancement response. [visual-client.ts](../apps/mobile/src/visual-client.ts) aborts requests after 20 seconds and maps transport/JSON failures to the same NETWORK message. The backend submission path includes object retrieval, upload preparation, upload, task submission and accounting. A client deadline expiring during that path is plausible, but no captured transport trace or hosting request-duration logs prove it. The precise network failure and actual provider completion time remain unknown.
+**Acknowledgment distinction:** provider-to-backend acknowledgment and task-reference persistence succeeded in this case. The live adapter received a task ID, committed its reservation, and the service stored that ID. The phone did not receive a usable advancement response. [visual-client.ts](../../../apps/mobile/src/visual-client.ts) aborts requests after 20 seconds and maps transport/JSON failures to the same NETWORK message. The backend submission path includes object retrieval, upload preparation, upload, task submission and accounting. A client deadline expiring during that path is plausible, but no captured transport trace or hosting request-duration logs prove it. The precise network failure and actual provider completion time remain unknown.
 
-[try-on-session.ts](../apps/mobile/src/try-on-session.ts) pauses polling on any operation error; refresh reconciles the same request and then schedules active-job advancement. There is no independent background poller in this path. The safety pause prevented replay, but the delayed refresh hit the server cutoff. Normal polling is bounded to 40 checks with a three-second interval and also pauses when hidden. None of those bounds establish provider failure.
+[try-on-session.ts](../../../apps/mobile/src/try-on-session.ts) pauses polling on any operation error; refresh reconciles the same request and then schedules active-job advancement. There is no independent background poller in this path. The safety pause prevented replay, but the delayed refresh hit the server cutoff. Normal polling is bounded to 40 checks with a three-second interval and also pauses when hidden. None of those bounds establish provider failure.
 
 ## Output availability and privacy boundary
 
@@ -59,7 +61,7 @@ This is a proposed supported service mutation, **not permission to patch databas
 
 ## Isolated tests and checks
 
-Added [e01-timeout-investigation.test.ts](../tests/e01-timeout-investigation.test.ts), five characterization tests using in-memory storage and injected provider responses:
+Added [e01-timeout-investigation.test.ts](../../../tests/e01-timeout-investigation.test.ts), five characterization tests using in-memory storage and injected provider responses:
 
 - Known completed task beyond ten minutes becomes failed without polling; terminal replay stays blocked and never submits twice.
 - Lost client acknowledgment before the cutoff recovers the original task with one start.

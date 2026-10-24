@@ -1,16 +1,18 @@
 # Architecture
 
+Android v11 is the current release. See [implementation coverage](IMPLEMENTATION_COVERAGE.md), [current API routes](API_CONTRACTS.md) and [YouCam lifecycle](YOUCAM.md); the milestone evolution below does not defer already implemented comparison, persistence or VTO.
+
 ## Principle
 
 AI proposes actions; deterministic services own truth.
 
 ## Components
 
-- `apps/mobile`: presentation layer, chat, product cards, image capture/upload, VTO viewer, compare, saved items.
+- `apps/mobile`: presentation layer, chat, product cards, gallery image selection/upload, VTO viewer, compare, saved items.
 - `apps/api`: authentication, session APIs, tool execution, YouCam/LLM credentials, persistence.
 - `packages/agent`: intent interpretation, tool planning, structured agent response.
 - `packages/decision-engine`: constraint merging, scopes, feedback propagation, session transitions.
-- `packages/catalog`: deterministic filtering/ranking over real products.
+- `packages/catalog`: deterministic filtering/ranking over validated synthetic catalog products.
 - `packages/shared`: Zod schemas and shared TypeScript types.
 - `packages/testing`: mock LLM/YouCam providers and scenario runner.
 
@@ -28,7 +30,7 @@ The intended hackathon database is RumptyCloud Managed PostgreSQL, accessed thro
 
 Backend/API: RumptyCloud managed app deployment. Database: RumptyCloud Managed PostgreSQL. Object storage: RumptyCloud S3-compatible storage. Mobile remains Expo / React Native; external AI remains YouCam APIs and the selected LLM provider behind server-side adapters. This is a demo deployment choice, not a permanent production-cloud commitment.
 
-See [INFRASTRUCTURE.md](INFRASTRUCTURE.md) for configuration, portability and execution boundaries. API composition owns database/object-storage/provider adapters; infrastructure assumptions must not enter the decision engine, catalog, agent or shared domain packages. Use standard PostgreSQL and S3-compatible access with server-side environment-driven secrets. No deployment or cloud resource creation is authorized by this documentation change. Current mock runtime and M5 acceptance criteria are unchanged.
+See [INFRASTRUCTURE.md](INFRASTRUCTURE.md) for configuration, portability and execution boundaries. API composition owns database/object-storage/provider adapters; infrastructure assumptions must not enter the decision engine, catalog, agent or shared domain packages. Use standard PostgreSQL and S3-compatible access with server-side environment-driven secrets. No deployment or cloud resource creation is authorized by this documentation change. The implemented runtime supports configured memory or PostgreSQL persistence; earlier milestone descriptions below are historical layer-development notes.
 
 ## Image types
 
@@ -49,7 +51,7 @@ One server-side adapter normalizes all YouCam interactions:
 - tryOnRing
 - tryOnWatch
 
-It owns auth, request validation, polling, error normalization, retries, credit-aware logging, and output mapping.
+It owns auth, request validation, explicit status polling, error normalization, credit accounting and output mapping. Uncertain paid submissions are not automatically retried. Live face/color analysis is unsupported; those interfaces describe a mock/future capability.
 
 ## VTO jobs
 

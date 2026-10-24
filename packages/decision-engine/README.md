@@ -41,10 +41,10 @@ Product feedback (`like`, `shortlist`, `save`, `select`, `reject`) requires a ba
 - `reset_constraint` removes all source records for the named field at the named scope. Other scopes remain, so a global fallback can become active again.
 - Decision lists are keyed by category and distinguish liked, shortlisted, saved, selected, rejected. Rejecting removes selected/liked/shortlisted membership and dependent anchors; saved is independent. Later positive feedback can clear rejection membership without deleting history.
 - Rejection reason code/text are retained when supplied. Feedback is session-only; the engine never writes permanent user preferences. Ranking from feedback is M2/M8 work.
-- Dependencies have explicit selected-product anchors. M1 validates/preserves them and removes invalidated anchors on rejection; automatic dependency creation and complement ranking remain later milestones.
+- Dependencies have explicit selected-product anchors. M1 validates/preserves them and removes invalidated anchors on rejection; dependency creation is orchestrated by the agent and complement ranking is implemented in the catalog package.
 - Refining constraints retains prior decisions as history. Those historical selections are not guaranteed recommendations under new constraints; subsequent recommendations/comparison/VTO must revalidate current facts and hard constraints.
 - Actual changes increment the revision once and emit one structured event. No-op saves/refinements/switches emit no event and keep the revision. `recentChanges` describes the last real transition; use returned `changes`/`events` for the current operation to avoid replaying stale UI messages.
-- JSON round trips preserve state. Database storage, optimistic concurrency, authenticated ownership, and event delivery/deduplication belong to the repository/API adapter layer in later milestones. Session ID + revision identifies an event within a serialized session; this is not a concurrency implementation.
+- JSON round trips preserve state. Database storage, optimistic concurrency, authenticated ownership, and event delivery/deduplication are implemented in the repository/API adapter layer, outside this pure package. Session ID + revision identifies an event within a serialized session; this is not a concurrency implementation.
 
 ## Verification
 

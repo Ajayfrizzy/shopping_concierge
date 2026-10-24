@@ -1,3 +1,5 @@
+> Historical report archived on 2026-10-24. Observations and instructions below are dated evidence, not current release status or authorization. Android v11 and the published demonstration are indexed in [current documentation](../../README.md).
+
 # Aged queued YouCam jobs — backend correction
 
 Implementation evidence: October 21, 2026. No deployment, production database access, provider call, upload, Android rebuild or recording was performed for this implementation.
@@ -12,7 +14,7 @@ Before submission, the service rechecks owned portrait identity, session, image 
 
 ## Android v8 limitation and deployment gate
 
-The client correction is now implemented in [Android v9](ANDROID_QUEUED_CONSENT_V9.md).
+The client correction is now implemented in [Android v9](../acceptance/ANDROID_QUEUED_CONSENT_V9.md).
 The v8 findings below remain historical evidence. V9 installation and native acceptance have now passed for the dedicated session;
 see that report for the separately authorized deployment gate.
 
